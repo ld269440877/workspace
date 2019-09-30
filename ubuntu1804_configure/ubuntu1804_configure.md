@@ -239,17 +239,9 @@ http://127.0.0.1:2333/proxy.pac
 
 [百度网盘 客户端下载](http://pan.baidu.com/download)
 
-# 非常有用的清理命令
+# Anaconda+vscode
 
 [Index of /anaconda/archive/ | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/)
-
-```bash {class='line-numbers}
-sudo apt-get autoclean --清理旧版本的软件缓存
-sudo apt-get clean--清理所有软件缓存
-sudo apt-get autoremove--删除系统不再使用的孤立软件
-```
-
-# Anaconda+vscode
 
 ## Anaconda 安装
 
@@ -356,9 +348,15 @@ git push -u origin master
 [超实用VS Code插件推荐——不定期更新！ - 蚂蚁的博客 - CSDN博客](https://blog.csdn.net/qq_41139830/article/details/85221330)
 
 1. vscode插件中心安装 setting-sync
-2. ubuntu18_vscode_20190930 Gist
-Gist token:cba55c5d8997f14818ec364290744982f20f0dbe
-Gist Id   : 7179df3930f79e890eab79f20d38c91d
+2. Gists
+
+Unknown
+:   Gist token:cba55c5d8997f14818ec364290744982f20f0dbe
+    Gist Id   : 7179df3930f79e890eab79f20d38c91d
+
+ubuntu18_vscode_20190930
+:   Gist token: a46643712552e6b247745d5a5d9894c5d4ffaae5
+    Gist Id   : e054c9b617c8c2d2d8899f1ad46ba710
 3. 回到vscode，在任意界面按 Alt + Shift + U，在对话框中输出刚才复制的 token
 4. 再次按 Alt + Shift + U 完成配置上传，使用组合键 Alt + Shift + D 即可下载配置
 5. 如若出现 token 配置无问题却出现报错无法上传配置时，可按 Ctrl + Shift + P 开启命令面板，找到同步命令，选择 Reset Extension Settings 重置所有配置，在通过 Alt + Shift + U 重新填写 token 进行同步
@@ -383,8 +381,8 @@ Gist Id   : 7179df3930f79e890eab79f20d38c91d
 - [x] code spell checker
 - [x] guides 高亮缩进基准线
 - [x] [CodeLf](https://unbug.github.io/codelf/#%E4%BB%A3%E7%A0%81)是一个用来给变量命名的网站，你只要输入你想起的中文名，它就会给你提供很多建议的命名
-- [ ] Trailing Spaces :press F1 and select/type "Trailing Spaces: Delete"
-- [ ] Turbo Console Log快捷添加 console.log，一键 注释 / 启用 / 删除 所有 console.log
+- [x] Trailing Spaces :press F1 and select/type "Trailing Spaces: Delete"
+- [x] Turbo Console Log快捷添加 console.log，一键 注释 / 启用 / 删除 所有 console.log
 
 > 简单说下这个插件要用到的快捷键:
 ctrl + alt + l 选中变量之后，使用这个快捷键生成 console.log
@@ -444,10 +442,13 @@ javac -version
 
 ```bash
 # 查看所有版本的Java
-sudo update-alternatives --config java`
+sudo update-alternatives --config java
 # 设置JAVA_HOME环境变量
 "复制安装路径,文本编辑器打开/etc/environment"
+ sudo vim /etc/environment
+'''
 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/bin/java"
+'''
 source /etc/environment
 #验证是否已设置环境变量：
 echo $JAVA_HOME
@@ -478,8 +479,12 @@ echo $JAVA_HOME
 # Ubuntu Software
 
 ## Telegram
-
+socks 127.0.0.1 端口1080
 ## Shutter
+
+[Ubuntu 18.04中截图工具Shutter的编辑按钮不可用的解决办法 - Jaxu - 博客园](https://www.cnblogs.com/jaxu/archive/2018/08/30/9561992.html)
+[Ubuntu18 安装截图工具 Shutter 并设置快捷键 - 程序员大本营](http://www.pianshen.com/article/320249796/)
+[Ubuntu18.04 系统截图 and Shutter 设置快捷键](https://www.jianshu.com/p/b01c0c675203)
 
 # 命令行安装
 
@@ -509,3 +514,19 @@ sudo apt-get install tree
 # 使用
 tree
 ```
+
+# [设置 ubuntu 开机启动软件](https://blog.csdn.net/vola9527/article/details/52799607)
+
+1. 终端输入： gnome-session-properties
+
+2. 弹出窗口为“ 启动应用程序首选项”
+![alt "设置开机启动项" ](设置开机启动项.png "设置开机启动项" )
+
+3. 点击右侧添加
+
+4. 输入描述和软件路径
+
+5. 这里的软件路径在 /usr/local/bin/目录下，所以最终的命令栏输入的内容是：/usr/local/bin/electron-ssr  （以添加electron-ssr开机启动为例）
+
+
+
