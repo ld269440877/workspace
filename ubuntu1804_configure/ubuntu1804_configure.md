@@ -167,6 +167,8 @@ sudo apt-get install timeshift
 ```
 
 # 搜狗拼音
+---
+[(Back to Top)](#系统安装)
 
 [原文链接](https://blog.csdn.net/hymanjack/article/details/80285400)
 
@@ -240,6 +242,10 @@ http://127.0.0.1:2333/proxy.pac
 [百度网盘 客户端下载](http://pan.baidu.com/download)
 
 # Anaconda+vscode
+
+---
+
+[(Back to Top)](#系统安装)
 
 [Index of /anaconda/archive/ | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/)
 
@@ -336,7 +342,48 @@ git push -u origin master
 
 ```
 
+## GitHub使用
 
+### 搜热门：GitHub Trend 和 GitHub Topic
+
+[GitHub Trend](https://github.com/trending)
+:   页面总结了每天/每周/每月周期的热门 Repositories 和 Developers，你可以看到在某个周期处于热门状态的开发项目和开发者。
+
+[GitHub Topic](https://github.com/topics)
+:   展示了最新和最流行的讨论主题，在这里你不仅能够看到开发项目，还能看到更多非开发技术的讨论主题，比如 Job、Chrome 浏览器等
+
+### 搜开发者
+
+（注：GitHub 官方还支持很多搜索条件，在 [About searching on GitHub - GitHub Help](https://help.github.com/en/articles/about-searching-on-github)可以查看官方出品的搜索技巧。）
+
+| Github搜索-找开发者 | 搜索时设置 location 为 China，language 为 javascript，整个搜索条件：language:javascript location:china |
+|---------------------|---------------------------------------------------------------------------------------------------|
+| 搜索条件            | 备注                                                                                                |
+| location:           | location:china,匹配用户填写的地址在china                                                            |
+| language:           | language:javascript,匹配开发语言为javascript的开发者                                                |
+| in:fullname         | jack in:fullname,匹配用户实名为jack的开发者                                                         |
+### 搜项目
+
+先用某些关键词搜索，得到的搜索结果优先展示一些现成的软件和工具
+
+| Github搜索-找项目 | Awesome windows                       |
+|:-----------------:|:--------------------------------------|
+|     搜索条件      | 备注                                  |
+|  Awesome+关键字   | 关键字Awesome,帮助找到优秀的工具列表  |
+|      stars:       | stars:>=500,匹配收藏数量超过500的项目 |
+|     language:     | 匹配javascript为开发语言的项目        |
+|      forks:       | forks:>=500,匹配分支数量超过500的项目 |
+
+### 设置搜索条件
+
+stars:、language:、forks:，其实就是设置项目收藏、开发语言派生的搜索条件
+- 如果觉得记住这些搜索条件略显繁琐的话，使用 GitHub 提供的高级搜索功能[GitHub · Where software is built](https://github.com/search/advanced)，同样可用自定义条件进行搜索
+- 参考官方给出的帮助指南 [Searching on GitHub](https://help.github.com/en/articles/searching-on-github) ，里面有更多关于项目、代码、评论、问题等搜索技巧
+
+[free-programming-books](https://github.com/vhf/free-programming-books)：整理了所有和编程相关的免费书籍，同时也有 [中文版项目](https://github.com/vhf/free-programming-books/blob/master/free-programming-books-zh.md)。
+[github-cheat-sheet](https://github.com/tiimgreen/github-cheat-sheet/)：集合了使用 GitHub 的各种技巧。
+[android-open-project](https://github.com/Trinea/android-open-project)：涵盖 Android 开发的优秀开源项目。
+[chinese-independent-developer](https://github.com/1c7/chinese-independent-developer)：聚合所有中国独立开发者的项目
 
 ## vscode配置
 
@@ -373,16 +420,19 @@ ubuntu18_vscode_20190930
 - [x] markdownlint
 - [x] Markdown Extension Pack
 - [x] :emojisense: 快速挑选 Markdown 中的 Emoji。
+- [x] Markdown Table Maker :Ctrl+shift+p-->table maker-->对齐方式-->行数
+- [x] Paste Image : Ctrl+ alt + V
 
 <ruby>n p m<rp>(</rp><rt>Node 包管理器</rt><rp>)</rp></ruby>
-
+<font color="RGB255">orange</font>
 ## 代码检查
 
 - [x] code spell checker
-- [x] guides 高亮缩进基准线
+- [x] guides 高亮缩进基准线 参考线，可自定义
+- [ ] - [ ] Indent-Rainbow :A simple extension to make indentation more readable
 - [x] [CodeLf](https://unbug.github.io/codelf/#%E4%BB%A3%E7%A0%81)是一个用来给变量命名的网站，你只要输入你想起的中文名，它就会给你提供很多建议的命名
 - [x] Trailing Spaces :press F1 and select/type "Trailing Spaces: Delete"
-- [x] Turbo Console Log快捷添加 console.log，一键 注释 / 启用 / 删除 所有 console.log
+- [ ] Turbo Console Log快捷添加 console.log，一键 注释 / 启用 / 删除 所有 console.log
 
 > 简单说下这个插件要用到的快捷键:
 ctrl + alt + l 选中变量之后，使用这个快捷键生成 console.log
@@ -418,6 +468,10 @@ alt + shift + d 删除所有 console.log
 - [ ] Live Server ：可以一键在本地启动服务器
 
 # java installion & configure
+
+---
+
+[(Back to Top)](#系统安装)
 
 [如何在Ubuntu 18.04上安装Java - 云+社区 - 腾讯云](https://cloud.tencent.com/developer/article/1162527)
 
@@ -467,26 +521,52 @@ echo $JAVA_HOME
 
    1. 安装Visual Studio代码
         `sudo apt -y install code`
-    2. 安装Java
+    1. 安装Java
          `sudo apt -y install default-jre`
-    3. 安装Graphviz
+    2. 安装Graphviz
         `sudo apt -y install graphviz`
-    4. 从Visual Studio Code扩展中PlantUML搜索并安装
-    5. 导出图片
+    3. 从Visual Studio Code扩展中PlantUML搜索并安装
+    4. 导出图片
     Ctrl + Shift + P要打开命令面板，
     输入: plantuml: export current diagram
 
 # Ubuntu Software
 
+---
+
+[(Back to Top)](#系统安装)
+
 ## Telegram
+
 socks 127.0.0.1 端口1080
+
 ## Shutter
 
 [Ubuntu 18.04中截图工具Shutter的编辑按钮不可用的解决办法 - Jaxu - 博客园](https://www.cnblogs.com/jaxu/archive/2018/08/30/9561992.html)
 [Ubuntu18 安装截图工具 Shutter 并设置快捷键 - 程序员大本营](http://www.pianshen.com/article/320249796/)
 [Ubuntu18.04 系统截图 and Shutter 设置快捷键](https://www.jianshu.com/p/b01c0c675203)
+shutter设置快捷键不灵
+
+## 系统自带截图功能
+
+```sh
+＃ 保存到图片文件夹
+Print Screen  #截取整个桌面
+Alt + Print Screen #截取选中的窗口
+Shift + Print Screen #自由选区
+＃复制到剪贴板
+Ctrl + Print Screen  #整个桌面
+Ctrl + Alt + Print Screen #选中的窗口
+
+Ctrl + Shift + Print Screen #自由选区
+
+```
 
 # 命令行安装
+
+---
+
+[(Back to Top)](#系统安装)
 
 ## Vim
 
@@ -517,7 +597,7 @@ tree
 
 # [设置 ubuntu 开机启动软件](https://blog.csdn.net/vola9527/article/details/52799607)
 
-1. 终端输入： gnome-session-properties
+1. 终端输入： `gnome-session-properties`
 
 2. 弹出窗口为“ 启动应用程序首选项”
 ![alt "设置开机启动项" ](设置开机启动项.png "设置开机启动项" )
@@ -528,5 +608,5 @@ tree
 
 5. 这里的软件路径在 /usr/local/bin/目录下，所以最终的命令栏输入的内容是：/usr/local/bin/electron-ssr  （以添加electron-ssr开机启动为例）
 
-
+[(Back to Top)](#系统安装)
 
