@@ -26,7 +26,11 @@ plt.title('您好', fontProperties=my_font)
 
 plt.show()
 
-import os 
+def power(x):
+    return x * x
+
+print(power(3))
+import os
 print(os.getcwd())
 for i in range(10):
     print(i)
@@ -38,8 +42,10 @@ for i in range(10):
         'e'
         if i ==6:
             print('d')
+#%%
 
 #%%
+/home/leung/workspace/test.py
 print('llo')
 print(153)
 print(153)

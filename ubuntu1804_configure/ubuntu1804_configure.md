@@ -565,7 +565,6 @@ Ctrl + Shift + Print Screen #自由选区
 # 命令行安装
 
 ---
-
 [(Back to Top)](#系统安装)
 
 ## Vim
@@ -608,5 +607,10 @@ tree
 
 5. 这里的软件路径在 /usr/local/bin/目录下，所以最终的命令栏输入的内容是：/usr/local/bin/electron-ssr  （以添加electron-ssr开机启动为例）
 
-[(Back to Top)](#系统安装)
+# 阅读器
 
+---
+
+- [分享|Linux 下的六款最佳 PDF 文档阅览器](https://linux.cn/article-7245-1.html) # Gnome桌面环境中是默认安装的Evince, :ok_hand:
+
+[(Back to Top)](#系统安装)
