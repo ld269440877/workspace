@@ -103,12 +103,16 @@ sudo apt-get autoremove（删除系统不再使用的孤立软件）
 ```
 
 ```bash
+# root 设置密码
+sudo passwd root
+
 # 切换root权限并进入根目录
+su -
 
-su root
+# 到根目录
 cd /
-# 新建restore文件夹来保存备份文件
 
+# 新建restore文件夹来保存备份文件
 mkdir restore
 # 备份系统
 
@@ -614,3 +618,16 @@ tree
 - [分享|Linux 下的六款最佳 PDF 文档阅览器](https://linux.cn/article-7245-1.html) # Gnome桌面环境中是默认安装的Evince, :ok_hand:
 
 [(Back to Top)](#系统安装)
+
+- [Typora — a markdown editor, markdown reader.](https://typora.io/#linux)
+
+```sh
+# or run:
+# sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
+wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+# add Typora's repository
+sudo add-apt-repository 'deb https://typora.io/linux ./'
+sudo apt-get update
+# install typora
+sudo apt-get install typora
+```

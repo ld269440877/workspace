@@ -5,7 +5,8 @@ Modified: Wed Sep 18 2019 18:55:31 GMT+0800 (中国标准时间)
 
 /**
 * @module python3_notebook
-* @Version :  
+* @Version :
+
 * @Author: Dillon
 * @Contact: aa269440877@outlook.com
 * @WebSite    :   https://github.com/ld269440877/
@@ -17,30 +18,31 @@ Modified: Wed Sep 18 2019 18:55:31 GMT+0800 (中国标准时间)
 * @since: 2019-09-18 10:57:05
 
 **/
-# 1. Basics of python 
+
+# Basics of python
 
 <font size="16" color="orange">文档规则：1. 定义 2. 案例 3. 注释 4. 总结 5. 参考链接</font>
 ==Content [^1]==
+
 [^1]: [Code Chunk](https://www.bookstack.cn/read/mpe/zh-cn-code-chunk.md)
 
+# 面向过程编程
 
-# 2. 面向过程编程
-
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  id='utf-8' continue:true output='markdown' } #hide  代码隐藏 
+```python {cmd = true matplotlib=true code_block=true class= 'line-numbers'  id='utf-8' continue:true output='markdown' } #hide  代码隐藏
 import io
 import sys
 #改变标准输出的默认编码
 sys.stdout=io. TextIOWrapper(sys.stdout.buffer, encoding='utf8')
+```
 
-``` 
-
-### 2.0.1. 注释
+### 注释
 
 单⾏注释
 :   以 # 开始
+
 ```python
 # 定义字符串变量name
-name = "李李四"
+name = "李四"
 ```
 
 多⾏注释
@@ -48,13 +50,16 @@ name = "李李四"
 
 ``` python
 '''
-我是多⾏注释
+我是多⾏注释 Multi-line comment
 我是多⾏注释
 我是多⾏注释
 '''
 ```
 
-### 2.0.2. 变量的定义
+### 变量的定义
+
+> There are only two hard things in Computer Science: cache invalidation and naming things.
+-- Phil Karlton [ColorLf](https://unbug.github.io/codelf/)
 
 变量[^2]
 :   通俗理解就是存储程序数据的容器。
@@ -62,131 +67,141 @@ name = "李李四"
 变量定义的格式
 :   变量名 = 数据 (变量名尽量有含义，⽅便理解 )
 
-2. 案例 & 注释
+1. 案例 & 注释
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 # 定义了⼀个变量名字叫做score，存储的数据是100
-
-score = 100 
+score = 100
 print(score)
-# 提示： 在python⾥面不需要指定数据的类型，会根据数据⾃动推导出数据类型
 
+# 提示： 在python⾥面不需要指定数据的类型，会根据数据⾃动推导出数据类型
 # 通过type查看变量的类型
 score_type = type(score)
 print(score_type)
-
-``` 
-
-4. 总结
+```
 
 总结： 常⽤的数据类型 int, str, float, bool, list, tuple, dict, set
 
-5. 参考
+This is [an example][id] reference-style link.
+
+Then, anywhere in the document, you define  [an example][id] your link label on a line by itself like this:
+
+[id]: http://example.com/  "Optional Title Here"
+
+
+
+
 
 [^2]:[数据类型和变量 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/1016959663602400/1017063826246112)
 
-### 2.0.3. 变量的命名规则
+### 变量的命名规则
 
-1. Definition
+- Definition
 
 变量名
-:   是由字⺟母、数字、下划线组成,注意是只有这三种，但是不能以数字开头。
+:   是由字⺟、数字、下划线组成,注意是只有这三种，但是不能以数字开头。
 
 驼峰命名法
-:   ⼩驼峰和大驼峰 
-⼩驼峰: 第⼀个单词⾸首字⺟母要⼩写，其它单词⾸首字⺟母都大写 
-大驼峰:每个单词⾸首字⺟母都大写
+:   ⼩驼峰和大驼峰
+⼩驼峰: 第⼀个单词⾸首字⺟要⼩写，其它单词⾸首字⺟都大写
+大驼峰:每个单词⾸首字⺟都大写
 
 下划线命名
-:   单词都使⽤⼩写字⺟母，单词之间使⽤下划线进⾏分割, ⽐如: my_name
+:   单词都使⽤⼩写字⺟，单词之间使⽤下划线进⾏分割, ⽐如: my_name
 
-2. Demonstration
+- Demonstration
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-my_name = '李李四' # 下划线命名法 -> 推荐使⽤
+my_name = '李四' # 下划线命名法 -> 推荐使⽤
 myName = '王五' # ⼩驼峰
 MyName = '赵六' # 大驼峰
-
 ```
 
-3. Description
+- Description
+- Conclusion
+- Reference
 
-4. Conclusion
+### 关键字
 
-5. Reference
-
-### 2.0.4. 关键字
-
-1. Definition
+- Definition
 
 关键字
 :   在python⾥⾯具有特殊功能的标识符（理解成变量名、函数名）， 关键字不能作为变量名使
 用。
 
-2. Demonstration
+- Demonstration
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ###hide  代码隐藏
 #查看python内置关键字
 import keyword
-print(keyword.kwlist) 
-
+print(keyword.kwlist)
 ```
 
-3. Description
+- Description
+- Conclusion
+- Reference
 
-4. Conclusion
-
-5. Reference
-
-### 2.0.5. 常⽤的数据类型转换
+### 常⽤的数据类型转换
 
 | 函数                    | 说明                                               |
 | ----------------------- | -------------------------------------------------- |
 | int(x [, base ])        | 将x转换为⼀个整数                                   |
 | float(x )               | 将x转换为⼀个浮点数                                 |
 | complex(real [, imag ]) | 创建⼀个复数，real为实部，imag为虚部                |
-| str(x )                 | 将对象 x 转换为字符串                              |
-| repr(x )                | 将对象 x 转换为表达式字符串                        |
-| eval(str )              | ⽤来计算在字符串中的有效Python表达式, 并返回⼀个对象 |
-| tuple(s )               | 将序列 s 转换为⼀个元组                             |
+| str(x)                 | 将对象 x 转换为字符串                              |
+| repr(x)                | 将对象 x 转换为表达式字符串                        |
+| ==eval(str)==          | ⽤来计算在字符串中的有效Python表达式, 并返回⼀个对象 |
+| tuple(s)               | 将序列 s 转换为⼀个元组                             |
 | list(s )                | 将序列 s 转换为⼀个列表                             |
-| chr(x )                 | 将⼀个整数转换为⼀个Unicode字符                      |
+| ==chr(x )==             | 将⼀个整数转换为⼀个Unicode字符                    |
 | ord(x )                 | 将⼀个字符转换为它的ASCII整数值                     |
 | hex(x )                 | 将⼀个整数转换为⼀个⼗六进制字符串                    |
 | oct(x )                 | 将⼀个整数转换为⼀个⼋进制字符串                      |
 | bin(x )                 | 将⼀个整数转换为⼀个⼆进制字符串                      |
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 # If x is not a number or if base is given, then x must be a string, bytes, or bytearray instance representing an integer literal in the given base.
 print(int('0b100', base=0))
 print(int('2',base=10))
-
 print('”1+2“=',eval('1+2'))
 ```
-### 2.0.6. 输⼊和输出
+
+### 输⼊和输出
+
+[(To print)](###print)
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 name =  input("提示符")
 print("输出")
-
 ```
-### 2.0.7. 格式化输出
+
+### 格式化输出
+
 a. \%
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
 score = 100
 print("python考试分数:%d" % score)
-
 ```
+
 b. format详解
-1. 通过位置
-```python
+
+- 通过位置
+
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8'}}
+
 'a1 = {} a2= {}  a3= {}'.format('first','second','third')  #{}不带参数
->>'a1 = first a2= second  a3= third'
+'a1 = first a2= second  a3= third'
+
 'a1 = {1} a2= {0}  a3= {2}'.format('first','second','third') #{}带位置参数的
->>'a1 = second a2= first  a3= third'
+'a1 = second a2= first  a3= third'
 
 ```
+
 > 注意如果{}要带参数，可以将format看成一个函数输入的值是函数的参数，这些输入的值可以看成一个元组，{0} == tuple[0] 同样他们也不能越界
 
-2. 通过关键字参数
+- 通过关键字参数
 
 ```python
 print('your name is {name} , age is {age}'.format(name='jack',age=87))
@@ -194,11 +209,13 @@ print('your name is {name} , age is {age}'.format(name='jack',age=87))
 print('your name is {name} , age is {age}'.format(age=87,name='jack') )#同样和位置无关
 'your name is jack , age is 87'
 ```
-3. 通过对象属性
+
+- 通过对象属性
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class Person:
-   # 初始化方法（python内部提供的方法，不可以修改名字）
+   # __init__初始化方法（python内部提供的方法，不可以修改名字）
     def __init__(self,name,age):
     #         默认属性
         self.name = name
@@ -211,7 +228,9 @@ print('name = {p.name} age = {p.age}'.format(p=p))
 'name = Tom age = 18'
 
 ```
-4. 通过下标
+
+- 通过下标
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 s1 = [1,'23','tom']
 s2 = ['s2.1','s2.2','s2.3']
@@ -219,7 +238,8 @@ s2 = ['s2.1','s2.2','s2.3']
 
 '23  tom s2.3 s2.1'
 ```
-5. 格式化输出(重点)
+
+- 格式化输出(重点)
 
 格式限定符
 :    语法是{}中带:号
@@ -238,6 +258,7 @@ print('输出居中对齐定长为10位，填充x  [{:x^10}]'.format('12') )#修
 '输出居中对齐定长为10位，填充x  [xxxx12xxxx]'
 ```
 5.2 浮点小数输出
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 print('{:.2f}'.format(1233442.23453) )#通常都是配合 f 使用,其中.2表示长度为2的精度，f表示float类型
 '1233442.23'
@@ -246,15 +267,15 @@ print('{:,}'.format(9987733498273.0432) )#使用逗号金额分割符
 
 ```
 5.3 进制及其他显示
-|   A   |            B             |
-| :---: | :----------------------: |
-|   b   |          二进制          |
-|   d   |          十进制          |
-|   o   |          八进制          |
-|   x   |         十六进制         |
-|  !s   | 将对象格式化转换成字符串 |
-|  !a   | 将对象格式化转换成ASCII  |
-|  !r   |  将对象格式化转换成repr  |
+|  A   | B                        |
+| :--: | :----------------------- |
+|  b   | 二进制                   |
+|  d   | 十进制                   |
+|  o   | 八进制                   |
+|  x   | 十六进制                 |
+|  !s  | 将对象格式化转换成字符串 |
+|  !a  | 将对象格式化转换成ASCII  |
+|  !r  | 将对象格式化转换成repr   |
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 print('{!s}'.format(10) )#将对象格式化转换成字符串
 '10'
@@ -262,10 +283,8 @@ print('{!a}'.format('1000') )#将对象格式化转换成ASCII
 "'1000'"
 print('{!r}'.format('1000') )#将对象格式化转换成repr
 "'1000'"
-
-
 ```
-### 2.0.8. if语句
+### if语句
 
 1. Definition
 计算机之所以能做很多⾃动化的任务，因为它可以⾃⼰己做条件判断。
@@ -293,7 +312,7 @@ else:
 
 5. Reference
 
-### 2.0.9. 运算符
+### 运算符
 
 1. 算数运算符
 
@@ -322,7 +341,7 @@ num = 10
 # 多个变量赋值
 num1, num2, f1, str1 = 100, 200, 3.14, "hello"
 ```
-### 2.0.10. 复合赋值运算符
+### 复合赋值运算符
 
 
 | 运算符 |       描述       |           实例            |
@@ -335,7 +354,8 @@ num1, num2, f1, str1 = 100, 200, 3.14, "hello"
 | $**$=  |   幂赋值运算符   | c** = a 等效于 c = $c^a$  |
 |  //=   | 取整除赋值运算符 | c //= a 等效于 c = c // a |
 
-### 2.0.11. 循环
+### 循环
+
 1. while 循环
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 i = 0
@@ -346,7 +366,7 @@ while i <3:
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 # 9X9乘法表
 '''
-1 * 1 = 1   
+1 * 1 = 1
 1 * 2 = 2 2 * 2 =4
 1 * 3 = 3 2 * 3 = 6 3 * 3 = 9
 '''
@@ -358,10 +378,8 @@ while i<=9: # 行数
         print('%d * %d = %d' % (j,i,j*i),end='')
         j += 1
     print('')
-        
+
     i += 1
-
-
 ```
 
 2. for循环
@@ -394,13 +412,17 @@ while n <= 100:
 print('END')
 ```
 
-## 2.1. Container
+## Container
 
-### 2.1.1. 字符串（str）
+[(Back to 面向过程编程)](#面向过程编程)
+
+### 字符串（str）
+
 1. Definition
 
 字符串
 :   单引号,双引号,包括三引号包围的字符组
+
 ```
 name = 'abcdef'
 print(name[1:-1]) # 取 下标为1开始 到 最后第2个 之间的字符
@@ -412,7 +434,8 @@ str = "helo"#定义字符串变量
 str = """hello
 hello"""#定义多⾏字符串变量
 ```
-#### 2.1.1.1. 下标和切⽚片
+#### 下标和切⽚片
+
 - 下标索引 `name = 'zhangsan' print(name[2])`
 - 切⽚
 
@@ -420,7 +443,7 @@ hello"""#定义多⾏字符串变量
 :   指对操作的对象截取其中⼀部分的操作。字符串、列表、元组都⽀支持切⽚片操作。
 - 切⽚的语法: [起始:结束:步长]
 
-#### 2.1.1.2. 字符串的常⻅操作
+#### 字符串的常⻅操作
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 print([e for e in dir(str) if not e.startswith('_')])
 ```
@@ -458,7 +481,7 @@ mystr.count('kkb')
 `mystr.split(str=" ", 2)`
 - capitalize 把字符串的第⼀个字符大写
 `mystr.capitalize()`
-- title 
+- title
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 a = "hello kkb"
 a.title()
@@ -471,7 +494,7 @@ a.title()
 `mystr.endswith(obj)`
 - lower 转换 mystr 中所有大写字符为⼩写
 `mystr.lower()`
-- upper 转换 mystr 中的⼩写字⺟母为大写
+- upper 转换 mystr 中的⼩写字⺟为大写
 `mystr.upper()`
 - ljust 返回⼀个原字符串左对齐,并使用空格填充⾄长度 width 的新字符串
 `mystr.ljust(width)`
@@ -479,16 +502,22 @@ a.title()
 `mystr.rjust(width)`
 - center 返回⼀个原字符串居中,并使⽤空格填充⾄长度 width 的新字符串
 `mystr.center(width)`
+
+
 - lstrip 删除 mystr 左边的空⽩字符
 `mystr.lstrip()`
+
 - rstrip 删除 mystr 字符串末尾的空⽩白字符
 `mystr.rstrip()`
+
 - strip 删除mystr 字符串两端的空⽩白字符
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 a = "\n\t kkb \t\n"
 a.strip()
 # 运⾏结果:
 'kkb'
+
 ```
 - rfind 类似于 find() 函数，不过是从右边开始查找.
 `mystr.rfind(str, start=0,end=len(mystr) )`
@@ -499,6 +528,7 @@ a.strip()
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 str = '123-abc-ABC-@#$'
 print(str.partition('-'))
+
 ```
 - rpartition 类似于 partition()函数,不过是从右边开始.
 `mystr.rpartition(str)`
@@ -521,7 +551,7 @@ Type:      builtin_function_or_method
 print('.'.join(['ab', 'pq', 'rs']) )
 #  -> 'ab.pq.rs'
 ```
-### 2.1.2. 列表（list）
+### 列表（list）
 
 列表
 :   Python内置的一种数据类型是列表： list 。list 是一种有序的集合，可以随时添加和删除其中的元素，写在方括号之间、⽤逗号分隔开的数值列表。列表内的项目不必全是相同的类型。
@@ -544,23 +574,22 @@ print(my_list)
 
 ```
 
+#### 列表的常见操作
 
-
-
-#### 2.1.2.1. 列表的常见操作
 - 列表的长度
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 #⽤len()函数可以获得list元素的个数：
 namesList = ['xiaoWang','xiaoZhang','xiaoHua']
 len(namesList)
 ```
+
 - 列表的访问 用索引来访问list 中每一个位置的元素，记得索引是从0开始的：
 `namesList = ['xiaoWang','xiaoZhang','xiaoHua']
 print(namesList[0])`
 > 注意：当索引超出了范围时，Python会报⼀个IndexError 错误，所以，要确保索引不要越界，记得最后⼀个元素的索引是len(classmates) - 1 。
 如果要取最后⼀个元素，除了计算索引位置外，还可以⽤-1做索引，直接获取最后一个元素：
 `namesList = ['xiaoWang','xiaoZhang','xiaoHua']
-print(namesList[-1])    
+print(namesList[-1])
 结果：
 xiaoHua`
 
@@ -572,7 +601,7 @@ xiaoHua`
 数据[起始下标:结束下标:步⻓长]
 提示： 起始下标默认0， 结束下标是不包含， 步⻓长默认是1
 
-- 添加元素( append , extend , insert ) 
+- 添加元素( append , extend , insert )
 
 通过append 可以向列表添加元素
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -637,23 +666,29 @@ for tempName in A:
 
 所谓的查找，就是看看指定的元素是否存在。
 > python中查找的常用方法为：
-in （存在）,如果存在那么结果为true ，否则为false
-not in （不存在），如果不存在那么结果为true ，否则false
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-#待查找的列表
-nameList = ['xiaoWang','xiaoZhang','xiaoHua']
-#获取⽤户要查找的名字
-# findName = input('请输⼊要查找的姓名:')
+> in （存在）,如果存在那么结果为true ，否则为false
+> not in （不存在），如果不存在那么结果为true ，否则false
+> ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+> #待查找的列表
+> nameList = ['xiaoWang','xiaoZhang','xiaoHua']
+> #获取⽤户要查找的名字
+> ```
+- findName = input('请输⼊要查找的姓名:')
+
+```python
 findName = 'xiaoWang'
 #查找是否存在
 if findName in nameList:
     print('在字典中找到了相同的名字')
 else:
     print('没有找到')
-
 ```
+
+
+
+```python
 - index 和count 与字符串中的用法相同
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 a = ['a', 'b', 'c', 'a', 'b']
 # print(a.index('a', 1, 3)) # 注意是左闭右开区间
 
@@ -720,7 +755,8 @@ while i<length:
     i+=1
 ```
 
-### 2.1.3. 元组（tuple）
+### 元组（tuple）
+
 另⼀种有序列表叫元组： tuple 。tuple 和list 非常类似，但是tuple 一旦初始化就不能修改
 `classmates = ('Michael', 'Bob', 'Tracy')`
 > classmates 这个tuple 不能变了，它也没有append() ， insert( )这样的⽅法。其他获取元素的⽅法和list是一样的，你可以正常地使用classmates[0] ， classmates[-1] ，但不能赋值成另外的元素。
@@ -730,26 +766,16 @@ while i<length:
 - 定义⼀个只有1个元素的tuple,只有1个元素的tuple定义时必须加⼀个逗号，来消除歧义：
 `t = (1,)`
 > 最后来看⼀个“可变的”tuple：
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-t = ('a', 'b', ['A', 'B'])
-t[2][0] = 'X'
-t[2][1] = 'Y'
-print(t)
-# ('a', 'b', ['X', 'Y'])
-```
+> ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+> t = ('a', 'b', ['A', 'B'])
+> t[2][0] = 'X'
+> t[2][1] = 'Y'
+> print(t)
+> '('a', 'b', ['X', 'Y'])'
+> ```
+- 元组中的元素应该指向不可变的类型class-字符串,常量-,而不是可变类型列表等
 
-2. Demonstration
-
-
-3. Description
-
-
-4. Conclusion
-
-
-5. Reference
-
-### 2.1.4. 字典（dict）
+### 字典（dict）
 
 1. Definition
 字典是另⼀种可变容器模型，且可存储任意类型对象。
@@ -761,13 +787,14 @@ print(t)
 3. Description
 由于⼀个key 只能对应⼀个value ，所以，多次对⼀个key 放⼊value ，后面的值会把前面的值冲
 掉：
-```
+
 d['Jack'] = 90
 d['Jack']
 90
 d['Jack'] = 88
 d['Jack']
 88
+
 ```
 如果key不存在，dict就会报错：
 4. Conclusion
@@ -776,11 +803,11 @@ d['Jack']
 5. Reference
 
 
-#### 2.1.4.1. 字典的常⻅操作
+#### 字典的常⻅操作
 - 修改元素
 字典的每个元素中的数据是可以修改的，只要通过key 找到，即可修改
 
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 info = {'name':'kkb', 'id':100, 'sex':'f', 'address':'中国北北'}
 # new_id = input('请输⼊新的学号:')
 new_id = '102'
@@ -903,27 +930,271 @@ print(my_tuple, type(my_tuple))
 
 5. Reference
 
-## 2.2. 函数
+## 函数
+
+[(Back to 面向过程编程)](#面向过程编程)
 
 1. Definition
 
 函数
 :   需要某块代码多次，但是为了提高编写的效率以及代码的重⽤，所以把具有独⽴功能的代码块组织为⼀个⼩模块
 
-### 2.2.1. 函数定义和调⽤
-#### 2.2.1.1. 定义函数
+## Python内置函数
+
+```python
+import sys
+sys.getdefaultencoding() # 'utf-8'
+```
+
+
+
+### print
+
+```python
+#Docstring:
+print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+'''
+Prints the values to a stream, or to sys.stdout by default.
+Optional keyword arguments:
+file:  a file-like object (stream); defaults to the current sys.stdout.
+sep:   string inserted between values, default a space.
+end:   string appended after the last value, default a newline.
+flush: whether to forcibly flush the stream.
+Type:      builtin_function_or_method
+'''
+```
+
+### int
+
+```python
+Init signature: int(self, /, *args, **kwargs)
+Docstring:     
+int([x]) -> integer
+int(x, base=10) -> integer
+
+Convert a number or string to an integer, or return 0 if no arguments
+are given. 
+# int('123') --> 123
+# int(123) --> 123
+# int() --> 0
+
+If x is a number, return x.__int__().  For floating point
+numbers, this truncates(截断) towards zero.# 向0截断
+# int(3.9) --> 3  # 向0截断
+# int(-3.9) --> -3 # 向0截断
+
+If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing(代表) an integer literal(整数) in the
+given base. 
+# int(string, bytes, or bytearray, base=0 or 2-36) -> integer
+# int('11',base=2)-->3 # 如果关键字参数base被指定,x必须是string(字符串),字节(bytes),字节组(bytesarray)的实例
+# int(b'11',base=10)-->11
+# int(b'11',base=2)-->3
+The literal can be preceded(先于) by '+' or '-' and be surrounded
+by whitespace. 
+# int(b'    +11    ',base=2)-->3
+# int(b' -11',base=2)-->-3
+
+The base defaults to 10.  Valid bases are 0 and 2-36.
+#int(x, base=10) -> integer.int(x, base=0 or 2-36) -> integer
+Base 0 means 'to interpret the base from the string' as an integer literal.
+#int('123',base=0)-->123
+
+>>> int('0b100', base=0)
+4
+Type:           type
+```
+
+### str
+
+```python
+Init signature: str(self, /, *args, **kwargs)
+Docstring:     
+str(object='') -> str
+# str(123)-->'123'
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+# type(str(b'1.2',encoding='utf-8',errors='strict')) -->str
+# str(b'1.2',encoding='utf-8',errors='strict')-->'1.2'
+# str(b'1.2')-->"b'1.2'"
+# repr(b'1.2')-->"b'1.2'"
+
+Create a new string object from the given object. 
+# 根据给定的(字符串或其他类型)对象创建新的字符串对象
+If encoding or errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined) or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+Type:           type
+
+```
+
+### repr
+
+```python
+Signature: repr(obj, /)
+Docstring:
+Return the canonical string representation of the object.
+# 返回对象的规范字符串表现形式
+# type(repr(123))-->str
+# repr(123)-->'123'
+
+For many object types, including most builtins, eval(repr(obj)) == obj.
+# eval(repr(123)) == 123 -->True
+# eval(repr(123)) == 123 -->True
+Type:      builtin_function_or_method
+```
+
+### eval
+
+[python3中eval函数用法简介 - 陌上行走的博客 - CSDN博客](https://blog.csdn.net/qq_29883591/article/details/53443062)
+
+```python
+Signature: eval(source, globals=None, locals=None, /)
+Docstring:
+Evaluate the given source in the context of globals and locals.
+'eval函数用法'
+1. 在前两个参数省略的情况下，eval在当前的作用域执行：
+# 对于eval，它会将第一个expression字符串参数的引号去掉，然后对引号中的式子进行解析和计算。
+a=10;
+print(eval("a+1"))-->11
+
+2. 在globals指定的情况下：
+# eval中提供了globals参数，这时候eval的作用域就是g指定的这个字典了，也就是外面的a=10被屏蔽掉了
+a=10;
+g={'a':4}
+print(eval("a+1",g))-->5
+
+3. 在 locals指定的情况下 ：
+# 当locals和globals起冲突时，locals是起决定作用
+a=10
+b=20
+c=30
+gb ={'a':6,'b':8}
+lc ={'b':100,'c':10}
+print(eval('a+b+c',gb,lc))-->116
+
+# 使用的场合
+'eval的使用,确保第一个参数expression满足表达式的要求，它是可以被解析然后计算'
+
+s="abck"
+print(eval(s))-->NameError: name 'abck' is not defined
+'''
+字符串s并不满足表达式的要求。
+当eval剥去了"abck"的外面的引号的时候，它会对它进行解析，然后满足要求后进行计算，然后它解析到的是abcd，请注意，程序报出的错误是NameError，也就是说，
+1. 当它解析到这个表达式是不可以计算，
+2. 它就会查找它是不是一个变量的名字，如果是一个变量的名字，那么它会输出这个变量的内容，否则就会产生这种报错。
+'''
+
+# expression的要求
+## 字符串
+s='"sas"'
+print(eval(s))-->sas
+'''
+eval首先去除单引号，eval在执行时,只会去除同种类型的引号，对于单引号和双引号它是加以区分的。
+eval去除单引号后得到了“sas”，这个时候程序解析到它是一个字符串，不可以计算，就输出了它。
+为什么上个例子中s="abck"会不行呢，这里面我们就可以看出区别了，一个是有引号括起来的，一个是没有的，引号括起来代表字符串，虽然不可以求值，但是是有意义的，可以进行输出，而没引号的便无法判断“身份”了，只能当做变量名进行解析，而abck并不是一个变量名，所以就报错了。
+'''
+## 列表
+'eval去除引号后会检查到它是不可计算的，但它是一个列表，便输出了里面的内容。'
+s='["a","b","c"]'
+print(eval(s))-->['a', 'b', 'c']
+
+a=10
+b=20
+c=30
+s='[a,b,c]'
+print(eval(s))-->[10, 20, 30]
+'''
+eval检查到列表的‘[’‘]’符号时，会对里面的元素进行解析，这里a、b、c显然不是具体的数据，便去查找它们是否是变量名，然后确认是变量名后，用它们的内容替换掉它。
+'''
+
+## 内建模块__buitins__
+s='abs(10)'
+print(eval(s))-->10
+'''
+当eval剥去s的引号后，得到abs(10)，然后它会对进行解析，它会使用globals的内建模块__builtins__进行解析，在这个内建模块中是有abs这个函数的，所以对abs(10)进行了计算。
+'''
+
+# 查看__builtins__模块中
+print(dir(__builtins__))
+
+The source may be a string representing a Python expression or a code object as returned by compile().
+The globals must be a dictionary and locals can be any mapping, defaulting to the current globals and locals.
+If only globals is given, locals defaults to it.
+Type:      builtin_function_or_method
+    
+'''
+Complete &boolean eval
+全部布尔型求值(&B)
+'''
+```
+
+### exec
+
+[python的exec、eval详解 - mojidong blog](https://www.mojidong.com/post/2013-05-10-python-exec-eval/)
+[Python之浅谈exec()函数 - - SegmentFault 思否](https://segmentfault.com/a/1190000014581721)
+
+```python
+Signature: exec(source, globals=None, locals=None, /)
+Docstring:
+Execute the given source in the context of globals and locals.
+
+The source may be a string representing one or more Python statements
+or a code object as returned by compile().
+The globals must be a dictionary and locals can be any mapping,
+defaulting to the current globals and locals.
+If only globals is given, locals defaults to it.
+Type:      builtin_function_or_method
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 函数定义和调⽤
+
+#### 定义函数
+
 ```
 def 函数名():
     代码
 ```
-#### 2.2.1.2. 调用函数
+#### 调用函数
+
 函数名() 即可完成调⽤
 定义完函数后，函数是不会⾃动执⾏的，需要调⽤它才可以
 `printInfo()`
-#### 2.2.1.3. 注意:
+#### 注意:
 - 每次调⽤函数时，函数都会从头开始执行，当这个函数中的代码执完毕后，意味着调⽤结束了
 - 当然了如果函数中执行到了return也会结束函数
-### 2.2.2. 函数的文档说明
+### 函数的文档说明
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def test(a,b):
     '''⽤来完成对2个数求和'''
@@ -932,8 +1203,8 @@ help(test)
 # 还可以用test.__doc__ 直接查看文档说明
 print(test.__doc__)
 ```
-### 2.2.3. 函数的参数
-#### 2.2.3.1. 位置参数
+### 函数的参数
+#### 位置参数
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def power(x, n):
     '''power(x, n) 函数，可以计算任意xd的n次⽅：'''
@@ -943,7 +1214,8 @@ def power(x, n):
         s = s * x
     return s
 ```
-#### 2.2.3.2. 默认参数
+#### 默认参数
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def power(x, n=2):
 '''
@@ -959,10 +1231,14 @@ power(x, n) 函数，可以计算任意xd的n次⽅：
 ```
 默认参数可以简化函数的调用。
 设置默认参数时，有⼏点要注意：
+
+<!-- This is some comments -->
+
 - 必选参数在前，默认参数在后，否则Python的解释器会报错；
 - 当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。变小的参数就可以作为默认参数。
 
-##### 2.2.3.2.1. 注意：默认参数有个最大的坑，演示如下：
+##### 注意：默认参数有个最大的坑，演示如下：
+
 先定义⼀个函数，传⼊⼀个list，添加⼀个END 再返回：
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def add_end(L=[]):
@@ -991,7 +1267,7 @@ add_end()
 很多初学者很疑惑，默认参数是[] ，但是函数似乎每次都“记住了”上次添加了'END' 后的list。
 > 原因解释如下：
 Python函数在定义的时候，默认参数L 的值就被计算出来了，即[] ，因为默认参数L 也是一个变量，它指向对象[] ，每次调⽤该函数，如果改变了L 的内容，则下次调⽤时，默认参数的内容就变了，不再是函数定义时的[] 了。
-##### 2.2.3.2.2. 定义默认参数要牢记一点：默认参数必须指向不变对象！
+##### 定义默认参数要牢记一点：默认参数必须指向不变对象！
 
 要修改上⾯的例子，我们可以用None 这个不变对象来实现：
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -1002,7 +1278,8 @@ def add_end(L=None):
     return L
 ```
 > 为什么要设计str 、None 这样的不变对象呢？因为不变对象一旦创建，对象内部的数据就不能修改，这样就减少了由于修改数据导致的错误。此外，由于对象不变，多任务环境下同时读取对象不需要加锁，同时读一点问题都没有。我们在编写程序时，如果可以设计一个不变对象，那就尽量设计成不变对象。
-#### 2.2.3.3. 可变参数
+#### 可变参数
+
 可变参数就是传⼊的参数个数是可变的，可以是1个、2个到任意个，还可以是0个。
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def calc(*numbers):
@@ -1022,7 +1299,7 @@ def calc(*numbers):
 >>> calc(*nums)
 14
 ```
-#### 2.2.3.4. 命名关键字参数
+#### 命名关键字参数
 对于关键字参数，函数的调⽤者可以传⼊任意不受限制的关键字参数。⾄于到底传⼊了哪些，就需要在函数内部通过kw 检查。
 
 仍以person() 函数为例，我们希望检查是否有city 和job 参数：
@@ -1038,7 +1315,7 @@ def person(name, age, **kw):
 
 person('Jack', 24, city='Beijing', addr='Chaoyang', zipcode=123456)
 ```
-#### 2.2.3.5. 命名关键字参数
+#### 命名关键字参数
 如果要限制关键字参数的名字，就可以⽤命名关键字参数，例如，只接收city 和job 作为关键字参数。
 这种⽅式定义的函数如下：
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -1069,7 +1346,7 @@ def person(name, age, city, job):
 # 缺少 *，city和job被视为位置参数
     ass
 ```
-#### 2.2.3.6. 参数组合
+#### 参数组合
 参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。
 
 在函数调⽤的时候，Python解释器⾃动按照参数位置和参数名把对应的参数传进去。
@@ -1085,7 +1362,7 @@ kw = {'d': 99, 'x': '#'}
 f1(*args, **kw)
 
 ```
-### 2.2.4. 函数返回值 
+### 函数返回值
 - “返回值”，就是程序中函数完成⼀件事情后，最后给调⽤者的结果
 - 带有返回值的函数
 想要在函数中把结果返回给调⽤者，需要在函数中使⽤return
@@ -1110,24 +1387,25 @@ print(result)
 
 多个return?
 > ⼀个函数中可以有多个return 语句，但是只要有一个return 语句被执行到，那么这个函数就会结束了
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-def create_nums(num):
-    print("---1---")
-    if num == 100:
-        print("---2---")
-        return num+1 # 函数中下面的代码不会被执⾏，因为return除了能够将数据返回之外，还有一个隐藏的功能：结束函数
-    else:
-        print("---3---")
-        return num+2
-    print("---4---")
-result1 = create_nums(100)
-print(result1) # 打印101
-result2 = create_nums(200)
-print(result2) # 打印202
+> ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+> def create_nums(num):
+>     print("---1---")
+>     if num == 100:
+>         print("---2---")
+>         return num+1 # 函数中下面的代码不会被执⾏，因为return除了能够将数据返回之外，还有一个隐藏的功能：结束函数
+>     else:
+>         print("---3---")
+>         return num+2
+>     print("---4---")
+> result1 = create_nums(100)
+> print(result1) # 打印101
+> result2 = create_nums(200)
+> print(result2) # 打印202
+> ```
 
 ```
 - ⼀个函数返回多个数据的⽅式
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def divid(a, b):
     shang = a//b
     yushu = a%b
@@ -1135,7 +1413,7 @@ def divid(a, b):
 result = divid(5, 2)
 print(result) # 输出(2, 1)
 ```
-##### 2.2.4.0.1. return 后面可以是元组，列表、字典等，只要是能够存储多个数据的类型，就可以一次性返回多个数据
+##### return 后面可以是元组，列表、字典等，只要是能够存储多个数据的类型，就可以一次性返回多个数据
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def function():
@@ -1145,7 +1423,7 @@ def function():
 
 print(function())
 ```
-## 2.3. 递归函数
+## 递归函数
 在函数内部，可以调⽤其他函数。如果⼀个函数在内部调⽤⾃身本身，这个函数就是递归函数。
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def fact(n):
@@ -1168,12 +1446,12 @@ print(fact(3))
 ===> 5 * (4 * 6)
 ===> 5 * 24
 ===> 120
-### 2.3.1. 小结
+### 小结
 - 使⽤递归函数的优点是逻辑简单清晰，缺点是过深的调⽤会导致栈溢出。
 针对尾递归优化的语⾔言可以通过尾递归防⽌止栈溢出。
 - 尾递归事实上和循环是等价的，没有循环语句的编程语⾔言只能通过尾递归实现循环。
 - Python标准的解释器没有针对尾递归做优化，任何递归函数都存在栈溢出的问题。
-## 2.4. 局部变量
+## 局部变量
 局部变量
 :   在函数内部定义的变量
 
@@ -1189,7 +1467,7 @@ def show():
 show()   # show() is called
 # print(score)  #score is a local variable, not called outside the show()
 ```
-## 2.5. 全局变量
+## 全局变量
 全局变量
 :   一个变量，既能在一个函数中使用，也能在其他的函数中使用
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -1204,7 +1482,7 @@ test1()
 test2()
 
 ```
-## 2.6. 总结
+## 总结
 - 在函数外边定义的变量叫做全局变量
 - 全局变量能够在所有的函数中进⾏访问
 a. 全局变量和局部变量名字相同问题
@@ -1223,7 +1501,7 @@ def test2():
 test1()
 test2()
 ```
-### 2.6.1. 总结
+### 总结
 当函数内出现局部变量和全局变量相同名字时，函数内部中的 ==变量名=数据== 此时理解为==定义了一个局部变量，⽽不是修改全局变量的值==
 
 b. 修改全局变量
@@ -1247,11 +1525,11 @@ test2()
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
-for value in range(0,5): 
+for value in range(0,5):
     # value =0
     # value =1.... value=4
     print(value)
-    
+
 print(value+3) # 4+ 3=7
 
 ```
@@ -1266,7 +1544,7 @@ def show():
 show()
 
 ```
-## 2.7. 随机创建一个电话号
+## 随机创建一个电话号
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 '''
 电信号段:133/153/180/181/189/177；
@@ -1285,7 +1563,7 @@ import random
 def create_phone():
     # 第二位产生
     second = [3,4,5,7,8][random.randint(0,4)]  # 4 [5,7]
-    
+
     {'name':'zs'}['name']
     # 第三位
     third = {
@@ -1295,9 +1573,9 @@ def create_phone():
         7:[6,7,8][random.randint(0,2)],
         8:random.randint(0,9)
     }[second]
-    
+
     # 后八位0-9
-    suffix = '' 
+    suffix = ''
     for x in range(8):    # 8次
         suffix = suffix + str(random.randint(0,9))   # 每次以字符串形式拼接一个数字
 
@@ -1312,7 +1590,9 @@ for index in range(0,10):   # 10次
 
 ---
 
-# 3. ⾯向对象编程
+# ⾯向对象编程
+
+[(Back to 面向过程编程)](#面向过程编程)
 
 面向对象编程——Object Oriented Programming，简称OOP
 ：  一种程序设计思想。OOP把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数。
@@ -1328,13 +1608,14 @@ for index in range(0,10):   # 10次
 ---
 我们以⼀个例子来说明⾯向过程和面向对象在程序流程上的不同之处。
 > 假设我们要处理学生的成绩表，为了表示一个学⽣的成绩，⾯向过程的程序可以⽤一个dict 表示：
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' id = 'std' output='markdown'} ##hide  代码隐藏
-std1 = { 'name': 'Curry', 'score': 98 }
-std2 = { 'name': 'James', 'score': 81 }
+> ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' id = 'std' output='markdown'} ##hide  代码隐藏
+> std1 = { 'name': 'Curry', 'score': 98 }
+> std2 = { 'name': 'James', 'score': 81 }
+> ```
 
 ```
 >而处理学⽣成绩可以通过函数实现，⽐如打印学⽣的成绩：
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='std' output='markdown'} ##hide  代码隐藏
+​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='std' output='markdown'} ##hide  代码隐藏
 std1 = { 'name': 'Curry', 'score': 98 }
 def print_score(std):
     print('%s: %s' % (std['name'], std['score']))
@@ -1342,7 +1623,10 @@ print_score(std1)
 ```
 
 > 如果采⽤⾯向对象的程序设计思想，我们⾸先思考的不是程序的执行流程，而是Student 这种数据类型应该被视为⼀个对象，这个对象拥有name 和score 这两个属性（Property）。如果要打印一个学生的成绩，⾸先必须创建出这个学生对应的对象，然后，给对象发一个print_score 消息，让对象⾃己把⾃己的数据打印出来。
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+>
+> ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+> 
+> ```
 
 class Student(object):
     def __init__(self, name, score):
@@ -1361,17 +1645,17 @@ lisa.print_score()
 
 ```
 
-## 3.1. 类和对象
+## 类和对象
 面向对象编程的2个⾮常重要的概念：类和对象
 
 对象是面向对象编程的核心，在使用对象的过程中，为了将具有共同特征和行为的一组对象抽象定义，提出了另外⼀个新的概念——类
 
-### 3.1.1. 类
+### 类
 具有相似内部状态和运动规律律的实体的集合(或统称为抽象)。 具有相同属性
 和⾏为事物的统称,类是抽象的,在使用的时候通常会找到这个类的一个具体的存在,使用这个具体的存在。一个类可以找到多个对象
-### 3.1.2. 对象
+### 对象
 某一个具体事物的存在 ,在现实世界中可以是看得见摸得着的。 可以是直接使用的
-### 3.1.3. 类和对象之间的关系
+### 类和对象之间的关系
 @import  "类和对象之间的关系.png" {title="类和对象之间的关系"}
 ![类和对象之间的关系](类和对象之间的关系.png  "类和对象之间的关系")
 
@@ -1379,12 +1663,12 @@ lisa.print_score()
 
 [scenery]:类和对象之间的关系.png  "类和对象之间的关系"
 
-## 3.2. 总结：类就是创建对象的模板
+## 总结：类就是创建对象的模板
 
-### 3.2.1. 定义类和创建对象
+### 定义类和创建对象
 
-#### 3.2.1.1. 定义类的格式为:
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+#### 定义类的格式为:
+​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class 类名:
 '''方法列表'''
@@ -1401,7 +1685,7 @@ class Hero(object): # 新式类定义形式
 - 类名 的命名规则按照"⼤驼峰命名法"；
 - info 是⼀个实例⽅法，第一个参数一般是self ，表示实例对象本身，当然了可以将self换为其它的名字，其作用是⼀个变量 ,这个变量指向了实例对象.
 - python中，可以根据已经定义的类去创建出一个或多个对象。
-#### 3.2.1.2. 创建对象的格式为:
+#### 创建对象的格式为:
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 '''
 对象名1 = 类名()
@@ -1422,20 +1706,20 @@ hero.info()
 print(hero) # 打印对象，则默认打印对象在内存的地址，结果等同于info里的print(self)
 
 ```
-#### 3.2.1.3. 对象的创建流程(理解就行)
+#### 对象的创建流程(理解就行)
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class Dog(object):
     # 初始化
     def __init__(self):
-        
+
         print('__init__')
-    
-    
+
+
     # 创建的方法
     def __new__(cls):
         print('__new__')
-        
+
         return object.__new__(cls)
 print(Dog())
 
@@ -1447,8 +1731,8 @@ print(Dog())
 
 
 
-### 3.2.2. 对象的属性和⽅法
-#### 3.2.2.1. 添加和获取对象的属性
+### 对象的属性和⽅法
+#### 添加和获取对象的属性
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class Hero(object):
@@ -1461,8 +1745,8 @@ class Hero(object):
 hero = Hero()
 
 
-# 给对象添加属性，以及对应的属性值 
-hero.name = "德玛⻄亚" # 姓名 
+# 给对象添加属性，以及对应的属性值
+hero.name = "德玛⻄亚" # 姓名
 hero.hp = 2600 # ⽣命值
 
 # 通过.成员选择运算符，获取对象的属性值
@@ -1473,7 +1757,7 @@ hero.move()
 
 print(hero)
 ```
-#### 3.2.2.2. 通过self获取对象属性
+#### 通过self获取对象属性
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class Hero(object):
@@ -1494,8 +1778,8 @@ hero.info() # 只需要调⽤实例方法info()，即可获取英雄的属性
 hero.move()
 
 ```
-#### 3.2.2.3. init魔法方法
-##### 3.2.2.3.1. init方法
+#### init魔法方法
+##### init方法
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class Hero(object):
@@ -1521,11 +1805,11 @@ hero.info() # 只需要调⽤实例⽅法info()，即可获取英雄的属性
 hero.move()
 
 ```
-##### 3.2.2.3.2. 总结：
+##### 总结：
 - \_\_init\_\_() 方法，在创建⼀个对象时默认被调用，不需要手动调用
 - \_\_init\_\_(self) 中的self参数，不需要开发者传递，python解释器会自动把当前的对象引⽤传递过去。
 
-##### 3.2.2.3.3. 有参数的init()⽅法
+##### 有参数的init()⽅法
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class Hero(object):
@@ -1554,7 +1838,7 @@ print('blind.move() id',id(blind.move()))
 print('gailun.move() id',id(gailun.move()))
 
 ```
-##### 3.2.2.3.4. 注意：
+##### 注意：
 - 通过一个类，可以创建多个对象，就好比 通过⼀个模具创建多个实体一样
 \_\_init\_\_(self) 中，默认有1个参数名字为self，如果在创建对象时传递了2个实参，那么__init__(self) 中c除了self作为第一个形参外还需要2个形参，例如\_\_init\_\_(self,x,y)
 - 在类内部获取 属性 和 实例方法，通过self获取；
@@ -1562,7 +1846,7 @@ print('gailun.move() id',id(gailun.move()))
 - 如果一个类有多个对象，每个对象的属性是各自保存的，都有各自独立的地址；
 - 但是实例方法是所有对象共享的，只占⽤一份内存空间。类会通过self来判断是哪个对象调⽤了实例方法。
 
-### 3.2.3. 继承
+### 继承
 - 在程序中，继承描述的是多个类之间的所属关系。
 - 如果⼀个类A里⾯的属性和⽅法可以复用，则可以通过继承的方式，传递到类B里。
 - 那么类A就是基类，也叫做父类；类B就是派生类，也叫做子类。
@@ -1582,7 +1866,7 @@ print(b.num)
 b.print_num()
 
 ```
-#### 3.2.3.1. 单继承
+#### 单继承
 单继承
 :   子类只继承一个父类。
 
@@ -1605,10 +1889,10 @@ print(panda.name) # ⼦类对象可以直接使⽤父类的属性
 panda.make_person() # ⼦类对象可以直接使用父类的方法
 
 ```
-#### 3.2.3.2. 总结：
+#### 总结：
 虽然⼦类没有定义\_\_init\_\_ 方法初始化属性，也没有定义实例方法，但是父类有。所以只要创建类的对象，就默认执行了那个继承过来的\_\_init\_\_ 方法子类在继承的时候，在定义类时，⼩括号()中为父类的名字父类的属性、方法，会被继承给子类
 
-#### 3.2.3.3. 多继承
+#### 多继承
 多继承
 :   子类继承多个父类
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -1637,15 +1921,15 @@ ls.make_person()
 # ⼦类的魔法属性__mro__决定了属性和⽅法的查找顺序
 print(Person.__mro__)
 ```
-#### 3.2.3.4. 结论：
+#### 结论：
 - 多继承可以继承多个父类，也继承了所有父类的属性和方法
 - 注意：如果多个父类中有同名的 属性和⽅法，则默认使用第一个父类的属性和方法（根据类的魔法属性mro 的顺序来查找）
 - 多个父类中，不重名的属性和方法，不会有任何影响。
 
-### 3.2.4. 重写父类方法
+### 重写父类方法
 - 重写：⼦类继承父类，父类的方法满⾜不了子类的需要可以对父类的方法进行重写
-- 重写的特点: 
-    1. 继承关系， 
+- 重写的特点:
+    1. 继承关系，
     2. ⽅法名相同
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -1666,7 +1950,7 @@ stu = Student("王五", 10)
 stu.run()
 
 ```
-### 3.2.5. 属性方法
+### 属性方法
 - 类属性和实例属性
 类属性就是类对象所拥有的属性，它被所有类对象的实例对象所共有，在内存中只存在一个副本，这个和C++中类的静态成员变量有点类似。
 对于公有的类属性，在类外可以通过类对象和实例对象访问
@@ -1692,23 +1976,23 @@ class Person(object):
         self.name = 'zs'
         #私有属性（只能在类的内部使用，）
         self.__age=0
-    
+
     # 设置私有属性值的方法
     def set_age(self,new_age):
         if new_age>0 and new_age<=100:
-            
+
             self.__age = new_age
         else:
             self.__age = 0
     # 获取私有属性值的方法
     def get_age(self):
-        
+
         return self.__age
-    
+
     def show(self):
         print('Person')
         self.__test()
-    
+
     # 私有方法
     def __test(self):
         pass
@@ -1744,7 +2028,7 @@ print(People.age) # 错误
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
-#通过实例(对象)去修改类属性  
+#通过实例(对象)去修改类属性
 class People(object):
     country = 'china' #类属性
 print(People.country)
@@ -1761,7 +2045,7 @@ del p.country # 删除实例属性
 print(p.country)
 
 ```
-#### 3.2.5.1. 总结
+#### 总结
 - 如果需要在类外修改类属性，必须通过类对象去引⽤然后进行修改。
 - 如果通过实例对象去引用，会产⽣一个同名的实例属性，这种方式修改的是实例属性，不会影响到类属性，并且之后如果通过实例对象去引用该名称的属性，实例属性会强制屏蔽掉类属性，即引用的是实例属性，除⾮删除了该实例属性。
 
@@ -1773,7 +2057,7 @@ class Tool(object):
     def __init__(self,name):
         self.name = name
         Tool.num += 1
-        
+
 t1 = Tool('水桶')
 t2 = Tool('垃圾桶')
 t2 = Tool('锅')
@@ -1782,8 +2066,8 @@ print(Tool.num)
 
 ```
 
-### 3.2.6. 静态⽅法和类方法
-#### 3.2.6.1. 类⽅法
+### 静态⽅法和类方法
+#### 类⽅法
 
 类⽅法
 :   是类对象所拥有的方法，需要⽤修饰器@classmethod来标识其为类方法，对于类⽅法，第一个参数必是类对象，一般以cls作为第一个参数（当然可以⽤其他名称的变量作为其第一个参数，但是大部分人都习惯以'cls'作为第一个参数的名字，就最好用'cls'了），能够通过实例对象和类对象去访问。
@@ -1824,7 +2108,7 @@ print(p.get_country())
 print(People.get_country())
 
 ```
-#### 3.2.6.2. 静态⽅法
+#### 静态⽅法
 需要通过修饰器@staticmethod 来进⾏修饰，静态方法不需要多定义参数，可以通过对象和类来访问。
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -1840,17 +2124,19 @@ p.get_country()
 # 通过类访问静态⽅法
 print(People.get_country())
 ```
-#### 3.2.6.3. 总结
+#### 总结
 从类⽅法和实例方法以及静态方法的定义形式就可以看出来，
-- 类⽅法的第⼀个参数是类对象cls，那么通过cls引⽤的必定是类对象的属性和方法； 
-- 实例方法的第⼀个参数是实例对象self，那么通过self引用的可能是类属性、也有可能是实例属性（这个需要具体分析），不过在存在相同名称的类属性和实例属性的情况下，实例属性优先级更高。 
+- 类⽅法的第⼀个参数是类对象cls，那么通过cls引⽤的必定是类对象的属性和方法；
+- 实例方法的第⼀个参数是实例对象self，那么通过self引用的可能是类属性、也有可能是实例属性（这个需要具体分析），不过在存在相同名称的类属性和实例属性的情况下，实例属性优先级更高。
 - 静态⽅法中不需要额外定义参数，因此在静态方法中引用类属性的话，必须通过类实例对象来引⽤
-### 3.2.7. 多态
+### 多态
 
 > - 多态, 不同的 子类对象调⽤ 相同的 父类方法，产生 不同的 执行结果，可以增加代码的外部 调⽤灵活度
 > - 多态以 继承 和 重写 父类方法 为前提
 > - 多态是调用⽅法的技巧，不会影响到类的内部设计
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+> ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+> 
+> ```
 
 class Animal(object):
     def run(self):
@@ -1872,7 +2158,7 @@ run_twice(dog)
 run_twice(cat)
 ```
 
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # 多态
 # 继承和重写前提
@@ -1880,7 +2166,7 @@ run_twice(cat)
 class Animal(object):
     def run(self):
         print('Animal is running...')
-        
+
 class Dog(Animal):
 
     def run(self):
@@ -1892,7 +2178,7 @@ class Cat(Animal):
         print('Cat is running...')
 
 
-        
+
 # 定义一个方法（参数必须传一个animal类型的对象）
 def func(Animalbianliang):
     bianliang.run()
@@ -1911,8 +2197,12 @@ func(cat)
 
 ```
 
+# 捕获异常
 
-# 4. 捕获异常
+[(Back to 面向过程编程)](#面向过程编程)
+
+[(Back to 面向对象编程)](#⾯向对象编程)
+
 - ⼀旦出错，还要⼀级一级上报，直到某个函数可以处理该错误
 - 所以⾼级语⾔通常都内置了一套try...except...finally... 的错误处理机制
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -1969,7 +2259,7 @@ finally:
 print('END')
 
 ```
-## 4.1. Python的错误其实也是class 
+## Python的错误其实也是class
 所有的错误类型都继承⾃BaseException ，所以在使⽤except 时需要注意的是，它不但捕获该类型的错误，还把其⼦类也“⼀⽹打尽”。
 比如：
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -2003,14 +2293,18 @@ def main():
 '''
 ```
 
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  id='utf-8' continue:true output='markdown' } ##hide  代码隐藏 
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  id='utf-8' continue:true output='markdown' } ##hide  代码隐藏
 import io
 import sys
 #改变标准输出的默认编码
 sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
 ```
 
-# 5. 模块
+# 模块
+
+[(Back to 面向过程编程)](#面向过程编程)
+
+[(Back to 面向对象编程)](#⾯向对象编程)
 
 模块
 :   通俗理解⼀个.py⽂件就是⼀个模块，模块是管理功能代码的。
@@ -2020,8 +2314,8 @@ sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
 >  模块是一个.py文件
 > 包是一个装有多个.py文件的文件夹
 
-## 5.1. 自定义模块的使⽤
-- 注意：⾃定义模块名字和变量名的定义很类似，都是由字⺟母、数字、下划线组成，但是不能以数字开头，否则⽆法导⼊该模块。
+## 自定义模块的使⽤
+- 注意：⾃定义模块名字和变量名的定义很类似，都是由字⺟、数字、下划线组成，但是不能以数字开头，否则⽆法导⼊该模块。
 
 
 ```
@@ -2036,7 +2330,7 @@ help('modules')# 查看所安装的模块
 
 ```
 # 自定义需要两步： 修改成 .py文件， first_module.py文件与当前导入的文件放在同一个目录下
-import first_module 
+import first_module
 
 # 使用模块中的是方法
 # print(first_module.g_num)
@@ -2049,7 +2343,7 @@ print(__name__)# __main__
 
 
 
-### 5.1.1. 创建名为first_module的⾃定义模块
+### 创建名为first_module的⾃定义模块
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 __all__ = ["g_num", "show"]
@@ -2077,7 +2371,7 @@ if __name__ == '__main__':
 
 ```
 
-### 5.1.2. 使⽤⾃定义的模块
+### 使⽤⾃定义的模块
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # 导⼊模块
@@ -2085,7 +2379,7 @@ import first_module
 # 使⽤模块中的功能代码
 print(first_module.g_num)
 first_module.show()
-stu = first_module.Student("李李四", 20)
+stu = first_module.Student("李四", 20)
 stu.show_msg()
 
 ```
@@ -2094,7 +2388,7 @@ stu.show_msg()
 1. ⾃定义的模块名不要和系统的模块名重名，
 2. 导⼊的功能代码不要在当前模块定义否则使⽤不了导⼊模块的功能代码
 
-### 5.1.3. 包的介绍
+### 包的介绍
 包
 :   通俗理解包就是⼀个⽂件夹，只不过⽂件夹⾥面有⼀个init.py⽂件
 包是管理模块的， 模块是管理功能代码的。
@@ -2106,7 +2400,7 @@ stu.show_msg()
 ```
 # 模块的导入
 # 1. import 直接导入
-import first_module 
+import first_module
 first_module.show()
 
 # 给模块起别名
@@ -2115,7 +2409,7 @@ first.show()
 
 
 # 2.从first_module这个模块中导入名字叫做show的方法
-from first_module import show 
+from first_module import show
 
 # 给模块中的方法起别名（避免多个模块中有一样的名字）
 from second_module import show as second_show
@@ -2146,7 +2440,7 @@ __all__ = ["g_num", "show"]
 去指定导⼊的模块
 from first_package import *
 ```
-### 5.1.4. \_\_init\_\_ ⽂件写法
+### \_\_init\_\_ ⽂件写法
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # 如果外界使⽤from 包名 import * 不会导⼊包⾥面的所有模块，需要使⽤__all__指定
@@ -2157,12 +2451,12 @@ from . import second
 
 ```
 
-# 6. ⽂件基础操作
-## 6.1. ⽂件简介
+# ⽂件基础操作
+## ⽂件简介
 ⽂件包括 ⽂本文件和⼆进制文件（声⾳音，图像，视频) 从存储⽅式来说，⽂件在磁盘上的存储方式都是二进制形式，所以，文本⽂件其实也应该算二进制文件。先从他们的区别来说，虽然都是二进制⽂件，但是二进制代表的意思不一样。打个比方，⼀个人，我们可以叫他的大名，以叫他的小名，但其实都是代表这个人。
 二进制读写是将内存里面的数据直接读写⼊文本中，
 ⽽⽂本，则是将数据先转换成了字符串，再写⼊到文本中。
-## 6.2. 读⽂件
+## 读⽂件
 - 要以读⽂件的模式打开⼀个⽂件对象，使⽤Python内置的open() 函数，传⼊⽂件名和标示符：
 ```python
 #  打开文件
@@ -2194,7 +2488,7 @@ with open('/path/to/file', 'r') as f:
 
 ```
 
-## 6.3. 文件的打开方式
+## 文件的打开方式
 
 ```
 # f=open(‘1.txt’)
@@ -2215,7 +2509,7 @@ r+:可读可写的操作，覆盖的形势写入  ABC DE DEC
 ```
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
-# w模式 hello  GBK   utf-8 
+# w模式 hello  GBK   utf-8
 # windows : GBK
 # mac linux  : utf-8
 
@@ -2318,7 +2612,7 @@ file.close()
 |                    a+                    |                打开⼀个⽂件⽤于读写。如果该⽂件已存在，⽂件指针将会放在⽂件的结尾。⽂件打开时会是追加模式。如果该⽂件不存在，创建新⽂件⽤于读写。                |
 |                   ab+                    |                      以⼆进制格式打开⼀个⽂件⽤于追加。如果该⽂件已存在，⽂件指针将会放在⽂件的结尾。如果该⽂件不存在，创建新⽂件⽤于读写。                      |
 
-## 6.4. 字符编码
+## 字符编码
 要读取⾮UTF-8编码的⽂本⽂件，需要给open() 函数传⼊encoding 参数，例如，读取GBK编码的⽂件：
 ```
 >>> f = open('/Users/michael/gbk.txt', 'r', encoding='gbk')
@@ -2329,7 +2623,7 @@ file.close()
 ```
 >>> f = open('/Users/michael/gbk.txt', 'r', encoding='gbk',errors='ignore')
 ```
-## 6.5. 写⽂件
+## 写⽂件
 写⽂件和读⽂件是⼀样的，唯⼀区别是调⽤open() 函数时，传⼊标识符'w' 或者'wb' 表示写⽂本⽂件或写⼆进制⽂件：
 
 ```
@@ -2344,7 +2638,7 @@ with open('/Users/michael/test.txt', 'w') as f:
 ```
 ---
 ---
-## 6.6. Demonstration
+## Demonstration
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # <html>
@@ -2414,30 +2708,35 @@ for li in ul_list:
     num += 1
     img_url = li.xpath('./div/p/img/@data-original')[0]
     print(img_url)
-    
+
     # 发送请求下载图片
     img_response = requests.get(url=img_url,headers=headers)
     with open('./results/{}.jpg'.format(num),'wb') as f:
         f.write(img_response.content)
-        
+
 # C:   /User/mac/destop
 
 ```
 
-# 7. matplotlib
+# matplotlib
+
+[(Back to 面向过程编程)](#面向过程编程)
+
+[(Back to 面向对象编程)](#⾯向对象编程)
+
 [Matplotlib: Python plotting — Matplotlib 3.1.1 documentation](https://matplotlib.org/)
 什么是Matplotlib
 :   Matplotlib是⼀个Python 2D绘图库，它可以在各种平台上以各种硬拷⻉格式和交互式环境⽣成出具有出版品质的图形。
 Matplotlib试图让简单的事情变得更简单，让⽆法实现的事情变得可能实现。 只需⼏代码即可⽣成绘图，直⽅图，功率谱，条形图，错误图，散点图等。
 
-## 7.1. 常⻅见图形种类及意义
+## 常⻅见图形种类及意义
 折线图
 :   以折线的上升或下降来表示统计数量的增减变化的统计图
 
 特点
 :   能够显示数据的变化趋势，反映事物的变化情况。(变化)
 
-## 7.2. Matplotlib画图的简单实现
+## Matplotlib画图的简单实现
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -2452,12 +2751,12 @@ plt.show()
 
 
 ```
-## 7.3. 对Matplotlib图像结构的认识
+## 对Matplotlib图像结构的认识
 
 ![matplotlib图像结构的认识](matplotlib图像结构的认识.bmp "matplotlib图像结构的认识")
 ![matplotlib绘图](matplotlib绘图.bmp "matplotlib绘图")
 
-## 7.4. 折线图的绘制
+## 折线图的绘制
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # 导入
@@ -2470,7 +2769,7 @@ y = [17, 17, 18, 15, 11, 11, 13]
 plt.plot(x,y)
 plt.show()
 ```
-### 7.4.1. 折线的颜⾊色和形状设置
+### 折线的颜⾊色和形状设置
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ####hide  代码隐藏
 
 from matplotlib import pyplot as plt
@@ -2494,7 +2793,7 @@ linewidth=3 : 折线的宽度
 
 
 ```
-### 7.4.2. 折点样式
+### 折点样式
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ####hide  代码隐藏
 
 from matplotlib import pyplot as plt
@@ -2513,7 +2812,7 @@ plt.show()
 from matplotlib import pyplot as plt
 
 # 1.x y x轴的位置
-x = range(1,8) 
+x = range(1,8)
 y = [17, 17, 18, 15, 11, 11, 13]
 
 
@@ -2525,7 +2824,7 @@ plt.plot(x,y,color= 'red',alpha = 0.5,linestyle='--',linewidth=3,marker='o',
 plt.show()
 
 ```
-### 7.4.3. 设置的图⽚片的⼤小和保存
+### 设置的图⽚片的⼤小和保存
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -2549,7 +2848,7 @@ plt.savefig('./t1.png')
 # plt.savefig('./t1.svg')
 ```
 
-### 7.4.4. 绘制x轴和y轴的刻度
+### 绘制x轴和y轴的刻度
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # 绘制xy刻度
@@ -2583,8 +2882,8 @@ plt.show()
 
 
 ```
-### 7.4.5. 设置显示中⽂
-#### 7.4.5.1. 标题、标签设置中文
+### 设置显示中⽂
+#### 标题、标签设置中文
 - matplotlib只显示英⽂,⽆法显示中⽂，需要修改matplotlib的默认字体
 - 通过matplotlib下的font_manager可以解决
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -2622,7 +2921,7 @@ plt.show()
 
 
 ```
-#### 7.4.5.2. 图例设置中文
+#### 图例设置中文
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 
@@ -2670,7 +2969,7 @@ plt.show()
 # plt.show()
 ```
 
-### 7.4.6. ⼀图多线
+### ⼀图多线
 
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -2693,7 +2992,7 @@ plt.xticks(x,xtick_labels,fontproperties=my_font,rotation=45)
 plt.show()
 ```
 
-### 7.4.7. 拓拓展⼀（⼀图多个坐标系⼦图）
+### 拓拓展⼀（⼀图多个坐标系⼦图）
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -2717,7 +3016,7 @@ plt.show()
 
 
 ```
-### 7.4.8. 拓拓展⼆（设置坐标轴范围）
+### 拓拓展⼆（设置坐标轴范围）
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -2738,7 +3037,7 @@ plt.show()
 
 ```
 
-### 7.4.9. 拓拓展三（改变坐标轴的默认显示⽅式）
+### 拓拓展三（改变坐标轴的默认显示⽅式）
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -2763,7 +3062,7 @@ plt.show()
 
 ```
 
-## 7.5. 绘制散点图
+## 绘制散点图
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -2796,7 +3095,7 @@ plt.show()
 
 ```
 
-## 7.6. 绘制条形图
+## 绘制条形图
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 '''http://58921.com/alltime
@@ -2825,7 +3124,7 @@ for rect in rects:
 plt.show()
 
 ```
-## 7.7. 横向条形图
+## 横向条形图
 
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -2859,7 +3158,7 @@ plt.show()
 
 ```
 
-## 7.8. 并列和罗列条形图
+## 并列和罗列条形图
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -2881,7 +3180,7 @@ plt.show()
 
 ```
 
-## 7.9. 直⽅图
+## 直⽅图
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -2943,7 +3242,7 @@ plt.show()
 
 ```
 
-## 7.10. 饼状图
+## 饼状图
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -3004,7 +3303,7 @@ plt.show()
 ---
 
 
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  id='utf-8' continue:true output='text' } ##hide  代码隐藏 
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  id='utf-8' continue:true output='text' } ##hide  代码隐藏
 import io
 import sys
 #改变标准输出的默认编码
@@ -3019,19 +3318,24 @@ import matplotlib.font_manager
 ```
 
 
-# 8. NumPy
+# NumPy
+[(Back to 面向过程编程)](#面向过程编程)
+
+[(Back to 面向对象编程)](#⾯向对象编程)
+
 [NumPy中文官网](https://www.numpy.org.cn/)
 NumPy（Numerical Python）是一个开源的Python科学计算库，用于快速处理任意维度的数组。
 NumPy支持常见的数组和矩阵操作。对于同样的数值计算任务，使用Numpy比直接使用Python要简洁
 的多。
 NumPy使用ndarray对象来处理多维数组，该对象是一个快速而灵活的大数据容器。
-## 8.1. NumPy的优势
+
+## NumPy的优势
 - 对于同样的数值计算任务，使用NumPy要比直接编写Python代码便捷得多；
 - NumPy中的数组的存储效率和输入输出性能均远远优于Python中等价的基本数据结构，且其能够
 提升的性能是与数组中的元素成比例的；
 - NumPy的大部分代码都是用C语言写的，其底层算法在设计时就有着优异的性能，这使得NumPy
 比纯Python代码高效得多
-### 8.1.1. ndarray与Python原生list运算效率对比
+### ndarray与Python原生list运算效率对比
 
 ![Numpy_structure](Numpy_structure.png "Numpy_structure")
 
@@ -3055,7 +3359,7 @@ t5=time.time()
 print(t2-t1, t5-t4)
 
 ```
-## 8.2. NumPy 的Ndarray 对象
+## NumPy 的Ndarray 对象
 NumPy 最重要的一个特点是其 <font color="orange" >N 维</font>数组对象 ndarray，它是一系列同类型数据的集合，以 0 下标为开始进行集合中元素的索引。ndarray 对象是用于<font color="orange" >存放同类型元素</font>的多维数组。
 - 看<font color="orange" size=10>[</font>
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -3063,7 +3367,7 @@ import numpy as np
 print('一维数组')
 print(np.array([1,2,3,4,5],dtype='int8'))
 '''
- [1 2 3] 
+ [1 2 3]
  '''
 print('二维数组')
 print(np.array([[1,2,3],[4,5,6]],dtype=int))
@@ -3092,7 +3396,7 @@ print(c)
 
 
 
-### 8.2.1. 创建一维数组
+### 创建一维数组
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 import numpy as np
 list1 = [1,2,3,4]
@@ -3127,7 +3431,7 @@ print(type(t3))
 '''
 
 ```
-### 8.2.2. 创建二维数组
+### 创建二维数组
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -3143,7 +3447,7 @@ print(twoArray)
 
 ```
 
-### 8.2.3. 常用属性
+### 常用属性
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 import numpy as np
@@ -3166,7 +3470,7 @@ print(twoArray.itemsize)
 
 ```
 
-### 8.2.4. 调整数组的形状
+### 调整数组的形状
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='text'} ##hide  代码隐藏
 
@@ -3233,7 +3537,7 @@ print(t2.shape)
   [20 21 22 23]]]
   '''
 ```
-### 8.2.5. 将数组转成list
+### 将数组转成list
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # 将数组转成list
@@ -3243,7 +3547,7 @@ print(list_a)
 print(type(list_a))
 
 ```
-### 8.2.6. NumPy的数据类型
+### NumPy的数据类型
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -3284,9 +3588,9 @@ print(np.round(arr,2))
 | np.string_    | 字符串                                            |  'S'  |
 | np.unicode_   | unicode类型                                       |  'U'  |
 
-## 8.3. 数组的计算
+## 数组的计算
 
-### 8.3.1. 数组和数的计算
+### 数组和数的计算
 - 由于numpy的广播机机制在运算过程中，加减乘除的值被广播到所有的元素上面。
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -3328,7 +3632,7 @@ print(t1-t2)
 
 ```
 
-## 8.4. 数组中的轴
+## 数组中的轴
 1. 什么是轴： 在numpy中可以理解为方向，使用0，1，2数字表示，对于一个一维数组，只有一个0
 轴，
 对于2维数组（shape（2，2))有0轴和1轴，
@@ -3383,8 +3687,8 @@ print(c)
 ```
 总结： 在计算的时候可以想象成是每一个坐标轴，分别计算这个轴上面的每一个刻度上的值，或者在二维数组中记住0表示列1表示行.
 
-## 8.5. 数组的索引和切片
-### 8.5.1. 一维数组的操作方法
+## 数组的索引和切片
+### 一维数组的操作方法
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 import numpy as np
@@ -3397,7 +3701,7 @@ print(a[2:7:2])# 从索引 2 开始到索引 7 停止，间隔为 2
 # 如果只放置一个参数，如 [2]，将返回与该索引相对应的单个元素
 print(a[2],a,sep='\n')
 '''
-2 
+2
 [0 1 2 3 4 5 6 7 8 9]
 '''
 # 如果为 [2:]，表示从该索引开始以后的所有项都将被提取
@@ -3407,7 +3711,7 @@ print(a[2:])
 '''
 
 ```
-### 8.5.2. 多维数组的操作方法
+### 多维数组的操作方法
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='text'} ##hide  代码隐藏
 
 import numpy as np
@@ -3427,7 +3731,7 @@ print(t1[:,[0,2,3]])# 取不连续的多列
 print(t1[2,3])# # 取某一个值,三行四列
 print(t1[[0,1,1],[0,1,3]])# 取多个不连续的值，[[行，行。。。],[列，列。。。]]
 ```
-## 8.6. 数组中的数值修改
+## 数组中的数值修改
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 t = np.arange(24).reshape(4,6)
@@ -3460,9 +3764,9 @@ result = np.where(score>80,True,False)
 
 
 ```
-## 8.7. 数组的添加、删除和去重
+## 数组的添加、删除和去重
 
-### 8.7.1. 数组的添加
+### 数组的添加
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # 1. numpy.append 函数在数组的末尾添加值。 追加操作会分配整个数组，并把原来的数组复制到新数组中。 此外，输入数组的维度必须匹配否则将生成ValueError。
@@ -3537,7 +3841,7 @@ print (np.insert(a,1,11,axis = 1))
  [ 5 11  6]]
  '''
 ```
-### 8.7.2. 数组中的删除
+### 数组中的删除
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -3574,7 +3878,7 @@ print ('\n')
 
 
 ```
-### 8.7.3. 数组去重
+### 数组去重
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # numpy.unique 函数用于去除数组中的重复元素。
@@ -3628,7 +3932,7 @@ print ('u',u)
 print ('count_indices',count_indices)
 
 ```
-## 8.8. numpy的计算
+## numpy的计算
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -3676,7 +3980,7 @@ print(result)
 
 
 ```
-### 8.8.1. 通用函数：
+### 通用函数：
 | 函数                                                                       | 功能                                        |
 | :------------------------------------------------------------------------- | :------------------------------------------ |
 | numpy.sqrt(array)                                                          | 平方根函数                                  |
@@ -3704,7 +4008,7 @@ print(result)
 | numpy.greater/greater_equal/less/less_equal/equal/not_equal(array1,array2) | 元素级比较运算，产生布尔数组                |
 | numpy.logical_end/logical_or/logic_xor(array1,array2)                      | 元素级的真值逻辑运算                        |
 
-## 8.9. 数组的拼接
+## 数组的拼接
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -3739,7 +4043,7 @@ result = np.hstack((v1,v2))
 print(result)
 
 ```
-## 8.10. 数组的分割
+## 数组的分割
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -3773,7 +4077,7 @@ a = np.arange(16).reshape(4,4)
 
 ```
 
-## 8.11. 数组中nan和inf
+## 数组中nan和inf
 - inf 表示无穷大，需要使用 float(‘inf’) 函数来转化，那么对应的就有 float('-inf') 表示无穷小了。
 - 在 pandans 中常见，表示缺失的数据，所以一般用 nan 来表示。任何与其做运算结果都是 nan。
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -3817,7 +4121,7 @@ for i in range(t.shape[1]):
 print(t)
 
 ```
-## 8.12. 二维数组的转置
+## 二维数组的转置
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -3848,11 +4152,15 @@ print (re)
 
 
 
-# 9. pandas
+# pandas
+
+[(Back to 面向过程编程)](#面向过程编程)
+
+[(Back to 面向对象编程)](#⾯向对象编程)
 
 - Pandas 是基于NumPy 的⼀种⼯具，该⼯具是为了解决数据分析任务⽽创建的。Pandas 纳⼊了大量库和⼀些标准的数据模型，提供了⾼效地操作大型数据集所需的⼯具。pandas提供了大量能使我们快速便捷地处理数据的函数和⽅法。
 - Pandas基于两种数据类型：series与dataframe。
-## 9.1. Series对象
+## Series对象
 Series
 : 是Pandas中最基本的对象，Series类似⼀种⼀维数组。事实上，Series 基本上就是基于 NumPy的数组对象来的。和 NumPy 的数组不同，Series 能为数据⾃定义标签，也就是索引（index），然后通过索引来访问数组中的数据。
 
@@ -3934,7 +4242,7 @@ dtype: int64
 '''
 print('位置下标',sel[[1,3]])
 '''
-位置下标 
+位置下标
 b 2
 d 4
 dtype: int64
@@ -3942,14 +4250,14 @@ dtype: int64
 # 可以使⽤切⽚片或取数据
 print('位置切⽚片',sel[1:3])# 左包含右不包含
 '''
-位置切⽚片 
+位置切⽚片
 b 2
 c 3
 dtype: int64
 '''
 print('索引切⽚片',sel['b':'d'])# 左右都包含
 '''
-索引切⽚片 
+索引切⽚片
 b 2
 c 3
 d 4
@@ -3997,7 +4305,7 @@ dtype: int64
 '''
 ```
 
-### 9.1.1. Series 进行算术运算操作
+### Series 进行算术运算操作
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
@@ -4066,13 +4374,13 @@ dtype: int64
 '''
 
 ```
-## 9.2. DataFrame
+## DataFrame
 DataFrame
 :   （数据表）是一种 2 维数据结构，数据以表格的形式存储，分成若⼲行行和列。
 通过DataFrame，你能很⽅便地处理数据。常⻅见的操作⽐如选取、替换⾏或列的数据，还能重组数据表、修改索引、多重筛选等。我们基本上可以把 DataFrame 理解成⼀组采⽤同样索引的 Series 的集合。
 调⽤DataFrame()可以将多种格式的数据转换为DataFrame对象，它的的三个参数data、index和columns分别为数据、⾏索引和列索引
 
-### 9.2.1. DataFrame的创建
+### DataFrame的创建
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
@@ -4143,7 +4451,7 @@ dict = df.to_dict()
 }
 '''
 ```
-### 9.2.2. DataFrame对象常⽤属性
+### DataFrame对象常⽤属性
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
 # dataframe常用属性
@@ -4370,7 +4678,7 @@ print(df)
 
 ```
 
-### 9.2.3. dataframex修改index、columns
+### dataframex修改index、columns
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 df1 = pd.DataFrame(np.arange(9).reshape(3, 3), index = ['bj', 'sh', 'gz'],columns=['a', 'b', 'c'])
@@ -4454,7 +4762,7 @@ result.columns.name=None
 4  4  4  e  2
 '''
 ```
-### 9.2.4. 添加数据
+### 添加数据
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
 # 增加数据
@@ -4652,7 +4960,7 @@ print(df3)
 2    7      8
 '''
 ```
-### 9.2.5. 数据处理
+### 数据处理
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
 from numpy import nan as NaN
@@ -4913,8 +5221,8 @@ dtype: bool
 5  3  c
 '''
 ```
-### 9.2.6. 数据合并
-#### 9.2.6.1. join
+### 数据合并
+#### join
 Join columns with other DataFrame either on index or on a key
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
@@ -4974,7 +5282,7 @@ b    3      0   NaN     NaN    NaN    NaN
 c    5      3   1.0     6.0    NaN    NaN
 '''
 ```
-#### 9.2.6.2. merge
+#### merge
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 # 使用merge,着重关注的是列的合并
 df1=pd.DataFrame({'名字':list('ABCDE'),'性别':['男','女','男','男','女'],'职称':
@@ -4984,7 +5292,7 @@ df1.index.name='编号'
 print(df1)
 '''
 学院老师 名字 性别   职称
-编号             
+编号
 1001     A  男   副教授
 1002     B  女   讲师
 1003     C  男   助教
@@ -4998,7 +5306,7 @@ df2.index.name='编号'
 print(df2)
 '''
 课程   名字     课程       职称
-编号                 
+编号
 1001    A     C++        副教授
 1002    B     计算机导论   讲师
 1004    D     汇编        教授
@@ -5071,7 +5379,7 @@ pd.merge(df1,df2,on=['职称','名字'])
 3	D	男	教授	汇编
 '''
 ```
-### 9.2.7. concat 拓展
+### concat 拓展
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
 # 轴向连接-Concat
@@ -5198,8 +5506,8 @@ e	NaN	NaN	9.0	6.0
 '''
 
 ```
-### 9.2.8. 多层索引(拓拓展)
-#### 9.2.8.1. 创建多层索引
+### 多层索引(拓拓展)
+#### 创建多层索引
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
 import numpy as np
@@ -5289,7 +5597,7 @@ En     期中   83   84  117   71
 '''
 
 ```
-#### 9.2.8.2. 多层索引对象的索引
+#### 多层索引对象的索引
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
 #多层索引对象的索引操作
@@ -5423,7 +5731,7 @@ Name: (python, 期末), dtype: int64
 Name: (python, 期中), dtype: int64
 '''
 ```
-### 9.2.9. 时间序列
+### 时间序列
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 import pandas as pd
 import numpy as np
@@ -5636,7 +5944,7 @@ pd.to_datetime(df['time_stamp'],unit='ms').dt.tz_localize('UTC').dt.tz_convert
 # 处理中文
 pd.to_datetime('2019年年10月月10日日',format='%Y年年%m月月%d日日')
 ```
-### 9.2.10. 分组聚合
+### 分组聚合
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
 # 分组
@@ -5745,7 +6053,7 @@ dict_mapping = {
 }
 df1.groupby('key1').agg(dict_mapping)
 ```
-#### 9.2.10.1. 拓展apply()函数
+#### 拓展apply()函数
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 # 拓拓展apply函数
 # apply函数是pandas里面所有函数中自由度最高的函数
@@ -5768,7 +6076,8 @@ df1.groupby('smoker').apply(top,col='weight',n=2)
 
 ```
 
-### 9.2.11. 分组案例
+### 分组案例
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
 # 读取数据
@@ -5781,46 +6090,46 @@ data = pd.read_csv('movie_data.csv')
 print(data.head())
 '''
    color      director_name  num_critic_for_reviews  duration  \
-0  Color      James Cameron                   723.0     178.0   
-1  Color     Gore Verbinski                   302.0     169.0   
-2  Color         Sam Mendes                   602.0     148.0   
-3  Color  Christopher Nolan                   813.0     164.0   
-4    NaN        Doug Walker                     NaN       NaN   
+0  Color      James Cameron                   723.0     178.0
+1  Color     Gore Verbinski                   302.0     169.0
+2  Color         Sam Mendes                   602.0     148.0
+3  Color  Christopher Nolan                   813.0     164.0
+4    NaN        Doug Walker                     NaN       NaN
 
    director_facebook_likes  actor_3_facebook_likes      actor_2_name  \
-0                      0.0                   855.0  Joel David Moore   
-1                    563.0                  1000.0     Orlando Bloom   
-2                      0.0                   161.0      Rory Kinnear   
-3                  22000.0                 23000.0    Christian Bale   
-4                    131.0                     NaN        Rob Walker   
+0                      0.0                   855.0  Joel David Moore
+1                    563.0                  1000.0     Orlando Bloom
+2                      0.0                   161.0      Rory Kinnear
+3                  22000.0                 23000.0    Christian Bale
+4                    131.0                     NaN        Rob Walker
 
    actor_1_facebook_likes        gross                           genres  \
-0                  1000.0  760505847.0  Action|Adventure|Fantasy|Sci-Fi   
-1                 40000.0  309404152.0         Action|Adventure|Fantasy   
-2                 11000.0  200074175.0        Action|Adventure|Thriller   
-3                 27000.0  448130642.0                  Action|Thriller   
-4                   131.0          NaN                      Documentary   
+0                  1000.0  760505847.0  Action|Adventure|Fantasy|Sci-Fi
+1                 40000.0  309404152.0         Action|Adventure|Fantasy
+2                 11000.0  200074175.0        Action|Adventure|Thriller
+3                 27000.0  448130642.0                  Action|Thriller
+4                   131.0          NaN                      Documentary
 
           ...          num_user_for_reviews language  country  content_rating  \
-0         ...                        3054.0  English      USA           PG-13   
-1         ...                        1238.0  English      USA           PG-13   
-2         ...                         994.0  English       UK           PG-13   
-3         ...                        2701.0  English      USA           PG-13   
-4         ...                           NaN      NaN      NaN             NaN   
+0         ...                        3054.0  English      USA           PG-13
+1         ...                        1238.0  English      USA           PG-13
+2         ...                         994.0  English       UK           PG-13
+3         ...                        2701.0  English      USA           PG-13
+4         ...                           NaN      NaN      NaN             NaN
 
         budget  title_year actor_2_facebook_likes imdb_score  aspect_ratio  \
-0  237000000.0      2009.0                  936.0        7.9          1.78   
-1  300000000.0      2007.0                 5000.0        7.1          2.35   
-2  245000000.0      2015.0                  393.0        6.8          2.35   
-3  250000000.0      2012.0                23000.0        8.5          2.35   
-4          NaN         NaN                   12.0        7.1           NaN   
+0  237000000.0      2009.0                  936.0        7.9          1.78
+1  300000000.0      2007.0                 5000.0        7.1          2.35
+2  245000000.0      2015.0                  393.0        6.8          2.35
+3  250000000.0      2012.0                23000.0        8.5          2.35
+4          NaN         NaN                   12.0        7.1           NaN
 
-  movie_facebook_likes  
-0                33000  
-1                    0  
-2                85000  
-3               164000  
-4                    0  
+  movie_facebook_likes
+0                33000
+1                    0
+2                85000
+3               164000
+4                    0
 
 [5 rows x 28 columns]
 '''
@@ -5830,46 +6139,46 @@ data = data.dropna(how='any')
 # print(data.head())
 '''
    color      director_name  num_critic_for_reviews  duration  \
-0  Color      James Cameron                   723.0     178.0   
-1  Color     Gore Verbinski                   302.0     169.0   
-2  Color         Sam Mendes                   602.0     148.0   
-3  Color  Christopher Nolan                   813.0     164.0   
-5  Color     Andrew Stanton                   462.0     132.0   
+0  Color      James Cameron                   723.0     178.0
+1  Color     Gore Verbinski                   302.0     169.0
+2  Color         Sam Mendes                   602.0     148.0
+3  Color  Christopher Nolan                   813.0     164.0
+5  Color     Andrew Stanton                   462.0     132.0
 
    director_facebook_likes  actor_3_facebook_likes      actor_2_name  \
-0                      0.0                   855.0  Joel David Moore   
-1                    563.0                  1000.0     Orlando Bloom   
-2                      0.0                   161.0      Rory Kinnear   
-3                  22000.0                 23000.0    Christian Bale   
-5                    475.0                   530.0   Samantha Morton   
+0                      0.0                   855.0  Joel David Moore
+1                    563.0                  1000.0     Orlando Bloom
+2                      0.0                   161.0      Rory Kinnear
+3                  22000.0                 23000.0    Christian Bale
+5                    475.0                   530.0   Samantha Morton
 
    actor_1_facebook_likes        gross                           genres  \
-0                  1000.0  760505847.0  Action|Adventure|Fantasy|Sci-Fi   
-1                 40000.0  309404152.0         Action|Adventure|Fantasy   
-2                 11000.0  200074175.0        Action|Adventure|Thriller   
-3                 27000.0  448130642.0                  Action|Thriller   
-5                   640.0   73058679.0          Action|Adventure|Sci-Fi   
+0                  1000.0  760505847.0  Action|Adventure|Fantasy|Sci-Fi
+1                 40000.0  309404152.0         Action|Adventure|Fantasy
+2                 11000.0  200074175.0        Action|Adventure|Thriller
+3                 27000.0  448130642.0                  Action|Thriller
+5                   640.0   73058679.0          Action|Adventure|Sci-Fi
 
           ...          num_user_for_reviews language  country  content_rating  \
-0         ...                        3054.0  English      USA           PG-13   
-1         ...                        1238.0  English      USA           PG-13   
-2         ...                         994.0  English       UK           PG-13   
-3         ...                        2701.0  English      USA           PG-13   
-5         ...                         738.0  English      USA           PG-13   
+0         ...                        3054.0  English      USA           PG-13
+1         ...                        1238.0  English      USA           PG-13
+2         ...                         994.0  English       UK           PG-13
+3         ...                        2701.0  English      USA           PG-13
+5         ...                         738.0  English      USA           PG-13
 
         budget  title_year actor_2_facebook_likes imdb_score  aspect_ratio  \
-0  237000000.0      2009.0                  936.0        7.9          1.78   
-1  300000000.0      2007.0                 5000.0        7.1          2.35   
-2  245000000.0      2015.0                  393.0        6.8          2.35   
-3  250000000.0      2012.0                23000.0        8.5          2.35   
-5  263700000.0      2012.0                  632.0        6.6          2.35   
+0  237000000.0      2009.0                  936.0        7.9          1.78
+1  300000000.0      2007.0                 5000.0        7.1          2.35
+2  245000000.0      2015.0                  393.0        6.8          2.35
+3  250000000.0      2012.0                23000.0        8.5          2.35
+5  263700000.0      2012.0                  632.0        6.6          2.35
 
-  movie_facebook_likes  
-0                33000  
-1                    0  
-2                85000  
-3               164000  
-5                24000             
+  movie_facebook_likes
+0                33000
+1                    0
+2                85000
+3               164000
+5                24000
 
 [5 rows x 28 columns]
 '''
