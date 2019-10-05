@@ -3248,10 +3248,38 @@ locals (optional): 包含局部变量的字典，内部标准实现未用到该�
 fromlist (Optional): 被导入的 submodule 名称
 level (Optional): 导入路径选项，默认为 -1，表示同时支持 absolute import 和 relative import
 # 返回值
+import作用:
+导入/引入一个python标准模块，其中包括.py文件、带有__init__.py文件的目录；
+
+__import__作用:
+同import语句同样的功能，但__import__是一个函数，并且只接收字符串作为参数，所以它的作用就可想而知了。其实import语句就是调用这个函数进行导入工作的，import sys <==>sys = __import__('sys')。
+
+operationSystem = __import__('os',fromlist=True)
+operationSystem.getcwd()-->
+'/home/leung/workspace/Data_Analysis/python3_notebook'
+# __import__用法：
+' 可通过字符串的形式导入模块'
+单层导入
+	__import__('模块名')
+__import__('os')--><module 'os' from '/home/leung/anaconda3/lib/python3.7/os.py'>
+os.getcwd()>>> '/home/leung/workspace/Data_Analysis/python3_notebook'
+多层导入
+	__import__('list.text.commons',fromlist=True)#如果不加上fromlist=True,只会导入list目录
+'fromlist=False'
+__import__('os.path')--><module 'os' from '/home/leung/anaconda3/lib/python3.7/os.py'>
+'fromlist=True'
+__import__('os.path',fromlist=True)-->
+<module 'posixpath' from '/home/leung/anaconda3/lib/python3.7/posixpath.py'>
+
+'通过字符串的形式执行模块的功能'
 
 ```
 
 [python __import__和 import-乌西塔](https://w.im/index.php/2018/12/19/python-__import__/)
+
+
+
+
 
 ### print
 
