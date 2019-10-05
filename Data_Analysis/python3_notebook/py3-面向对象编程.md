@@ -22,9 +22,9 @@
 > std2 = { 'name': 'James', 'score': 81 }
 > ```
 
-```
->而处理学⽣成绩可以通过函数实现，⽐如打印学⽣的成绩：
-​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='std' output='markdown'} ##hide  代码隐藏
+
+> 而处理学⽣成绩可以通过函数实现，⽐如打印学⽣的成绩：
+```python
 std1 = { 'name': 'Curry', 'score': 98 }
 def print_score(std):
     print('%s: %s' % (std['name'], std['score']))
@@ -32,11 +32,7 @@ print_score(std1)
 ```
 
 > 如果采⽤⾯向对象的程序设计思想，我们⾸先思考的不是程序的执行流程，而是Student 这种数据类型应该被视为⼀个对象，这个对象拥有name 和score 这两个属性（Property）。如果要打印一个学生的成绩，⾸先必须创建出这个学生对应的对象，然后，给对象发一个print_score 消息，让对象⾃己把⾃己的数据打印出来。
->
-> ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-> 
-> ```
-
+```python
 class Student(object):
     def __init__(self, name, score):
         self.name = name
@@ -65,8 +61,8 @@ lisa.print_score()
 ### 对象
 某一个具体事物的存在 ,在现实世界中可以是看得见摸得着的。 可以是直接使用的
 ### 类和对象之间的关系
-@import  "类和对象之间的关系.png" {title="类和对象之间的关系"}
-![类和对象之间的关系](类和对象之间的关系.png  "类和对象之间的关系")
+<!-- @import  "类和对象之间的关系.png" {title="类和对象之间的关系"}
+![类和对象之间的关系](类和对象之间的关系.png  "类和对象之间的关系") -->
 
 ![类和对象之间的关系][scenery]
 
@@ -77,8 +73,8 @@ lisa.print_score()
 ### 定义类和创建对象
 
 #### 定义类的格式为:
-​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
+```python
 class 类名:
 '''方法列表'''
 # class Hero: # 经典类（旧式类）定义形式
@@ -88,6 +84,7 @@ class Hero(object): # 新式类定义形式
     def info(self):
        print("hero")
 ```
+
 > 说明：
 - 定义类时有2种形式：新式类和经典类，上面代码中的Hero为新式类，前两行注释部分则为经典类；
 - object 是Python 里所有类的最顶级父类；
@@ -543,10 +540,8 @@ print(People.get_country())
 > - 多态, 不同的 子类对象调⽤ 相同的 父类方法，产生 不同的 执行结果，可以增加代码的外部 调⽤灵活度
 > - 多态以 继承 和 重写 父类方法 为前提
 > - 多态是调用⽅法的技巧，不会影响到类的内部设计
-> ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-> 
-> ```
 
+```python
 class Animal(object):
     def run(self):
      print('Animal is running...')
@@ -556,7 +551,13 @@ class Dog(object):
 class Cat(object):
     def run(self):
         print('Cat is running...')
+```
+
+
 # 定义一个方法（参数必须传一个animal类型的对象）
+
+
+```python {cmd = true matplotlib=true code_block=true class= &#39; line-numbers&#39;  continue=&#39;utf-8&#39; output=&#39;markdown&#39;} ##hide  代码隐藏
 def run_twice(animal):
         animal.run()
         animal.run()
@@ -565,9 +566,6 @@ cat = Cat()
 
 run_twice(dog)
 run_twice(cat)
-```
-
-​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # 多态
 # 继承和重写前提
@@ -727,7 +725,7 @@ sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
 - 注意：⾃定义模块名字和变量名的定义很类似，都是由字⺟、数字、下划线组成，但是不能以数字开头，否则⽆法导⼊该模块。
 
 
-```
+```python
 # 模块 .py文件
 import random
 import time
@@ -737,7 +735,7 @@ import time
 help('modules')# 查看所安装的模块
 ```
 
-```
+```python
 # 自定义需要两步： 修改成 .py文件， first_module.py文件与当前导入的文件放在同一个目录下
 import first_module
 
@@ -746,11 +744,6 @@ import first_module
 # first_module.show()
 print(__name__)# __main__
 ```
-
-
-
-
-
 
 ### 创建名为first_module的⾃定义模块
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -806,7 +799,8 @@ stu.show_msg()
 ![包-模块-代码](包-模块-代码.png)
 
 
-```
+```python
+
 # 模块的导入
 # 1. import 直接导入
 import first_module
@@ -899,7 +893,8 @@ with open('/path/to/file', 'r') as f:
 
 ## 文件的打开方式
 
-```
+```python
+
 # f=open(‘1.txt’)
 # # 读取或者写入
 # f.close()
@@ -1023,25 +1018,25 @@ file.close()
 
 ## 字符编码
 要读取⾮UTF-8编码的⽂本⽂件，需要给open() 函数传⼊encoding 参数，例如，读取GBK编码的⽂件：
-```
+```python
 >>> f = open('/Users/michael/gbk.txt', 'r', encoding='gbk')
 >>> f.read()
 '测试'
-```
+```python
 遇到有些编码不规范的⽂件，你可能会遇到UnicodeDecodeError ，因为在⽂本⽂件中可能夹杂了⼀些⾮法编码的字符。遇到这种情况， open() 函数还接收⼀个errors 参数，表示如果遇到编码错误后如何处理。最简单的⽅式是直接忽略：
 ```
 >>> f = open('/Users/michael/gbk.txt', 'r', encoding='gbk',errors='ignore')
-```
+```python
 ## 写⽂件
 写⽂件和读⽂件是⼀样的，唯⼀区别是调⽤open() 函数时，传⼊标识符'w' 或者'wb' 表示写⽂本⽂件或写⼆进制⽂件：
 
-```
+```python
 >>> f = open('/Users/michael/test.txt', 'w')
 >>> f.write('Hello, world!')
 >>> f.close()
 ```
 
-```
+```python
 with open('/Users/michael/test.txt', 'w') as f:
     f.write('Hello, world!')
 ```
@@ -1079,7 +1074,7 @@ with open('./baidu.png','wb') as file:
 
 
 ```
-```
+```python
 # [statues：200，
 #     code:{
 #         'name':'zs'

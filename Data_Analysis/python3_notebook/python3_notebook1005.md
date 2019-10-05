@@ -91,6 +91,10 @@ Then, anywhere in the document, you define  [an example][id] your link label on 
 
 [id]: http://example.com/  "Optional Title Here"
 
+
+
+
+
 [^2]:[数据类型和变量 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/1016959663602400/1017063826246112)
 
 ### 变量的命名规则
@@ -102,8 +106,8 @@ Then, anywhere in the document, you define  [an example][id] your link label on 
 
 驼峰命名法
 :   ⼩驼峰和大驼峰
-⼩驼峰: 第⼀个单词⾸字⺟要⼩写，其它单词⾸字⺟都大写
-大驼峰:每个单词⾸字⺟都大写
+⼩驼峰: 第⼀个单词⾸首字⺟要⼩写，其它单词⾸首字⺟都大写
+大驼峰:每个单词⾸首字⺟都大写
 
 下划线命名
 :   单词都使⽤⼩写字⺟，单词之间使⽤下划线进⾏分割, ⽐如: my_name
@@ -422,13 +426,11 @@ print('END')
 字符串
 :   单引号,双引号,包括三引号包围的字符组
 
-```python
+```
 name = 'abcdef'
 print(name[1:-1]) # 取 下标为1开始 到 最后第2个 之间的字符
 ```
-
 2. Demonstration
-
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 str = 'hello'#定义字符串变量
 str = "helo"#定义字符串变量
@@ -789,7 +791,6 @@ while i<length:
 由于⼀个key 只能对应⼀个value ，所以，多次对⼀个key 放⼊value ，后面的值会把前面的值冲
 掉：
 
-```python
 d['Jack'] = 90
 d['Jack']
 90
@@ -797,9 +798,8 @@ d['Jack'] = 88
 d['Jack']
 88
 
-# 如果key不存在，dict就会报错：
 ```
-
+如果key不存在，dict就会报错：
 4. Conclusion
 
 
@@ -810,14 +810,13 @@ d['Jack']
 - 修改元素
 字典的每个元素中的数据是可以修改的，只要通过key 找到，即可修改
 
-```python
-
+​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+info = {'name':'kkb', 'id':100, 'sex':'f', 'address':'中国北北'}
 # new_id = input('请输⼊新的学号:')
 new_id = '102'
 info['id'] = int(new_id)
 print('修改之后的id为: %d' % info['id'])
 ```
-
 - 添加元素
 访问不存在的元素: 报错
 如果在使⽤ 变量名['键'] = 数据 时，这个“键”在字典中，不存在，那么就会新增这个元素。
@@ -949,106 +948,208 @@ keyword.kwlist
 
 [(Back to 面向过程编程)](#面向过程编程)
 
+\## 函数
+
+
+
+\1. Definition
+
+
+
 函数
+
 :   需要某块代码多次，但是为了了提高编写的效率以及代码的重⽤用，所以把具有独⽴功能的代码块组织为⼀个⼩模块
+
+
 
 ### 函数定义和调⽤
 
 #### 定义函数
 
-```python {class='line-numbers'}
+\```
 
 def 函数名():
-    代码
-```
+
+​    代码
+
+\```
+
 #### 调用函数
+
 函数名() 即可完成调⽤用
+
 定义完函数后，函数是不不会⾃自动执⾏行行的，需要调⽤用它才可以
-`printInfo()`
-#### 注意:
-- 每次调⽤函数时，函数都会从头开始执行，当这个函数中的代码执完毕后，意味着调⽤结束了
-- 当然了如果函数中执行到了return也会结束函数
-### 函数的文档说明
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-def test(a,b):
-    '''⽤来完成对2个数求和'''
-    print("%d"%(a+b))
-help(test)
-# 还可以用test.__doc__ 直接查看文档说明
-print(test.__doc__)
+
 ```
+printInfo()
+```
+
+#### 注意:
+
+\- 每次调⽤函数时，函数都会从头开始执行，当这个函数中的代码执完毕后，意味着调⽤结束了
+
+\- 当然了如果函数中执行到了return也会结束函数
+
+\### 函数的文档说明
+
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
+def test(a,b):
+
+​    '''⽤来完成对2个数求和'''
+
+​    print("%d"%(a+b))
+
+help(test)
+
+\# 还可以用test.__doc__ 直接查看文档说明
+
+print(test.__doc__)
+
+\```
+
 ### 函数的参数
 
 #### 位置参数
 
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-def power(x, n):
-    '''power(x, n) 函数，可以计算任意xd的n次⽅：'''
-    s = 1
-    while n > 0:
-        n = n - 1
-        s = s * x
-    return s
-```
-#### 默认参数
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-def power(x, n=2):
-'''
-power(x, n) 函数，可以计算任意xd的n次⽅：
-默认参数：n=2
-'''
-    s = 1
-    while n > 0:
-        n = n - 1
-        s = s * x
-    return s
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
-```
+def power(x, n):
+
+​    '''power(x, n) 函数，可以计算任意xd的n次⽅：'''
+
+​    s = 1
+
+​    while n > 0:
+
+​        n = n - 1
+
+​        s = s * x
+
+​    return s
+
+\```
+
+#### 默认参数
+
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
+def power(x, n=2):
+
+'''
+
+power(x, n) 函数，可以计算任意xd的n次⽅：
+
+默认参数：n=2
+
+'''
+
+​    s = 1
+
+​    while n > 0:
+
+​        n = n - 1
+
+​        s = s * x
+
+​    return s
+
+
+
+\```
+
 默认参数可以简化函数的调用。
+
 设置默认参数时，有⼏点要注意：
-- 必选参数在前，默认参数在后，否则Python的解释器器会报错；
-- 当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。变小的参数就可以作为默认参数。
+
+\- 必选参数在前，默认参数在后，否则Python的解释器器会报错；
+
+\- 当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。变小的参数就可以作为默认参数。
+
+
 
 ##### 注意：默认参数有个最⼤大的坑，演示如下：
-先定义⼀个函数，传⼊入⼀个list，添加⼀个END 再返回：
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
+先定义⼀一个函数，传⼊入⼀一个list，添加⼀一个END 再返回：
+
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
 def add_end(L=[]):
-    L.append('END')
-    return L
 
-# 当你正常调⽤用时，结果似乎不不错：
+​    L.append('END')
+
+​    return L
+
+
+
+\# 当你正常调⽤用时，结果似乎不不错：
+
 add_end([1, 2, 3])
-# [1, 2, 3, 'END']
-add_end(['x', 'y', 'z'])
-# ['x', 'y', 'z', 'END']
 
-# 当你使⽤用默认参数调⽤用时，一开始结果也是对的：
+\# [1, 2, 3, 'END']
+
+add_end(['x', 'y', 'z'])
+
+\# ['x', 'y', 'z', 'END']
+
+
+
+
+
+\# 当你使⽤用默认参数调⽤用时，一开始结果也是对的：
+
 add_end()
-# ['END']
+
+\# ['END']
+
 '''
+
 但是，默认参数再次调⽤用add_end() 时，结果就不不对了了：
+
 '''
+
 add_end()
-# ['END', 'END']
+
+\# ['END', 'END']
+
 add_end()
-# ['END', 'END', 'END']
-```
+
+\# ['END', 'END', 'END']
+
+\```
+
 很多初学者很疑惑，默认参数是[] ，但是函数似乎每次都“记住了了”上次添加了了'END' 后的list。
-> 原因解释如下：
+
+\> 原因解释如下：
+
 Python函数在定义的时候，默认参数L 的值就被计算出来了，即[] ，因为默认参数L 也是一个变量，它指向对象[] ，每次调⽤用该函数，如果改变了L 的内容，则下次调⽤用时，默认参数的内容就变了，不再是函数定义时的[] 了。
+
 ##### 定义默认参数要牢记一点：默认参数必须指向不变对象！
 
+
+
 要修改上⾯的例子，我们可以用None 这个不变对象来实现：
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
 def add_end(L=None):
-    if L is None:
-        L = []
-    L.append('END')
-    return L
-```
-> 为什么要设计str 、None 这样的不变对象呢？因为不变对象一旦创建，对象内部的数据就不能修改，这样就减少了了由于修改数据导致的错误。此外，由于对象不变，多任务环境下同时读取对象不需要加锁，同时读一点问题都没有。我们在编写程序时，如果可以设计一个不不变对象，那就尽量量设计成不变对象。
-#### 可变参数
+
+​    if L is None:
+
+​        L = []
+
+​    L.append('END')
+
+​    return L
+
+\```
+
+\> 为什么要设计str 、None 这样的不变对象呢？因为不变对象一旦创建，对象内部的数据就不能修改，这样就减少了了由于修改数据导致的错误。此外，由于对象不变，多任务环境下同时读取对象不需要加锁，同时读一点问题都没有。我们在编写程序时，如果可以设计一个不不变对象，那就尽量量设计成不变对象。
+
+\#### 可变参数
+
 可变参数就是传⼊入的参数个数是可变的，可以是1个、2个到任意个，还可以是0个。
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def calc(*numbers):
     sum = 0
@@ -1059,7 +1160,6 @@ def calc(*numbers):
 # 5
 # >>> calc()
 # 0
-
 >>> nums = [1, 2, 3]
 '''
 *nums 表示把nums 这个list的所有元素作为可变参数传进去。
@@ -1067,130 +1167,236 @@ def calc(*numbers):
 >>> calc(*nums)
 14
 ```
+
+
+
 #### 命名关键字参数
+
 对于关键字参数，函数的调⽤用者可以传⼊入任意不不受限制的关键字参数。⾄至于到底传⼊入了了哪些，就需要在函数内部通过kw 检查。
 
+
+
 仍以person() 函数为例例，我们希望检查是否有city 和job 参数：
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
+```python {cmd = true matplotlib=true code_block=true class= &#39; line-numbers&#39;  continue=&#39;utf-8&#39; output=&#39;markdown&#39;} ##hide  代码隐藏
 def person(name, age, **kw):
     if 'city' in kw:
     # 有city参数
         pass
     if 'job' in kw:
-    # 有job参数
+   # 有job参数
         pass
     print('name:', name, 'age:', age, 'other:', kw)
-
 person('Jack', 24, city='Beijing', addr='Chaoyang', zipcode=123456)
 ```
+
 #### 命名关键字参数
+
 如果要限制关键字参数的名字，就可以⽤用命名关键字参数，例例如，只接收city 和job 作为关键字参数。
+
 这种⽅方式定义的函数如下：
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def person(name, age, *, city, job):
+
 '''命名关键字参数--限制关键字参数的名字--必须传⼊参数名'''
-    print(name, age, city, job)
 
+​    print(name, age, city, job)
 ```
-- 和关键字参数**kw 不不同，命名关键字参数需要⼀个特殊分隔符* ， * 后⾯面的参数被视为命名关键字参数。调⽤用⽅方式如下：
+
+\- 和关键字参数**kw 不不同，命名关键字参数需要⼀一个特殊分隔符* ， * 后⾯面的参数被视为命名关键字参数。调⽤用⽅方式如下：
+
 `person('Jack', 24, city='Beijing', job='Engineer')
-Jack 24 Beijing Engineer`
-- 如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要⼀个特殊分隔符* 了：
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-def person(name, age, *args, city, job):
-    print(name, age, args, city, job)
 
-```
-- 命名关键字参数可以有缺省值，从⽽而简化调⽤用：
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+Jack 24 Beijing Engineer`
+
+\- 如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要⼀一个特殊分隔符* 了：
+
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
+def person(name, age, *args, city, job):
+
+​    print(name, age, args, city, job)
+
+
+
+\```
+
+\- 命名关键字参数可以有缺省值，从⽽而简化调⽤用：
+
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
 def person(name, age, *, city='Beijing', job):
+
 '''由于命名关键字参数city 具有默认值，调⽤用时，可不不传⼊入city 参数：'''
-    print(name, age, city, job)
-```
-- 使⽤用命名关键字参数时，要特别注意，如果没有可变参数，就必须加⼀个\* 作为特殊分隔符。如果缺少\* ，Python解释器器将⽆无法识别位置参数和命名关键字参数：
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
+​    print(name, age, city, job)
+
+\```
+
+\- 使⽤用命名关键字参数时，要特别注意，如果没有可变参数，就必须加⼀个\* 作为特殊分隔符。如果缺少\* ，Python解释器器将⽆无法识别位置参数和命名关键字参数：
+
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
 def person(name, age, city, job):
-# 缺少 *，city和job被视为位置参数
-    ass
-```
-#### 参数组合
+
+\# 缺少 *，city和job被视为位置参数
+
+​    ass
+
+\```
+
+\#### 参数组合
+
 参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。
 
-在函数调⽤的时候，Python解释器⾃动按照参数位置和参数名把对应的参数传进去。
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-def f1(a, b, c=0, *args, **kw):
-    print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
-def f2(a, b, c=0, *, d, **kw):
-    print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
 
-# 最神奇的是通过⼀个tuple 和dict ，你也可以调⽤用上述函数：
+
+在函数调⽤的时候，Python解释器⾃动按照参数位置和参数名把对应的参数传进去。
+
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
+def f1(a, b, c=0, *args, **kw):
+
+​    print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+
+def f2(a, b, c=0, *, d, **kw):
+
+​    print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
+
+
+
+\# 最神奇的是通过⼀一个tuple 和dict ，你也可以调⽤用上述函数：
+
 args = (1, 2, 3, 4)
+
 kw = {'d': 99, 'x': '#'}
+
 f1(*args, **kw)
 
-```
-### 函数返回值 
-- “返回值”，就是程序中函数完成⼀件事情后，最后给调⽤用者的结果
-- 带有返回值的函数
-想要在函数中把结果返回给调⽤用者，需要在函数中使⽤用return
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-def add2num(a, b):
-    return a+b
-```
-- 保存函数的返回值
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-#定义函数
-def add2num(a, b):
-    return a+b
-#调⽤函数，顺便保存函数的返回值
-result = add2num(100,98)
-#因为result已经保存了add2num的返回值，所以接下来就可以使用了了
-print(result)
-# 结果:
-# 198
 
-```
-- 在python中我们怎样返回多个值？
+
+\```
+
+\### 函数返回值 
+
+\- “返回值”，就是程序中函数完成⼀一件事情后，最后给调⽤用者的结果
+
+\- 带有返回值的函数
+
+想要在函数中把结果返回给调⽤用者，需要在函数中使⽤用return
+
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
+def add2num(a, b):
+
+​    return a+b
+
+\```
+
+\- 保存函数的返回值
+
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
+\#定义函数
+
+def add2num(a, b):
+
+​    return a+b
+
+\#调⽤函数，顺便保存函数的返回值
+
+result = add2num(100,98)
+
+\#因为result已经保存了add2num的返回值，所以接下来就可以使用了了
+
+print(result)
+
+\# 结果:
+
+\# 198
+
+
+
+\```
+
+\- 在python中我们怎样返回多个值？
+
+
 
 多个return?
-> ⼀个函数中可以有多个return 语句，但是只要有一个return 语句被执行到，那么这个函数就会结束了
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
- def create_nums(num):
-     print("---1---")
-     if num == 100:
-         print("---2---")
-         return num+1 # 函数中下⾯面的代码不不会被执⾏行行，因为return除了了能够将数据返回之外，还有一个隐藏的功能：结束函数
-     else:
-         print("---3---")
-         return num+2
-     print("---4---")
- result1 = create_nums(100)
- print(result1) # 打印101
- result2 = create_nums(200)
- print(result2) # 打印202
-```
 
-> ⼀个函数返回多个数据的⽅式
-```python {class= ' line-numbers'} ##hide  代码隐藏
+\> ⼀一个函数中可以有多个return 语句，但是只要有一个return 语句被执行到，那么这个函数就会结束了
+
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
+def create_nums(num):
+
+​    print("---1---")
+
+​    if num == 100:
+
+​        print("---2---")
+
+​        return num+1 # 函数中下⾯面的代码不不会被执⾏行行，因为return除了了能够将数据返回之外，还有一个隐藏的功能：结束函数
+
+​    else:
+
+​        print("---3---")
+
+​        return num+2
+
+​    print("---4---")
+
+result1 = create_nums(100)
+
+print(result1) # 打印101
+
+result2 = create_nums(200)
+
+print(result2) # 打印202
+
+
+
+\```
+
+\- ⼀个函数返回多个数据的⽅式
+
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
 def divid(a, b):
-    shang = a//b
-    yushu = a%b
-    return shang, yushu #默认是元组
+
+​    shang = a//b
+
+​    yushu = a%b
+
+​    return shang, yushu #默认是元组
+
 result = divid(5, 2)
+
 print(result) # 输出(2, 1)
-```
 
-##### return 后面可以是元组，列表、字典等，只要是能够存储多个数据的类型，就可以一次性返回多个数据
+\```
 
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+\##### return 后面可以是元组，列表、字典等，只要是能够存储多个数据的类型，就可以一次性返回多个数据
+
+
+
+\```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
 def function():
-# return [1, 2, 3]
-# return (1, 2, 3)
-    return {"num1": 1, "num2": 2, "num3": 3}
+
+\# return [1, 2, 3]
+
+\# return (1, 2, 3)
+
+​    return {"num1": 1, "num2": 2, "num3": 3}
+
+
 
 print(function())
-```
+
+\```
 
 ## Python内置函数
 
@@ -1199,7 +1405,7 @@ import sys
 sys.getdefaultencoding() # 'utf-8'
 ```
 
-![Python内置函数](./python内置函数.png "Python内置函数")
+![Python内置函数](/home/leung/workspace/Data_Analysis/python3_notebook/python内置函数.png "Python内置函数")
 
 ### abs
 
@@ -1278,7 +1484,7 @@ repr() using \\x, \\u or \\U escapes. This generates a string similar
 to that returned by repr() in Python 2.
 
 Type:      builtin_function_or_method
-
+    
 # 描述
 ascii() 函数类似 repr() 函数, 返回一个表示对象的字符串, 但是对于字符串中的非 ASCII 字符则返回通过 repr() 函数使用 \x, \u 或 \U 编码的字符。 生成字符串类似 Python2 版本中 repr() 函数的返回值。
 
@@ -1983,7 +2189,7 @@ keep_kernel : bool
 
 在编程语言中，高阶函数指的是接受函数作为输入或输出的函数。
 
-![filter函数](filter函数.png 'filter函数')
+![filter函数](/home/leung/workspace/Data_Analysis/python3_notebook/filter函数.png 'filter函数')
 
 ```python
 Init signature: filter(self, /, *args, **kwargs)
@@ -2011,7 +2217,7 @@ filter(function, iterable)
 [6, 7, 8]
 ```
 
-<img src="map函数.png" alt="map函数" title="map函数" style="zoom:100%;" />
+<img src="/home/leung/workspace/Data_Analysis/python3_notebook/map函数.png" alt="map函数" title="map函数" style="zoom:100%;" />
 
 ```python
 Init signature: map(self, /, *args, **kwargs)
@@ -2127,9 +2333,9 @@ frozenset({1, 2, 3})
 
 ### globals
 
-![globals函数](globals函数.png 'globals函数')
+![globals函数](/home/leung/workspace/Data_Analysis/python3_notebook/globals函数.png 'globals函数')
 
-![globals函数-执行run后](globals函数-执行run后.png 'globals函数-执行run后')
+![globals函数-执行run后](/home/leung/workspace/Data_Analysis/python3_notebook/globals函数-执行run后.png 'globals函数-执行run后')
 
 ```python
 Signature: globals()
@@ -2224,7 +2430,7 @@ hash(str(lst)),hash(str(tpl)),hash(str(dct))
 
 调用内建的帮助系统，如果不包含参数，交互式帮助系统将在控制台启动。如果参数为字串，则可以是模块，类，方法等名称，并且帮助页面将会在控制台打印。help的参数也可以为任意对象
 
-![help](help.png 'help')
+![help](/home/leung/workspace/Data_Analysis/python3_notebook/help.png 'help')
 
 ### id
 
@@ -2496,7 +2702,7 @@ while True: #只满足重复，因而不是迭代
 
 ### **iterable & iterator**
 
-![迭代器分为3部分:可迭代对象-迭代器-迭代](迭代器分为3部分:可迭代对象-迭代器-迭代.png '迭代器分为3部分:可迭代对象-迭代器-迭代')
+![迭代器分为3部分:可迭代对象-迭代器-迭代](/home/leung/workspace/Data_Analysis/python3_notebook/迭代器分为3部分:可迭代对象-迭代器-迭代.png '迭代器分为3部分:可迭代对象-迭代器-迭代')
 
 ```python
 help(Iterable)	
@@ -2652,7 +2858,11 @@ yield作为一个暂停恢复的点,代码从yield处恢复,又在下一个yield
 '''
 ```
 
-![生成器-迭代器](生成器-迭代器.png '生成器-迭代器')
+![生成器-迭代器](/home/leung/workspace/Data_Analysis/python3_notebook/生成器-迭代器.png '生成器-迭代器')
+
+
+
+
 
 ```python
 注意事项:
@@ -3794,6 +4004,281 @@ If only globals is given, locals defaults to it.
 Type:      builtin_function_or_method
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 函数定义和调⽤
+
+#### 定义函数
+
+```
+def 函数名():
+    代码
+```
+#### 调用函数
+
+函数名() 即可完成调⽤
+定义完函数后，函数是不会⾃动执⾏的，需要调⽤它才可以
+`printInfo()`
+#### 注意:
+- 每次调⽤函数时，函数都会从头开始执行，当这个函数中的代码执完毕后，意味着调⽤结束了
+- 当然了如果函数中执行到了return也会结束函数
+### 函数的文档说明
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def test(a,b):
+    '''⽤来完成对2个数求和'''
+    print("%d"%(a+b))
+help(test)
+# 还可以用test.__doc__ 直接查看文档说明
+print(test.__doc__)
+```
+### 函数的参数
+#### 位置参数
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def power(x, n):
+    '''power(x, n) 函数，可以计算任意xd的n次⽅：'''
+    s = 1
+    while n > 0:
+        n = n - 1
+        s = s * x
+    return s
+```
+#### 默认参数
+
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def power(x, n=2):
+'''
+power(x, n) 函数，可以计算任意xd的n次⽅：
+默认参数：n=2
+'''
+    s = 1
+    while n > 0:
+        n = n - 1
+        s = s * x
+    return s
+
+```
+默认参数可以简化函数的调用。
+设置默认参数时，有⼏点要注意：
+
+<!-- This is some comments -->
+
+- 必选参数在前，默认参数在后，否则Python的解释器会报错；
+- 当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。变小的参数就可以作为默认参数。
+
+##### 注意：默认参数有个最大的坑，演示如下：
+
+先定义⼀个函数，传⼊⼀个list，添加⼀个END 再返回：
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def add_end(L=[]):
+    L.append('END')
+    return L
+
+# 当你正常调⽤时，结果似乎不错：
+add_end([1, 2, 3])
+# [1, 2, 3, 'END']
+add_end(['x', 'y', 'z'])
+# ['x', 'y', 'z', 'END']
+
+
+
+# 当你使⽤默认参数调⽤时，一开始结果也是对的：
+add_end()
+# ['END']
+'''
+但是，默认参数再次调⽤add_end() 时，结果就不对了：
+'''
+add_end()
+# ['END', 'END']
+add_end()
+# ['END', 'END', 'END']
+```
+很多初学者很疑惑，默认参数是[] ，但是函数似乎每次都“记住了”上次添加了'END' 后的list。
+> 原因解释如下：
+Python函数在定义的时候，默认参数L 的值就被计算出来了，即[] ，因为默认参数L 也是一个变量，它指向对象[] ，每次调⽤该函数，如果改变了L 的内容，则下次调⽤时，默认参数的内容就变了，不再是函数定义时的[] 了。
+##### 定义默认参数要牢记一点：默认参数必须指向不变对象！
+
+要修改上⾯的例子，我们可以用None 这个不变对象来实现：
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def add_end(L=None):
+    if L is None:
+        L = []
+    L.append('END')
+    return L
+```
+> 为什么要设计str 、None 这样的不变对象呢？因为不变对象一旦创建，对象内部的数据就不能修改，这样就减少了由于修改数据导致的错误。此外，由于对象不变，多任务环境下同时读取对象不需要加锁，同时读一点问题都没有。我们在编写程序时，如果可以设计一个不变对象，那就尽量设计成不变对象。
+#### 可变参数
+
+可变参数就是传⼊的参数个数是可变的，可以是1个、2个到任意个，还可以是0个。
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def calc(*numbers):
+    sum = 0
+    for n in numbers:
+        sum = sum + n * n
+    return sum
+# >>> calc(1, 2)
+# 5
+# >>> calc()
+# 0
+
+>>> nums = [1, 2, 3]
+'''
+*nums 表示把nums 这个list的所有元素作为可变参数传进去。
+'''
+>>> calc(*nums)
+14
+```
+#### 命名关键字参数
+对于关键字参数，函数的调⽤者可以传⼊任意不受限制的关键字参数。⾄于到底传⼊了哪些，就需要在函数内部通过kw 检查。
+
+仍以person() 函数为例，我们希望检查是否有city 和job 参数：
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def person(name, age, **kw):
+    if 'city' in kw:
+    # 有city参数
+        pass
+    if 'job' in kw:
+    # 有job参数
+        pass
+    print('name:', name, 'age:', age, 'other:', kw)
+
+person('Jack', 24, city='Beijing', addr='Chaoyang', zipcode=123456)
+```
+#### 命名关键字参数
+如果要限制关键字参数的名字，就可以⽤命名关键字参数，例如，只接收city 和job 作为关键字参数。
+这种⽅式定义的函数如下：
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
+def person(name, age, *, city, job):
+'''命名关键字参数--限制关键字参数的名字--必须传⼊参数名'''
+    print(name, age, city, job)
+
+```
+- 和关键字参数**kw 不同，命名关键字参数需要⼀个特殊分隔符* ， * 后面的参数被视为命名关键字参数。调⽤⽅式如下：
+`person('Jack', 24, city='Beijing', job='Engineer')
+Jack 24 Beijing Engineer`
+- 如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要⼀个特殊分隔符* 了：
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def person(name, age, *args, city, job):
+    print(name, age, args, city, job)
+
+```
+- 命名关键字参数可以有缺省值，从⽽简化调⽤：
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def person(name, age, *, city='Beijing', job):
+'''由于命名关键字参数city 具有默认值，调⽤时，可不传⼊city 参数：'''
+    print(name, age, city, job)
+```
+- 使⽤命名关键字参数时，要特别注意，如果没有可变参数，就必须加⼀个\* 作为特殊分隔符。如果缺少\* ，Python解释器将⽆法识别位置参数和命名关键字参数：
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def person(name, age, city, job):
+# 缺少 *，city和job被视为位置参数
+    ass
+```
+#### 参数组合
+参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。
+
+在函数调⽤的时候，Python解释器⾃动按照参数位置和参数名把对应的参数传进去。
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def f1(a, b, c=0, *args, **kw):
+    print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+def f2(a, b, c=0, *, d, **kw):
+    print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
+
+# 最神奇的是通过⼀个tuple 和dict ，你也可以调⽤上述函数：
+args = (1, 2, 3, 4)
+kw = {'d': 99, 'x': '#'}
+f1(*args, **kw)
+
+```
+### 函数返回值
+- “返回值”，就是程序中函数完成⼀件事情后，最后给调⽤者的结果
+- 带有返回值的函数
+想要在函数中把结果返回给调⽤者，需要在函数中使⽤return
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def add2num(a, b):
+    return a+b
+```
+- 保存函数的返回值
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+#定义函数
+def add2num(a, b):
+    return a+b
+#调⽤函数，顺便保存函数的返回值
+result = add2num(100,98)
+#因为result已经保存了add2num的返回值，所以接下来就可以使用了
+print(result)
+# 结果:
+# 198
+
+```
+- 在python中我们怎样返回多个值？
+
+多个return?
+> ⼀个函数中可以有多个return 语句，但是只要有一个return 语句被执行到，那么这个函数就会结束了
+> ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+> def create_nums(num):
+>     print("---1---")
+>     if num == 100:
+>         print("---2---")
+>         return num+1 # 函数中下面的代码不会被执⾏，因为return除了能够将数据返回之外，还有一个隐藏的功能：结束函数
+>     else:
+>         print("---3---")
+>         return num+2
+>     print("---4---")
+> result1 = create_nums(100)
+> print(result1) # 打印101
+> result2 = create_nums(200)
+> print(result2) # 打印202
+> ```
+
+```
+- ⼀个函数返回多个数据的⽅式
+​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def divid(a, b):
+    shang = a//b
+    yushu = a%b
+    return shang, yushu #默认是元组
+result = divid(5, 2)
+print(result) # 输出(2, 1)
+```
+##### return 后面可以是元组，列表、字典等，只要是能够存储多个数据的类型，就可以一次性返回多个数据
+
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+def function():
+# return [1, 2, 3]
+# return (1, 2, 3)
+    return {"num1": 1, "num2": 2, "num3": 3}
+
+print(function())
+```
 ## 递归函数
 在函数内部，可以调⽤其他函数。如果⼀个函数在内部调⽤⾃身本身，这个函数就是递归函数。
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -3804,12 +4289,9 @@ def fact(n):
     return n * fact(n - 1)
 print(fact(3))
 ```
-
 > - 递归函数的优点是定义简单，逻辑清晰。理论上，所有的递归函数都可以-写成循环的⽅式，但循环的逻辑不如递归清晰。
 > - 使⽤递归函数需要注意防⽌止栈溢出。
 如果我们计算fact(5) ，可以根据函数定义看到计算过程如下：
-
-```python
 ===> fact(5)
 ===> 5 * fact(4)
 ===> 5 * (4 * fact(3))
@@ -3820,17 +4302,12 @@ print(fact(3))
 ===> 5 * (4 * 6)
 ===> 5 * 24
 ===> 120
-```
-
 ### 小结
-
 - 使⽤递归函数的优点是逻辑简单清晰，缺点是过深的调⽤会导致栈溢出。
 针对尾递归优化的语⾔言可以通过尾递归防⽌止栈溢出。
 - 尾递归事实上和循环是等价的，没有循环语句的编程语⾔言只能通过尾递归实现循环。
 - Python标准的解释器没有针对尾递归做优化，任何递归函数都存在栈溢出的问题。
-
 ## 局部变量
-
 局部变量
 :   在函数内部定义的变量
 
@@ -3880,8 +4357,7 @@ def test2():
 test1()
 test2()
 ```
-
-
+### 总结
 当函数内出现局部变量和全局变量相同名字时，函数内部中的 ==变量名=数据== 此时理解为==定义了一个局部变量，⽽不是修改全局变量的值==
 
 b. 修改全局变量
@@ -3968,3 +4444,4 @@ for index in range(0,10):   # 10次
 ```
 ---
 
+---

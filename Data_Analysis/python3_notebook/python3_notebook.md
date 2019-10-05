@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 <!--
 Created: Wed Sep 18 2019 18:50:22 GMT+0800 (中国标准时间)
 Modified: Wed Sep 18 2019 18:55:31 GMT+0800 (中国标准时间)
@@ -3921,7 +3913,7 @@ def test2():
 test1()
 test2()
 ```
-### 总结
+
 当函数内出现局部变量和全局变量相同名字时，函数内部中的 ==变量名=数据== 此时理解为==定义了一个局部变量，⽽不是修改全局变量的值==
 
 b. 修改全局变量
@@ -4027,26 +4019,20 @@ for index in range(0,10):   # 10次
 
 ---
 我们以⼀个例子来说明⾯向过程和面向对象在程序流程上的不同之处。
-> 假设我们要处理学生的成绩表，为了表示一个学⽣的成绩，⾯向过程的程序可以⽤一个dict 表示：
-> ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' id = 'std' output='markdown'} ##hide  代码隐藏
-> std1 = { 'name': 'Curry', 'score': 98 }
-> std2 = { 'name': 'James', 'score': 81 }
-> ```
+ 假设我们要处理学生的成绩表，为了表示一个学⽣的成绩，⾯向过程的程序可以⽤一个dict 表示：
 
-```
->而处理学⽣成绩可以通过函数实现，⽐如打印学⽣的成绩：
-​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='std' output='markdown'} ##hide  代码隐藏
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' id = 'std' output='markdown'} ##hide  代码隐藏
+std1 = { 'name': 'Curry', 'score': 98 }
+std2 = { 'name': 'James', 'score': 81 }
+
+# 而处理学⽣成绩可以通过函数实现，⽐如打印学⽣的成绩：
+
 std1 = { 'name': 'Curry', 'score': 98 }
 def print_score(std):
     print('%s: %s' % (std['name'], std['score']))
 print_score(std1)
-```
 
-> 如果采⽤⾯向对象的程序设计思想，我们⾸先思考的不是程序的执行流程，而是Student 这种数据类型应该被视为⼀个对象，这个对象拥有name 和score 这两个属性（Property）。如果要打印一个学生的成绩，⾸先必须创建出这个学生对应的对象，然后，给对象发一个print_score 消息，让对象⾃己把⾃己的数据打印出来。
->
-> ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-> 
-> ```
+# 如果采⽤⾯向对象的程序设计思想，我们⾸先思考的不是程序的执行流程，而是Student 这种数据类型应该被视为⼀个对象，这个对象拥有name 和score 这两个属性（Property）。如果要打印一个学生的成绩，⾸先必须创建出这个学生对应的对象，然后，给对象发一个print_score 消息，让对象⾃己把⾃己的数据打印出来。
 
 class Student(object):
     def __init__(self, name, score):
@@ -4066,18 +4052,22 @@ lisa.print_score()
 ```
 
 ## 类和对象
+
 面向对象编程的2个⾮常重要的概念：类和对象
 
 对象是面向对象编程的核心，在使用对象的过程中，为了将具有共同特征和行为的一组对象抽象定义，提出了另外⼀个新的概念——类
 
 ### 类
-具有相似内部状态和运动规律律的实体的集合(或统称为抽象)。 具有相同属性
-和⾏为事物的统称,类是抽象的,在使用的时候通常会找到这个类的一个具体的存在,使用这个具体的存在。一个类可以找到多个对象
+
+具有相似内部状态和运动规律律的实体的集合(或统称为抽象)。 具有相同属性和⾏为事物的统称,类是抽象的,在使用的时候通常会找到这个类的一个具体的存在,使用这个具体的存在。一个类可以找到多个对象
 ### 对象
+
+
 某一个具体事物的存在 ,在现实世界中可以是看得见摸得着的。 可以是直接使用的
 ### 类和对象之间的关系
-@import  "类和对象之间的关系.png" {title="类和对象之间的关系"}
-![类和对象之间的关系](类和对象之间的关系.png  "类和对象之间的关系")
+
+<!-- @import  "类和对象之间的关系.png" {title="类和对象之间的关系"} -->
+<!-- ![类和对象之间的关系](类和对象之间的关系.png  "类和对象之间的关系") -->
 
 ![类和对象之间的关系][scenery]
 
@@ -4088,24 +4078,29 @@ lisa.print_score()
 ### 定义类和创建对象
 
 #### 定义类的格式为:
-​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+
+​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class 类名:
 '''方法列表'''
-# class Hero: # 经典类（旧式类）定义形式
-# class Hero():
+#class Hero: # 经典类（旧式类）定义形式
+#class Hero():
 
 class Hero(object): # 新式类定义形式
     def info(self):
        print("hero")
 ```
+---
+
 > 说明：
 - 定义类时有2种形式：新式类和经典类，上面代码中的Hero为新式类，前两行注释部分则为经典类；
 - object 是Python 里所有类的最顶级父类；
 - 类名 的命名规则按照"⼤驼峰命名法"；
 - info 是⼀个实例⽅法，第一个参数一般是self ，表示实例对象本身，当然了可以将self换为其它的名字，其作用是⼀个变量 ,这个变量指向了实例对象.
 - python中，可以根据已经定义的类去创建出一个或多个对象。
+
 #### 创建对象的格式为:
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 '''
 对象名1 = 类名()
@@ -4126,6 +4121,7 @@ hero.info()
 print(hero) # 打印对象，则默认打印对象在内存的地址，结果等同于info里的print(self)
 
 ```
+
 #### 对象的创建流程(理解就行)
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -4148,10 +4144,8 @@ print(Dog())
 # <main.Dog object at 0x0000022A37464828>
 ```
 
-
-
-
 ### 对象的属性和⽅法
+
 #### 添加和获取对象的属性
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
