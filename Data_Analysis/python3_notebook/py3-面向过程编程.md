@@ -1,4 +1,3 @@
-
 <!--
 Created: Wed Sep 18 2019 18:50:22 GMT+0800 (中国标准时间)
 Modified: Wed Sep 18 2019 18:55:31 GMT+0800 (中国标准时间)
@@ -22,13 +21,30 @@ Modified: Wed Sep 18 2019 18:55:31 GMT+0800 (中国标准时间)
 
 # Basics of python
 
-<font size="16" color="orange">文档规则：1. 定义 2. 案例 3. 注释 4. 总结 5. 参考链接</font>
+<font size="16" color="orange">文档规则：1. 描述 2. 参数 3. 返回值 4. 实例 5. 参考链接</font>
 ==Content [^1]==
 
 [^1]: [Code Chunk](https://www.bookstack.cn/read/mpe/zh-cn-code-chunk.md)
 
+
+
+## 查看帮助文档:
+
+- help(abs)
+    - abs.\_\_text_signature\_\_
+    - abs.\_\_doc\_\_
+    - type(abs)
+
+## 查看属性
+
+- dir(abs)
+    - abs.\_\_dict\_\_
+
+
+
 # 面向过程编程
 
+[Python3教程 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/1016959663602400)
 [《Python进阶》](https://docs.pythontab.com/interpy/)
 
 ```python {cmd = true matplotlib=true code_block=true class= 'line-numbers'  id='utf-8' continue:true output='markdown' } #hide  代码隐藏
@@ -49,7 +65,7 @@ name = "李四"
 ```
 
 多⾏注释
-:   可以使⽤三个双引号或者三个单引号""" """ ''' '''
+:   可以使⽤三个双引号或者三个单引号
 
 ``` python
 '''
@@ -64,7 +80,7 @@ name = "李四"
 > There are only two hard things in Computer Science: cache invalidation and naming things.
 -- Phil Karlton [ColorLf](https://unbug.github.io/codelf/)
 
-变量[^2]
+变量
 :   通俗理解就是存储程序数据的容器。
 
 变量定义的格式
@@ -80,10 +96,13 @@ print(score)
 # 提示： 在python⾥面不需要指定数据的类型，会根据数据⾃动推导出数据类型
 # 通过type查看变量的类型
 score_type = type(score)
-print(score_type)
+print(score_type)-->int
+
 ```
 
 总结： 常⽤的数据类型 int, str, float, bool, list, tuple, dict, set
+
+---
 
 This is [an example][id] reference-style link.
 
@@ -91,11 +110,9 @@ Then, anywhere in the document, you define  [an example][id] your link label on 
 
 [id]: http://example.com/  "Optional Title Here"
 
-[^2]:[数据类型和变量 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/1016959663602400/1017063826246112)
+---
 
 ### 变量的命名规则
-
-- Definition
 
 变量名
 :   是由字⺟、数字、下划线组成,注意是只有这三种，但是不能以数字开头。
@@ -108,37 +125,23 @@ Then, anywhere in the document, you define  [an example][id] your link label on 
 下划线命名
 :   单词都使⽤⼩写字⺟，单词之间使⽤下划线进⾏分割, ⽐如: my_name
 
-- Demonstration
-
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 my_name = '李四' # 下划线命名法 -> 推荐使⽤
 myName = '王五' # ⼩驼峰
 MyName = '赵六' # 大驼峰
 ```
 
-- Description
-- Conclusion
-- Reference
-
 ### 关键字
-
-- Definition
 
 关键字
 :   在python⾥⾯具有特殊功能的标识符（理解成变量名、函数名）， 关键字不能作为变量名使
 用。
-
-- Demonstration
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ###hide  代码隐藏
 #查看python内置关键字
 import keyword
 print(keyword.kwlist)
 ```
-
-- Description
-- Conclusion
-- Reference
 
 ### 常⽤的数据类型转换
 
@@ -152,17 +155,17 @@ print(keyword.kwlist)
 | ==eval(str)==          | ⽤来计算在字符串中的有效Python表达式, 并返回⼀个对象 |
 | tuple(s)               | 将序列 s 转换为⼀个元组                             |
 | list(s )                | 将序列 s 转换为⼀个列表                             |
-| ==chr(x )==             | 将⼀个整数转换为⼀个Unicode字符                    |
-| ord(x )                 | 将⼀个字符转换为它的ASCII整数值                     |
-| hex(x )                 | 将⼀个整数转换为⼀个⼗六进制字符串                    |
-| oct(x )                 | 将⼀个整数转换为⼀个⼋进制字符串                      |
-| bin(x )                 | 将⼀个整数转换为⼀个⼆进制字符串                      |
+| ==chr(x )==             | 将⼀个<font color='orange'>整数</font>转换为⼀个Unicode字符 character |
+| ord(x )                 | 将⼀个<font color='red'>字符</font>转换为它的ASCII整数值 |
+| hex(x )                 | 将⼀个<font color='orange'>整数</font>转换为⼀个⼗六进制字符串, <br/> Return the integer ordinal of a one-character string. #参数是长度为1的字符，返回它对应的整数 |
+| oct(x )                 | 将⼀个<font color='orange'>整数</font>转换为⼀个⼋进制字符串 |
+| bin(x )                 | 将⼀个<font color='orange'>整数</font>转换为⼀个⼆进制字符串 |
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-# If x is not a number or if base is given, then x must be a string, bytes, or bytearray instance representing an integer literal in the given base.
-print(int('0b100', base=0))
-print(int('2',base=10))
-print('”1+2“=',eval('1+2'))
+# If x is not a number or if base is given, then x must be a string, bytes, or bytearray instance representing an integer literal(一个整数) in the given base.
+print(int('0b100', base=0))-->4
+print(int('2',base=10))-->2
+print('”1+2“=',eval('1+2'))-->3
 ```
 
 ### 输⼊和输出
@@ -176,40 +179,215 @@ print("输出")
 
 ### 格式化输出
 
-a. \%
+####  \%
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-
 score = 100
 print("python考试分数:%d" % score)
 ```
 
-b. format详解
+#### format详解1
 
-- 通过位置
+[Python3 format() 函数详解 将字符串按照规则格式化 - 张恺阳博客](https://www.zky.name/article/35.html)
+
+```python
+Docstring:
+S.format(*args, **kwargs) -> str
+#使用args和kwargs的替换值返回S的格式化版本。
+Return a formatted version of S, using substitutions(替换) from args and kwargs.
+#用大括号标识替换
+The substitutions are identified by braces ('{' and '}').
+Type:      method_descriptor
+#描述
+format()函数的主要作用是按照指定的规则对字符串进行格式化，可以替换固定位置的内容，也可以对字符串填充对齐、数字的格式处理等等。虽然看上去它只是一个简单的数据替换以及数据格式化，但是它真的不简单，它拥有非常多的功能，有负责的内容替换的，有负责数据转换的，还有负责数据格式化的，每个功能都有很多选项，接下来逐一讲解。
+它是Python的内置函数，在python文件中直接可以使用。
+# 语法
+str.format(**args)
+# 替换规则
+字符串中包含由大括号{}包围的"替换字段"，其中大括号中填写文本替换以及格式化规则，如果不填写规则（使用{}），则视为文本格式并且不对文本进行任何格式化，直接替换。文本也是比较常用的一种形式。
+完整的格式如下：
+{[field_name][!conversion][:format_spec]}
+# 实例
+'.format(视为元组)'
+{[空大括号/位置,数字,字符串索引/变量名/字典的键/对象.对象属性][!r/!s/!a][:]}
+#字典键名
+date = {
+    'day': 'Monday',
+    'month': 'February'
+}
+"{date[day]!r:#^12}, {date[month]}".format(date = date)
+>>> "##'Monday'##, February"
+```
+
+
+
+##### field_name - 替换命名方式
+
+>  可以使用默认值、对象名称、对象属性名称、对象索引等的方式来指定需要替换内容。它是可选的，不填写按顺序替换内容。
+
+| 命名方式                | 含义                                                         | 示例:{}.format(<font color='orange'>‘元组’</font>)           |
+| ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 不填写                  | 不填写的情况下将按照顺序替换内容，在提供替换值时需要注意先后顺序，下面几种方式不受顺序控制。 | {}<br>'{}'.format('first',)                                  |
+| arg_name                | 直接使用对象的值                                             | {name}<br>'your name is {name} , age is {age}'.format(name='jack',age=87) |
+| arg_name.attribute_name | 获取对象的指定属性的值                                       | {name.first}<br>p = Person('Tom',18)<br/>'name = {p.name} age = {p.age}'.format(p=p) |
+| arg_name[element_index] | 获取对象的指定索引，可以是数字索引，也可以是字符串索引       | {name[0]} 或 {name['first']}</br>'{0[1]}  {0[2]} {1[2]} {1[0]}'.format(s1,s2)<br>"{date[day]!r:#^12}, {date[month]}".format(date = date) |
+
+##### !conversion - 转换规则
+
+> 替换后可以对替换的值使用转换函数进行直接转换，目前允许使用的转换函数有：str()，repr()，ascii()，在使用时需要书写它们对应的缩写，并以感叹号(!)开始。它是可选的，不填写就不转换。
+
+| 选项 | 含义                          | 示例 |
+| ---- | ----------------------------- | ---- |
+| 'r'  | 调用`repr()`函数对值进行转换  | {!r} |
+| 's'  | 调用`str()`函数对值进行转换   | {!s} |
+| 'a'  | 调用`ascii()`函数对值进行转换 | {!a} |
+
+##### :format_spec - 格式化规则
+
+> 在值被替换以及转换（如果设置的话）后还可以对值进行格式化，接下来将介绍各种格式化规则的用法。它是可选的，不填写就不格式化值。
+> 需要说明一下：在下面的示例中会出现[format_spec]以及[!conversion]，它们分别代表了文中提到的替换命名以及转换规则，由于它们是可选的，所有使用方括号括起来了，写在示例中只是为了体现他们的书写顺序，并不是一定存在。
+> 格式化完整的参数如下：
+>
+> ```python
+> [[fill]align][sign][#][0][width][grouping_option][.precision][type]
+> 
+> ```
+
+- fill - 字符
+
+> 任何字符，只能是一个字符。fill是可选的，但是如果设置了fill，就必须和align搭配使用。
+
+- align - 对齐方式
+
+| 选项 | 含义                                                         | 示例     |
+| :--- | :----------------------------------------------------------- | :------- |
+| '<'  | 强制字符串在可用空间内左对齐（这是大多数对象的默认值）。     | {:<}     |
+| '>'  | 强制字符串在可用空间内右对齐（这是数字的默认值）。           | {:>}     |
+| '='  | 强制在符号（如果有）与数字之间填充若干指定字符，被允许的符号只有'+'、'-'、' ' ，此方式只能应用在值为数字的情况时。 | {:[x]=+} |
+| '^'  | 强制字符串在可用空间内居中。                                 | {:^}     |
+
+> 需要注意的是，如果没有设置填充宽度（width），宽度始终与填充它的数据大小相同，那么对齐选项就没有意义了。
+> 另外，如果宽度设置的过小，比大部分数据的宽度都小。那么对齐的效果可能未必很好。
+> 所以宽度最好设置的大于或等于数据的最大宽度，效果最佳。
+
+- sign - 符号
+
+| 选项  | 含义                               |
+| :---- | :--------------------------------- |
+| '+'   | 用于表示正数和负数                 |
+| '-'   | 用于表示仅用于负数（这是默认行为） |
+| space | 用于表示正数为空格，负数为减号     |
+
+- \# 数字的格式
+
+> '#'选项仅对integer，float，complex和Decimal类型有效。
+> 对于二进制、八进制、十六进制的整数，会在数字的增加前缀"0b"、'0o'、'0x'。
+> 对于浮点数、复数和十进制组成的小数（Decimal），转换后的结果始终都包含小数点字符。
+
+- 0  数字的对齐
+
+> 这是一个特殊的对齐方式，当没有明确给出对齐方式时，则在width选项前面加'0'字符可以为**数字类型**是字符0进行填充。这相当于填充字符'0'，对齐类型为'='。
+
+- width 最小填充宽度
+
+> width是定义最小数据宽度的十进制整数。如果未指定，则数据宽度将由内容长度确定。
+
+- grouping_option 千位分隔符
+
+| 选项 | 含义                                                     | 示例 |
+| ---- | -------------------------------------------------------- | ---- |
+| ','  | 使用逗号(,)对数字进行千位分割，每3位数字使用一次分隔符   | {:,} |
+| '_'  | 使用下划线(_)对数字进行千位分割，每3位数字使用一次分隔符 | {:_} |
+
+- .precision 字符精度
+
+> 表示在使用'f'和'F'格式化的浮点数的小数点后应显示多少位数。
+> 表示在使用'g'和'G'格式化的浮点数的小数点前后（整数位+小数位）应显示多少位数。
+> 对于非数字类型，限制其显示的字符最大长度。
+
+- type 数据类型
+
+> 类型确定了应该如何呈现数据，不同的数据需要使用不同的类型。
+
+**用于表示字符串类型：**
+
+| 类型           | 含义                                         |
+| :------------- | :------------------------------------------- |
+| 's'            | 字符串格式，这是字符串的默认类型，可以省略。 |
+| None（不设置） | 和's'类型一样                                |
+
+**用于表示整数类型：**
+
+| 类型 | 含义                                                         |
+| :--- | :----------------------------------------------------------- |
+| 'b'  | 将整数转换为二进制格式                                       |
+| 'c'  | 将整数转换为相应的unicode字符                                |
+| 'd'  | 将整数转换为十进制格式                                       |
+| 'o'  | 将整数转换为八进制格式                                       |
+| 'x'  | 将整数转换为十六进制格式，以小写字母表示9以上的数字。        |
+| 'X'  | 将整数转换为十六进制格式，以大写字母表示9以上的数字。        |
+| 'n'  | 在一般情况下与'd'类型相同，但是在不同的语言环境可能显示不同，它会适当的插入数字分隔符。在中文语言环境是没有分隔符的。可以使用`locale`模块进行切换。 |
+| None | 和'd'类型一样                                                |
+
+**用于浮点和小数值类型：**
+
+| 类型 | 含义                                                         |
+| :--- | :----------------------------------------------------------- |
+| 'e'  | 将数字转换为以科学计数法表示的指数，默认精度为6。            |
+| 'E'  | 和'e'类型相同，只是它使用大写'E'作为分隔符。                 |
+| 'f'  | 将固定保留小数点后6位，如果原数字小数点后位数超过6位且第7位大于5，则第6位+1，但第7位等于5时，则要看是否存在第8位且大于0，如大于0，第6位也+1，如果原数字小数点后不足6位的，则以0补充。如果指定了精度则按上述规则推算即可。 |
+| 'F'  | 与'f'类型相同，只是它会将nan转换为NAN，将inf转换为INF。      |
+| 'g'  | 一般格式，在未设置精度的情况下，它保留6位数（整数+小数），根据实际情况选择以固定位数或者科学计数法格式化结果，结果后面如果存在多余的0将会被舍去。<br/>有以下几种规则：<br/>如果整数位已经等于精度，则舍掉所有小数，并且以小数的第一位四舍五入进整数；<br/>如果整数位大于精度，则以exp指数的形式格式化，以精度位的下一位作为判断依据四舍五入<br>如果整数位不足精度位数，则使用小数位补充，不存在小数位或者整数位+小数位不足精度，则显示完整数字；<br/>如果整数位不足精度位数，且小数位大于剩余精度，则截取小数位剩余精度，以后一位小数为判断是否舍去还是进一，如后一位小数大于5，则进一，如后一小数小于5，则舍去，如后一位小数等于5且后二位小数大于0，则进一。 |
+| 'G'  | 与'g'类似一样，只是exp指数的'e'则会变为大写的'E'，并且inf和nan也会变位INF和NAN。 |
+| 'n'  | 在一般情况下与'g'类型相同，但是在不同的语言环境可能显示不同，它会适当的插入数字分隔符。在中文语言环境是没有分隔符的。可以使用`locale`模块进行切换。 |
+| '%'  | 在未指定精度的情况下，将数字乘以100，以'f'类型进行格式化，并在末尾加上百分号'%'。 |
+| None | 与'g'类型相似，只是在固定位数设置时，最少要有一位小数，否则会报错。 |
+
+##### 实例
+
+###### 通过位置
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8'}}
-
 'a1 = {} a2= {}  a3= {}'.format('first','second','third')  #{}不带参数
 'a1 = first a2= second  a3= third'
 
 'a1 = {1} a2= {0}  a3= {2}'.format('first','second','third') #{}带位置参数的
 'a1 = second a2= first  a3= third'
-
 ```
 
 > 注意如果{}要带参数，可以将format看成一个函数输入的值是函数的参数，这些输入的值可以看成一个元组，{0} == tuple[0] 同样他们也不能越界
 
-- 通过关键字参数
+###### 通过下标索引
+
+```python {cmd = true matplotlib=true code_block=true class= &#39; line-numbers&#39;  continue=&#39;utf-8&#39; output=&#39;markdown&#39;} ##hide  代码隐藏
+s1 = [1,'23','tom']
+s2 = ['s2.1','s2.2','s2.3']
+'{0[1]}  {0[2]} {1[2]} {1[0]}'.format(s1,s2)
+
+'23  tom s2.3 s2.1'
+```
+
+
+
+###### 通过关键字参数–字典键名
 
 ```python
+#关键字参数
 print('your name is {name} , age is {age}'.format(name='jack',age=87))
 'your name is jack , age is 87'
 print('your name is {name} , age is {age}'.format(age=87,name='jack') )#同样和位置无关
 'your name is jack , age is 87'
+
+#字典键名
+date = {
+    'day': 'Monday',
+    'month': 'February'
+}
+"{date[day]}, {date[month]}".format(date = date)
+>>>'Monday, February'
 ```
 
-- 通过对象属性
+###### 通过对象属性
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -224,69 +402,73 @@ class Person:
 p = Person('Tom',18)
 
 print('name = {p.name} age = {p.age}'.format(p=p))
-'name = Tom age = 18'
-
+>>>'name = Tom age = 18'
 ```
 
-- 通过下标
+###### 转换函数 !conversion:
 
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-s1 = [1,'23','tom']
-s2 = ['s2.1','s2.2','s2.3']
-'{0[1]}  {0[2]} {1[2]} {1[0]}'.format(s1,s2)
-
-'23  tom s2.3 s2.1'
+```python
+# !conversion:
+print('{!s}'.format(10) )##使用str()函数转换值，返回str对象。
+'10'
+print('{!a}'.format('1000') )##使用ascii()函数转换值。
+"'1000'"
+print('{!r}'.format('1000') )##使用repr()函数转换值。
+"'1000'"
 ```
 
-- 格式化输出(重点)
+###### 格式化规则-对齐与填充
 
-格式限定符
-:    语法是{}中带:号
- {:对齐方式  填充}
-
- 填充与对齐
- :  填充常跟对齐一起使用
- ^、<、>分别是居中、左对齐、右对齐，后面带宽度
- :号后面带填充的字符，只能是一个字符，不指定的话默认是用空格填充
-
-5.1 对齐与填充
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 print('输出右对齐定长为10位  [{:$>10}]'.format('12') )#修改填充，填充只能是一个ASCII字符
 '输出右对齐定长为10位  [$$$$$$$$12]'
 print('输出居中对齐定长为10位，填充x  [{:x^10}]'.format('12') )#修改填充，填充只能是一个ASCII字符
 '输出居中对齐定长为10位，填充x  [xxxx12xxxx]'
+
+#带符号使用0填充
+>>> '{:0=+5}'.format(1)
+'+0001'
+>>> '{:0=+5}'.format(-1)
+'-0001'
+
+#属性0和width合用，相同于按照width宽度使用0填充。
+>>> "{:07}".format(1)
+'0000001'
 ```
-5.2 浮点小数输出
+###### 浮点小数输出
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+#设置精度，整数+小数位,不包括点。
+>>> "{:.5}".format(12.3456789)
+'12.346'
 print('{:.2f}'.format(1233442.23453) )#通常都是配合 f 使用,其中.2表示长度为2的精度，f表示float类型
 '1233442.23'
+
+#千位分割
 print('{:,}'.format(9987733498273.0432) )#使用逗号金额分割符
 '9,987,733,498,273.043'
+>>> "{:_}".format(123456789)
+'123_456_789'
 
+#百分比 - 固定小数点留2位，将数字乘以100，以'f'类型进行格式化，并在末尾加上百分号'%'。
+>>> "{:.2%}".format(123.456789)
+'12345.68%'
 ```
-5.3 进制及其他显示
-|  A   | B                        |
-| :--: | :----------------------- |
-|  b   | 二进制                   |
-|  d   | 十进制                   |
-|  o   | 八进制                   |
-|  x   | 十六进制                 |
-|  !s  | 将对象格式化转换成字符串 |
-|  !a  | 将对象格式化转换成ASCII  |
-|  !r  | 将对象格式化转换成repr   |
+###### 进制
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-print('{!s}'.format(10) )#将对象格式化转换成字符串
-'10'
-print('{!a}'.format('1000') )#将对象格式化转换成ASCII
-"'1000'"
-print('{!r}'.format('1000') )#将对象格式化转换成repr
-"'1000'"
+# :format_spec
+#二进制
+>>> "{:b}".format(30)
+'11110'
+#使用科学计数法
+>>> "{:e}".format(123456)
+'1.234560e+05'
 ```
 ### if语句
 
 1. Definition
-计算机之所以能做很多⾃动化的任务，因为它可以⾃⼰己做条件判断。
+计算机之所以能做很多⾃动化的任务，因为它可以⾃己做条件判断。
 
 2. Demonstration
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -301,15 +483,6 @@ else:
     print('kid')
 
 ```
-
-
-3. Description
-
-
-4. Conclusion
-
-
-5. Reference
 
 ### 运算符
 
@@ -435,16 +608,17 @@ str = "helo"#定义字符串变量
 str = """hello
 hello"""#定义多⾏字符串变量
 ```
-#### 下标和切⽚片
+#### 下标和切⽚
 
 - 下标索引 `name = 'zhangsan' print(name[2])`
 - 切⽚
 
 切⽚
-:   指对操作的对象截取其中⼀部分的操作。字符串、列表、元组都⽀支持切⽚片操作。
+:   指对操作的对象截取其中⼀部分的操作。字符串、列表、元组都⽀支持切⽚操作。
 - 切⽚的语法: [起始:结束:步长]
 
 #### 字符串的常⻅操作
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 print([e for e in dir(str) if not e.startswith('_')])
 ```
@@ -490,7 +664,7 @@ a.title()
 'Hello Kkb'
 ```
 - startswith 检查字符串是否是以 hello 开头, 是则返回 True ，否则返回 False
-`mystr.startswith(hello)`
+`mystr.startswith('hello')`
 - endswith 检查字符串是否以obj 结束，如果是返回True ,否则返回 False .
 `mystr.endswith(obj)`
 - lower 转换 mystr 中所有大写字符为⼩写
@@ -529,12 +703,27 @@ a.strip()
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 str = '123-abc-ABC-@#$'
 print(str.partition('-'))
-
+>>> ('123', '-', 'abc-ABC-@#$')
 ```
 - rpartition 类似于 partition()函数,不过是从右边开始.
-`mystr.rpartition(str)`
+  `mystr.rpartition(str)`
+
 - splitlines 按照⾏分隔，返回⼀个包含各⾏作为元素的列表
-`mystr.splitlines()`
+
+  ```python
+  Signature: str.splitlines(keepends=False)
+  Docstring:
+  Return a list of the lines in the string, breaking at line boundaries.
+  
+  Line breaks are not included in the resulting list unless keepends is given and
+  true.
+  Type:      builtin_function_or_method
+      
+  str = '123\nabc\nABC\n@#$'
+  str.splitlines(),str.splitlines(keepends=True)
+  >>>(['123', 'abc', 'ABC', '@#$'], ['123\n', 'abc\n', 'ABC\n', '@#$'])
+  ```
+
 - join mystr 中每个元素后⾯插⼊str ,构造出一个新的字符串
 `mystr.join(str)`
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -559,20 +748,19 @@ print('.'.join(['ab', 'pq', 'rs']) )
 `list1 = ['spam', 'eggs', 100, 1234]`
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+# 列表生成式:传统的循环
+my_list = []
+for i in range(1,6):
+    my_list.append(i)
+    
+# 列表推导
+my_list = [value for value in range(1,6)]
+print(my_list)
+>>>['a','b']
 
-# 列表生成式:快速的生成一个我想要的列表
-# my_list = []
-# for i in range(1,6):
-#     my_list.append(i)
-
-# my_list = [value for value in range(1,6)]
-# print(my_list)
-
-# ['a','b']
-# ['akkb','bkkb']
 my_list = [value+'kkb' for value in ['a','b']]
 print(my_list)
-
+>>>['akkb','bkkb']
 ```
 
 #### 列表的常见操作
@@ -581,7 +769,7 @@ print(my_list)
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 #⽤len()函数可以获得list元素的个数：
 namesList = ['xiaoWang','xiaoZhang','xiaoHua']
-len(namesList)
+len(namesList)-->3
 ```
 
 - 列表的访问 用索引来访问list 中每一个位置的元素，记得索引是从0开始的：
@@ -598,50 +786,58 @@ xiaoHua`
 
 切片
 :   根据下标的范围获取⼀部分数据，比如: 列表，字符串可以使⽤切片。
-> 切⽚片的使用格式
-数据[起始下标:结束下标:步⻓长]
-提示： 起始下标默认0， 结束下标是不包含， 步⻓长默认是1
+> 切⽚的使用格式
+数据[起始下标:结束下标:步⻓]
+提示： 起始下标默认0， 结束下标是不包含， 步⻓默认是1
 
 - 添加元素( append , extend , insert )
 
 通过append 可以向列表添加元素
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+Signature: A.append(object, /)
+# 将对象整体追加到列表的末尾    
+Docstring: Append object to the end of the list.
+Type:      builtin_function_or_method
 #定义变量A，默认有3个元素
 A = ['xiaoWang','xiaoZhang','xiaoHua']
-
-print("-----添加之前，列表A的数据-----")
-for tempName in A:
-    print(tempName)
-
-#提示、并添加元素
-# temp = input('请输⼊要添加的学⽣姓名:')
-temp = 'Dillon'
-A.append(temp)
-
-print("-----添加之后，列表A的数据-----")
-for tempName in A:
-    print(tempName)
+A.append('#')-->['xiaoWang', 'xiaoZhang', 'xiaoHua', '#']
+# 返回None
+B = A.append(['a','b','c'])
+print(B)-->None
+print(A)-->['xiaoWang', 'xiaoZhang', 'xiaoHua','#', ['a', 'b', 'c']]
 ```
 通过extend 可以将另⼀个集合中的元素逐⼀添加到列表中
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-a = [1, 2]
-b = [3, 4]
-print(a.append(b))  # a.append(b)没有返回值   None
-print(a)
-# [1, 2, [3, 4]]
+Signature: A.extend(iterable, /)
+# 扩展列表,通过追加可迭代对象的元素
+Docstring: Extend list by appending elements from the iterable.
+Type:      builtin_function_or_method
+    
+A = ['xiaoWang','xiaoZhang','xiaoHua']
+A.extend('#')
+B = A.extend(['a','b','c'])
+print(B)--> None
+print(A)-->['xiaoWang', 'xiaoZhang', 'xiaoHua', '#', 'a', 'b', 'c']
+```
 
-a = [1, 2]
-b = [3, 4]
-print(a.extend(b))
-print(a)
-# [1, 2, 3, 4]
+- insert 在指定的索引位置前插入对象
+
+```python
+Signature: a.insert(index, object, /)
+Docstring: Insert object before index.
+Type:      builtin_function_or_method
 
 # insert(index, object)` 在指定位置`index`前插⼊元素`object
 a = [0, 1, 2]
-a.insert(1, 3)
-print(a)
-# [0, 3, 1, 2]
+a.insert(1, '#')
+print(a)-->[0, '#', 1, 2]
+
+a = [0, 1, 2]
+a.insert(1, ('a','b','c'))
+print(a)--->[0, ('a', 'b', 'c'), 1, 2]
 ```
+
+
 
 - 修改元素
 修改元素的时候，要通过下标来确定要修改的是哪个元素，然后才能进⾏修改
@@ -649,19 +845,9 @@ print(a)
 
 #定义变量A，默认有3个元素
 A = ['xiaoWang','xiaoZhang','xiaoHua']
-
-print("-----修改之前，列表A的数据-----")
-
-for tempName in A:
-    print(tempName)
-
 #修改元素
 A[1] = 'xiaoLu'
-
-print("-----修改之后，列表A的数据-----")
-
-for tempName in A:
-    print(tempName)
+print(A)-->['xiaoWang', 'xiaoLu', 'xiaoHua']
 ```
 - 查找元素
 
@@ -673,6 +859,8 @@ for tempName in A:
 > #待查找的列表
 > nameList = ['xiaoWang','xiaoZhang','xiaoHua']
 > #获取⽤户要查找的名字
+> print('xiaoWang' in nameList)-->True
+> 
 > ```
 - findName = input('请输⼊要查找的姓名:')
 
@@ -687,15 +875,20 @@ else:
 
 
 
-```python
-- index 和count 与字符串中的用法相同
-​```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+```python {class= &#39; line-numbers&#39; }
+Signature: a.index(value, start=0, stop=9223372036854775807, /)
+Docstring:
+Return first index of value.
+
+Raises ValueError if the value is not present.
+Type:      builtin_function_or_method
+# index 和count 与字符串中的用法相同
+
 a = ['a', 'b', 'c', 'a', 'b']
-# print(a.index('a', 1, 3)) # 注意是左闭右开区间
-
-print(a.index('a', 1, 4))
-
-print(a.count('b'))
+'注意是左闭右开区间'
+print(a.index('a', 1, 3)) -->ValueError: 'a' is not in list
+print(a.index('a', 1, 4))-->3
+print(a.count('b'))-->2
 ```
 
 - 删除元素
@@ -703,44 +896,70 @@ print(a.count('b'))
     - del：根据下标进行删除
     - pop：删除最后一个元素
     - remove：根据元素的值进行删除
+
 a. del
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 list1 = ['a','b','c','d','e','f']
-print('------删除之前------')
-for tempName in list1:
-    print(tempName,end='')
-# print()
 del list1[2]
-print('------删除之后------')
-for tempName in list1:
-    print(tempName,end='')
+print(list1)-->['a', 'b', 'd', 'e', 'f']
 ```
 b. pop
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+Signature: list2.pop(index=-1, /)
+Docstring:
+Remove and return item at index (default last).
+# 返回pop the value of index
+Raises IndexError if list is empty or index is out of range.
+Type:      builtin_function_or_method
+    
 list2 = ['a','b','c','d','e','f']
-print('------删除之前------')
-for tempName in list2:
-    print(tempName,end='')
-list2.pop()
-print('------删除之后------')
-for tempName in list2:
-    print(tempName,end='')
+list2_pop = list2.pop()
+print(list2_pop)-->'f'
+print(list2)-->['a', 'b', 'c', 'd', 'e']
 ```
+
+c. remove
+
+```python
+Signature: list2.remove(value, /)
+Docstring:
+Remove first occurrence of value.
+# 返回None
+Raises ValueError if the value is not present.
+Type:      builtin_function_or_method
+list2 = ['a','b','c','d','e','f']
+list2_remove = list2.remove('a')
+print(list2_remove)-->None
+print(list2)-->['b', 'c', 'd', 'e', 'f']
+```
+
+
 
 - 排序
 sort ⽅法是将list 按特定顺序重新排列，默认为由⼩到⼤，参数reverse=True 可改为倒序，由⼤到⼩。
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 a = [1, 4, 2, 3]
-print(a)
+print(a)-->[1, 4, 2, 3]
+Signature: a.reverse()
+# 按索引反序
+Docstring: Reverse *IN PLACE*.
+Type:      builtin_function_or_method
 a.reverse()
-print(a)
+print(a)-->[3, 2, 4, 1]
+Signature: a.sort(*, key=None, reverse=False)
+# 按值升序排序    
+Docstring: Stable sort *IN PLACE*.
+Type:      builtin_function_or_method
 a.sort()
-print(a)
+print(a)-->[1, 2, 3, 4]
 a.sort(reverse=True)
-print(a)
+print(a)-->[4, 3, 2, 1]
 ```
 3. 列表的遍历
+
 a. 使⽤for循环
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 namesList = ['xiaoWang','xiaoZhang','xiaoHua']
 for name in namesList:
@@ -764,7 +983,7 @@ while i<length:
 1. Definition
 - 如果要定义⼀个空的tuple ，可以写成() ：
 `t = ()`
-- 定义⼀个只有1个元素的tuple,只有1个元素的tuple定义时必须加⼀个逗号，来消除歧义：
+- 定义⼀个只有1个元素的tuple,只有1个元素的tuple定义时必须加⼀个逗号，来消除歧义-(表达式)：
 `t = (1,)`
 > 最后来看⼀个“可变的”tuple：
 > ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -774,7 +993,7 @@ while i<length:
 > print(t)
 > '('a', 'b', ['X', 'Y'])'
 > ```
-- 元组中的元素应该指向不可变的类型class-字符串,常量-,而不是可变类型列表等
+- ==元组中的元素应该指向不可变的类型==class-字符串,常量,而不是可变类型列表等
 
 ### 字典（dict）
 
@@ -800,10 +1019,7 @@ d['Jack']
 # 如果key不存在，dict就会报错：
 ```
 
-4. Conclusion
 
-
-5. Reference
 
 
 #### 字典的常⻅操作
@@ -811,7 +1027,6 @@ d['Jack']
 字典的每个元素中的数据是可以修改的，只要通过key 找到，即可修改
 
 ```python
-
 # new_id = input('请输⼊新的学号:')
 new_id = '102'
 info['id'] = int(new_id)
@@ -831,17 +1046,18 @@ print('添加之后的id为:%d' % info['id'])
 
 ```
 - 删除元素
-对字典进行删除操作，有一下⼏种：
-- del
+  对字典进行删除操作，有一下⼏种：
+
+- del  
+
 - clear()
-del 删除指定的元素
+
+  del  删除指定的元素
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 info = {'name':'kkb', 'sex':'f', 'address':'中国北北京'}
 print('删除前,%s' % info['name'])
 del info['name']
 print('删除后,%s' % info)
-
-
 ```
 del 删除整个字典
 
@@ -859,7 +1075,7 @@ info.clear()
 print('清空后,%s' % info)
 ```
 - len()
-测量字典中，键值对的个数
+测量字典中，(Item)键值对的个数
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 d1 = {'name':'abc','age':'18', 'class':'cnh'}
 print(len(d1))
@@ -870,25 +1086,23 @@ print(len(d1))
 返回⼀个包含字典所有key的列表
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 d1 = {'name':'abc','age':'18', 'class':'cnh'}
-print(list(d1.keys()))
-# 结果：
-# ['name', 'age', 'class']
+print(d1.keys())->dict_keys(['name', 'age', 'class'])
+print(list(d1.keys()))--> ['name', 'age', 'class']
 ```
 - values
 返回⼀个包含字典所有value的列表
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 d1 = {'name':'abc','age':'18', 'class':'cnh'}
-print(list(d1.values()))
-# 结果：
-# ['abc', '18', 'cnh']
+print(d1.values())--> dict_values(['abc', '18', 'cnh'])
+print(list(d1.values()))--> ['abc', '18', 'cnh']
 ```
 - items
 返回⼀个包含所有（键，值）元祖的列表
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 d1 = {'name':'abc','age':'18', 'class':'cnh'}
-print(list(d1.items()))
-# 结果：
-# [('name', 'abc'), ('age', '18'), ('class', 'cnh')]
+print(d1.items())-->dict_items([('name', 'abc'), ('age', '18'), ('class', 'cnh')])
+print(list(d1.items()))->[('name', 'abc'), ('age', '18'), ('class', 'cnh')]
+d1.items()[0]-->TypeError: 'dict_items' object is not subscriptable(下标\订阅)
 ```
 - 集合（set）
 1. Definition
@@ -898,15 +1112,14 @@ print(list(d1.items()))
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 my_set = {1, 4, 'abc', 'hello'}
 # 不支持下标赋值和取值
-# my_set[0] = 3
-# value = my_set[0]
-# print(value)
+my_set[0] = 3-->TypeError: 'set' object does not support item assignment(分配\赋值)
+value = my_set[0]-->TypeError: 'set' object is not subscriptable (下标/订阅)
 ```
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 #通过遍历获取数据
 my_set = {1, 5, 7}
 for value in my_set:
-    print(value)
+    print(value)-->1,5,7
 for index,value in enumerate(my_set):
     print(index,value)
 
@@ -926,49 +1139,56 @@ print(my_set)
 my_tuple = (5, 3)
 print(my_tuple, type(my_tuple))
 ```
-3. Description
-
-
-4. Conclusion
-
-
-5. Reference
-
-    
-
-     
+  
 
 ## 关键字
 
 ```python
 import keyword
-keyword.kwlist
+kw = keyword.kwlist
+i = 0 
+for e in kw:
+    print('{: <10}'.format(e),end='')
+    i +=1
+    if i % 6 == 0 :
+        print()
 ```
+
+| False  | None     | True  | and    | as       | assert |
+| ------ | -------- | ----- | ------ | -------- | ------ |
+| async  | await    | break | class  | continue | def    |
+| del    | elif     | else  | except | finally  | for    |
+| from   | global   | if    | import | in       | is     |
+| lambda | nonlocal | not   | or     | pass     | raise  |
+| return | try      | while | with   | yield    |        |
+
+
 
 ## 函数
 
 [(Back to 面向过程编程)](#面向过程编程)
 
 函数
-:   需要某块代码多次，但是为了了提高编写的效率以及代码的重⽤用，所以把具有独⽴功能的代码块组织为⼀个⼩模块
+:   需要某块代码多次，但是为了提高编写的效率以及代码的重⽤，所以把具有独⽴功能的代码块组织为⼀个⼩模块
 
 ### 函数定义和调⽤
 
 #### 定义函数
 
 ```python {class='line-numbers'}
-
 def 函数名():
     代码
 ```
 #### 调用函数
-函数名() 即可完成调⽤用
-定义完函数后，函数是不不会⾃自动执⾏行行的，需要调⽤用它才可以
+函数名() 即可完成调⽤
+定义完函数后，函数是不会⾃动执⾏的，需要调⽤它才可以
 `printInfo()`
+
 #### 注意:
-- 每次调⽤函数时，函数都会从头开始执行，当这个函数中的代码执完毕后，意味着调⽤结束了
-- 当然了如果函数中执行到了return也会结束函数
+- 每次调⽤函数时，函数都会==从头==开始执行，当这个函数中的代码执完毕后，意味着调⽤结束了
+- 当然了如果函数中执行到了return也会==结束==函数
 ### 函数的文档说明
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def test(a,b):
     '''⽤来完成对2个数求和'''
@@ -983,7 +1203,10 @@ print(test.__doc__)
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def power(x, n):
-    '''power(x, n) 函数，可以计算任意xd的n次⽅：'''
+    '''
+    位置参数:x,n
+    power(x, n) 函数，可以计算任意x的n次⽅：
+    '''
     s = 1
     while n > 0:
         n = n - 1
@@ -991,10 +1214,12 @@ def power(x, n):
     return s
 ```
 #### 默认参数
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def power(x, n=2):
 '''
-power(x, n) 函数，可以计算任意xd的n次⽅：
+power(x, n) 函数，可以计算任意x的n次⽅：
+位置参数:x
 默认参数：n=2
 '''
     s = 1
@@ -1006,36 +1231,38 @@ power(x, n) 函数，可以计算任意xd的n次⽅：
 ```
 默认参数可以简化函数的调用。
 设置默认参数时，有⼏点要注意：
-- 必选参数在前，默认参数在后，否则Python的解释器器会报错；
-- 当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。变小的参数就可以作为默认参数。
 
-##### 注意：默认参数有个最⼤大的坑，演示如下：
-先定义⼀个函数，传⼊入⼀个list，添加⼀个END 再返回：
+- 必选参数在前，默认参数在后，否则Python的解释器器会报错；
+- 当函数有多个参数时，把<font color='orange'>变化大的参数放前面</font>，变化小的参数放后面。变小的参数就可以作为默认参数。
+
+##### 注意：默认参数有个最⼤的坑，演示如下：
+
+先定义⼀个函数，传⼊⼀个list，添加⼀个END 再返回：
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def add_end(L=[]):
     L.append('END')
     return L
 
-# 当你正常调⽤用时，结果似乎不不错：
+# 当你正常调⽤时，结果似乎不错：
 add_end([1, 2, 3])
 # [1, 2, 3, 'END']
 add_end(['x', 'y', 'z'])
 # ['x', 'y', 'z', 'END']
 
-# 当你使⽤用默认参数调⽤用时，一开始结果也是对的：
+# 当你使⽤默认参数调⽤时，一开始结果也是对的：
 add_end()
 # ['END']
 '''
-但是，默认参数再次调⽤用add_end() 时，结果就不不对了了：
+但是，默认参数再次调⽤add_end() 时，结果就不对了：
 '''
 add_end()
 # ['END', 'END']
-add_end()
+add_end()  # 再运行一次add_end函数的定义(初始化),就不会出现这个问题
 # ['END', 'END', 'END']
 ```
-很多初学者很疑惑，默认参数是[] ，但是函数似乎每次都“记住了了”上次添加了了'END' 后的list。
+很多初学者很疑惑，默认参数是[] ，但是函数似乎每次都“记住了”上次添加了'END' 后的list。
 > 原因解释如下：
-Python函数在定义的时候，默认参数L 的值就被计算出来了，即[] ，因为默认参数L 也是一个变量，它指向对象[] ，每次调⽤用该函数，如果改变了L 的内容，则下次调⽤用时，默认参数的内容就变了，不再是函数定义时的[] 了。
+Python<font color='orange'>函数在定义的时候，默认参数L 的值就被计算出来了</font>，即[] ，因为默认参数L 也是一个变量，它指向对象[] ，每次调⽤该函数，如果改变了L 的内容，则下次调⽤时，默认参数的内容就变了，不再是函数定义时的[] 了。
 ##### 定义默认参数要牢记一点：默认参数必须指向不变对象！
 
 要修改上⾯的例子，我们可以用None 这个不变对象来实现：
@@ -1046,9 +1273,10 @@ def add_end(L=None):
     L.append('END')
     return L
 ```
-> 为什么要设计str 、None 这样的不变对象呢？因为不变对象一旦创建，对象内部的数据就不能修改，这样就减少了了由于修改数据导致的错误。此外，由于对象不变，多任务环境下同时读取对象不需要加锁，同时读一点问题都没有。我们在编写程序时，如果可以设计一个不不变对象，那就尽量量设计成不变对象。
+> 为什么要设计str 、None 这样的不变对象呢？因为不变对象一旦创建，对象内部的数据就不能修改，这样就减少了由于修改数据导致的错误。此外，由于对象不变，多任务环境下同时读取对象不需要加锁，同时读一点问题都没有。我们在编写程序时，如果可以设计一个不变对象，那就尽量设计成不变对象。
 #### 可变参数
-可变参数就是传⼊入的参数个数是可变的，可以是1个、2个到任意个，还可以是0个。
+
+可变参数就是传⼊的参数个数是可变的，可以是1个、2个到任意个，还可以是0个。
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def calc(*numbers):
     sum = 0
@@ -1068,9 +1296,9 @@ def calc(*numbers):
 14
 ```
 #### 命名关键字参数
-对于关键字参数，函数的调⽤用者可以传⼊入任意不不受限制的关键字参数。⾄至于到底传⼊入了了哪些，就需要在函数内部通过kw 检查。
+对于关键字参数，函数的调⽤者可以传⼊任意不受限制的关键字参数。⾄于到底传⼊了哪些，就需要在函数内部通过kw 检查。
 
-仍以person() 函数为例例，我们希望检查是否有city 和job 参数：
+仍以person() 函数为例，我们希望检查是否有city 和job 参数：
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def person(name, age, **kw):
     if 'city' in kw:
@@ -1082,58 +1310,86 @@ def person(name, age, **kw):
     print('name:', name, 'age:', age, 'other:', kw)
 
 person('Jack', 24, city='Beijing', addr='Chaoyang', zipcode=123456)
+>>name: Jack age: 24 other: {'city': 'Beijing', 'addr': 'Chaoyang', 'zipcode': 123456}
 ```
-#### 命名关键字参数
-如果要限制关键字参数的名字，就可以⽤用命名关键字参数，例例如，只接收city 和job 作为关键字参数。
-这种⽅方式定义的函数如下：
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+```python
+def person(name, age, **kw):
+    print(kw)-->{'city': 'Beijing', 'addr': 'Chaoyang', 'zipcode': 123456}
+    if 'city' in kw:
+    # 有city参数
+#         del kw['city']
+        kw.pop('city')
 
+    print('name:', name, 'age:', age, 'other:', kw)
+	>>name: Jack age: 24 other: {'addr': 'Chaoyang', 'zipcode': 123456}
+
+person('Jack', 24, city='Beijing', addr='Chaoyang', zipcode=123456)
+
+```
+
+
+
+#### 命名关键字参数
+
+如果要限制关键字参数的名字，就可以⽤命名关键字参数，例如，只接收city 和job 作为关键字参数。
+这种⽅式定义的函数如下：
+
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def person(name, age, *, city, job):
 '''命名关键字参数--限制关键字参数的名字--必须传⼊参数名'''
     print(name, age, city, job)
-
+person('Dillon',18,city='Beijing',job='python')
+>>>Dillon 18 Beijing python
 ```
-- 和关键字参数**kw 不不同，命名关键字参数需要⼀个特殊分隔符* ， * 后⾯面的参数被视为命名关键字参数。调⽤用⽅方式如下：
+- 和关键字参数**kw 不同，命名关键字参数需要⼀个特殊分隔符* ， * 后⾯的参数被视为命名关键字参数。调⽤⽅式如下：
 `person('Jack', 24, city='Beijing', job='Engineer')
 Jack 24 Beijing Engineer`
 - 如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要⼀个特殊分隔符* 了：
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def person(name, age, *args, city, job):
     print(name, age, args, city, job)
-
+person('name','age',['lst_arg1','lst_arg2'],'str_arg3',('tpl_args',),city='Shanghai',job='Webi')
+>>>name age (['lst_arg1', 'lst_arg2'], 'str_arg3', ('tpl_args',)) Shanghai Webi
 ```
-- 命名关键字参数可以有缺省值，从⽽而简化调⽤用：
+- 命名关键字参数可以有缺省值，从⽽简化调⽤：
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def person(name, age, *, city='Beijing', job):
-'''由于命名关键字参数city 具有默认值，调⽤用时，可不不传⼊入city 参数：'''
+'''由于命名关键字参数city 具有默认值，调⽤时，可不传⼊city 参数：'''
     print(name, age, city, job)
+person('Dillon',18,job='Java')
+>>>Dillon 18 Beijing Java
 ```
-- 使⽤用命名关键字参数时，要特别注意，如果没有可变参数，就必须加⼀个\* 作为特殊分隔符。如果缺少\* ，Python解释器器将⽆无法识别位置参数和命名关键字参数：
+- 使⽤命名关键字参数时，要特别注意，如果没有可变参数，就必须加⼀个\* 作为特殊分隔符。如果缺少\* ，Python解释器器将⽆法识别位置参数和命名关键字参数：
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def person(name, age, city, job):
 # 缺少 *，city和job被视为位置参数
-    ass
+    pass
 ```
 #### 参数组合
 参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。
 
-在函数调⽤的时候，Python解释器⾃动按照参数位置和参数名把对应的参数传进去。
+<font color='orange'>在函数调⽤的时</font>，Python解释器⾃动按照参数位置和参数名把对应的参数传进去。
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def f1(a, b, c=0, *args, **kw):
     print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
 def f2(a, b, c=0, *, d, **kw):
     print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
 
-# 最神奇的是通过⼀个tuple 和dict ，你也可以调⽤用上述函数：
+# 最神奇的是通过⼀个tuple 和dict ，你也可以调⽤上述函数：
+'''
+可变参数和关键字参数的组合可以调用:
+	位置参数、默认参数、可变参数、命名关键字参数、关键字参数的任意适当的组合
+'''
 args = (1, 2, 3, 4)
 kw = {'d': 99, 'x': '#'}
 f1(*args, **kw)
-
 ```
-### 函数返回值 
-- “返回值”，就是程序中函数完成⼀件事情后，最后给调⽤用者的结果
+### 函数返回值
+
+- “返回值”，就是程序中函数完成⼀件事情后，最后给调⽤者的结果
 - 带有返回值的函数
-想要在函数中把结果返回给调⽤用者，需要在函数中使⽤用return
+想要在函数中把结果返回给调⽤者，需要在函数中使⽤return
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 def add2num(a, b):
     return a+b
@@ -1145,7 +1401,7 @@ def add2num(a, b):
     return a+b
 #调⽤函数，顺便保存函数的返回值
 result = add2num(100,98)
-#因为result已经保存了add2num的返回值，所以接下来就可以使用了了
+#因为result已经保存了add2num的返回值，所以接下来就可以使用了
 print(result)
 # 结果:
 # 198
@@ -1155,24 +1411,23 @@ print(result)
 
 多个return?
 > ⼀个函数中可以有多个return 语句，但是只要有一个return 语句被执行到，那么这个函数就会结束了
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
- def create_nums(num):
-     print("---1---")
-     if num == 100:
-         print("---2---")
-         return num+1 # 函数中下⾯面的代码不不会被执⾏行行，因为return除了了能够将数据返回之外，还有一个隐藏的功能：结束函数
-     else:
-         print("---3---")
-         return num+2
-     print("---4---")
- result1 = create_nums(100)
- print(result1) # 打印101
- result2 = create_nums(200)
- print(result2) # 打印202
-```
-
-> ⼀个函数返回多个数据的⽅式
-```python {class= ' line-numbers'} ##hide  代码隐藏
+> ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+>  def create_nums(num):
+>      print("---1---")
+>      if num == 100:
+>          print("---2---")
+>          return num+1 # 函数中下⾯的代码不会被执⾏，因为return除了能够将数据返回之外，还有一个隐藏的功能：结束函数
+>      else:
+>          print("---3---")
+>          return num+2
+>      print("---4---")
+>  result1 = create_nums(100)
+>  print(result1) # 打印101
+>  result2 = create_nums(200)
+>  print(result2) # 打印202
+> ```
+```python {class= &#39; line-numbers&#39;}
+#⼀个函数返回多个数据的⽅式
 def divid(a, b):
     shang = a//b
     yushu = a%b
@@ -1204,7 +1459,7 @@ sys.getdefaultencoding() # 'utf-8'
 ### abs
 
 ```python
-描述
+#描述
 abs() 函数返回数字的绝对值。
 
 # 语法
@@ -1246,7 +1501,7 @@ print(all((0, 1, 2, 3)))             #元组tuple，存在一个为0的元素。
 print(all([]))-->True        #空列表list
 print(all(()))-->True         #空元组tuple
 print(all(['']))-->False       #列表list，仅有一个空参数。
-print(all(('')))-->True       #元组tuple，仅有一个空参数。
+print(all(('')))-->True       #空字符串。
 print(all((0,'')))-->False    #元组tuple，有两个空参数。
 ```
 
@@ -1291,7 +1546,7 @@ object -- 对象。
 
 # 返回值
 返回字符串。
-
+ascii(2),type(ascii(2))-->('2', str)
 # 实例
 以下展示了使用 ascii() 方法的实例：
 ascii('CodingDict')-->"'CodingDict'"
@@ -1301,7 +1556,7 @@ str('你好'),type(str('你好')),len(str('你好')),'字符数'-->('你好', st
 repr('你好'),type(repr('你好')),len(repr('你好')),'字符数'-->("'你好'", str, 4, '字符数')
 ```
 
-### bin, oct,  hex 将十进制数分别转换为2/8/16进制
+### bin, oct,  hex 将==十进制数==分别转换为2/8/16进制
 
 Binary, Octal, Hexadecimal
 
@@ -1351,12 +1606,8 @@ Type:           type
     
 # 描述
 bool() 函数用于将给定参数转换为布尔类型，如果没有参数，返回 False。
-
 bool 是 int 的子类。
-
 # 语法
-以下是 bool() 方法的语法:
-
 class bool([x])
 # 参数
 x -- 要进行转换的参数。
@@ -1364,21 +1615,29 @@ x -- 要进行转换的参数。
 返回 Ture 或 False。
 
 # 实例
-以下展示了使用 bool 函数的实例：
-
 >>>bool()
 False
 ```
 
 ### bytes
 
-python3对文本和二进制数据做了区分。
+<font color='red'>python3</font>对文本和二进制数据做了区分。
 
-- 文本是Unicode编码，str类型，用于显示。
+- ==文本是Unicode编码，str类型==，用于==显示==。
 
-- 二进制类型是bytes类型，用于存储和传输。
+- <font color='orange'>二进制类型是bytes类型</font>，用于<font color='orange'>存储和传输</font>。
 
 bytes是byte的序列，而 str 是 unicode 的序列
+
+byte–[bait]-字节
+
+bytes-[baits]-字节数
+
+**bit** -[bit]-比特-计算机存储的最小信息单位-0\1
+
+N-COUNT In computing, a **bit** is the smallest unit of information that is held in a computer's memory. It is either 1 or 0. Several bits form a byte. 比特 (计算机存储的最小信息单位)
+
+Eight bits equal to one byte
 
 ```python
 # str类型：
@@ -1418,8 +1677,11 @@ Construct an immutable array of bytes from:
 Type:           type
 
 # 描述
+无encoding参数时:
+    source参数是0-256之间的任意数字
 bytes 函数返回一个新的 bytes 对象，该对象是一个 0 <= x < 256 区间内的整数不可变序列。它是 bytearray 的不可变版本。
-
+有encoding参数时:
+    source参数是字符串
 # 语法
 以下是 bytes 的语法:
 
@@ -1428,7 +1690,10 @@ class bytes([source[, encoding[, errors]]])
 如果 source 为整数，则返回一个长度为 source 的初始化数组；
 如果 source 为字符串，则按照指定的 encoding 将字符串转换为字节序列；
 如果 source 为可迭代类型，则元素必须为[0 ,255] 中的整数；
-如果 so...
+bytes(0)-->b''-----list(bytes(0))-->[]
+bytes(3)-->b'\x00\x00\x00'---list(bytes(3))-->[0, 0, 0]
+bytes(256)-->...---list(bytes(256))-->[0]*256
+
 # 实例
 >>> s = 'python'
 >>> x = bytes(s, encoding='utf-8')
@@ -1470,7 +1735,7 @@ class bytearray([source[, encoding[, errors]]])
 如果 source 为整数，则返回一个长度为 source 的初始化数组；
 如果 source 为字符串，则按照指定的 encoding 将字符串转换为字节序列；
 如果 source 为可迭代类型，则元素必须为[0 ,255] 中的整数；
-如果 sourc...
+
 # 实例
 bytearray(13)-->bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
 bytearray('13',encoding='utf-8',errors='ignore')-->bytearray(b'13')
@@ -1484,8 +1749,7 @@ Signature: callable(obj, /)
 Docstring:
 Return whether the object is callable (i.e., some kind of function).
 
-Note that classes are callable, as are instances of classes with a
-__call__() method.
+Note that classes are callable, as are instances of classes with a __call__() method.
 Type:      builtin_function_or_method
 
 # 描述
@@ -1507,13 +1771,19 @@ object -- 对象
 
 callable(0)-->False
 callable(abs)-->True
+'__call__' in dir(abs)-->True
 ```
 
-### chr,ord　查看十进制数对应的ASCII字符 / 查看某个ASCII对应的十进制数
+### chr,ord　
+
+- chr查看<font color='orange'>十进制数(ordinal(在Ascii表中的序数))</font>对应的==ASCII字符(character)== 
+- ord 查看某个ASCII(表中字符character)对应的十进制数(表中的序数ordinal)
+
+
 
 ```python
 Signature: chr(i, /)
-Docstring: Return a Unicode string of one character with ordinal i; 0 <= i <= 0x10ffff.
+Docstring: Return a Unicode string of one character with ordinal(在Ascii表中的序数) i; 0 <= i <= 0x10ffff.
 Type:      builtin_function_or_method
 'chr函数，将数值转换为对应的ASCII字符'   
 chr(65)-->'A'
@@ -1522,6 +1792,8 @@ ord('A')-->65
 ```
 
 ### classmethod
+
+<font color='red'>Convert a function to be a class method.<br/>用来指定一个方法为类的方法，==由类直接调用执行==，只有一个cls参数,执行类的方法时，自动将调用该方法的类赋值给cls.没有此参数指定的类的方法为实例方法。  </font>
 
 ```python
 Init signature: classmethod(self, /, *args, **kwargs)
@@ -1611,7 +1883,7 @@ compile(source, filename, mode[, flags[, dont_inherit]])
 # 参数
 source -- 字符串或者AST（Abstract Syntax Trees）对象。。
 filename -- 代码文件名称，如果不是从文件读取代码则传递一些可辨认的值（通常使用''）。当传入了 source 参数时，filename 参数传入空字符即可。
-mode -- 指定编译代码的种类。当source包含一些列语句（例如for循环语句）应当使用exec模式，当source为单个表达式组成应当使用eval模式，当source由单个交互式语句组成（例如input）则应当使用single模式。
+mode -- 指定编译代码的种类。当source包含一些列语句（AST例如for循环语句）应当使用exec模式，当source为单个表达式组成应当使用eval模式，当source由单个交互式语句组成（例如input）则应当使用single模式。
 flags -- 变量作用域，局部命名空间，如果被提供...
 # 返回值
 代码执行的结果
@@ -1641,14 +1913,14 @@ This is equivalent to (real + imag*1j) where imag defaults to 0.
 Type:           type
    
 # 描述
-complex() 函数用于创建一个值为 real + imag * j 的复数或者转化一个字符串或数为复数。如果第一个参数为字符串，则不需要指定第二个参数。。
+complex() 函数用于创建一个值为 real + imag * j 的复数或者转化一个数字字符串为复数。如果第一个参数为字符串，则不需要指定第二个参数。。
 
 # 语法
 complex 语法：
 
 class complex([real[, imag]])
 # 参数说明：
-
+默认参数:
 real -- int, long, float或字符串；
 imag -- int, long, float；
 # 返回值
@@ -1668,7 +1940,7 @@ class People:
     '''
     类:People
     类属性:country
-    类方法:show(cls)
+    类方法:@classmethod <br/> show(cls)
     实例属性:name
     实例方法:people_info()
     '''
@@ -1677,11 +1949,11 @@ class People:
     def __init__(self,name):
         self.name=name
         
-    @classmethod
+    @classmethod # 类方法
     def show(cls):  # 类方法，由类调用，最少要有一个参数cls，调用的时候这个参数不用传值，自动将类名赋值给cls
         print(cls)
             
-    def people_info(self):
+    def people_info(self):  # 实例方法
         print('%s is xxx' %(self.name))
         
 obj=People('aaa') #实例化
@@ -1710,7 +1982,7 @@ This is done by calling getattr(obj, name) and catching AttributeError.
 Type:      builtin_function_or_method
 
 # 描述
-hasattr()函数用于判断是否包含对应的属性
+hasattr()函数用于判断对象是否包含对应的属性
 # 语法：
 hasattr(object,name)
 # 参数：
@@ -1731,7 +2003,7 @@ getattr(object, name[, default]) -> value
 
 Get a named attribute from an object; getattr(x, 'y') is equivalent to x.y.
 When a default argument is given, it is returned when the attribute doesn't
-exist; without it, an exception is raised in that case.
+exist; without it, an exception(异常) is raised in that case.
 Type:      builtin_function_or_method
     
 # 描述：
@@ -1760,11 +2032,11 @@ Signature: setattr(obj, name, value, /)
 Docstring:
 Sets the named attribute on the given object to the specified value.
 
-setattr(x, 'y', v) is equivalent to ``x.y = v''
+setattr(x, 'y', v) is equivalent to 'x.y = v'
 Type:      builtin_function_or_method
 
 # 描述：
-setattr函数，用于设置属性值，'该属性必须存在'-->貌似不需要属性值必须存在
+setattr函数，用于设置属性值，'该属性必须存在'-->貌似不需要属性必须存在
 # 语法：
 setattr(object,name,value)
 # 参数：
@@ -1786,7 +2058,7 @@ Signature: delattr(obj, name, /)
 Docstring:
 Deletes the named attribute from the given object.
 
-delattr(x, 'y') is equivalent to ``del x.y''
+delattr(x, 'y') is equivalent to 'del x.y'
 Type:      builtin_function_or_method
     
 # 描述：
@@ -1811,8 +2083,9 @@ delattr(People,'country') #等同于del People.country
 Init signature: dict(self, /, *args, **kwargs)
 Docstring:     
 dict() -> new empty dictionary
-dict(mapping) -> new dictionary initialized from a mapping object's
-    (key, value) pairs
+dict(mapping) -> new dictionary initialized from a mapping object's (key, value) pairs
+{key:value}
+
 dict(iterable) -> new dictionary initialized as if via:
     d = {}
     for k, v in iterable:
@@ -1821,13 +2094,15 @@ dict(**kwargs) -> new dictionary initialized with the name=value pairs
     in the keyword argument list.  For example:  dict(one=1, two=2)
 Type:           type
     
-# 语法
+# 创建字典语法
+{}
+dict()
 dict(**kwarg)
 dict(mapping, **kwarg)
 dict(iterable, **kwarg)
 # 参数
 kwarg - 关键字参数形式，例如：x=1,y=2。
-mapping - 映射类型
+mapping - 映射类型{key:value}
 iterable - 可迭代对象，例如：列表和元组。对于迭代对象是有一定的要求的，它的每个值都必须是一个序列，且序列必须长度必须是2。比较常见的就是[(a,1),(b,2)]，最终将被转化为{a:1,b:2}。
 # 返回值
 返回一个新的字典（映射）类型
@@ -1874,10 +2149,12 @@ dir()用来寻找一个对象的所有属性，包括\_\_dict\_\_中的属性，
 
 ==实例的\_\_dict\_\_==仅存储与该实例相关的实例属性，正是因为实例的\_\_dict\_\_属性，每个实例的实例属性才会互不影响。
 
-==类的\_\_dict\_\_==存储所有实例共享的变量和函数(类属性，方法等)，类的\_\_dict\_\_并不包含其父类的属性。
+==类的\_\_dict\_\_==存储所有<font color='orange'>实例共享的变量和函数</font>(类属性，方法等)，类的\_\_dict\_\_并<font color='orange'>不包含其父类的属性</font>。
 
 ```python
-Docstring:
+dir(dir)>>>the attributes of the given object, and of attributes reachable from it.
+print(dir.__doc__)
+>>> Docstring:
 dir([object]) -> list of strings
 #  不带参数时返回当前范围内的变量，方法和定义的类型列表，带参数时返回参数的属性，方法列表
 If called without an argument, return the names in the current scope.
@@ -1891,7 +2168,8 @@ the default dir() logic is used and returns:
     of its bases.
   for any other object: its attributes, its class's attributes, and
     recursively the attributes of its class's base classes.
-Type:      builtin_function_or_method
+type(dir)
+>>>Type:      builtin_function_or_method
     
 ```
 
@@ -1919,8 +2197,11 @@ divmod(10,2) -->(5,0)
 ### enumerate
 
 ```python
+dir(enumerate)
+print(enumerate.__text_signature__)>>(iterable, start=0)
 Init signature: enumerate(iterable, start=0)
-Docstring:     
+print(enumerate.__doc__)    
+>>>Docstring:     
 Return an enumerate object.
 
   iterable
@@ -1931,6 +2212,7 @@ defaults to zero) and a value yielded by the iterable argument.
 
 enumerate is useful for obtaining an indexed list:
     (0, seq[0]), (1, seq[1]), (2, seq[2]), ...
+type(enumerate)>>> <class 'type'>
 Type:           type
 
 # 描述
@@ -1959,6 +2241,9 @@ def enumerate(sequence, start=0):
     for elem in sequence:
         yield n, elem
         n += 1
+        
+e = enumerate([1,2,3],1)
+next(e)        
 ```
 
 ### exit
@@ -1989,12 +2274,20 @@ keep_kernel : bool
 Init signature: filter(self, /, *args, **kwargs)
 Docstring:     
 filter(function or None, iterable) --> filter object
-
+# 返回一个迭代器，该迭代器产生针对其function（item）的那些可迭代项是True的项。
 Return an iterator yielding those items of iterable for which function(item)
-is true. If function is None, return the items that are true.
+is true. 
+
+[ item for item in iterables if function(item)]
+
+list(filter(lambda x:x>=3,[1,0,3,-1]))>>[3]
+
+If function is None, return the items that are true.
+list(filter(None,[1,0,3,None]))>>[1,3]
 Type:           type
 
 #filter()　　过滤器，构造一个序列，等价于[ item for item in iterables if function(item)]，在函数中设定过滤条件，逐一循环迭代器中的元素，将返回值为True时的元素留下，形成一个filter类型数据。
+
 # 描述
 First，filter()调用传入的function函数；（注：布尔函数，返回值True/False）
 Second，用传入的function函数方法，将sequence中的每个元素逐一筛选；
@@ -2002,13 +2295,17 @@ Third，依据返回值True/False来决定输出的结果。
 # 语法
 'iterable' 一个可迭代对象
 filter(function, iterable)
-参数function：返回值为True或False的函数，可以为None。
+参数function(布尔函数)：返回值为True或False的函数，可以为None。
 参数iterable：序列或可迭代对象。
 
->>> def bigerthan5(x):
-...     return x > 5
->>> filter(bigerthan5, [3, 4, 5, 6, 7, 8])
-[6, 7, 8]
+def bigerthan5(x):
+    return x > 5
+print([bigerthan5(e) for e in  [3, 4, 5, 6, 7, 8]])
+>>>[False, False, False, True, True, True]
+print(filter(bigerthan5, [3, 4, 5, 6, 7, 8]))
+>>><filter object at 0x7f05f180ff10>
+print(list(filter(bigerthan5, [3, 4, 5, 6, 7, 8])))
+>>> [6, 7, 8]
 ```
 
 <img src="map函数.png" alt="map函数" title="map函数" style="zoom:100%;" />
@@ -2038,20 +2335,19 @@ for i in map(lambda x,y: x+y ,[1,2,3,4],[5,6]):
 
 ```python
 Docstring:
+    #reduce(归纳,减少)
 reduce(function, sequence[, initial]) -> value
 # 从左到右对一个序列的项累计地应用有两个参数的函数，以此合并序列到一个单一值。
-Apply a function of two arguments cumulatively to the items of a sequence,
+Apply a function of two arguments cumulatively(累积地) to the items of a sequence,
 from left to right, so as to reduce the sequence to a single value.
 For example, reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]) calculates
 ((((1+2)+3)+4)+5).  
 # 如果提供了 initial 参数，计算时它将被放在序列的所有项前面，如果序列是空的，它也就是计算的默认结果
-If initial is present, it is placed before the items
-of the sequence in the calculation, and serves as a default when the
-sequence is empty.
+If initial is present, it is placed before the items of the sequence in the calculation, and serves as a default when the sequence is empty.
 Type:      builtin_function_or_method
 # 描述
 reduce的工作过程是 ：
-在迭代sequence(tuple ，list ，dictionary， string等可迭代物)的过程中，
+在迭代sequence(tuple ，list ，dictionary， string等可迭代对象)的过程中，
 First,把 前两个元素传给 函数f(x,y)，函数f(x,y)加工后，
 Second,把得到的结果和第三个元素作为两个参数传给函数参数， 函数加工后得到的结果又和第四个元素作为两个参数传给函数参数，依次类推。 
 
@@ -2117,7 +2413,7 @@ frozenset() 创建一个不可修改的集合
 '''
 frozenset([iterable])
 set和frozenset最本质的区别是前者是可变的，后者是不可变的。当集合对象会被改变时（例如删除，添加元素），只能使用set，
-一般来说使用fronzet的地方都可以使用set
+一般来说使用frozenset的地方都可以使用set
 '''
 
 >>> frozenset([1,2,3])
@@ -2137,7 +2433,7 @@ Docstring:
 Return the dictionary containing the current scope's global variables.
 
 NOTE: Updates to this dictionary *will* affect name lookups in the current
-global scope and vice-versa.
+global scope and vice-versa(反之亦然).
 Type:      builtin_function_or_method
     
 # 描述
@@ -2183,9 +2479,9 @@ locals()
 Signature: hash(obj, /)
 Docstring:
 Return the hash value for the given object.
-
+# 两个对象的值相等一定有相同的哈希值,反之不然.
 Two objects that compare equal must also have the same hash value, but the
-reverse is not necessarily true.
+reverse(反向) is not necessarily true.
 Type:      builtin_function_or_method
     
 # 描述
@@ -2203,7 +2499,7 @@ object - 对象（一般为字符串或者数字），如果使用列表或者�
 '数字'
 >>> hash(1)
 1
->>> hash(1)
+>>> hash(1.0)
 1
 hash(1)==hash(1.0)-->True
 hash('1')-->-1918312441404905019
@@ -2231,9 +2527,9 @@ hash(str(lst)),hash(str(tpl)),hash(str(dct))
 ```python
 Signature: id(obj, /)
 Docstring:
-Return the identity of an object.
+Return the identity(标识) of an object.
 
-This is guaranteed to be unique among simultaneously existing objects.
+This is guaranteed to be unique among simultaneously(同时) existing objects.
 (CPython uses the object's memory address.)
 Type:      builtin_function_or_method
  
@@ -2256,14 +2552,14 @@ id(main)
 94358654605840
 ```
 
-### [ “==” 和 “is”](https://www.kawabangga.com/posts/1673)
+### [ “==” 数据和 “is标识”](https://www.kawabangga.com/posts/1673)
 
 Python中比较两个对象是否相等，一共有两种方法，简单来说，它们的区别如下：
 
-1. `is`是比较两个引用是否指向了同一个对象（引用比较）。
+1. `is`是比较两个引用是否指向了同一个对象（引用比较）。<font color='orange'>容器/地址标识</font>
     - `is`比较的是两者是否是同一个对象，所以比较的是内存地址（id是否相同）。
     - 每个变量都有标识、类型和值。对象一旦创建，它的标识绝不会变；
-2. `==`是比较两个对象是否相等。
+2. `==`是比较两个对象是否相等。<font color='orange'>数据/值</font>
     - `==`是值比较。不可变对象，例如int，str，它会直接进行值比较。
     - 对于Python已知的对象，会调用他们的`__eq__`函数来比较。（其实已知的对象应该也是通过内置的`__eq__`函数来比较的）。
     - 对于自定义的对象，如果实现了`__eq__`函数，就会使用它比较，如果没有实现，效果和`==`是一样的。
@@ -2276,7 +2572,7 @@ Python中比较两个对象是否相等，一共有两种方法，简单来说�
 >>> c = 1
 >>> d = 1
 # 使用缓存区.对于字符串，你可以通过使用intern函数强制使用缓存区。
->>> print(c is d) 
+>>> print(c is d)  #  Python会对比较小的对象缓存，下次用到比较小的对象时，会去缓存区查找,把小对象的地址赋给新的值
 True
 # 通过计算得到的赋值，不会使用缓存区
 'id比较'
@@ -2284,7 +2580,7 @@ True
 '值比较'
 1000 == 10**3 --> True
 #这一段总结引用自《Fluent Python》，我觉得写的非常好：
-
+# a.__eq__(b)继承自object的__eq__方法比较两个对象的id，结果与is一样。
 is运算符比==快，因为它不能被重载，所以Python不必寻找并调用特殊方法，而是直接比较两个证书id。
 而a == b 则是一个语法糖，等同于a.__eq__(b)。继承自object的__eq__方法比较两个对象的id，结果与is一样。但是多数内置类型使用更有意义的方法覆盖了__eq__方法，会考虑对象属性的值。相等性测试可能涉及大量处理工作，例如，比较大型集合或嵌套层级深的结构时。
 ```
@@ -2316,7 +2612,7 @@ Return whether an object is an instance of a class or of a subclass thereof.
 # 检查对象是否是类的对象，返回True或False
 >>> isinstance('a',str)
 True
-
+# 元组, ,是多次检查的目标
 A tuple, as in ``isinstance(x, (A, B, ...))``, may be given as the target to
 check against. This is equivalent to ``isinstance(x, A) or isinstance(x, B)
 or ...`` etc.
@@ -2389,7 +2685,7 @@ New_class,type(New_class),New_class.__dict__
 >>>
 (__main__.New_class,
  type,
- mappingproxy({'a': 1,
+ mappingproxy(映射代理)({'a': 1,
                '__module__': '__main__',
                '__dict__': <attribute '__dict__' of 'New_class' objects>,
                '__weakref__': <attribute '__weakref__' of 'New_class' objects>,
@@ -2441,7 +2737,7 @@ Iterable和Iterator，不要试图比较二者有什么不同，因为二者根�
 Iterable就是一个可迭代的对象，对其调用iter(Iterable)将会得到一个迭代器；
 而Iterator就是一个迭代器，对其调用next(Iterator)将会得到下一个元素。
 '''
-# range(3) 是 Iterable,任何实现了'__iter__'方法并返回迭代器的对象 和 所有的序列实现了'__getitem__'方法,有其中之一变可迭代
+# range(3) 是 Iterable,任何实现了'__iter__'方法并返回迭代器的对象 和 所有的序列实现了'__getitem__'方法,有其中之一便可迭代
 isinstance(range(3),Iterable),isinstance(range(3),Iterator)-->(True, False)
 ('__iter__' and '__next__' )in dir(range(3)) --> False
 '__iter__' in dir(range(3)) --> True
@@ -2457,7 +2753,7 @@ isinstance(iter(range(3)),Iterable),isinstance(iter(range(3)),Iterator)-->(True,
 
 :	<font color='orange'>上一次输出的结果为下一次输入的初始值</font>，==重复==的过程称为<font color='red'>迭代</font>,每次重复即一次迭代，并且每次迭代的结果是下一次迭代的初始值
 
-注：循环不是迭代
+注：<font color='red'>循环不是迭代</font>
 
 ```python
 while True: #只满足重复，因而不是迭代
@@ -2468,13 +2764,13 @@ while True: #只满足重复，因而不是迭代
 
 1.为什么要有迭代器？
 
-对于没有索引的数据类型，必须提供一种不依赖索引的迭代方式。
+对于没有索引的数据类型，必须提供一种<font color='red'>不依赖索引的迭代方式。</font>
 
 2.迭代器定义：
 
-**迭代器**：可迭代对象执行\_\_iter\_\_方法，得到的结果就是迭代器，迭代器对象有\_\_next\_\_方法
+**迭代器**：==可迭代对象==执行\_\_iter\_\_方法，得到的结果就是迭代器，==迭代器对象==有\_\_next\_\_方法
 
-它是一个带状态的对象，他能在你调用next()方法的时候返回容器中的下一个值，任何实现了\_\_iter\_\_和\_\_next\_\_()方法的对象都是迭代器，\_\_iter\_\_返回迭代器自身，\_\_next\_\_返回容器中的下一个值，如果容器中没有更多元素了，则抛出StopIteration异常
+迭代器是一个<font  color='red'>带状态的对象</font>，他能在你调用next()方法的时候返回容器中的下一个值，任何实现了\_\_iter\_\_和\_\_next\_\_()方法的对象都是迭代器，<font color='orange'>\_\_iter\_\_返回迭代器自身</font>，<font color='red'>\_\_next\_\_返回容器中的下一个值</font>，如果容器中没有更多元素了，则抛出StopIteration异常
 
 [理解Python的Iterable和Iterator | 卡瓦邦噶！](https://www.kawabangga.com/posts/2772)
 
@@ -2514,10 +2810,12 @@ class Iterable(builtins.object)
  |  __subclasshook__(C) from abc.ABCMeta
  |      Abstract classes can override this to customize issubclass().
  |      
- |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
- |      It should return True, False or NotImplemented.  If it returns
- |      NotImplemented, the normal algorithm is used.  Otherwise, it
- |      overrides the normal algorithm (and the outcome is cached).
+ |      This is invoked(调用) early on by abc.ABCMeta.__subclasscheck__().
+ |      It should return True, False or NotImplemented. 
+		#如果返回NotImplemented，则使用常规算法。
+ |		If it returns NotImplemented, the normal algorithm is used.
+ |      Otherwise, it overrides the normal algorithm (and the outcome is cached).
+ |      
  |  
  |  ----------------------------------------------------------------------
  |  Data and other attributes defined here:
@@ -2582,7 +2880,7 @@ Iterator是有状态的，只能遍历一次，是“消费型”的，不可以
 
 Generator可用于产生数据流， generator并不立刻产生返回值，而是等到被需要的时候才会产生返回值，相当于一个主动拉取的过程(pull)
 
-注：这个过程并不是return返回一个值，而是“生成”一个值，且所有值不保存在内存里面
+注：这个过程并不是return<font color='red'>返回一个值</font>，而是<font color='orange'>“生成”一个值</font>，且所有值不保存在内存里面
 
 generator function产生的generator与普通的function有什么区别呢?[python yield generator 详解 - 博客园](https://www.cnblogs.com/xybaby/p/6322376.html)
 
@@ -2636,7 +2934,7 @@ list(f)-->[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 >>> g = echo(1)
 >>> next(g)  # 第一次调用next()方法,执行到yield value表达式,保存上下文环境暂停返回1.
 1  # yield vale 语句的返回值
->>> g.send(2)#第二次调用send(value)方法,从value = yield开始,打印,再次遇到yield value暂停返回.
+>>> g.send(2)#第二次调用send(value)方法(赋值 & next),从value = yield开始,打印,再次遇到yield value暂停返回.
 The value is 2
 3   # yield vale 语句的返回值
 >>> g.send(5)
@@ -2711,7 +3009,7 @@ if __name__ == '__main__':
 
 ```python
 Signature: len(obj, /)
-# 返回容器中的项目数。
+# 返回容器中项目的数量。
 Docstring: Return the number of items in a container.
 Type:      builtin_function_or_method
 # 描述
@@ -2729,7 +3027,8 @@ len(d)-->2
 
 ```python
 Init signature: list(iterable=(), /)
-Docstring:     
+Docstring:  
+    # 可变类型
 Built-in mutable sequence.
 
 If no argument is given, the constructor creates a new empty list.
@@ -2744,9 +3043,11 @@ Docstring:
 max(iterable, *[, default=obj, key=func]) -> value
 max(arg1, arg2, *args, *[, key=func]) -> value
 
-With a single iterable argument, return its biggest item. The
-default keyword-only argument specifies an object to return if
-the provided iterable is empty.
+With a single iterable argument, return its biggest item. 
+ max(1,2,4)>>> 4
+The default keyword-only argument specifies an object to return if the provided iterable is empty.
+print(max('',default=None))>>> None
+
 With two or more arguments, return the largest argument.
 Type:      builtin_function_or_method
     
@@ -2784,7 +3085,7 @@ print(max_prices) # (450.1, 'B')
 
 zip(prices.values(), prices.keys())--><zip at 0x7fda7a7b4370>
 list(zip(prices.values(), prices.keys()))
->>> [(123, 'A'), (123, 'B'), (12, 'C'), (44, 'E')]
+>>> [(123, 'A'), (123, 'B'), (12, 'C'), (44, 'E')]# 先对比第一个组中的第一个,相等再比第二个
 next(zip(prices.values(), prices.keys()))-->(123, 'A')
 
 '当字典中的value相同的时候，才会比较key：'
@@ -2831,8 +3132,15 @@ b'bce'
 Docstring:
 next(iterator[, default])
 
-Return the next item from the iterator. If default is given and the iterator
-is exhausted, it is returned instead of raising StopIteration.
+Return the next item from the iterator. 
+If default is given and the iterator is exhausted, it is returned instead of raising StopIteration.
+
+e = iter(range(3))
+next(e)>>>0,1,2,StopIteration: 
+
+e = iter(range(3))
+next(e,'stop')-->0,1,2,'stop'
+
 Type:      builtin_function_or_method
 ```
 
@@ -2849,6 +3157,7 @@ Type:           type
 ### open
 
 ```python
+help(open)
 Signature: open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
 Docstring:
 Open file and return a stream.  Raise OSError upon failure.
@@ -2984,10 +3293,11 @@ try:
     f = open('/path/to/file', 'r')    # 打开文件
     data = f.read()                   # 读取文件内容
 finally:
-    if f:
+    if f:  # f True 文件打开状态
         f.close()                     # 确保文件被关闭
 # File 对象方法
-file.read([size]) size未指定则返回整个文件,如果文件大小>2倍内存则有问题.f.read()读到文件尾时返回””(空字串)
+file.read([size]) size未指定则返回整个文件,如果文件大小>2倍内存则有问题.
+f.read()读到文件尾时返回””(空字串)
 file.readline() 返回一行
 file.readlines([size]) 返回包含size行的列表,size 未指定则返回全部行
 for line in f: print line #通过迭代器访问
@@ -3046,13 +3356,13 @@ class Ball(object):
         self.__radius = radius
     
     def getRadius(self):
-        return self.__radius
+        return self.__radius   # return
         
     def setRadius(self, radius):
-        self.__radius = radius
+        self.__radius = radius # = 赋值
         
     def delRadius(self):
-        del self.__radius
+        del self.__radius  # del
         
     radius = property(getRadius, setRadius, delRadius, 'radius 特性說明')
 '执行'    
@@ -3116,7 +3426,7 @@ range(10,20,-3)-->range(10, 20, -3)  # iterable
 list(range(10,20,-3))-->[]
 ```
 
-### sorted
+### sorted values
 
 ```python
 Signature: sorted(iterable, /, *, key=None, reverse=False)
@@ -3141,7 +3451,7 @@ sorted([10,-5,0,20],key=abs,reverse=True)-->[20, 10, -5, 0]
 
 
 
-### reversed
+### reversed  indexes
 
 ```python
 Init signature: reversed(sequence, /)
@@ -3150,6 +3460,10 @@ Type:           type
 # 实例
 reversed(range(5))--><range_iterator at 0x7fda7a68a1b0>
 list(reversed(range(5)))-->[4, 3, 2, 1, 0]
+
+lst = [9,8,0,10]
+list(reversed(lst))
+>>>[10, 0, 8, 9]
 ```
 
 ### round
@@ -3176,8 +3490,9 @@ round(2.5555,-8)-->0 # ndigits=0时,返回0或0.0,取决于number类型
 # 除非对精确度没什么要求，否则尽量避开用round()函数。近似计算我们还有其他的选择：
 
 使用math模块中的一些函数，比如math.ceiling（天花板除法）。
-from math import ceil
+from math import ceil,floor
 ceil(2.1)-->3
+floor(2.1)-->2
 python自带整除，python2中是/，3中是//，还有divmod函数。
 5/2,5//2,5%2,divmod(5,2)
 (2.5, 2, 1,  (2, 1))
@@ -3215,7 +3530,7 @@ slice(start, stop[, step])
 Create a slice object.  This is used for extended slicing (e.g. a[0:10:2]).
 Type:           type
 # 实例
-slice(4)-->slice(None, 4, None)
+slice(4)-->slice(None, 4, None)# slice(stop) stop-1=3个元素
 slice(10,20,3)-->slice(10, 20, 3)
 '__iter__' in dir(slice)-->Fals #not Iterable
 lst = [1,2,3,4,5,6]
@@ -3233,8 +3548,11 @@ Init signature: super(self, /, *args, **kwargs)
 Docstring:     
 #  调用父类的方法
 super() -> same as super(__class__, <first argument>)
-super(type) -> unbound super object
+super(type) -> unbound super object #未绑定的超级对象
+# super(Dog, self).greet() 子类Dog的方法greet()中,實現父類被覆盖的同名greet方法的功能
+# Dog是self的子类
 super(type, obj) -> bound super object; requires isinstance(obj, type)
+
 super(type, type2) -> bound super object; requires issubclass(type2, type)
 # 调用协作超类方法的典型用法
 Typical use to call a cooperative superclass method:
@@ -3264,7 +3582,7 @@ class Dog(Animal): # Dog 是子類
         'Python3 可使用 super().greet()'
         super(Dog, self).greet()  #  super實現父類被覆盖的同名greet方法的功能
         print ('WangWang...')
->>> dog = Dog('dog') # 创建Dog类的dog实例对象
+>>> dog = Dog('dog') # 创建Dog类的实例对象dog
 >>> dog.greet() # 实例dog调用greet方法
 Hello, I am dog. # 父类Animal的greet方法
 WangWang.. # 子类Dog的greet方法
@@ -3287,7 +3605,7 @@ class A(Base):
 #### 深入 super()
 
 ```python
-'''uper 獲得的類剛好是父類，但在其他情況就不一定了，super 其實和父類沒有實質性的關聯。
+'''super 獲得的類剛好是父類，但在其他情況就不一定了，super 其實和父類沒有實質性的關聯。
 讓我們看一個稍微複雜的例子，涉及到多重繼承'''
 class Base(object):
     def __init__(self):
@@ -3295,21 +3613,21 @@ class Base(object):
         print ("leave Base")
 
 class A(Base):
-    def __init__(self):
+    def __init__(self):  # 重写'MRO(方法解析顺序表中)的下一个类'__init__方法
         print ("enter A")
-        super(A, self).__init__()
+        super(A, self).__init__() # 调用'MRO(方法解析顺序表中)的下一个类'__init__方法
         print ("leave A")
 
 class B(Base):
-    def __init__(self):
+    def __init__(self): # 重写'MRO(方法解析顺序表中)的下一个类'__init__方法
         print ("enter B")
-        super(B, self).__init__()
+        super(B, self).__init__()  # 调用'MRO(方法解析顺序表中)的下一个类'__init__方法
         print ("leave B")
 
 class C(A, B):
-    def __init__(self):
+    def __init__(self):  # 重写'MRO(方法解析顺序表中)的下一个类'__init__方法
         print ("enter C")
-        super(C, self).__init__()
+        super(C, self).__init__() # 调用'MRO(方法解析顺序表中)的下一个类'__init__方法
         print ("leave C")
 # Base 是父類，A, B 繼承自 Base, C 繼承自 A, B，它們的繼承關係是一個典型的『菱形繼承』
       Base
@@ -3369,7 +3687,7 @@ MRO 列表的順序是通過一個 C3 線性化算法([The Python 2.3 Method Res
 
 ```python
 def super(cls, inst):
-    mro = inst.__class__.mro()
+    mro = inst.__class__.mro()   # inst的方法解析顺序
     return mro[mro.index(cls) + 1]
 ```
 
@@ -3699,9 +4017,18 @@ Type:      builtin_function_or_method
 Complete &boolean eval
 全部布尔型求值(&B)
 '''
+# 输出__builtins__模块中所有的builtin_function_or_method
+for i,e in enumerate(dir(__builtins__),1):
+    print('{:<25}'.format(e),end='')
+    if i % 4 ==0:
+        print()
 ```
 
+![builtin_function_or_method](builtin_function_or_method.png 'builtin_function_or_method')
+
 ### exec
+
+<font color='red'>exec 是一个语法声明，不是一个函数.也就是说和if,for一样.</font> 更不会像函数一样, 没有返回值
 
 [python的exec、eval详解 - mojidong blog](https://www.mojidong.com/post/2013-05-10-python-exec-eval/)
 [Python之浅谈exec()函数 - - SegmentFault 思否](https://segmentfault.com/a/1190000014581721)
@@ -3789,7 +4116,7 @@ exec(s)-->720
 =============================================================
 
 The source may be a string representing one or more Python statements or a code object as returned by compile().
-The globals must be a dictionary and locals can be any mapping, defaulting to the current globals and locals.
+The globals must be a dictionary and locals can be any mapping(映射), defaulting to the current globals and locals.
 If only globals is given, locals defaults to it.
 Type:      builtin_function_or_method
 ```
@@ -3806,7 +4133,7 @@ print(fact(3))
 ```
 
 > - 递归函数的优点是定义简单，逻辑清晰。理论上，所有的递归函数都可以-写成循环的⽅式，但循环的逻辑不如递归清晰。
-> - 使⽤递归函数需要注意防⽌止栈溢出。
+> - 使⽤递归函数需要注意防⽌栈溢出。
 如果我们计算fact(5) ，可以根据函数定义看到计算过程如下：
 
 ```python
@@ -3825,8 +4152,8 @@ print(fact(3))
 ### 小结
 
 - 使⽤递归函数的优点是逻辑简单清晰，缺点是过深的调⽤会导致栈溢出。
-针对尾递归优化的语⾔言可以通过尾递归防⽌止栈溢出。
-- 尾递归事实上和循环是等价的，没有循环语句的编程语⾔言只能通过尾递归实现循环。
+针对尾递归优化的语⾔可以通过尾递归防⽌栈溢出。
+- 尾递归事实上和循环是等价的，没有循环语句的编程语⾔只能通过尾递归实现循环。
 - Python标准的解释器没有针对尾递归做优化，任何递归函数都存在栈溢出的问题。
 
 ## 局部变量
@@ -3904,7 +4231,7 @@ test2()
 ```
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-
+# 循环遍历后,变量value保留了可迭代对象中的最后一个对象
 for value in range(0,5):
     # value =0
     # value =1.... value=4
@@ -3919,6 +4246,7 @@ i = 1
 def show():
 #     i = 1
 ' check i ---> = i + 1'
+	# 局部变量变量i,未建先用-->表达式从左至右检查变量
     i = i + 1  #UnboundLocalError: local variable 'i' referenced before assignment
 #     a = i + 1
 show()
@@ -3945,7 +4273,7 @@ def create_phone():
     second = [3,4,5,7,8][random.randint(0,4)]  # 4 [5,7]
 
     {'name':'zs'}['name']
-    # 第三位
+    # 第三位  ## second的值是third字典的键key
     third = {
         3:random.randint(0,9),
         4:[5,7][random.randint(0,1)],

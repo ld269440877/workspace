@@ -631,3 +631,20 @@ sudo apt-get update
 # install typora
 sudo apt-get install typora
 ```
+
+- [Ubuntu 18.04 LTS 安装WPS - 简书](https://www.jianshu.com/p/3407c18e1337)
+```sh
+字体缺失问题
+下载当前目录下 wps_symbol_fonts.zip
+创建目录：
+sudo mkdir /usr/share/fonts/wps-office
+
+将下载的字体复制到创建的目录：
+sudo cp -r wps_symbol_fonts.zip /usr/share/fonts/wps-office
+
+解压字体包：
+sudo unzip wps_symbol_fonts.zip
+
+解压后删除字体包：
+sudo rm -r wps_symbol_fonts.zip
+```
