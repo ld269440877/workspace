@@ -1,5 +1,6 @@
-
 # ⾯向对象编程
+
+[Python3教程™](https://www.yiibai.com/python3)
 
 [(Back to 面向过程编程)](#面向过程编程)
 
@@ -8,15 +9,19 @@
 
 ⾯向对象的设计思想是抽象出Class，根据Class创建Instance 。
 
-> <font color = 'orange'>⾯向过程的程序设计 </font> 把计算机程序视为一系列的==命令集合==，即==一组函数的顺序执⾏==。为了简化程序设计，⾯向过程把函数继续切分为子函数，即把大块函数通过切割成小块函数来降低系统的复杂度。
+> <font color = 'orange'>⾯向过程的程序设计 </font> 把计算机程序视为一系列的==命令集合==，即==一组函数的顺序执⾏==。为了简化程序设计，⾯向过程把函数继续切分为子函数，即把大块函数通过切割成小块函数来降低系统的复杂度。<font color='red'>命令顺序执行</font>
 
-> <font color='orange'>⾯向对象的程序设计</font>把计算机程序视为==⼀组对象的集合==，而每个对象都可以接收其他对象发过来的消息，并处理这些消息，计算机程序的执行就是==一系列消息在各个对象之间传递==。
+> <font color='orange'>⾯向对象的程序设计</font>把计算机程序视为==⼀组对象的集合==，而每个对象都可以接收其他对象发过来的消息，并处理这些消息，计算机程序的执行就是==一系列消息在各个对象之间传递==。<font color='red'>对象传递消息处理</font>
 
 - 在Python中，所有数据类型都可以视为对象，当然也可以⾃定义对象。⾃定义的对象数据类型就是面向对象中的类（Class）的概念。
 
 ---
 我们以⼀个例子来说明⾯向过程和面向对象在程序流程上的不同之处。
+
 > 假设我们要处理学生的成绩表，为了表示一个学⽣的成绩，⾯向过程的程序可以⽤一个dict 表示：
+>
+> ![面向过程](面向过程.jpg '面向过程')
+
 > ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' id = 'std' output='markdown'} ##hide  代码隐藏
 > std1 = { 'name': 'Curry', 'score': 98 }
 > std2 = { 'name': 'James', 'score': 81 }
@@ -32,6 +37,8 @@ print_score(std1)
 ```
 
 > 如果采⽤⾯向对象的程序设计思想，我们⾸先思考的不是程序的执行流程，而是Student 这种数据类型应该被视为⼀个对象，这个对象拥有name 和score 这两个属性（Property）。如果要打印一个学生的成绩，⾸先必须创建出这个学生对应的对象，然后，给对象发一个print_score 消息，让对象⾃己把⾃己的数据打印出来。
+>
+> ![面向对象](面向对象.jpg '面向对象')
 ```python
 class Student(object):
     def __init__(self, name, score):
@@ -50,17 +57,21 @@ lisa.print_score()
 
 ```
 
-## 类和对象
+# 类和对象
+
 面向对象编程的2个⾮常重要的概念：类和对象
 
 对象是面向对象编程的核心，在使用对象的过程中，为了将具有共同特征和行为的一组对象抽象定义，提出了另外⼀个新的概念——类
 
-### 类
-具有相似内部状态和运动规律律的实体的集合(或统称为抽象)。 具有相同属性
-和⾏为事物的统称,类是抽象的,在使用的时候通常会找到这个类的一个具体的存在,使用这个具体的存在。一个类可以找到多个对象
-### 对象
+## 类
+
+具有相似内部状态和运动规律的实体的集合(或统称为抽象)。 具有相同属性和⾏为事物的统称,类是抽象的,在使用的时候通常会找到这个类的一个具体的存在,使用这个具体的存在。一个类可以找到多个对象
+
+## 对象
+
 某一个具体事物的存在 ,在现实世界中可以是看得见摸得着的。 可以是直接使用的
-### 类和对象之间的关系
+## 类和对象之间的关系
+
 <!-- @import  "类和对象之间的关系.png" {title="类和对象之间的关系"}
 ![类和对象之间的关系](类和对象之间的关系.png  "类和对象之间的关系") -->
 
@@ -70,9 +81,9 @@ lisa.print_score()
 
 ## 总结：类就是创建对象的模板
 
-### 定义类和创建对象
+# 定义类和创建对象
 
-#### 定义类的格式为:
+## 定义类的格式为:
 
 ```python
 class 类名:
@@ -88,10 +99,12 @@ class Hero(object): # 新式类定义形式
 > 说明：
 - 定义类时有2种形式：新式类和经典类，上面代码中的Hero为新式类，前两行注释部分则为经典类；
 - object 是Python 里所有类的最顶级父类；
-- 类名 的命名规则按照"⼤驼峰命名法"；
+- <font color='red'>类名 的命名规则按照"⼤驼峰命名法"；</font>
 - info 是⼀个实例⽅法，第一个参数一般是self ，表示实例对象本身，当然了可以将self换为其它的名字，其作用是⼀个变量 ,这个变量指向了实例对象.
 - python中，可以根据已经定义的类去创建出一个或多个对象。
-#### 创建对象的格式为:
+
+## 创建对象的格式为:
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 '''
 对象名1 = 类名()
@@ -102,17 +115,20 @@ class Hero(object): # 新式类定义形式
     """info 是一个实例方法，类对象可以调用实例方法，实例方法的第一个参数⼀定是self"""
     def info(self):
         """当对象调⽤实例⽅法时，Python会⾃动将对象本身的引⽤做为参数，传递到实例⽅法的第⼀个参数self⾥"""
-        print(self)
+        print(self)-->  <__main__.Hero object at 0x7f1dcc4f4c10>
         print("self各不同，对象是出处。")
 # Hero这个类 实例化了⼀个对象
 hero = Hero()
 # 对象调⽤实例⽅法info()，执⾏info()⾥的代码
 # . 表示选择属性或者⽅法
-hero.info()
+print(hero.info())  # 等同于在info方法中 print(self)
+>>> <__main__.Hero object at 0x7f1dcc4f4c10>
 print(hero) # 打印对象，则默认打印对象在内存的地址，结果等同于info里的print(self)
+>>> <__main__.Hero object at 0x7f1dcc4f4c10>
 
 ```
-#### 对象的创建流程(理解就行)
+## 对象的创建流程(理解就行)
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class Dog(object):
@@ -129,16 +145,17 @@ class Dog(object):
         return object.__new__(cls)
 print(Dog())
 
-# __new__
-# __init__
+# __new__   # 使用Dog()类,首先调用__new__(cls)类方法,创建类
+# __init__ # 其次调用__init__(self)方法,初始化实例方法
 # <main.Dog object at 0x0000022A37464828>
 ```
 
 
 
+# 对象的属性和⽅法
 
-### 对象的属性和⽅法
-#### 添加和获取对象的属性
+## 添加和获取对象的属性
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class Hero(object):
@@ -159,11 +176,12 @@ hero.hp = 2600 # ⽣命值
 print("英雄 %s 的⽣命值 :%d" % (hero.name, hero.hp))
 
 # 通过.成员选择运算符，获取对象的实例方法 move()
-hero.move()
+hero.move()--> 正在前往事发地点...
 
 print(hero)
 ```
-#### 通过self获取对象属性
+### 通过self获取对象属性
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class Hero(object):
@@ -181,11 +199,16 @@ hero.name = "德玛西亚" # 姓名
 hero.hp = 2600 # ⽣命值
 # 通过.成员选择运算符，获取对象的实例方法
 hero.info() # 只需要调⽤实例方法info()，即可获取英雄的属性
+>>> 英雄 德玛西亚 的⽣命值 :2600
 hero.move()
+>>> 正在前往事发地点...
 
 ```
-#### init魔法方法
-##### init方法
+### \_\_init\_\_魔法方法
+
+- \_\_init\_\_方法
+- ⼀个类里⽆论⾃己是否编写\_\_init\_\_方法 ⼀定有\_\_init\_\_方法。
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class Hero(object):
@@ -213,9 +236,15 @@ hero.move()
 ```
 ##### 总结：
 - \_\_init\_\_() 方法，在创建⼀个对象时默认被调用，不需要手动调用
-- \_\_init\_\_(self) 中的self参数，不需要开发者传递，python解释器会自动把当前的对象引⽤传递过去。
+- \_\_init\_\_(self) 中的self参数，不需要开发者传递，python解释器会<font color='orange'>自动把当前的对象引⽤传递过去</font>。
 
-##### 有参数的init()⽅法
+### 有参数的\_\_init\_\_()⽅法
+
+- 同一个<font color='orange'>类</font>的不同对象，==实例⽅法共享==
+    - 不同<font color='red'>对象</font>的==属性值的单独保存==
+
+
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class Hero(object):
@@ -234,25 +263,34 @@ class Hero(object):
 # 实例化英雄对象时，参数会传递到对象的__init__()方法⾥
 blind = Hero("瞎哥",2600,)
 gailun = Hero("盖伦",4200)
-print(gailun)
-print(blind)
+print(gailun)--><__main__.Hero object at 0x7f1dcc4935d0>
+print(blind)--><__main__.Hero object at 0x7f1dcc493550>
 # 不同对象的属性值的单独保存
 print('blind.name id:',id(blind.name))
+>>> blind.name id: 139765958088048
 print('gailun.name id:',id(gailun.name))
+>>> gailun.name id: 139765958090640
 # 同一个类的不同对象，实例⽅法共享
 print('blind.move() id',id(blind.move()))
+>>>
+瞎哥 正在前往事发地点...
+blind.move() id 94027489959824
 print('gailun.move() id',id(gailun.move()))
+>>>
+盖伦 正在前往事发地点...
+gailun.move() id 94027489959824
 
 ```
 ##### 注意：
 - 通过一个类，可以创建多个对象，就好比 通过⼀个模具创建多个实体一样
-\_\_init\_\_(self) 中，默认有1个参数名字为self，如果在创建对象时传递了2个实参，那么__init__(self) 中c除了self作为第一个形参外还需要2个形参，例如\_\_init\_\_(self,x,y)
-- 在类内部获取 属性 和 实例方法，通过self获取；
-- 在类外部获取 属性 和 实例⽅法，通过对象名获取。
-- 如果一个类有多个对象，每个对象的属性是各自保存的，都有各自独立的地址；
-- 但是实例方法是所有对象共享的，只占⽤一份内存空间。类会通过self来判断是哪个对象调⽤了实例方法。
+\_\_init\_\_(self) 中，默认有1个参数名字为self，如果在创建对象时传递了2个实参，那么\_\_init\_\_(self) 中除了self作为第一个形参外还需要2个形参，例如\_\_init\_\_(self,x,y)
+- 在<font color='orange'>类内部</font>获取 属性 和 实例方法，通过==self获取==；
+- 在<font color='red'>类外部</font>获取 属性 和 实例⽅法，通过==对象名获取==。
+- 如果一个类有多个对象，<font color='red'>每个对象的属性是各自保存的，都有各自独立的地址</font>；
+- 但是<font color='orange'>实例方法是所有对象共享的，只占⽤一份内存空间</font>。==类会通过self来判断是哪个对象调⽤了实例方法==。
 
 ### 继承
+
 - 在程序中，继承描述的是多个类之间的所属关系。
 - 如果⼀个类A里⾯的属性和⽅法可以复用，则可以通过继承的方式，传递到类B里。
 - 那么类A就是基类，也叫做父类；类B就是派生类，也叫做子类。
@@ -272,7 +310,8 @@ print(b.num)
 b.print_num()
 
 ```
-#### 单继承
+### 单继承
+
 单继承
 :   子类只继承一个父类。
 
@@ -290,15 +329,19 @@ class Person(object):
 class Teacher(Person):
     # ⼦类可以继承⽗类所有的属性和方法，哪怕子类没有⾃己的属性和方法，也可以使⽤⽗类的属性和⽅法。
     pass
-panda = Teacher() # 创建子类实例对象
+panda = Teacher() # Teacher类创建实例对象panda
 print(panda.name) # ⼦类对象可以直接使⽤父类的属性
 panda.make_person() # ⼦类对象可以直接使用父类的方法
-
+# 查看类的MRO(方法解析序列)的两种方法
+Teacher().__class__.mro()-->[__main__.Teacher, __main__.Person, object]
+Teacher.__mro__          -->(__main__.Teacher, __main__.Person, object)
 ```
-#### 总结：
-虽然⼦类没有定义\_\_init\_\_ 方法初始化属性，也没有定义实例方法，但是父类有。所以只要创建类的对象，就默认执行了那个继承过来的\_\_init\_\_ 方法子类在继承的时候，在定义类时，⼩括号()中为父类的名字父类的属性、方法，会被继承给子类
+- **总结**：
 
-#### 多继承
+虽然⼦类没有定义\_\_init\_\_ 方法初始化属性，也没有定义实例方法，但是父类有。所以只要创建类的对象，就默认执行了那个继承过来的\_\_init\_\_ 方法,在定义类时，⼩括号()中为父类的名字父类的属性、方法，会被继承给子类
+
+### 多继承
+
 多继承
 :   子类继承多个父类
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -326,13 +369,17 @@ ls.make_person()
 
 # ⼦类的魔法属性__mro__决定了属性和⽅法的查找顺序
 print(Person.__mro__)
+>>> (<class '__main__.Person'>, <class '__main__.Women'>, <class '__main__.Man'>, <class 'object'>)
+print(Person().__class__.mro())
+>>>[<class '__main__.Person'>, <class '__main__.Women'>, <class '__main__.Man'>, <class 'object'>]
 ```
-#### 结论：
-- 多继承可以继承多个父类，也继承了所有父类的属性和方法
-- 注意：如果多个父类中有同名的 属性和⽅法，则默认使用第一个父类的属性和方法（根据类的魔法属性mro 的顺序来查找）
-- 多个父类中，不重名的属性和方法，不会有任何影响。
+- **结论**：
+    - 多继承可以继承多个父类，也继承了所有父类的属性和方法
+    - 注意：如果多个父类中有同名的 属性和⽅法，则默认使用第一个父类的属性和方法（根据类的魔法属性mro 的顺序来查找）
+    - 多个父类中，不重名的属性和方法，不会有任何影响。
 
 ### 重写父类方法
+
 - 重写：⼦类继承父类，父类的方法满⾜不了子类的需要可以对父类的方法进行重写
 - 重写的特点:
     1. 继承关系，
@@ -357,7 +404,8 @@ stu.run()
 
 ```
 ### 属性方法
-- 类属性和实例属性
+
+- <font color='orange'>类</font>属性和<font color='red'>实例</font>属性
 类属性就是类对象所拥有的属性，它被所有类对象的实例对象所共有，在内存中只存在一个副本，这个和C++中类的静态成员变量有点类似。
 对于公有的类属性，在类外可以通过类对象和实例对象访问
 
@@ -407,7 +455,7 @@ p = Person()
 
 p.set_age(100)
 
-print(p.get_age())
+print(p.get_age())-->100
 
 ```
 
@@ -418,7 +466,7 @@ print(p.get_age())
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class People(object):
-    address = '⼭山东' # 类属性
+    address = '⼭东' # 类属性
     def __init__(self):
         self.name = 'xiaowang' # 实例属性
         self.age = 20 # 实例属性
@@ -437,46 +485,46 @@ print(People.age) # 错误
 #通过实例(对象)去修改类属性
 class People(object):
     country = 'china' #类属性
-print(People.country)
+print(People.country)-->'china' 
 p = People()
-print(p.country)
+print(p.country)-->'china' 
 '''
 添加实例p的country属性，而不是修改类Person的country属性
 '''
 p.country = 'japan'
 
-print('p.country:',p.country) # 实例属性会屏蔽掉同名的类属性
-print('People.country:',People.country)
+print('p.country:',p.country)-->'japan' # 实例属性会屏蔽掉同名的类属性
+print('People.country:',People.country)-->'china' 
 del p.country # 删除实例属性
-print(p.country)
+print(p.country)-->'china' 
 
 ```
-#### 总结
-- 如果需要在类外修改类属性，必须通过类对象去引⽤然后进行修改。
-- 如果通过实例对象去引用，会产⽣一个同名的实例属性，这种方式修改的是实例属性，不会影响到类属性，并且之后如果通过实例对象去引用该名称的属性，实例属性会强制屏蔽掉类属性，即引用的是实例属性，除⾮删除了该实例属性。
+- 总结
+    - 如果需要==在类外<font color='red'>修改类属性</font>，必须通过类对象去引⽤然后进行修改==。
+    - 如果通过实例对象去引用，会产⽣一个同名的实例属性，这种方式==<font color='orange'> 修改的是实例属性</font>==，不会影响到类属性，并且之后如果通过实例对象去引用该名称的属性，实例属性会强制屏蔽掉类属性，即引用的是实例属性，除⾮删除了该实例属性。
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-
 class Tool(object):
     # 类属性，计数
     num = 0
+    print(num)  # 创建Tool类时,执行类属性 print(num)
     def __init__(self,name):
         self.name = name
         Tool.num += 1
-
-t1 = Tool('水桶')
-t2 = Tool('垃圾桶')
-t2 = Tool('锅')
-
-print(Tool.num)
-
+        print('Tool.num',Tool.num)  # 类创建实例时,执行__init__方法(创建一次实例执行一次)
+t1 = Tool('水桶') # Tool.num 1
+t2 = Tool('垃圾桶') # Tool.num 2
+t3 = Tool('锅') # Tool.num 3
+print(Tool.num) # 3
 ```
 
-### 静态⽅法和类方法
-#### 类⽅法
+## 静态⽅法和类方法
+
+### 类⽅法
 
 类⽅法
-:   是类对象所拥有的方法，需要⽤修饰器@classmethod来标识其为类方法，对于类⽅法，第一个参数必是类对象，一般以cls作为第一个参数（当然可以⽤其他名称的变量作为其第一个参数，但是大部分人都习惯以'cls'作为第一个参数的名字，就最好用'cls'了），能够通过实例对象和类对象去访问。
+:   是类对象所拥有的方法，需要⽤修饰器@classmethod来标识其为类方法，对于类⽅法，第一个参数必是类对象，一般以cls作为第一个参数（当然可以⽤其他名称的变量作为其第一个参数，但是大部分人都习惯以'cls'作为第一个参数的名字，就最好用'cls'了），能够通过实例对象和类对象去访问类方法。
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class People(object):
@@ -488,12 +536,10 @@ class People(object):
 
 
 p = People()
-print(p.get_country()) #可以t通过实例对象引⽤
-print(People.get_country()) #可以通过类对象引用
-
-
+print(p.get_country()) #可以通过实例对象引⽤类方法
+print(People.get_country()) #可以通过类对象引用类方法
 ```
-- 类⽅法还有⼀个用途就是可以对类属性进⾏修改：
+- 类⽅法还有⼀个用途就是可以通过实例调用类方法对类属性进⾏修改：
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 class People(object):
@@ -509,7 +555,7 @@ p = People()
 print(p.get_country()) #可以通过实例对象访问
 print(People.get_country()) #可以通过类访问
 #结果显示在用类⽅法对类属性修改之后，通过类对象和实例对象访问都发⽣了改变
-p.set_country('japan')
+p.set_country('japan') # 通过实例调用类方法对类属性进⾏修改
 print(p.get_country())
 print(People.get_country())
 
@@ -532,35 +578,35 @@ print(People.get_country())
 ```
 #### 总结
 从类⽅法和实例方法以及静态方法的定义形式就可以看出来，
-- 类⽅法的第⼀个参数是类对象cls，那么通过cls引⽤的必定是类对象的属性和方法；
-- 实例方法的第⼀个参数是实例对象self，那么通过self引用的可能是类属性、也有可能是实例属性（这个需要具体分析），不过在存在相同名称的类属性和实例属性的情况下，实例属性优先级更高。
+- <font color='red'>类⽅法</font>的第⼀个参数是类对象cls，那么通过cls引⽤的必定是类对象的属性和方法；
+- <font color='orange'>实例方法</font>的第⼀个参数是实例对象self，那么通过self引用的可能是类属性、也有可能是实例属性（这个需要具体分析），不过在存在相同名称的类属性和实例属性的情况下，实例属性优先级更高。
 - 静态⽅法中不需要额外定义参数，因此在静态方法中引用类属性的话，必须通过类实例对象来引⽤
-### 多态
+## 多态
 
-> - 多态, 不同的 子类对象调⽤ 相同的 父类方法，产生 不同的 执行结果，可以增加代码的外部 调⽤灵活度
-> - 多态以 继承 和 重写 父类方法 为前提
+> - 多态, <font color='blue'>不同的 子类对象调⽤ 相同的 父类方法，产生 不同的 执行结果</font>，可以增加代码的外部 调⽤灵活度
+> - ==多态==以 继承 和 重写 父类方法 为==前提==
 > - 多态是调用⽅法的技巧，不会影响到类的内部设计
 
-```python
+
+
+- 定义一个方法（参数必须传一个animal类型的对象）
+
+
+```python {cmd = true matplotlib=true code_block=true class= &#39; line-numbers&#39;  continue=&#39;utf-8&#39; output=&#39;markdown&#39;} ##hide  代码隐藏
 class Animal(object):
     def run(self):
-     print('Animal is running...')
+    	 print('Animal is running...')
 class Dog(object):
     def run(self):
         print('Dog is running...')
 class Cat(object):
     def run(self):
         print('Cat is running...')
-```
-
-
-# 定义一个方法（参数必须传一个animal类型的对象）
-
-
-```python {cmd = true matplotlib=true code_block=true class= &#39; line-numbers&#39;  continue=&#39;utf-8&#39; output=&#39;markdown&#39;} ##hide  代码隐藏
+        
 def run_twice(animal):
         animal.run()
         animal.run()
+        
 dog = Dog()
 cat = Cat()
 
@@ -610,8 +656,11 @@ func(cat)
 
 [(Back to 面向对象编程)](#⾯向对象编程)
 
+[常⻅的错误类型和继承关系看这⾥](https://docs.python.org/3/library/exceptions.html#exception-hierarchy)
+
 - ⼀旦出错，还要⼀级一级上报，直到某个函数可以处理该错误
 - 所以⾼级语⾔通常都内置了一套try...except...finally... 的错误处理机制
+    - try 来运行这段代码，如果执⾏出错，则后续代码不会继续执⾏，⽽是直接跳转⾄错误处理代码，即except 语句块
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 '''
 当我们认为某些代码可能会出错时，就可以⽤try 来运行这段代码，如果执⾏出错，则后续代码不会继续执⾏，⽽是直接跳转⾄错误处理代码，即except 语句块，执⾏完except 后，如果有finally 语句块，则执⾏finally 语句块，⾄此，执行完毕。
@@ -626,7 +675,7 @@ finally:
     print('finally...')
 print('END')
 '''
-由于没有错误发⽣，所以except 语句块不会被执行，但是finally 如果有，则⼀会被执行（可以没有finally 语句）。
+由于没有错误发⽣，所以except 语句块不会被执行，但是finally 如果有，则⼀定会被执行（可以没有finally 语句）。
 
 从输出可以看到，当错误发生时，后续语句print('result:', r) 不会被执行， except 由于捕获到ZeroDivisionError ，因此被执行。最后， finally 语句被执⾏。然后，程序继续按照流程往下走。
 '''
@@ -680,7 +729,7 @@ except UnicodeError as e:
 
 # 第⼆个except 永远也捕获不到UnicodeError ，因为UnicodeError 是ValueError 的⼦类，如果有，也被第一个except 给捕获了。
 ```
-- Python所有的错误都是从BaseException 类派⽣的，[常⻅见的错误类型和继承关系看这⾥](https://docs.python.org/3/library/exceptions.html#exception-hierarchy)
+- Python所有的错误都是从BaseException 类派⽣的，[常⻅的错误类型和继承关系看这⾥](https://docs.python.org/3/library/exceptions.html#exception-hierarchy)
 - 使⽤try...except 捕获错误还有⼀个巨大的好处，就是可以跨越多层调⽤，⽐如函数main() 调用foo() ， foo() 调用bar() ，结果bar() 出错了，这时，只要main() 捕获到了，就可以处理：
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -713,15 +762,190 @@ sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
 
 [(Back to 面向对象编程)](#⾯向对象编程)
 
+- `help('modules')`# <font color='red'>查看所安装的模块</font>
+
+    
+
 模块
 :   通俗理解⼀个.py⽂件就是⼀个模块，模块是管理功能代码的。
 
 内置模块
-:   就是python⾃⼰己内部⾃带的不需要我们去下载的模块， ⽐如：time, random等。
->  模块是一个.py文件
-> 包是一个装有多个.py文件的文件夹
+:   就是python⾃⼰内部⾃带的不需要我们去下载的模块， ⽐如：time, random等。
+
+>  **模块**是一个.py文件或以其他文件形式存在的可被引入的就是一个模块
+>
+>  **包**是一个装有多个.py文件 和 \_\_init\_\_.py文件的文件夹
+>
+>  **路径查找**：python解释器查找被安装的包或模块
+
+## [模块搜索路径和包导入](https://www.cnblogs.com/ljhdo/p/10674242.html)
+
+
+
+在导入自定义的模块时，除了指定==模块名==之外，也需要指定==目录==，由于Python把目录称作包，因此，这类导入被称为包导入。包导入把计算机上的目录变成Python的命名空间，而<font color='orange'>目录中所包含的子目录和模块文件则对应命名空间中的属性。</font>
+
+- .py文件—模块
+- 文件夹+\_\_init\_\_.py文件—包
+
+### sys.modules和模块中的`__file__`变量的作用
+
+Python<font color='red'>已经导入的模块保存在一个内置的sys.modules字典中</font>，以便记录哪些模块已经记录了。
+
+- Python解释器启动之后，会把预先加载内置模块，可以通过`sorted(sys.modules)`验证。
+
+- 通过`sys.modules`和`__file__`，可以动态获取所有已加载模块目录和路径。
+
+    ```python
+    # __file__是从中加载模块的文件的路径名（如果它是从文件加载的）
+    sys.modules['os'].__file__
+    >>> '/home/leung/anaconda3/lib/python3.7/os.py'
+    os.path.realpath(sys.modules['os'].__file__)
+    >>> '/home/leung/anaconda3/lib/python3.7/os.py'
+    print(sys.argv[0]) #获取主入口执行文件
+    >>>'/home/leung/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py'
+    ```
+
+### 模块搜索路径
+
+导入过程首先需要定位导入文件的位置，也就是，告诉Python到何处去找到要导入的文件，因此，需要设置模块的搜索路径。在大多数情况下，Python会自动到默认的目录下去搜索模块；如果要在默认的目录之外导入模块，就需要知道Pyhon搜索模块路径的机制。
+
+Python搜索模块的路径是由四部分构成的：程序的主目录、PATHONPATH目录、标准链接库目录和.pth文件的目录，这四部分的路径都存储在sys.path 列表中。
+
+#### 程序的主目录
+
+主目录是指包含程序的顶层脚本的目录，Python首先会到主目录中搜索模块。
+
+因为主目录总是第一个被搜索，如果模块完全处于主目录中，所有的导入都会自动完成，而不需要单独配置路径。
+
+#### PATHONPATH目录
+
+PATHONPATH目录是指PATHONPATH环境变量中配置的目录，是第二个被搜索的目录，Python会从左到右搜索PATHONPATH环境变量中设置的所有目录。
+
+#### 标准链接库目录
+
+标准链接库目录是Python按照标准模块的目录，是在安装Python时自动创建的目录，通常不需要添加到PYTHONPATH目录中。
+
+#### 路径文件（.pth文件）
+
+在模块搜索目录中，创建路径文件，后缀名为.pth，该文件每一行都是一个有效的目录。Python会读取路径文件中的内容，每行都作为一个有效的目录，加载到模块搜索路径列表中。简而言之，当路径文件存放到搜索路径中时，其作用和PYT)HONPATH环境变量的作用相同。
+
+- 如果运行在Windows和Python3.0中，如果Python安装目录的顶层是C:\Python30，那么可以把自定义的路径文件 mypath.pth 放到该目录中。
+
+- 也可以放到标准库所在位置的sitepackages子目录中（C:\Python30\Lib\sitepackages），来扩展模块的搜索路径。
+
+### 配置搜索路径
+
+上述四种模块搜索路径，能够配置的选项只有==PYTHONPATH环境变量==和==路径文件==。例如，在Windows平台上，创建PYTHONPATH环境变量，设置变量的值，两个目录使用英文状态下半角分号隔开：
+
+```sh
+C:\pycode\utilities;D:\pycode\package1
+```
+
+也可以创建一个名为 C:\Python30\pydirs.pth的文本文件，其内容如下所示：
+
+```sh
+C:\pycode\utilities
+D:\pycode\package1
+```
+
+### sys.path列表
+
+如果想看模块搜索路径在机器上的实际配置，可以通过打印内置的sys.path列表来查看，这个列表是sys模块的path属性。
+
+```python
+import sys
+print(sys.path)
+```
+
+其实，sys.path是模块搜索的路径，Pytho在程序启动时进行配置，自动把顶级文件的主目录，PYTHONPATH环境变量中配置的目录，.pth文件中目录以及标准连接库目录加载到sys.path列表中，Python每次导入一个新的模块，都是从sys.path列表中查找搜索目录。
+
+- 查看
+    - `sys.path`
+- 修改
+    - 临时
+        - `sys.path = []` #赋值空列表后,只能检索到标准库,检索不到第三方库/模块
+        - sys.path.insert(0,‘path’)
+        - sys.path.append(‘path’)
+    - 永久
+        - PYTHONPATH=$PYTHONPATH:‘/path’
+        - **推荐** 最好的方法，是在sys.path的某个目录下,路径配置文件的扩展名是”.pth”[修改python import包/模块搜索路径的几种方法 - 简书](https://www.jianshu.com/p/cc09c71f979d)
+
+### 包导入基础
+
+搜索路径是指Python搜索模块的路径前缀，在import 语句的路径上添加这些路径，以构成模块的绝对路径。通常把存储模块的根目录称作容器目录，记作dir0，容器目录dir0必须包含在搜索路径中。
+
+例如，在dir0目录下，存在dri1/dir2/mod.py模块，那么导入该模块需要设置搜索路径为dir0，并使用import  和路径导入该模块：
+
+```python
+import dir1.dir2.modfrom dir1.dir2.mod import mod_fun
+```
+
+在import语句中列举目录名，以点号分隔，"."路径是对应于dir0内的目录，通过这个目录可以找到mod.py模块。
+
+### __init__.py包文件
+
+如果选择使用包导入，就必须多遵循一条约束：包导入语句的路径中，每个目录内都必须有\_\_init\_\_.py文件，否则包导入失败。
+
+对于目录结构 dir0/dri1/dir2/mod.py 
+
+```python
+import dir1.dir2.mod
+```
+
+必须遵守以下规则：
+
+- dir0是容器目录，不需要\_\_init\_\_.py文件，如果有，也会被忽略。
+- dir0必须列在模块搜索路径列表中，也就是说，dir0必须是主目录，或者列在PYTHONPATH环境变量中等。
+- dir1和dir2都必须包含一个\_\_init\_\_.py文件
+
+\_\_init\_\_.py文件是当 import 第一次遍历一个包目录时所运行的文件，可以包含Python程序代码，也可以完全是空的。通常情况下，\_\_init\_\_.py文件扮演了包初始化的钩子，替目录产生模块命名空间以及使用目录导入时实现from*行为的角色。
+
+**- 包的初始化**
+
+Python在首先导入某个目录时，会自动执行该目录下的\_\_init\_\_.py文件中的所有程序代码。
+
+- 模块命名空间的初始化**
+
+在包导入模型中，脚本内的目录路径，在导入后会变成真实的对象路径，即，为目录创建的模块对象提供了命名空间。
+
+**- from \*语句的行为**
+
+[(To \_\_init\_\_ ⽂件写法)](###\_\_init\_\_ ⽂件写法)
+
+在\_\_init\_\_.py文件内使用\_\_all\_\_列表，来定义目录以from * 语句形式导入时，需要导出的属性清单。如果没有设置\_\_all\_\_，from *语句不会自动加载该目录内的子模块，也就是说，只加载该目录下的\_\_init\_\_.py文件中罗列在\_\_all\_\_列表中的变量。 from 包名 import *, 默认不会导⼊包⾥面的所有模块，需要在init⽂件⾥面使⽤`__all__ = ["变量名", "函数名"]from . import 变量名,函数名`,
+
+### 创建名为first_module的⾃定义模块
+
+```python {cmd = true matplotlib=true code_block=true class= &#39; line-numbers&#39;  continue=&#39;utf-8&#39; output=&#39;markdown&#39;} ##hide  代码隐藏
+# 指定__all__表示 from 模块名 import * 只能使⽤指定的功能代码，⽽不是所有的功能代码
+__all__ = ["g_num", "show"]
+
+# 定义全局变量
+g_num = 10
+# 定义函数
+def show():
+    print("我是⼀个函数")
+    # 定义类
+class Student(object):
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def show_msg(self):
+        print(self.name, self.age)
+# 解决导⼊的模块中⽅法没有调⽤就会执行
+if __name__ == '__main__':
+    show()
+
+'''
+注意：使⽤ __name__ 查看模块名，执⾏哪个⽂件，哪个⽂件中的__name__ 输出 __main__ , 其他导
+⼊模块中的__name__ 结果就是模块名字。
+'''
+```
+
+
 
 ## 自定义模块的使⽤
+
 - 注意：⾃定义模块名字和变量名的定义很类似，都是由字⺟、数字、下划线组成，但是不能以数字开头，否则⽆法导⼊该模块。
 
 
@@ -745,34 +969,6 @@ import first_module
 print(__name__)# __main__
 ```
 
-### 创建名为first_module的⾃定义模块
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-
-__all__ = ["g_num", "show"]
-# 指定__all__表示 from 模块名 import * 只能使⽤指定的功能代码，⽽不是所有的功能代码
-# 定义全局变量
-g_num = 10
-# 定义函数
-def show():
-    print("我是⼀个函数")
-    # 定义类
-class Student(object):
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-    def show_msg(self):
-        print(self.name, self.age)
-# 解决导⼊的模块中⽅法没有调⽤就会执行
-if __name__ == '__main__':
-    show()
-
-'''
-注意：使⽤ __name__ 查看模块名，执⾏哪个⽂件，哪个⽂件中的__name__ 输出 __main__ , 其他导
-⼊模块中的__name__ 结果就是模块名字。
-'''
-
-```
-
 ### 使⽤⾃定义的模块
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -786,13 +982,15 @@ stu.show_msg()
 
 ```
 
-模块导⼊的注意点：
+- 模块导⼊的注意点：
+
 1. ⾃定义的模块名不要和系统的模块名重名，
 2. 导⼊的功能代码不要在当前模块定义否则使⽤不了导⼊模块的功能代码
 
 ### 包的介绍
+
 包
-:   通俗理解包就是⼀个⽂件夹，只不过⽂件夹⾥面有⼀个init.py⽂件
+:   通俗理解包就是⼀个⽂件夹，只不过⽂件夹⾥面有⼀个`__init__.py`⽂件
 包是管理模块的， 模块是管理功能代码的。
 
  包-模块-代码：
@@ -844,6 +1042,7 @@ __all__ = ["g_num", "show"]
 from first_package import *
 ```
 ### \_\_init\_\_ ⽂件写法
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # 如果外界使⽤from 包名 import * 不会导⼊包⾥面的所有模块，需要使⽤__all__指定
@@ -854,12 +1053,186 @@ from . import second
 
 ```
 
+# Python系统操作（sys、os）模块
+
+[Python系统操作（sys、os）模块 - 知行流浪 - CSDN博客](https://blog.csdn.net/zengxiantao1994/article/details/58188527)
+
+## sys库
+
+​        <font color='orange'>sys模块</font>包括了一组非常实用的服务，内含很多函数方法和变量，用来==处理Python运行时配置以及资源==，从而可以与前当程序之外的系统环境交互，如：python解释器。
+
+- sys模块的常见函数列表(import sys)
+
+| 函数                                    | 说明                                                         |
+| --------------------------------------- | ------------------------------------------------------------ |
+| dir(sys)                                | dir()方法查看模块中可用的方法。<br>注意：如果是在编辑器，一定要注意要事先声明代码的编码方式，否则中文会乱码。 |
+| sys.argv                                | 实现从程序外部向程序传递参数                                 |
+| sys.exit([arg])                         | 程序中间的退出，arg=0为正常退出                              |
+| sys.getdefaultencoding()                | 获取系统当前编码，一般默认为ascii                            |
+| sys.setdefaultencoding()                | 设置系统默认编码，<br>执行dir(sys)时不会看到这个方法，在解释器中执行不通过，<br>可以先执行reload(sys), 再执行setdefaultencoding('utf8')，将系统编码设置为utf8 |
+| sys.getfilesystemencoding()             | 获取文件系统编码方式，Windows下返回'mbcs'，mac下返回'utf-8'  |
+| sys.path                                | 获取指定模块搜索路径的字符串集合，<br>可以将写好的模块放在得到的某个路径下，就可以在程序中import时正确找到 |
+| sys.platform                            | 获取当前系统平台。                                           |
+| sys.stdin<br/>sys.stdout<br/>sys.stderr | stdin，stdout，以及stderr变量包含与标准I/O流对应的流对象。<br>如果需要更好地控制输出，而print不能满足要求，它们就是你所需要的。  你也可以替换它们，重定向输出和输入到其它设备(device)，或者以非标准的方式处理它们。 |
+| sys.modules                             | 是一个全局字典，该字典是python启动后就加载在内存中。<br>每当程序员导入新的模块，sys.modules将自动记录该模块。当第二次再导入该模块时，python会直接到字典中查找，从而加快程序运行的速度。它拥有字典所拥有的一切方法。 |
+|                                         |                                                              |
+
+
+
+
+
+## os库
+
+​        <font color='red'>os模块</font>负责==程序与操作系统的交互==，提供了访问操作系统底层的接口。
+
+- os模块的常见函数列表(import os)
+
+| 函数                           | 说明                                                         |
+| ------------------------------ | ------------------------------------------------------------ |
+| os.environ                     | 一个包含环境变量的映射关系的字典                             |
+| os.name                        | 显示当前使用的平台—Ubuntu输出'posix'                         |
+| os.sep                         | 显示当前平台下路径分隔符—Ubuntu输出  '/'                     |
+| os.linesep                     | 给出当前平台使用的行终止符—Ubuntu输出  '/''\n'               |
+| os.remove('filename')          | 删除一个文件<br>`os.remove('/tmp/xx/b.txt')`                 |
+| os.rename("oldname","newname") | 重命名文件<br>`os.rename('/tmp/xx/a.txt','/tmp/xx/b.txt')`   |
+| os.getcwd()                    | 显示当前python脚本工作路径                                   |
+| os.chdir(dir)                  | 改变当前目录，注意windows下用到转义                          |
+| os.listdir('dirname')          | 返回指定目录下的所有文件和目录名                             |
+| os.mkdir('dirname/dirname')    | 可生成多层递规目录<br>`os.mkdir('/tmp/xx')`                  |
+| os.rmdir('dirname')            | 删除单级目录<br>`os.rmdir('/tmp/xx')`                        |
+| os.getlogin()                  | 得到用户登录名称–'leung'                                     |
+| os.getenv(‘key’)               | 得到环境变量配置                                             |
+| os.putenv(‘key’)               | 设置环境变量                                                 |
+| os.system(‘command’)           | 运行shell命令，注意：这里是打开一个新的shell，运行命令，当命令结束后，关闭shell。<br>`os.system("echo'hello' > /tmp/xx/a.txt")` |
+
+### os.path
+
+- os.path编写平台无关的程序
+
+| 函数                                   | 说明                                                         |
+| -------------------------------------- | ------------------------------------------------------------ |
+| os.path.abspath()                      | 获取绝对路径<br>os.path.abspath("1.txt") == os.path.join(os.getcwd(),"1.txt") |
+| os.path.split()                        | 用于分开一个目录名称中的目录部分和文件名称部分。             |
+| os.pardir                              | 表示当前平台下上一级目录的字符 ..                            |
+| os.path.join(path, name)               | 连接目录和文件名。                                           |
+| os.path.basename(path)                 | 返回文件名                                                   |
+| os.path.dirname(path)                  | 返回文件路径                                                 |
+| os.path.getctime("/root/1.txt")        | 返回1.txt的ctime(创建时间)时间戳                             |
+| os.path.exists(os.getcwd())            | 判断文件是否存在                                             |
+| os.path.isfile(os.getcwd())            | 判断是否是文件名，1是0否                                     |
+| os.path.isdir('c:\Python\temp')        | 判断是否是目录，1是0否                                       |
+| os.path.islink('/home/111.sql')        | 是否是符号连接，windows下不可用                              |
+| os.path.ismount(os.getcwd())           | 是否是文件系统安装点，windows下不可用                        |
+| os.path.samefile(os.getcwd(), '/home') | 看看两个文件名是不是指的是同一个文件                         |
+| os.walk()                              | 能够把给定的目录下的所有目录和文件遍历出来。<br>`next(os.walk(os.getcwd()))` |
+
+```python
+#coding=utf-8
+'''
+Created on 2017年3月4日
+ 
+@author: zxt
+'''
+importos
+ 
+# 当前平台上一级目录字符..
+print(os.path.pardir)
+ 
+os.path.abspath(__file__)  :绝对路径
+# 获取绝对路径（目录加当前文件名）
+print(os.path.abspath(__file__))
+ 
+# os.path.split(os.getcwd()) 用于分开一个目录名称中的目录部分和文件名称部分。
+# 获取绝对目录（没有文件名）
+print(os.getcwd());
+print(os.path.split(os.path.abspath(__file__))[0]) # 目录
+print(os.path.dirname(os.path.abspath(__file__)))# 等价于上一句
+ 
+# 拼接文件目录和文件名
+print(os.path.join(os.path.dirname(os.path.abspath(__file__)), os.path.pardir) )
+ 
+# 获取父目录
+# 当前目录的路径名称，即父目录（os.path.dirname()：显示当前路径，不会显示当前文件名）
+print(os.path.dirname(os.getcwd()));
+print(os.path.abspath(os.path.join(os.getcwd(), os.path.pardir)) )
+```
+
+
+
+
+
+
+
 # ⽂件基础操作
+
+[Python文件操作详解 - 知行流浪 - CSDN博客](https://blog.csdn.net/zengxiantao1994/article/details/53784924)
+
 ## ⽂件简介
-⽂件包括 ⽂本文件和⼆进制文件（声⾳音，图像，视频) 从存储⽅式来说，⽂件在磁盘上的存储方式都是二进制形式，所以，文本⽂件其实也应该算二进制文件。先从他们的区别来说，虽然都是二进制⽂件，但是二进制代表的意思不一样。打个比方，⼀个人，我们可以叫他的大名，以叫他的小名，但其实都是代表这个人。
-二进制读写是将内存里面的数据直接读写⼊文本中，
-⽽⽂本，则是将数据先转换成了字符串，再写⼊到文本中。
-## 读⽂件
+
+⽂件包括 ⽂本文件和⼆进制文件（声⾳，图像，视频) 从存储⽅式来说，⽂件在磁盘上的存储方式都是二进制形式，所以，文本⽂件其实也应该算二进制文件。先从他们的区别来说，虽然都是二进制⽂件，但是二进制代表的意思不一样。打个比方，⼀个人，我们可以叫他的大名，以叫他的小名，但其实都是代表这个人。
+二进制读写是将<font color='orange'>内存里面的数据</font>直接读写⼊文本中，
+⽽⽂本，则是将<font color='red'>内存的数据先转换成了字符串</font>，再写⼊到文本中。
+
+## 打开和关闭文件
+
+### open 函数
+
+先用Python内置的<font color='red'>open()函数打开一个文件，创建一个file对象</font>，相关的方法才可以调用它进行读写。语法：
+
+`file object = open(file_name [, access_mode][, buffering])`
+
+| file_name   | file_name变量是一个包含了你要访问的文件名称的字符串值。      |
+| ----------- | ------------------------------------------------------------ |
+| access_mode | access_mode决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读(r)。 |
+| buffering   | 如果buffering的值被设为0，就不会有寄存。<br>如果buffering的值取1，访问文件时会寄存行。<br>如果将buffering的值设为大于1的整数，表明了这就是的寄存区的缓冲大小。<br>如果取负值，寄存区的缓冲大小则为系统默认。 |
+
+|                    模式                    |                             描述                             |
+| :----------------------------------------: | :----------------------------------------------------------: |
+|                     r                      | 以只读⽅式打开⽂件。⽂件的指针将会放在⽂件的开头。这是默认模式 |
+|                     rb                     | 以⼆进制格式打开⼀个⽂件⽤于只读。⽂件指针将会放在⽂件的开头。 |
+|                     r+                     | 打开⼀个⽂件⽤于读写。⽂件指针将会放在⽂件的开头。 r+:可读可写的操作，覆盖的形式写入   源内容:ABC 以r+模式写入:DE 得到的文件内容:DEC |
+|                    rb+                     | 以⼆进制格式打开⼀个⽂件⽤于读写(具体见r+)。⽂件指针将会放在⽂件的开头。 |
+|                     w                      | 打开⼀个⽂件只⽤于写⼊。如果该⽂件已存在则开⽂件，并从开头开始编辑 输入:f.write(‘abc’);f.write(‘DEF’) 输出:abcDEF |
+| 容会被删除。如果该⽂件不存在，创建新⽂件。 |                                                              |
+|                     wb                     | 以⼆进制格式打开⼀个⽂件只⽤于写⼊。如果该⽂件已存在则打开⽂件，并从开头开始编辑，即原有内容会被删除。如果该⽂件不存在，创建新⽂件。 |
+|                     w+                     | 打开⼀个⽂件⽤于读写。如果该⽂件已存在则打开⽂件，并从开头开始编辑，即原有内容会被删除。如果该⽂件不存在，创建新⽂件。 |
+|                    wb+                     | 以⼆进制格式打开⼀个⽂件⽤于读写。如果该⽂件已存在则打开⽂件，并从开头开始编辑，即原有内容会被删除。如果该⽂件不存在，创建新⽂件。 |
+|                     a                      | 打开⼀个⽂件⽤于追加。如果该⽂件已存在，⽂件指针将会放在⽂件的结尾。也就是说，新的内容将会被写⼊到已有内容之后。如果该⽂件不存在，创建新⽂件进⾏写⼊。 |
+|                     ab                     | 以⼆进制格式打开⼀个⽂件⽤于追加。如果该⽂件已存在，⽂件指针将会放在⽂件的结尾。也就是说，新的内容将会被写⼊到已有内容之后。如果该⽂件不存在，创建新⽂件进行写⼊。 |
+|                     a+                     | 打开⼀个⽂件⽤于读写。如果该⽂件已存在，⽂件指针将会放在⽂件的结尾。⽂件打开时会是追加模式。如果该⽂件不存在，创建新⽂件⽤于读写。 |
+|                    ab+                     | 以⼆进制格式打开⼀个⽂件⽤于追加。如果该⽂件已存在，⽂件指针将会放在⽂件的结尾。如果该⽂件不存在，创建新⽂件⽤于读写。 |
+
+
+
+### File对象的属性
+
+[Python3文件方法 - Python3教程™](https://www.yiibai.com/python3/file_methods.html)
+
+<font color='red'>一个文件被打开后，你有一个file对象</font>，你可以得到有关该文件的各种信息。以下是和file对象相关的所有属性的列表：
+
+| file方法                                                     | 描述                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| file.close()                                                 | 关闭文件。一个关闭的文件无法读取或写入任何东西。             |
+| file.closed                                                  | 返回true如果文件已被关闭，否则返回false。                    |
+| file.mode                                                    | 返回被打开文件的访问模式。                                   |
+| file.name                                                    | 返回文件的名称。                                             |
+| file.flush()                                                 | 刷新内部缓存，像标准输入fflush。这可能是一些类文件对象的一个空操作。 |
+| file.fileno()                                                | 返回所使用的底层实现，从操作系统I/O操作的整数文件描述符。    |
+| file.isatty()                                                | 如果文件被连接到一个tty(状)装置则返回True，否则返回False。   |
+| next(file)                                                   | 返回每次被调用时文件中的下一行。                             |
+| ==file.read([size])==                                        | 被传递的参数是要从已打开文件中读取的字节计数。<br>该方法从文件的开头开始读入，如果没有传入count，它会尝试尽可能多地读取更多的内容，很可能是直到文件的末尾。<br>read（）方法从一个打开的文件中读取一个字符串。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字。 |
+| ==file.readline([size])==                                    | f.readline() 会从文件中读取单独的一行。<br>换行符为 '\n'。<br>f.readline() 如果返回一个空字符串, 说明已经已经读取到最后一行。 |
+| ==file.readlines([sizehint])==                               | f.readlines() 将以列表的形式返回该文件中包含的所有行，列表中的一项表示文件的一行。<br>如果设置可选参数 sizehint, 则读取指定长度的字节, 并且将这些字节按行分割。 |
+| file.seek(offset[,whence])                                   | seek（offset [,from]）方法改变当前文件的位置。<br/>Offset变量表示要移动的字节数。<br/>From变量指定开始移动字节的参考位置。<br/>如果from被设为0，这意味着将文件的开头作为移动字节的参考位置。<br/>如果设为1，则使用当前的位置作为参考位置。<br/>如果它被设为2，那么该文件的末尾将作为参考位置。 |
+| [file.tell()](http://www.yiibai.com/python3/file_tell.html)  | 返回文件的当前位置                                           |
+| file.truncate([size])                                        | 截断文件的大小。 如果size参数存在，则文件被截断为(至多)该尺寸。 |
+| ==[file.write(str)](http://www.yiibai.com/python3/file_write.html)== | 将一个字符串写入该文件。没有返回值。                         |
+| ==file.writelines(sequence)==                                | 写入字符串序列到文件。该序列可以是一个迭代对象的字符串 - 典型字符串列表。 |
+
+
+
+## 文件的读写操作
+
 - 要以读⽂件的模式打开⼀个⽂件对象，使⽤Python内置的open() 函数，传⼊⽂件名和标示符：
 ```python
 #  打开文件
@@ -869,14 +1242,11 @@ f.read()
 'Hello, world!'
 #  关闭
 f.close()
-
-
 ````
 如果⽂件不存在， open() 函数就会抛出⼀个IOError 的错误
 由于⽂件读写时都有可能产⽣IOError ，一旦出错，后面的f.close() 就不会调⽤。所以，为了保证无论是否出错都能正确地关闭文件，我们可以使⽤try ... finally 来实现：
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-
 try:
     f = open('/path/to/file', 'r')
     print(f.read())
@@ -891,7 +1261,11 @@ with open('/path/to/file', 'r') as f:
 
 ```
 
+
+
 ## 文件的打开方式
+
+
 
 ```python
 
@@ -908,7 +1282,7 @@ rb: 以二进制形式读取文件
 wb：以二进制形式写入文件
 ab ：以二进制形式追加写入文件
 
-r+:可读可写的操作，覆盖的形势写入  ABC DE DEC
+r+:可读可写的操作，覆盖的形势写入  源内容:ABC 以r+模式写入:DE 得到的文件内容:DEC
 '''
 ```
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -936,10 +1310,10 @@ file = open('1.txt','w',encoding='utf-8')
 file.write('abc')
 file.write('哈哈')
 file.close()
-
+# 1.txt
+abc哈哈
 ```
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-
 # r
 file = open('1.txt','r',encoding='utf-8')
 
@@ -951,8 +1325,8 @@ content = file.read()
 print(content)
 
 file.close()
-
-
+# 1.txt
+abc哈哈
 ```
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -962,11 +1336,11 @@ file.close()
 file = open('1.txt','rb')
 
 content = file.read()
-print(content) # b'fafda'
+print(content) # b'abc\xe5\x93\x88\xe5\x93\x88'
 
 # 将二进制数据进行utf-8解码操作
 result = content.decode('utf-8')
-print(result)
+print(result)---> abc哈哈
 
 # 编码-->二进制
 print(result.encode('utf-8'))
@@ -984,6 +1358,7 @@ file.close()
 file = open('1.txt','r',encoding='utf-8')
 # 英文只占一个字节，中文占三个字节
 print(file.read(4))# 如果是r这种方式， 并不是以字节的个数为量值，是字符数
+>>> abc哈
 file.close()
 
 
@@ -994,27 +1369,10 @@ file.close()
 file = open('1.txt','rb')
 
 print(file.read(4))# 如果是rb这种方式，是以字节的个数为量值
-
+>>> b'abc\xe5'
 file.close()
 
 ```
-
-
-|                   模式                   |                                                                          描述                                                                          |
-| :--------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                    r                     |                                               以只读⽅式打开⽂件。⽂件的指针将会放在⽂件的开头。这是默认模式                                               |
-|                    rb                    |                                                以⼆进制格式打开⼀个⽂件⽤于只读。⽂件指针将会放在⽂件的开头。                                                |
-|                    r+                    |                                                     打开⼀个⽂件⽤于读写。⽂件指针将会放在⽂件的开头。                                                      |
-|                   rb+                    |                                                以⼆进制格式打开⼀个⽂件⽤于读写。⽂件指针将会放在⽂件的开头。                                                |
-|                    w                     |                                        打开⼀个⽂件只⽤于写⼊。如果该⽂件已存在则打开⽂件，并从开头开始编辑，即原有内                                        |
-| 容会被删除。如果该⽂件不存在，创建新⽂件。 |
-|                    wb                    |              以⼆进制格式打开⼀个⽂件只⽤于写⼊。如果该⽂件已存在则打开⽂件，并从开头开始编辑，即原有内容会被删除。如果该⽂件不存在，创建新⽂件。               |
-|                    w+                    |                    打开⼀个⽂件⽤于读写。如果该⽂件已存在则打开⽂件，并从开头开始编辑，即原有内容会被删除。如果该⽂件不存在，创建新⽂件。                     |
-|                   wb+                    |               以⼆进制格式打开⼀个⽂件⽤于读写。如果该⽂件已存在则打开⽂件，并从开头开始编辑，即原有内容会被删除。如果该⽂件不存在，创建新⽂件。               |
-|                    a                     |      打开⼀个⽂件⽤于追加。如果该⽂件已存在，⽂件指针将会放在⽂件的结尾。也就是说，新的内容将会被写⼊到已有内容之后。如果该⽂件不存在，创建新⽂件进⾏写⼊。       |
-|                    ab                    | 以⼆进制格式打开⼀个⽂件⽤于追加。如果该⽂件已存在，⽂件指针将会放在⽂件的结尾。也就是说，新的内容将会被写⼊到已有内容之后。如果该⽂件不存在，创建新⽂件进行写⼊。 |
-|                    a+                    |                打开⼀个⽂件⽤于读写。如果该⽂件已存在，⽂件指针将会放在⽂件的结尾。⽂件打开时会是追加模式。如果该⽂件不存在，创建新⽂件⽤于读写。                |
-|                   ab+                    |                      以⼆进制格式打开⼀个⽂件⽤于追加。如果该⽂件已存在，⽂件指针将会放在⽂件的结尾。如果该⽂件不存在，创建新⽂件⽤于读写。                      |
 
 ## 字符编码
 要读取⾮UTF-8编码的⽂本⽂件，需要给open() 函数传⼊encoding 参数，例如，读取GBK编码的⽂件：
@@ -1022,15 +1380,15 @@ file.close()
 >>> f = open('/Users/michael/gbk.txt', 'r', encoding='gbk')
 >>> f.read()
 '测试'
-```python
+​```python
 遇到有些编码不规范的⽂件，你可能会遇到UnicodeDecodeError ，因为在⽂本⽂件中可能夹杂了⼀些⾮法编码的字符。遇到这种情况， open() 函数还接收⼀个errors 参数，表示如果遇到编码错误后如何处理。最简单的⽅式是直接忽略：
 ```
 >>> f = open('/Users/michael/gbk.txt', 'r', encoding='gbk',errors='ignore')
 ```python
-## 写⽂件
+## 写⽂件  open()函数读写二进制文件,不需要encoding可选参数
 写⽂件和读⽂件是⼀样的，唯⼀区别是调⽤open() 函数时，传⼊标识符'w' 或者'wb' 表示写⽂本⽂件或写⼆进制⽂件：
 
-```python
+​```python
 >>> f = open('/Users/michael/test.txt', 'w')
 >>> f.write('Hello, world!')
 >>> f.close()
@@ -1042,9 +1400,10 @@ with open('/Users/michael/test.txt', 'w') as f:
 ```
 ---
 ---
-## Demonstration
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+## 爬去百度和妹子图网站的案例
 
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+#百度图片
 # <html>
 #     <div></div>
 #     <div></div>
@@ -1093,7 +1452,7 @@ with open('./baidu.png','wb') as file:
 ```
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-
+# 妹子图片
 from lxml import etree
 import requests
 base_url = 'https://www.mzitu.com/jiepai/'
@@ -1133,7 +1492,7 @@ for li in ul_list:
 :   Matplotlib是⼀个Python 2D绘图库，它可以在各种平台上以各种硬拷⻉格式和交互式环境⽣成出具有出版品质的图形。
 Matplotlib试图让简单的事情变得更简单，让⽆法实现的事情变得可能实现。 只需⼏代码即可⽣成绘图，直⽅图，功率谱，条形图，错误图，散点图等。
 
-## 常⻅见图形种类及意义
+## 常⻅图形种类及意义
 折线图
 :   以折线的上升或下降来表示统计数量的增减变化的统计图
 
@@ -1308,7 +1667,7 @@ from matplotlib import font_manager
 # 终端执⾏： fc-list
 # 查看⽀支持的中⽂（冒号前面有空格) fc-list :lang=zh
 '查看Windows下的字体：“C:\Windows\Fonts” '
-# 可以⾃⼰己下载字体⽂件（xxx.ttf），然后双击安装即可
+# 可以⾃⼰下载字体⽂件（xxx.ttf），然后双击安装即可
 # my_font = font_manager.FontProperties(fname='/System/Library/Fonts/PingFang.ttc',size=18)
 # my_font = font_manager.FontProperties(fname='C:\Windows\Fonts\SIMYOU.TTF',size=18)
 my_font = font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=18)
@@ -1378,14 +1737,14 @@ plt.show()
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
-# 假设大家在30岁的时候，根据⾃⼰己的实际情况，统计出来你和你同事各⾃从11岁到30岁每年年交的男/⼥女女朋友的数量如列表y1和y2，请在⼀个图中绘制出该数据的折线图，从⽽分析每年年交朋友的数量⾛走势。
+# 假设大家在30岁的时候，根据⾃⼰的实际情况，统计出来你和你同事各⾃从11岁到30岁每年年交的男/⼥女女朋友的数量如列表y1和y2，请在⼀个图中绘制出该数据的折线图，从⽽分析每年年交朋友的数量⾛走势。
 from matplotlib import font_manager
 y1 = [1,0,1,1,2,4,3,4,4,5,6,5,4,3,3,1,1,1,1,1]
 y2 = [1,0,3,1,2,2,3,4,3,2,1,2,1,1,1,1,1,1,1,1]
 x = range(11,31)
 # 设置图形
 plt.figure(figsize=(20,8),dpi=80)
-plt.plot(x,y1,color='red',label='⾃⼰己')
+plt.plot(x,y1,color='red',label='⾃⼰')
 plt.plot(x,y2,color='blue',label='同事')
 # 设置x轴刻度
 xtick_labels = ['{}岁'.format(i) for i in x]
@@ -2578,7 +2937,7 @@ index 参数是可省略的，你可以选择不输⼊这个参数。
 '''
 sel = Series([1,2,3,4])
 print(sel)
-# 通常我们会⾃⼰己创建索引
+# 通常我们会⾃⼰创建索引
 # sel = Series(data = [1,2,3,4], index = ['a','b','c','d'])
 sel = Series(data = [1,2,3,4], index = list('abcd'))
 '''
@@ -2781,7 +3140,7 @@ dtype: int64
 ## DataFrame
 DataFrame
 :   （数据表）是一种 2 维数据结构，数据以表格的形式存储，分成若⼲行行和列。
-通过DataFrame，你能很⽅便地处理数据。常⻅见的操作⽐如选取、替换⾏或列的数据，还能重组数据表、修改索引、多重筛选等。我们基本上可以把 DataFrame 理解成⼀组采⽤同样索引的 Series 的集合。
+通过DataFrame，你能很⽅便地处理数据。常⻅的操作⽐如选取、替换⾏或列的数据，还能重组数据表、修改索引、多重筛选等。我们基本上可以把 DataFrame 理解成⼀组采⽤同样索引的 Series 的集合。
 调⽤DataFrame()可以将多种格式的数据转换为DataFrame对象，它的的三个参数data、index和columns分别为数据、⾏索引和列索引
 
 ### DataFrame的创建

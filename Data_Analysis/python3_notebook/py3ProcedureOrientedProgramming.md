@@ -21,7 +21,7 @@ Modified: Wed Sep 18 2019 18:55:31 GMT+0800 (中国标准时间)
 
 # Basics of python
 
-<font size="16" color="orange">文档规则：1. 描述 2. 参数 3. 返回值 4. 实例 5. 参考链接</font>
+<font size="8" color="orange">文档规则：1. 描述 2. 参数 3. 返回值 4. 实例 5. 参考链接</font>
 ==Content [^1]==
 
 [^1]: [Code Chunk](https://www.bookstack.cn/read/mpe/zh-cn-code-chunk.md)
@@ -4241,7 +4241,7 @@ test1()
 test2()
 
 ```
-# 总结
+## 总结
 
 - 在函数外边定义的变量叫做全局变量
 - 全局变量能够在所有的函数中进⾏访问
