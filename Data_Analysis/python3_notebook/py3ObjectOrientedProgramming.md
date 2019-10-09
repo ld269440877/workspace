@@ -1,4 +1,6 @@
-# ⾯向对象编程
+
+
+⾯向对象编程
 
 [Python3教程™](https://www.yiibai.com/python3)
 
@@ -650,6 +652,30 @@ func(cat)
 
 ```
 
+## 函数装饰器和类装饰器
+
+[没看完这 11 条，别说你精通 Python 装饰器](https://mp.weixin.qq.com/s/uF9Gqk_NhCEBsuMV0IyNXw)
+
+### 函数装饰器
+
+
+
+
+
+
+
+### 类装饰器
+
+
+
+
+
+
+
+
+
+
+
 # 捕获异常
 
 [(Back to 面向过程编程)](#面向过程编程)
@@ -766,6 +792,16 @@ sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
 
     
 
+「模块」、「常规包」与「命名空间包」是理解import机制绕不开的概念。
+
+「模块」：一个以「.py」为后缀的文件就是一个模块 
+
+「常规包」：「`__init__.py`」所在目录就是一个常规包 
+
+「命名空间包」：命名空间包是一种虚拟的概念，它由多个子包构成，这些子包可以在任意位置，可以为 zip 中的文件或网络上的文件，这些子包在概念上是一个整体，这个整体就是一个命名空间包
+
+「常规包」与「命名空间包」的概念在 PEP420 被提出，在 Python3.3 及之后的 Python 版本中实现，此前只有「常规包」这一种包。
+
 模块
 :   通俗理解⼀个.py⽂件就是⼀个模块，模块是管理功能代码的。
 
@@ -786,6 +822,13 @@ sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
 
 - .py文件—模块
 - 文件夹+\_\_init\_\_.py文件—包
+
+import 语句做的是两个操作
+
+- 搜索操作：在相应的路径中搜索指定名称的模块 
+- 绑定操作：将搜索到的结果绑定到当前作用域对应的名称上(即创建module对象，并初始化)
+
+通过阅读 Python 官方文档可知，import 的搜索操作通过` __import__() `方法实现，而绑定操作只有 import 语句才能做到。
 
 ### sys.modules和模块中的`__file__`变量的作用
 
@@ -809,29 +852,31 @@ Python<font color='red'>已经导入的模块保存在一个内置的sys.modules
 
 导入过程首先需要定位导入文件的位置，也就是，告诉Python到何处去找到要导入的文件，因此，需要设置模块的搜索路径。在大多数情况下，Python会自动到默认的目录下去搜索模块；如果要在默认的目录之外导入模块，就需要知道Pyhon搜索模块路径的机制。
 
-Python搜索模块的路径是由四部分构成的：程序的主目录、PATHONPATH目录、标准链接库目录和.pth文件的目录，这四部分的路径都存储在sys.path 列表中。
+如果我们没有修改，sys.path 中默认的路径为：
 
-#### 程序的主目录
+- 1.当前目录的路径
+- 2.环境变量 PYTHONPATH 中指定的路径列表
+- 3.Python 安装路径的 lib 目录所在路径
 
-主目录是指包含程序的顶层脚本的目录，Python首先会到主目录中搜索模块。
+要修改搜索路径有3种方式:
 
-因为主目录总是第一个被搜索，如果模块完全处于主目录中，所有的导入都会自动完成，而不需要单独配置路径。
+- 动态修改 sys.path，因为 sys.path 为 list，所以我们可以很轻松的操作 list 实现搜索路径的修改。这种方式只会对当前项目临时生效
 
-#### PATHONPATH目录
+- 修改 PYTHONPATH 环境变量，这种方式会永久生效，而且所有的 Python 项目都会受到影响，因为 Python 程序启动时会自动去读取该环境良好的值。
 
-PATHONPATH目录是指PATHONPATH环境变量中配置的目录，是第二个被搜索的目录，Python会从左到右搜索PATHONPATH环境变量中设置的所有目录。
+- 增加 .pth 后缀的文件。在 sys.path 已有的某一个目录下添加 .pth 后缀的配置文件，该文件的内容就是要添加的搜索路径，Python 在遍历已有目录的过程中，如果遇到 .pth 文件，就会将其中的路径添加到 sys.path 中。
 
-#### 标准链接库目录
+    ```python
+    import os
+    from os.path import join
+    import os.path.join
+    >>>ModuleNotFoundError : No module named 'os.path.join'; 'os.path' is not a package
+    第2行与第3行的区别在于是否使用 from，其背后的规则是：
+    1.单独使用 import 时，import 后面只能接模块或包(常规包或命名空间包)
+    2.使用 from xxx import xxx 时，from 后只能接模块或包，而此时 import 后可以接任何变量(模块、包或模块中具体的方法)
+    ```
 
-标准链接库目录是Python按照标准模块的目录，是在安装Python时自动创建的目录，通常不需要添加到PYTHONPATH目录中。
-
-#### 路径文件（.pth文件）
-
-在模块搜索目录中，创建路径文件，后缀名为.pth，该文件每一行都是一个有效的目录。Python会读取路径文件中的内容，每行都作为一个有效的目录，加载到模块搜索路径列表中。简而言之，当路径文件存放到搜索路径中时，其作用和PYT)HONPATH环境变量的作用相同。
-
-- 如果运行在Windows和Python3.0中，如果Python安装目录的顶层是C:\Python30，那么可以把自定义的路径文件 mypath.pth 放到该目录中。
-
-- 也可以放到标准库所在位置的sitepackages子目录中（C:\Python30\Lib\sitepackages），来扩展模块的搜索路径。
+    
 
 ### 配置搜索路径
 
@@ -1057,6 +1102,8 @@ from . import second
 
 [Python系统操作（sys、os）模块 - 知行流浪 - CSDN博客](https://blog.csdn.net/zengxiantao1994/article/details/58188527)
 
+[Python3.5内置模块之os模块、sys模块、shutil模块用法实例分析_python_脚本之家](https://www.jb51.net/article/160327.htm)
+
 ## sys库
 
 ​        <font color='orange'>sys模块</font>包括了一组非常实用的服务，内含很多函数方法和变量，用来==处理Python运行时配置以及资源==，从而可以与前当程序之外的系统环境交互，如：python解释器。
@@ -1066,14 +1113,15 @@ from . import second
 | 函数                                    | 说明                                                         |
 | --------------------------------------- | ------------------------------------------------------------ |
 | dir(sys)                                | dir()方法查看模块中可用的方法。<br>注意：如果是在编辑器，一定要注意要事先声明代码的编码方式，否则中文会乱码。 |
-| sys.argv                                | 实现从程序外部向程序传递参数                                 |
+| sys.argv                                | 实现从程序外部向程序传递参数<br>命令行参数List，第一个元素是程序本身路径 |
 | sys.exit([arg])                         | 程序中间的退出，arg=0为正常退出                              |
 | sys.getdefaultencoding()                | 获取系统当前编码，一般默认为ascii                            |
 | sys.setdefaultencoding()                | 设置系统默认编码，<br>执行dir(sys)时不会看到这个方法，在解释器中执行不通过，<br>可以先执行reload(sys), 再执行setdefaultencoding('utf8')，将系统编码设置为utf8 |
 | sys.getfilesystemencoding()             | 获取文件系统编码方式，Windows下返回'mbcs'，mac下返回'utf-8'  |
-| sys.path                                | 获取指定模块搜索路径的字符串集合，<br>可以将写好的模块放在得到的某个路径下，就可以在程序中import时正确找到 |
+| print(sys.version)                      | 获取Python解释程序的版本信息                                 |
+| sys.path                                | 返回模块的搜索路径，初始化时使用PYTHONPATH环境变量的值<br>获取指定模块搜索路径的字符串集合，<br>可以将写好的模块(或包含模块路径的.pth文件)放在得到的某个路径下，就可以在程序中import时正确找到 |
 | sys.platform                            | 获取当前系统平台。                                           |
-| sys.stdin<br/>sys.stdout<br/>sys.stderr | stdin，stdout，以及stderr变量包含与标准I/O流对应的流对象。<br>如果需要更好地控制输出，而print不能满足要求，它们就是你所需要的。  你也可以替换它们，重定向输出和输入到其它设备(device)，或者以非标准的方式处理它们。 |
+| sys.stdin<br/>sys.stdout<br/>sys.stderr | stdin，stdout，以及stderr变量包含与标准I/O流对应的流对象。<br>如果需要更好地控制输出，而print不能满足要求，它们就是你所需要的。  你也可以替换它们，重定向输出和输入到其它设备(device)，或者以非标准的方式处理它们。<br>sys.stdout.write('please:')  #标准输出,写入字符串输出到屏幕>>>please:<br>val = sys.stdin.readline()[:-1]  #标准输入 |
 | sys.modules                             | 是一个全局字典，该字典是python启动后就加载在内存中。<br>每当程序员导入新的模块，sys.modules将自动记录该模块。当第二次再导入该模块时，python会直接到字典中查找，从而加快程序运行的速度。它拥有字典所拥有的一切方法。 |
 |                                         |                                                              |
 
@@ -1087,23 +1135,40 @@ from . import second
 
 - os模块的常见函数列表(import os)
 
-| 函数                           | 说明                                                         |
-| ------------------------------ | ------------------------------------------------------------ |
-| os.environ                     | 一个包含环境变量的映射关系的字典                             |
-| os.name                        | 显示当前使用的平台—Ubuntu输出'posix'                         |
-| os.sep                         | 显示当前平台下路径分隔符—Ubuntu输出  '/'                     |
-| os.linesep                     | 给出当前平台使用的行终止符—Ubuntu输出  '/''\n'               |
-| os.remove('filename')          | 删除一个文件<br>`os.remove('/tmp/xx/b.txt')`                 |
-| os.rename("oldname","newname") | 重命名文件<br>`os.rename('/tmp/xx/a.txt','/tmp/xx/b.txt')`   |
-| os.getcwd()                    | 显示当前python脚本工作路径                                   |
-| os.chdir(dir)                  | 改变当前目录，注意windows下用到转义                          |
-| os.listdir('dirname')          | 返回指定目录下的所有文件和目录名                             |
-| os.mkdir('dirname/dirname')    | 可生成多层递规目录<br>`os.mkdir('/tmp/xx')`                  |
-| os.rmdir('dirname')            | 删除单级目录<br>`os.rmdir('/tmp/xx')`                        |
-| os.getlogin()                  | 得到用户登录名称–'leung'                                     |
-| os.getenv(‘key’)               | 得到环境变量配置                                             |
-| os.putenv(‘key’)               | 设置环境变量                                                 |
-| os.system(‘command’)           | 运行shell命令，注意：这里是打开一个新的shell，运行命令，当命令结束后，关闭shell。<br>`os.system("echo'hello' > /tmp/xx/a.txt")` |
+| 函数                                                       | 说明                                                         |
+| ---------------------------------------------------------- | ------------------------------------------------------------ |
+| os.environ                                                 | (查看系统的环境变量)一个包含环境变量的映射关系的字典         |
+| os.name                                                    | 输出字符串指示当前使用平台。win->'nt'; Linux->'posix'        |
+| print(os.stat(r"./Desktop/"))                              | 获取文件/目录信息                                            |
+| print(os.system("dir"))                                    | 运行shell命令，直接显示                                      |
+| os.sep                                                     | 输出操作系统特定的路径分隔符，win下为"\\",Linux下为"/"       |
+| os.linesep                                                 | 输出当前平台使用的行终止符，win下为"\r\n",Linux下为"\n"      |
+| print(os.pathsep)                                          | 输出用于分割文件路径的字符串,win下为";",Linux下为":"         |
+| print(os.path.abspath(r".Untitled.ipynb"))                 | 返回path规范化的绝对路径<br>/home/leung/.Untitled.ipynb      |
+| print(os.path.split(r"/home/leung/Untitled.ipynb"))        | 将path分割成目录和文件名<br>('/home/leung', 'Untitled.ipynb') |
+| print(os.path.dirname(r"/home/leung/"))                    | 返回path的目录<br>/home/leung                                |
+| print(os.path.basename(r"/home/leung/Untitled.ipynb"))     | 返回path最后的文件名<br>Untitled.ipynb                       |
+| print(os.path.exists(r"F:\PythonCode\day5"))               | 如果path存在，返回True；                                     |
+| print(os.path.isabs(r"F:\PythonCode\day5"))                | 如果path是绝对路径，返回True                                 |
+| print(os.path.isfile(r"F:\PythonCode\day5\p_test.py"))     | 如果path是一个存在的文件，返回True                           |
+| print(os.path.isdir(r"F:\PythonCode\day5"))                | 如果path是一个存在的目录，则返回True                         |
+| print(os.path.join(r"/home/",r"leung/",r"Untitled.ipynb")) | /home/leung/Untitled.ipynb<br>将多个路径组合后返回           |
+| print(os.path.getatime(r"F:\PythonCode\day5"))             | 返回path所指向的文件或者目录的最后access时间                 |
+| os.remove('filename')                                      | 删除一个文件<br>`os.remove('/tmp/xx/b.txt')`                 |
+| os.rename("oldname","newname")                             | 重命名文件<br>`os.rename('/tmp/xx/a.txt','/tmp/xx/b.txt')`   |
+| os.getcwd()                                                | 显示当前python脚本工作路径                                   |
+| print(os.curdir)                                           | 返回当前目录 '.'                                             |
+| print(os.pardir)                                           | 获取当前目录的父目录字符串名 '..'                            |
+| os.chdir(dir)                                              | 改变当前目录，注意windows下用到转义                          |
+| os.listdir('dirname')                                      | 返回指定目录下的所有文件和目录名                             |
+| os.makedirs(r"F:\a\b\c")                                   | 生成多层递归目录                                             |
+| os.removedirs(r"F:\a\b\c")                                 | 清理空文件夹<br>若目录为空，则删除，并递归到上一级目录，如若也为空，则删除，依此类推 |
+| os.mkdir('dirname/dirname')                                | 生成单级目录，相当于shell中mkdir filename<br>`os.mkdir('/tmp/xx')` |
+| os.rmdir('dirname')                                        | 删除单级空目录，若目录不为空，无法删除或报错<br>`os.rmdir('/tmp/xx')` |
+| os.getlogin()                                              | 得到用户登录名称–'leung'                                     |
+| os.getenv(‘key’)                                           | 得到环境变量配置                                             |
+| os.putenv(‘key’)                                           | 设置环境变量                                                 |
+| os.system(‘command’)                                       | 运行shell命令，注意：这里是打开一个新的shell，运行命令，当命令结束后，关闭shell。<br>`os.system("echo'hello' > /tmp/xx/a.txt")` |
 
 ### os.path
 
@@ -1114,6 +1179,7 @@ from . import second
 | os.path.abspath()                      | 获取绝对路径<br>os.path.abspath("1.txt") == os.path.join(os.getcwd(),"1.txt") |
 | os.path.split()                        | 用于分开一个目录名称中的目录部分和文件名称部分。             |
 | os.pardir                              | 表示当前平台下上一级目录的字符 ..                            |
+| os.path.splitext('Untitled.ipynb')     | 返回文件名和文件扩展名的元组<br>('Untitled', '.ipynb')       |
 | os.path.join(path, name)               | 连接目录和文件名。                                           |
 | os.path.basename(path)                 | 返回文件名                                                   |
 | os.path.dirname(path)                  | 返回文件路径                                                 |
@@ -1159,6 +1225,240 @@ print(os.path.abspath(os.path.join(os.getcwd(), os.path.pardir)) )
 
 
 
+## shutil
+
+[Python标准库shutil用法实例详解_python_脚本之家
+
+[关于shutil的更多操作：https://docs.python.org/3/library/shutil.html](https://www.jb51.net/article/145522.htm)
+
+- shutil模块：高级的文件、文件夹、压缩包处理模块
+
+### **文件夹与文件操作**
+
+**copyfileobj(fsrc, fdst, length=16\*1024)**： 将fsrc文件内容复制至fdst文件，length为fsrc每次读取的长度，用做缓冲区大小
+
+- fsrc： 源文件
+- fdst： 复制至fdst文件
+- length： 缓冲区大小，即fsrc每次读取的长度
+
+```python
+import shutil
+f1 = open("file.txt","r")
+f2 = open("file_copy.txt","a+")
+shutil.copyfileobj(f1,f2,length=1024)
+```
+
+**copyfile(src, dst)**： 将src文件内容复制至dst文件
+
+- src： 源文件路径
+- dst： 复制至dst文件，若dst文件不存在，将会生成一个dst文件；若存在将会被覆盖
+- follow_symlinks：设置为True时，若src为软连接，则当成文件复制；如果设置为False，复制软连接。默认为True。Python3新增参数
+
+```python
+import shutil
+shutil.copyfile("file.txt","file_copy.txt")
+```
+
+**copymode(src, dst)**： 将src文件权限复制至dst文件。文件内容，所有者和组不受影响
+
+- src： 源文件路径
+- dst： 将权限复制至dst文件，dst路径必须是真实的路径，并且文件必须存在，否则将会报文件找不到错误
+- follow_symlinks：设置为False时，src, dst皆为软连接，可以复制软连接权限，如果设置为True，则当成普通文件复制权限。默认为True。Python3新增参数
+
+```python
+import shutil
+shutil.copymode("file.txt","file_copy.txt")
+```
+
+**copystat(src, dst)**： 将权限，上次访问时间，上次修改时间以及src的标志复制到dst。文件内容，所有者和组不受影响
+
+- src： 源文件路径
+- dst： 将权限复制至dst文件，dst路径必须是真实的路径，并且文件必须存在，否则将会报文件找不到错误
+- follow_symlinks：设置为False时，src, dst皆为软连接，可以复制软连接权限、上次访问时间，上次修改时间以及src的标志，如果设置为True，则当成普通文件复制权限。默认为True。Python3新增参数
+
+```python
+import shutil
+shutil.copystat("file.txt","file_copy.txt")
+```
+
+**copy(src, dst)**： 将文件src复制至dst。dst可以是个目录，会在该目录下创建与src同名的文件，若该目录下存在同名文件，将会报错提示已经存在同名文件。权限会被一并复制。本质是先后调用了copyfile与copymode而已
+
+- src：源文件路径
+- dst：复制至dst文件夹或文件
+- follow_symlinks：设置为False时，src, dst皆为软连接，可以复制软连接权限，如果设置为True，则当成普通文件复制权限。默认为True。Python3新增参数
+
+```python
+improt shutil,os
+shutil.copy("file.txt","file_copy.txt")
+# 或者
+shutil.copy("file.txt",os.path.join(os.getcwd(),"copy"))
+```
+
+**copy2(src, dst)**： 将文件src复制至dst。dst可以是个目录，会在该目录下创建与src同名的文件，若该目录下存在同名文件，将会报错提示已经存在同名文件。权限、上次访问时间、上次修改时间和src的标志会一并复制至dst。本质是先后调用了copyfile与copystat方法而已
+
+- src：源文件路径
+- dst：复制至dst文件夹或文件
+- follow_symlinks：设置为False时，src, dst皆为软连接，可以复制软连接权限、上次访问时间，上次修改时间以及src的标志，如果设置为True，则当成普通文件复制权限。默认为True。Python3新增参数
+
+```python
+improt shutil,os
+shutil.copy2("file.txt","file_copy.txt")
+# 或者
+shutil.copy2("file.txt",os.path.join(os.getcwd(),"copy"))
+```
+
+
+
+**ignore_patterns(\*patterns)**： 忽略模式，用于配合`copytree()`方法，传递文件将会被忽略，不会被拷贝
+
+- patterns：文件名称，元组
+
+
+
+**copytree(src, dst, symlinks=False, ignore=None)**： 拷贝文档树，将src文件夹里的所有内容拷贝至dst文件夹
+
+- src：源文件夹
+- dst：复制至dst文件夹，该文件夹会自动创建，需保证此文件夹不存在，否则将报错
+- symlinks：是否复制软连接，True复制软连接，False不复制，软连接会被当成文件复制过来，默认False
+- ignore：忽略模式，可传入`ignore_patterns()`
+- copy_function：拷贝文件的方式，可以传入一个可执行的处理函数，默认为copy2，Python3新增参数
+- ignore_dangling_symlinks：sysmlinks设置为False时，拷贝指向文件已删除的软连接时，将会报错，如果想消除这个异常，可以设置此值为True。默认为False,Python3新增参数
+
+```python
+import shutil,os
+folder1 = os.path.join(os.getcwd(),"aaa")
+# bbb与ccc文件夹都可以不存在,会自动创建
+folder2 = os.path.join(os.getcwd(),"bbb","ccc")
+# 将"abc.txt","bcd.txt"忽略，不复制
+shutil.copytree(folder1,folder2,ignore=shutil.ignore_patterns("abc.txt","bcd.tx
+```
+
+**rmtree(path, ignore_errors=False, onerror=None)**： 移除文档树，将文件夹目录删除
+
+- ignore_errors：是否忽略错误，默认False
+- onerror：定义错误处理函数，需传递一个可执行的处理函数，该处理函数接收三个参数：函数、路径和excinfo
+
+```python
+import shutil,os
+folder1 = os.path.join(os.getcwd(),"aaa")
+shutil.rmtree(folder1)
+```
+
+**move(src, dst)**： 将src移动至dst目录下。若dst目录不存在，则效果等同于src改名为dst。若dst目录存在，将会把src文件夹的所有内容移动至该目录下面
+
+- src：源文件夹或文件
+- dst：移动至dst文件夹，或将文件改名为dst文件。如果src为文件夹，而dst为文件将会报错
+- copy_function：拷贝文件的方式，可以传入一个可执行的处理函数。默认为copy2，Python3新增参数
+
+```python
+import shutil,os
+# 示例一，将src文件夹移动至dst文件夹下面，如果bbb文件夹不存在，则变成了重命名操作
+folder1 = os.path.join(os.getcwd(),"aaa")
+folder2 = os.path.join(os.getcwd(),"bbb")
+shutil.move(folder1, folder2)
+# 示例二，将src文件移动至dst文件夹下面，如果bbb文件夹不存在，则变成了重命名操作
+file1 = os.path.join(os.getcwd(),"aaa.txt")
+folder2 = os.path.join(os.getcwd(),"bbb")
+shutil.move(file1, folder2)
+# 示例三，将src文件重命名为dst文件(dst文件存在，将会覆盖)
+file1 = os.path.join(os.getcwd(),"aaa.txt")
+file2 = os.path.join(os.getcwd(),"bbb.txt")
+shutil.move(file1, file2)
+```
+
+**disk_usage(path)**： 获取当前目录所在硬盘使用情况。Python3新增方法
+
+- path：文件夹或文件路径。windows中必须是文件夹路径，在linux中可以是文件路径和文件夹路径
+
+```python
+import shutil.os
+path = os.path.join(os.getcwd(),"aaa")
+info = shutil.disk_usage(path)
+print(info)   # usage(total=95089164288, used=7953104896, free=87136059392)
+```
+
+**chown(path, user=None, group=None)**： 修改路径指向的文件或文件夹的所有者或分组。Python3新增方法
+
+- path：路径
+- user：所有者，传递user的值必须是真实的，否则将报错no such user
+- group：分组，传递group的值必须是真实的，否则将报错no such group
+
+```python
+import shutil,os
+path = os.path.join(os.getcwd(),"file.txt")
+shutil.chown(path,user="root",group="root")
+```
+
+**which(cmd, mode=os.F_OK | os.X_OK, path=None)**： 获取给定的cmd命令的可执行文件的路径。Python3新增方法
+
+```python
+import shutil
+info = shutil.which("python3")
+print(info)   # /usr/bin/python3
+```
+
+### **归档操作**
+
+
+
+shutil还提供了创建和读取压缩和存档文件的高级使用程序。内部实现主要依靠的是zipfile和tarfile模块
+
+**make_archive(base_name, format, root_dir, …)**： 生成压缩文件
+
+- base_name：压缩文件的文件名，不允许有扩展名，因为会根据压缩格式生成相应的扩展名
+- format：压缩格式
+- root_dir：将制定文件夹进行压缩
+
+```python
+import shutil,os
+base_name = os.path.join(os.getcwd(),"aaa")
+format = "zip"
+root_dir = os.path.join(os.getcwd(),"aaa")
+# 将会root_dir文件夹下的内容进行压缩，生成一个aaa.zip文件
+shutil.make_archive(base_name, format, root_dir)
+```
+
+**get_archive_formats()**： 获取支持的压缩文件格式。目前支持的有：tar、zip、gztar、bztar。在Python3还多支持一种格式xztar
+
+**unpack_archive(filename, extract_dir=None, format=None)**： 解压操作。Python3新增方法
+
+- filename：文件路径
+- extract_dir：解压至的文件夹路径。文件夹可以不存在，会自动生成
+- format：解压格式，默认为None，会根据扩展名自动选择解压格式
+
+```python
+import shutil,os
+zip_path = os.path.join(os.getcwd(),"aaa.zip")
+extract_dir = os.path.join(os.getcwd(),"aaa")
+shutil.unpack_archive(zip_path, extract_dir)
+```
+
+**get_unpack_formats()**： 获取支持的解压文件格式。目前支持的有：tar、zip、gztar、bztar和xztar。Python3新增方法
+
+
+
+
+
+
+
+
+
+
+
+
+
+### **归档操作**
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1166,6 +1466,17 @@ print(os.path.abspath(os.path.join(os.getcwd(), os.path.pardir)) )
 # ⽂件基础操作
 
 [Python文件操作详解 - 知行流浪 - CSDN博客](https://blog.csdn.net/zengxiantao1994/article/details/53784924)
+
+[Python文件与目录操作_专题_脚本之家](https://www.jb51.net/Special/516.htm)
+[Python文本文件操作技巧_专题_脚本之家](https://www.jb51.net/Special/672.htm)
+
+[用python实现的去除win下文本文件头部BOM的代码_python_脚本之家](https://www.jb51.net/article/33999.htm)
+[python文件读写操作与linux shell变量命令交互执行的方法_python_脚本之家](https://www.jb51.net/article/59857.htm)
+
+[在Python中操作文件之truncate()方法的使用教程_python_脚本之家](https://www.jb51.net/article/66636.htm)
+[python文件操作之目录遍历实例分析_python_脚本之家](https://www.jb51.net/article/66401.htm)
+
+[Python遍历目录的4种方法实例介绍_python_脚本之家](https://www.jb51.net/article/63965.htm)
 
 ## ⽂件简介
 
@@ -1255,7 +1566,6 @@ finally:
          f.close()
 ```
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-
 with open('/path/to/file', 'r') as f:
     print(f.read())
 
@@ -1264,8 +1574,6 @@ with open('/path/to/file', 'r') as f:
 
 
 ## 文件的打开方式
-
-
 
 ```python
 
@@ -1487,13 +1795,16 @@ for li in ul_list:
 
 [(Back to 面向对象编程)](#⾯向对象编程)
 
+[Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
+
 [Matplotlib: Python plotting — Matplotlib 3.1.1 documentation](https://matplotlib.org/)
 什么是Matplotlib
 :   Matplotlib是⼀个Python 2D绘图库，它可以在各种平台上以各种硬拷⻉格式和交互式环境⽣成出具有出版品质的图形。
-Matplotlib试图让简单的事情变得更简单，让⽆法实现的事情变得可能实现。 只需⼏代码即可⽣成绘图，直⽅图，功率谱，条形图，错误图，散点图等。
+Matplotlib试图让简单的事情变得更简单，让⽆法实现的事情变得可能实现。 只需⼏行代码即可⽣成绘图，直⽅图，功率谱，条形图，错误图，散点图等。
 
 ## 常⻅图形种类及意义
-折线图
+
+折线图 plot
 :   以折线的上升或下降来表示统计数量的增减变化的统计图
 
 特点
@@ -1505,21 +1816,50 @@ Matplotlib试图让简单的事情变得更简单，让⽆法实现的事情变�
 
 # 导⼊模块
 import matplotlib.pyplot as plt
-# 在jupyter中执⾏的时候显示图⽚片
+# 在jupyter中执⾏的时候显示图⽚
 # %matplotlib inline
 # 传⼊x和y, 通过plot画图
 plt.plot([1, 0, 9], [4, 5, 6])
 # 在执⾏程序的时候展示图形
 plt.show()
-
-
 ```
+
+
 ## 对Matplotlib图像结构的认识
 
 ![matplotlib图像结构的认识](matplotlib图像结构的认识.bmp "matplotlib图像结构的认识")
+
+在 Matplotlib 中可以为图形添加多个轴域，具体而言，就是使用 pyplot 来创建多个轴域并改变其形状。
+
+| Figure | Axes | Grid | Line     | Markers        | x,y axis label<br>x_ticks_label<br>y_ticks_label | x,y ticks<br>x_ticks<br>y_ticks  |
+| ------ | ---- | ---- | -------- | -------------- | ------------------------------------------------ | -------------------------------- |
+| 图形   | 轴域 | 网格 | 绘制的线 | 线折点上的标记 | x,y轴的刻度标签                                  | x,y轴刻度                        |
+|        |      |      | Legend   | Title          | Major tick label                                 | Major tick<br>Minor tick         |
+|        |      |      | 图例标注 | 整个图的标题   | 主线上刻度的标签                                 | 主线上的刻度<br>主线之间的小刻度 |
+
+
+
+![FigureAxesAxis](FigureAxesAxis.webp '轴线-复数Axes轴域单数Axis轴-FigureAxesAxis.webp')
+
 ![matplotlib绘图](matplotlib绘图.bmp "matplotlib绘图")
 
+## 绘制图像的常见步骤 
+
+大多数时候，使用 Matplotlib 绘制数据的流程是类似的，虽然有些特殊的图像绘制需要一下特殊的操作，但大体流程都相似
+
+- \1. 通过 Pandas 将要绘制图像的数据读入，如 pd.readcsv () 读入 csv 文件数据、pd.readexcel () 读取 Excel 文件数据
+- \2. 导入 Matplotlib , 具体为: import matplotlib.pyplot as plt
+- \3. 使用 plt.plot () 绘制折线图，不同的图使用不同的绘图函数，所有的绘图函数都需要传入相应的数据
+- \4. 使用 plt.xlabel 与 plt.ylabel 定义 x 轴与 y 轴的标签，如定义标签字体样式、字体大小、字段位置等，如果不使用，Matplotlib 就会使用默认的样式将要显示的内容在标签处显示。需要注意的是，默认的样式是不支持显示中文的，如果此时你的标签要显示的内容是中文，那么 Matplotlib 生成的图像中，标签位置对应的内容会成为一个空方块，要显示中文，需要指定字体。
+- \5. 使用 plt.xticks 与 plt.yticks 定义 x 轴与 y 轴上的标记点(刻度locations)，如定义标点的间隔, `xticks(locs, [labels], **kwargs) ` # Set locations and labels
+- \6. 使用 plt.legend () 标注，如折线图中有 3 条不同颜色的折线，通过 legend () 方法就可以标注出不同折线的含义
+- \7. 使用 plt.title () 定义图中的标题
+- \8. 使用 plt.show () 将最终的图像展示出来。
+
+
+
 ## 折线图的绘制
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # 导入
@@ -1532,7 +1872,10 @@ y = [17, 17, 18, 15, 11, 11, 13]
 plt.plot(x,y)
 plt.show()
 ```
-### 折线的颜⾊色和形状设置
+![折线图的绘制](折线图的绘制.png '折线图的绘制')
+
+### 折线的颜⾊和形状设置
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ####hide  代码隐藏
 
 from matplotlib import pyplot as plt
@@ -1542,7 +1885,7 @@ y = [17, 17, 18, 15, 11, 11, 13]
 plt.plot(x, y, color='red',alpha=0.5,linestyle='--',linewidth=3)
 plt.show()
 '''基础属性设置
-color='red' : 折线的颜⾊色
+color='red' : 折线的颜⾊
 alpha=0.5 : 折线的透明度(0-1)
 linestyle='--' : 折线的样式
 linewidth=3 : 折线的宽度
@@ -1553,10 +1896,11 @@ linewidth=3 : 折线的宽度
 -. 短点相间线(dashdot)
 ： 虚点线(dotted)
 '''
-
-
 ```
+![折线的颜⾊和形状设置](折线的颜⾊和形状设置.png '折线的颜⾊和形状设置')
+
 ### 折点样式
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ####hide  代码隐藏
 
 from matplotlib import pyplot as plt
@@ -1565,12 +1909,11 @@ y = [17, 17, 18, 15, 11, 11, 13]
 ## 传⼊x和y, 通过plot画折线图
 plt.plot(x, y, marker='*')
 plt.show()
-
-
 ```
 
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+![折点样式](折点样式.png '折点样式')
 
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 # 折线图
 from matplotlib import pyplot as plt
 
@@ -1585,17 +1928,19 @@ plt.plot(x,y,color= 'red',alpha = 0.5,linestyle='--',linewidth=3,marker='o',
 # alpha 透明度  0-1
 # 3. 显示
 plt.show()
-
 ```
-### 设置的图⽚片的⼤小和保存
+![线条所有样式设置](线条所有样式设置.png '线条所有样式设置')
+
+### 设置的图⽚的⼤小和保存
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
-
+from 包/模块 import 函数(方法)/变量(属性)
 from matplotlib import pyplot as plt
+import 包/模块
 import random
 x = range(2,26,2) # x轴的位置
 y = [random.randint(15, 30) for i in x]
-# 设置图⽚片的大⼩
+# 设置图⽚的大⼩
 '''
 figsize:指定figure的宽和⾼，单位为英⼨；
 dpi参数指定绘图对象的分辨率，即每英⼨多少个像素，缺省值为80 1英⼨等于2.5cm,A4纸是
@@ -1605,13 +1950,14 @@ dpi参数指定绘图对象的分辨率，即每英⼨多少个像素，缺省�
 plt.figure(figsize=(20,8),dpi=80)
 plt.plot(x,y) # 传⼊x和y, 通过plot画图
 plt.show()
-# 保存(注意： 要放在绘制的下面,并且plt.show()会释放figure资源，如果在显示图像之后保存图⽚片将只能保存空图⽚片。)
+# 保存(注意： 要放在绘制的下面,并且plt.show()会释放figure资源，如果在显示图像之后保存图⽚将只能保存空图⽚。)
 plt.savefig('./t1.png')
-# 图⽚片的格式也可以保存为svg这种⽮矢量图格式，这种⽮矢量图放在⽹⻚页中放大后不会有锯⻮齿
+# 图⽚的格式也可以保存为svg这种⽮量图格式，这种⽮量图放在⽹⻚页中放大后不会有锯⻮
 # plt.savefig('./t1.svg')
 ```
 
 ### 绘制x轴和y轴的刻度
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # 绘制xy刻度
@@ -1632,7 +1978,7 @@ plt.figure(figsize=(20,8),dpi=80)
 # 构造了x轴的刻度标签
 
 x_ticks_label = ["{}:00".format(i) for i in x]
-# plt.xticks(x刻度的列表,x_ticks_label标签的列表,rotation=45)
+# plt.xticks(x_ticks刻度int的列表,x_ticks_label标签str的列表,rotation=45)
 plt.xticks(x,x_ticks_label,rotation=45)
 
 # 设置一下y轴
@@ -1642,15 +1988,24 @@ plt.yticks(range(min(y),max(y)+1),y_ticks_label)
 
 plt.plot(x,y)
 plt.show()
-
-
 ```
+![绘制x轴和y轴的刻度](绘制x轴和y轴的刻度.png '绘制x轴和y轴的刻度')
+
 ### 设置显示中⽂
+
 #### 标题、标签设置中文
+
 - matplotlib只显示英⽂,⽆法显示中⽂，需要修改matplotlib的默认字体
 - 通过matplotlib下的font_manager可以解决
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+设置字体属性默认参数的键不同fontproperties/prop
+标题、标签设置中文 fontproperties
+	# plt.title('每分钟跳动次数',color='orange',fontproperties=my_font)
+    # plt.xlabel('时间',fontproperties=my_font,rotation=45)
+图例设置中文  prop
+    # plt.legend(prop=my_font,loc='upper left')
 
+    
 # 标题、标签设置中文
 from matplotlib import pyplot as plt
 import matplotlib
@@ -1663,14 +2018,14 @@ plt.plot(x,y)
 
 from matplotlib import font_manager
 # 加载系统字体
-'查看Linux、Mac下⽀支持的字体'
+'查看Linux、Mac下⽀持的字体'
 # 终端执⾏： fc-list
-# 查看⽀支持的中⽂（冒号前面有空格) fc-list :lang=zh
+# 查看⽀持的中⽂（冒号前面有空格) fc-list :lang=zh
 '查看Windows下的字体：“C:\Windows\Fonts” '
 # 可以⾃⼰下载字体⽂件（xxx.ttf），然后双击安装即可
 # my_font = font_manager.FontProperties(fname='/System/Library/Fonts/PingFang.ttc',size=18)
 # my_font = font_manager.FontProperties(fname='C:\Windows\Fonts\SIMYOU.TTF',size=18)
-my_font = font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=18)
+my_font = font_manager.FontProperties(fname='/usr/share/fonts/wps-office/Fonts/微软雅黑/msyh.ttc',size=18)
 
 # my_font1 = font_manager.FontProperties(fname='/System/Library/Fonts/PingFang.ttc',size=20)
 # 设置图片标题
@@ -1684,9 +2039,17 @@ plt.show()
 
 
 ```
-#### 图例设置中文
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+![标题、标签设置中文](标题、标签设置中文.png '标题、标签设置中文')
 
+#### 图例设置中文
+
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+设置字体属性默认参数的键不同fontproperties/prop
+标题、标签设置中文 fontproperties
+	# plt.title('每分钟跳动次数',color='orange',fontproperties=my_font)
+    # plt.xlabel('时间',fontproperties=my_font,rotation=45)
+图例设置中文  prop
+    # plt.legend(prop=my_font,loc='upper left')
 
 from matplotlib import font_manager
 
@@ -1697,7 +2060,11 @@ x = range(11,31)
 # 设置图形
 plt.figure(figsize=(20,8),dpi=80)
 # my_font = font_manager.FontProperties(fname='/System/Library/Fonts/PingFang.ttc',size=18)
-my_font = font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=18)
+#my_font = font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=18)
+
+fname='/usr/share/fonts/wps-office/Fonts/微软雅黑/msyh.ttc'
+my_font = font_manager.FontProperties(fname=fname,size=18)
+
 # 设置x轴刻度
 xtick_labels = ['{}岁'.format(i) for i in x]
 plt.xticks(x,xtick_labels,fontproperties=my_font,rotation=45)
@@ -1732,6 +2099,8 @@ plt.show()
 # plt.show()
 ```
 
+<img src="图例设置中文.png" alt="图例设置中文" title="图例设置中文" style="zoom:67%;" />
+
 ### ⼀图多线
 
 
@@ -1748,14 +2117,19 @@ plt.plot(x,y1,color='red',label='⾃⼰')
 plt.plot(x,y2,color='blue',label='同事')
 # 设置x轴刻度
 xtick_labels = ['{}岁'.format(i) for i in x]
-my_font =font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=18)
+#my_font =font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=18)
+fname='/usr/share/fonts/wps-office/Fonts/微软雅黑/msyh.ttc'
+my_font = font_manager.FontProperties(fname=fname,size=18)
+
 plt.xticks(x,xtick_labels,fontproperties=my_font,rotation=45)
 # 绘制⽹格（⽹格也是可以设置线的样式)
 #alpha=0.4 设置透明度
 plt.show()
 ```
 
-### 拓拓展⼀（⼀图多个坐标系⼦图）
+<img src="图例设置中文.png" alt="图例设置中文" title="图例设置中文" style="zoom:67%;" />
+
+###  拓展⼀（⼀图多个坐标系⼦图）
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -1777,13 +2151,36 @@ ax3=fig.add_subplot(2,2,3)
 ax3.plot(x, np.log(x))
 plt.show()
 
-
 ```
-### 拓拓展⼆（设置坐标轴范围）
+<img src="⼀图多个坐标系⼦图.png" alt="⼀图多个坐标系⼦图" title =  “⼀图多个坐标系⼦图" style="zoom:67%;" />
+
+### 拓展⼀（图中图）
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
+from matplotlib import pyplot as plt
+# 定义画布大小
+fig = plt.figure(figsize=(20,8))
+# 多个轴域进行作图
+ax1 = fig.add_axes([0,0,1,1]) # 添加轴域
+ax2 = fig.add_axes([0.05,0.65,0.5,0.3]) # 添加轴域
+# 设置标题
+ax1.set_title('axes1',fontdict={'fontsize':20})
+# 第一个轴域进行绘图
+ax1.plot(range(5),[x**2 for x in range(5)],
+        color='red')
+# 设置标题
+ax2.set_title('axes2',fontdict={'fontsize':20})
+# 第二个轴域进行绘图
+ax2.plot(range(10),[-x**2 for x in range(10)],
+        color='green')
+plt.show()
+```
 
+<img src="图中图.png" alt="图中图" title="图中图" style="zoom:67%;" />
 
+###  拓展⼆（设置坐标轴范围）
+
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 import matplotlib.pyplot as plt
 import numpy as np
 x= np.arange(-10,11,1)
@@ -1800,7 +2197,9 @@ plt.show()
 
 ```
 
-### 拓拓展三（改变坐标轴的默认显示⽅式）
+<img src="设置坐标轴范围.png" alt="设置坐标轴范围" title="设置坐标轴范围"  />
+
+###  拓展三（改变坐标轴的默认显示⽅式）
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -1825,6 +2224,8 @@ plt.show()
 
 ```
 
+![改变坐标轴spines的默认显示⽅式](改变坐标轴spines的默认显示⽅式.png '改变坐标轴spines的默认显示⽅式')
+
 ## 绘制散点图
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -1846,8 +2247,12 @@ plt.figure(figsize=(20,8),dpi=80)
 # 使⽤scatter绘制散点图
 plt.scatter(x,y,label= '3月份')
 # plt.plot()
+
+#my_font =font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=10)
+
+fname='/usr/share/fonts/wps-office/Fonts/微软雅黑/msyh.ttc'
+my_font = font_manager.FontProperties(fname=fname,size=18)
 # 调整x轴的刻度
-my_font =font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=10)
 x_ticks_labels = ['3月{}日'.format(i) for i in x]
 plt.xticks(x[::3],x_ticks_labels[::3],fontproperties=my_font,rotation=45)
 plt.xlabel('⽇期',fontproperties=my_font)
@@ -1857,6 +2262,8 @@ plt.legend(prop=my_font)
 plt.show()
 
 ```
+
+![散点图scatter](散点图scatter.png '散点图scatter')
 
 ## 绘制条形图
 
@@ -1872,7 +2279,9 @@ from matplotlib import font_manager
 a = ['流浪地球','疯狂的外星⼈人','⻜飞驰⼈人⽣','大⻩黄蜂','熊出没·原始时代','新喜剧之王']
 b = ['38.13','19.85','14.89','11.36','6.47','5.93']
 # b =[38.13,19.85,14.89,11.36,6.47,5.93]
-my_font =font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=10)
+#my_font =font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=10)
+fname='/usr/share/fonts/wps-office/Fonts/微软雅黑/msyh.ttc'
+my_font = font_manager.FontProperties(fname=fname,size=18)
 plt.figure(figsize=(20,8),dpi=80)
 # 绘制条形图
 rects = plt.bar(range(len(a)),[float(i) for i in b],width=0.3,color=['r','g','b','r','g','b'])
@@ -1887,6 +2296,8 @@ for rect in rects:
 plt.show()
 
 ```
+![条形图bar](条形图bar.png '条形图bar')
+
 ## 横向条形图
 
 
@@ -1902,7 +2313,10 @@ from matplotlib import font_manager
 a = ['流浪地球','疯狂的外星⼈人','⻜飞驰⼈人⽣','大⻩黄蜂','熊出没·原始时代','新喜剧之王']
 b = ['38.13','19.85','14.89','11.36','6.47','5.93']
 # b =[38.13,19.85,14.89,11.36,6.47,5.93]
-my_font =font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=10)
+#my_font =font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=10)
+fname='/usr/share/fonts/wps-office/Fonts/微软雅黑/msyh.ttc'
+my_font = font_manager.FontProperties(fname=fname,size=18)
+
 plt.figure(figsize=(20,8),dpi=80)
 # 绘制条形图的⽅法
 '''
@@ -1920,6 +2334,8 @@ for rect in rects:
 plt.show()
 
 ```
+
+![横向条形图barh](横向条形图barh.png '横向条形图barh')
 
 ## 并列和罗列条形图
 
@@ -1939,9 +2355,9 @@ plt.xticks(index+0.3/2,index)
 # plt.bar(x坐标列表，y坐标列表，条形底部值，条形宽度)
 plt.bar(index,Sh,bottom=BJ,width=0.3,color='green')
 plt.show()
-
-
 ```
+
+![并列和罗列条形图bar](并列和罗列条形图bar.png '并列和罗列条形图bar')
 
 ## 直⽅图
 
@@ -1983,7 +2399,10 @@ time = [131, 98, 125, 131, 124, 139, 131, 117, 128, 108, 135, 138, 131, 102,
 101, 110,105, 129, 137, 112, 120, 113, 133, 112, 83, 94, 146, 133,
 101,131, 116,
 111, 84, 137, 115, 122, 106, 144, 109, 123, 116, 111,111, 133, 150]
-my_font = font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=10)
+#my_font = font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=10)
+fname='/usr/share/fonts/wps-office/Fonts/微软雅黑/msyh.ttc'
+my_font = font_manager.FontProperties(fname=fname,size=18)
+
 # 2）创建画布
 plt.figure(figsize=(20, 8), dpi=100)
 # 3）绘制直⽅图
@@ -2005,6 +2424,8 @@ plt.show()
 
 ```
 
+![直⽅图hist](直⽅图hist.png '直⽅图hist')
+
 ## 饼状图
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -2012,10 +2433,13 @@ plt.show()
 import matplotlib.pyplot as plt
 import matplotlib
 from matplotlib import font_manager
-my_font = font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=10)
+#my_font = font_manager.FontProperties(fname='C:\Windows\Fonts\msyh.ttc',size=10)
+fname='/usr/share/fonts/wps-office/Fonts/微软雅黑/msyh.ttc'
+my_font = font_manager.FontProperties(fname=fname,size=18)
+
 label_list = ["第一部分", "第二部分", "第三部分"] # 各部分标签
 size = [55, 35, 10] # 各部分大⼩
-color = ["red", "green", "blue"] # 各部分颜⾊色
+color = ["red", "green", "blue"] # 各部分颜⾊
 explode = [0, 0.05, 0] # 各部分突出值
 """
 绘制饼图
@@ -2063,6 +2487,8 @@ plt.show()
 
 ```
 
+![饼状图pie](饼状图pie.png '饼状图pie')
+
 ---
 
 
@@ -2092,6 +2518,8 @@ NumPy支持常见的数组和矩阵操作。对于同样的数值计算任务，
 的多。
 NumPy使用ndarray对象来处理多维数组，该对象是一个快速而灵活的大数据容器。
 
+Numpy 是 Python 中用于数据分析、机器学习与科学计算的知名第三方库，它是 Python 中很多科学计算库的依赖包，如 sickit-learn、SciPy、Pandas 等
+
 ## NumPy的优势
 - 对于同样的数值计算任务，使用NumPy要比直接编写Python代码便捷得多；
 - NumPy中的数组的存储效率和输入输出性能均远远优于Python中等价的基本数据结构，且其能够
@@ -2108,26 +2536,28 @@ NumPy使用ndarray对象来处理多维数组，该对象是一个快速而灵�
 import random
 import time
 import numpy as np
+ #测试Python执行时间
 a = []
 for i in range(100000000):
     a.append(random.random())
 t1 = time.time()
 sum1=sum(a)
 t2=time.time()
-
+# 测试numpy执行时间
 b=np.array(a)
 t4=time.time()
 sum3=np.sum(b)
 t5=time.time()
 print(t2-t1, t5-t4)
-
+0.610687255859375 0.16196393966674805
 ```
 ## NumPy 的Ndarray 对象
 NumPy 最重要的一个特点是其 <font color="orange" >N 维</font>数组对象 ndarray，它是一系列同类型数据的集合，以 0 下标为开始进行集合中元素的索引。ndarray 对象是用于<font color="orange" >存放同类型元素</font>的多维数组。
-- 看<font color="orange" size=10>[</font>
+- 几个中括号<font color="orange" size=10>[</font>几维数组
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 import numpy as np
 print('一维数组')
+# list 转换成了 Numpy 中定义的 numpy.ndarray 类型
 print(np.array([1,2,3,4,5],dtype='int8'))
 '''
  [1 2 3]
@@ -2156,10 +2586,22 @@ print(c)
 '''
 ```
 
+![Numpy三维数组的轴](Numpy三维数组的轴.png "Numpy三维数组的轴")
+
+```python
+axis=1是的运算
+↓→
+↓→
+↓→
+axis=0的运算
+→ → → →
+ ↓ ↓ ↓ ↓
+```
 
 
 
 ### 创建一维数组
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 import numpy as np
 list1 = [1,2,3,4]
@@ -2210,13 +2652,93 @@ print(twoArray)
 
 ```
 
+![创建二维数组](创建二维数组.png '创建二维数组')
+
+![初始化数组onesZeros](初始化数组onesZeros.png '初始化数组onesZeros')
+
+### 更多的维度
+
+Numpy 可以创建任意维度的数组，这也是它的中心数据结构被称为 ndarray (n 维数组) 的原因。
+
+创建方式类似，注意 list 的个数则可，<font color='orange' size=5>每一维对应着一个 list</font>
+
+```python
+np.array([ [[1,2],[3,4]],
+		   [[5,6],[7,8]] ])
+'''
+array([[[1, 2],
+        [3, 4]],
+
+       [[5, 6],
+        [7, 8]]])
+'''
+```
+
+![三维数组222](三维数组222.png '三维数组222')
+
+```python
+np.ones((4,3,2))
+'''
+array([[[1., 1.],
+        [1., 1.],
+        [1., 1.]],
+
+       [[1., 1.],
+        [1., 1.],
+        [1., 1.]],
+
+       [[1., 1.],
+        [1., 1.],
+        [1., 1.]],
+
+       [[1., 1.],
+        [1., 1.],
+        [1., 1.]]])
+'''
+np.random.random((4,3,2))
+'''
+array([[[0.21262518, 0.66500693],
+        [0.60590465, 0.92814057],
+        [0.77847333, 0.01342307]],
+
+       [[0.21397167, 0.48249745],
+        [0.11794449, 0.66085362],
+        [0.28495919, 0.60176893]],
+
+       [[0.4428501 , 0.59052966],
+        [0.15181462, 0.04649998],
+        [0.26876344, 0.66480154]],
+
+       [[0.99941113, 0.40857191],
+        [0.37938112, 0.4343296 ],
+        [0.93800699, 0.07120455]]])
+'''
+'''
+np.ones((4,3,2))
+如果我们打印多维数组，其打印的顺序与下面可视化显示的顺序是不同的，Numpy 会将最后一维优先打印出来
+打印最后一维的2个元素，然后才是第二维的3个元素，最后才是第一维的4个元素
+'''
+```
+
+![三维数组432](三维数组432.png '三维数组432')
+
+
+
+
+
+
+
+
+
+
+
 ### 常用属性
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 import numpy as np
 list2 = [[1,2],[3,4],[5,6]]
 twoArray = np.array(list2,dtype='int8')
-# 获取数组的维度( 注意： 与函数的参数很像)
+# 获取数组的维度( 注意： 与函数的参数很像 list2[2:3]  function(*args,**kwargs))
 print(twoArray.ndim)
 '''2'''
 # 形状（行，列）
@@ -2226,6 +2748,12 @@ print(twoArray.shape)
 print(twoArray.size)
 '''6'''
 # 元素类型：'int8'
+'''
+在通过 list 创建 array 时，
+如果没有指定 dtype (数组元素类型)， 那么就会以 list 中元素的类型而自动定义成对应的默认类型，
+如果 list 中全为整型，则 dtype 默认为 int64，
+如果 list 中存在浮点型，则 dtype 默认为 float64
+'''
 print(twoArray.dtype.name)
 # 每个元素所占用的字节数目:1
 print(twoArray.itemsize)
@@ -2238,8 +2766,10 @@ print(twoArray.itemsize)
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='text'} ##hide  代码隐藏
 
 four = np.array([[1,2,3],[4,5,6]])
+print(id(four)) -->140601010855808
 # 修改的是原有的
 four.shape = (3,2)
+print(id(four)) -->140601010855808
 print(four)
 '''
 [[1 2]
@@ -2248,6 +2778,7 @@ print(four)
 '''
 # 返回一个新的数组
 four = four.reshape(3,2)
+print(print(id(four))) -->140601010854368
 print(four)
 '''
 [[1 2]
@@ -2287,7 +2818,7 @@ print(t1.shape)
 '''
 # 转成三维
 t2 = t.reshape((2,3,4))
-print(t2)
+print(t2)-->(2, 3, 4)
 print(t2.shape)
 
 '''
@@ -2300,16 +2831,41 @@ print(t2.shape)
   [20 21 22 23]]]
   '''
 ```
+![数组形状重塑](数组形状重塑.png '数组形状重塑')
+
+- ones () 方法会将数组元素全初始化为 1.，
+
+- zeros () 与 random.random () 方法也都类似，
+- 需注意，这 3 个方法生成的数组类型都为 float64
+
+```python
+n1 = np.ones(3)
+print(n1)-->[1.,1.,1.]
+n1.dtype-->dtype('float64')
+
+n2=np.zeros(3)
+print(n2)-->[0.,0.,0.]
+n2.dtype-->dtype('float64')
+
+n3 = np.random.random(3)
+print(n3)-->[0.35102158 0.86681649 0.5869452 ]
+```
+
+
+
 ### 将数组转成list
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # 将数组转成list
 a= np.array([9, 12, 88, 14, 25])
 list_a = a.tolist()
-print(list_a)
-print(type(list_a))
+print(list_a) -->[9, 12, 88, 14, 25]
+print(type(list_a))--><class 'list'>
 
 ```
+
+
 ### NumPy的数据类型
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -2324,17 +2880,17 @@ f1 = f.astype(np.int64)
 print(f1.dtype)
 # 拓展随机生成小数
 # 使用python语法，保留两位
-print(round(random.random(),2))
+print(round(random.random(),2))-->0.53   # round圆整 向0截断
 arr = np.array([random.random() for i in range(10)])
 # 取小数点后两位
 print(np.round(arr,2))
-
+>>> [0.18 0.17 0.79 0.4  0.93 0.73 0.28 0.14 0.56 0.09]
 ```
 - dtype是numpy.dtype类型，先看看对于数组来说都有哪些类型:
 | 名称          | 描述                                              | 简写  |
 | :------------ | :------------------------------------------------ | :---: |
 | np.bool       | 用一个字节存储的布尔类型（True或False）           |  'b'  |
-| np.int8       | 一个字节大小，-128 至 127 （一个字节）            |  'i'  |
+| np.int8       | 一个字节大小，-128 至 127 （一个字节）(2**7=128)  |  'i'  |
 | np.int16      | 整数，-32768 至 32767 （2个字节）                 | 'i2'  |
 | np.int32      | 整数，-2 31 至 2 32 -1 （4个字节）                | 'i4'  |
 | np.int64      | 整数，-2 63 至 2 63 - 1 （8个字节）               | 'i8'  |
@@ -2354,17 +2910,35 @@ print(np.round(arr,2))
 ## 数组的计算
 
 ### 数组和数的计算
+
 - 由于numpy的广播机机制在运算过程中，加减乘除的值被广播到所有的元素上面。
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 t1 = np.arange(24).reshape((6,4))
+print(t1)
+'''
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]
+ [12 13 14 15]
+ [16 17 18 19]
+ [20 21 22 23]]
+'''
 print(t1+2)
+'''
+[[ 2  3  4  5]
+ [ 6  7  8  9]
+ [10 11 12 13]
+ [14 15 16 17]
+ [18 19 20 21]
+ [22 23 24 25]]
+'''
 print(t1*2)
 print(t1/2)
 
 ```
 
-- 数组与数组之间的操作
+- ### 数组与数组之间的操作
 1. 同种形状的数组(对应位置进行计算操作)
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -2373,29 +2947,50 @@ t2 = np.arange(100,124).reshape((6,4))
 print(t1+t2)
 print(t1*t2)
 
-
 ```
 
-2. 行数或者列数相同的一维数组和多维数组可以进行计算：
-a. 行形状相同（会与每一行数组的对应位相操作)
+![相同形状的矩阵进行运算](相同形状的矩阵进行运算.png '相同形状的矩阵进行运算')
+
+1. 行数或者列数相同的一维数组和多维数组可以进行计算：
+  a. 行形状相同（会与每一行数组的对应位相操作)
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 t1 = np.arange(24).reshape((4,6))
 t2 = np.arange(0,6)
 print(t1-t2)
-
-
 ```
+![列形状相同的数组运算](列形状相同的数组运算.png '列形状相同的数组运算')
+
 b. 列形状相同（会与每一个相同维度的数组的对应位相操作)
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 t1 = np.arange(24).reshape((4,6))
 t2 = np.arange(4).reshape((4,1))
 print(t1-t2)
-
 ```
 
+## 矩阵点积
+
+```python
+data = np.array([1,2,3])
+powers_of_ten = np.array([[1,10],[100,1000],[10000,100000]])
+data.dot(powers_of_ten)
+'''
+array([ 30201, 302010])
+'''
+```
+
+![矩阵点积](矩阵点积.png '矩阵点积')
+
+
+
+
+
+### 
+
 ## 数组中的轴
+
 1. 什么是轴： 在numpy中可以理解为方向，使用0，1，2数字表示，对于一个一维数组，只有一个0
 轴，
 对于2维数组（shape（2，2))有0轴和1轴，
@@ -2408,7 +3003,21 @@ print(t1-t2)
 
 import numpy as np
 a = np.array([[1,2,3],[4,5,6]])
-print(np.sum(a,axis=0)) # [5 7 9]
+print(a)
+'''
+[[1 2 3]
+ [4 5 6]]
+ 指定0轴方向,0轴上的每一个位置均为1轴的平行轴线,沿着1轴方向运动加和
+ 0轴方向---->------>-------->
+ 			时刻1  时刻2 ... 时刻n
+ 			1轴a   1轴b ...  1轴n
+scratch编程 			
+	基准(方向)
+		节点(运动)
+'''
+'0轴方向上的每一个(刻度)瞬间,在1轴方向上的所有元素加和'
+print(np.sum(a,axis=0)) # [5 7 9] 
+'1轴方向上的每一个(刻度)瞬间,在0轴方向上的所有元素加和'
 print(np.sum(a,axis = 1)) # [ 6 15]
 print(np.sum(a))# 计算所有的值的和
 
@@ -2447,11 +3056,18 @@ print(c)
 [30 39 48]
 [57 66 75]]
 '''
+data = np.array([[1,2,3],[4,5,6],[7,8,9]])
+data.prod()# 矩阵中所有元素相乘的值
+>>> 362880
 ```
-总结： 在计算的时候可以想象成是每一个坐标轴，分别计算这个轴上面的每一个刻度上的值，或者在二维数组中记住0表示列1表示行.
+总结：<font color='red'> 在计算的时候可以想象成是每一个坐标轴，分别计算这个轴上面的每一个刻度上的值</font>，或者在二维数组中记住0表示列1表示行.
+
+![多维度数组聚合](多维度数组聚合.png '多维度数组聚合')
 
 ## 数组的索引和切片
+
 ### 一维数组的操作方法
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 import numpy as np
@@ -2474,34 +3090,109 @@ print(a[2:])
 '''
 
 ```
+![一维数组的索引和切片](一维数组的索引和切片.png '一维数组的索引和切片')
+
 ### 多维数组的操作方法
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='text'} ##hide  代码隐藏
 
 import numpy as np
 
 t1 = np.arange(24).reshape(4,6)
 print(t1)
+'''
+[[ 0  1  2  3  4  5]
+ [ 6  7  8  9 10 11]
+ [12 13 14 15 16 17]
+ [18 19 20 21 22 23]]
+'''
 print('@'*20)
+# 取一行  数组[行] 或 数组[行,所有列]
 print(t1[1]) # 取一行(一行代表是一条数据，索引也是从0开始的)
+>>> [ 6  7  8  9 10 11]
 print(t1[1,:]) # 取一行
+>>> [ 6  7  8  9 10 11]
+
+## 取连续的多行  数组[行:行,列:列]
 print(t1[1:])# 取连续的多行
+'''
+[[ 6  7  8  9 10 11]
+ [12 13 14 15 16 17]
+ [18 19 20 21 22 23]]
+'''
 print(t1[1:3,:])# 取连续的多行
+'''
+[[ 6  7  8  9 10 11]
+ [12 13 14 15 16 17]]
+'''
+
+
+# 取不连续的多行 数组[行,行,行] 或 数组[[行,行,行],列:列]
 print(t1[[0,2,3]])# 取不连续的多行
+'''
+[[ 0  1  2  3  4  5]
+ [12 13 14 15 16 17]
+ [18 19 20 21 22 23]]
+'''
 print(t1[[0,2,3],:])# 取不连续的多行
+
+# 取一列  数组[:,列]
 print(t1[:,1])# 取一列
+>>>[ 1  7 13 19]
+
+
+# 连续的多列 数组[:,列:列]
 print(t1[:,1:])# 连续的多列
+'''
+[[ 1  2  3  4  5]
+ [ 7  8  9 10 11]
+ [13 14 15 16 17]
+ [19 20 21 22 23]]
+'''
+
+
 print(t1[:,[0,2,3]])# 取不连续的多列
+
 print(t1[2,3])# # 取某一个值,三行四列
+
+
+
+#  取多个不连续的值   数组[[行,行,行],[列,列,列]]
 print(t1[[0,1,1],[0,1,3]])# 取多个不连续的值，[[行，行。。。],[列，列。。。]]
+>>>[0 7 9]
 ```
+![二维数组的索引和切片](二维数组的索引和切片.png '二维数组的索引和切片')
+
 ## 数组中的数值修改
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 t = np.arange(24).reshape(4,6)
+t
+'''
+array([[ 0,  1,  2,  3,  4,  5],
+       [ 6,  7,  8,  9, 10, 11],
+       [12, 13, 14, 15, 16, 17],
+       [18, 19, 20, 21, 22, 23]])
+'''
 # 修改某一行的值
 t[1,:]=0
+print(t)
+'''
+array([[ 0,  1,  2,  3,  4,  5],
+       [ 0,  0,  0,  0,  0,  0],
+       [12, 13, 14, 15, 16, 17],
+       [18, 19, 20, 21, 22, 23]])
+'''
 # 修改某一列的值
 t[:,1]=0
+t
+'''
+array([[ 0,  0,  2,  3,  4,  5],
+       [ 6,  0,  8,  9, 10, 11],
+       [12,  0, 14, 15, 16, 17],
+       [18,  0, 20, 21, 22, 23]])
+'''
 # 修改连续多行
 t[1:3,:]=0
 # 修改连续多列
@@ -2509,29 +3200,134 @@ t[:,1:4]=0
 # 修改多行多列，取第二行到第四行，第三列到第五列
 t[1:4,2:5]=0
 # 修改多个不相邻的点
-t[[0,1],[0,3]]=0
-# 可以根据条件修改，比如讲小于10的值改掉
-t[t<10]=0
+t[[0,1],[0,3]]=2000
+t
+'''
+array([[2000,    1,    2,    3,    4,    5],
+       [   6,    7,    8, 2000,   10,   11],
+       [  12,   13,   14,   15,   16,   17],
+       [  18,   19,   20,   21,   22,   23]])
+'''
+
+
+# 可以根据条件修改，比如将小于10的值改掉
+t[t<10]='AA'
+t
+'''
+array([[2000, 5000, 5000, 5000, 5000, 5000],
+       [5000, 5000, 5000, 2000,   10,   11],
+       [  12,   13,   14,   15,   16,   17],
+       [  18,   19,   20,   21,   22,   23]])
+'''
 # 使用逻辑判断
 # np.logical_and &
 # np.logical_or |
 # np.logical_not ~
 t[(t>2)&(t<6)]=0 # 与
+t
+'''
+array([[   0,    1,    2, 2600, 2600, 2600],
+       [   6,    7,    8,    9,   10,   11],
+       [  12,   13,   14,   15,   16,   17],
+       [  18,   19,   20,   21,   22,   23]])
+'''
 t[(t<2)|(t>6)]=0 # 或
+
 t[~(t>6)]=0 # 非
+
 print(t)
 # 拓展
 # 三目运算（ np.where(condition, x, y)满足条件(condition)，输出x，不满足输出y。)）
 score = np.array([[80,88],[82,81],[75,81]])
+score
+'''
+array([[80, 88],
+       [82, 81],
+       [75, 81]])
+'''
 result = np.where(score>80,True,False)
-
-
+result
+'''
+array([[False,  True],
+       [ True,  True],
+       [False,  True]])
+'''
+result = np.where(score>80,'A','B')
+result 
+'''
+array([['B', 'A'],
+       ['A', 'A'],
+       ['B', 'A']], dtype='<U1')
+'''
 ```
 ## 数组的添加、删除和去重
 
 ### 数组的添加
-```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
+```python
+help(np.append)
+Signature: np.append(arr, values, axis=None)
+Docstring:
+# axis=0/1 时  在给定的轴向添加元素 arr 和 values 有相同的维数[[]]
+np.append([[1, 2, 3], [4, 5, 6]], [[7, 8, 9]], axis=0)
+'''
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+'''
+ # axis=None  数组展开后,添加元素  ,If `axis` is None, `out` is a flattened array.
+np.append([1, 2, 3], [[4, 5, 6], 2])
+>>>array([1, 2, 3, list([4, 5, 6]), 2], dtype=object)    
+Append values to the end of an array.
+
+Parameters
+----------
+arr : array_like
+    Values are appended to a copy of this array.
+values : array_like
+    These values are appended to a copy of `arr`.  It must be of the
+    correct shape (the same shape as `arr`, excluding `axis`).  If
+    `axis` is not specified, `values` can be any shape and will be
+    flattened before use.
+axis : int, optional
+    The axis along which `values` are appended.  If `axis` is not
+    given, both `arr` and `values` are flattened before use.
+
+Returns
+-------
+append : ndarray
+    A copy of `arr` with `values` appended to `axis`.  Note that
+    `append` does not occur in-place: a new array is allocated and
+    filled.  If `axis` is None, `out` is a flattened array.
+
+See Also
+--------
+insert : Insert elements into an array.
+delete : Delete elements from an array.
+
+Examples
+--------
+>>> np.append([1, 2, 3], [[4, 5, 6], [7, 8, 9]])
+array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+When `axis` is specified, `values` must have the correct shape.
+# np.append([[我是两个[]的二维数组]],[[我是两个[]的二维数组]])
+>>> np.append([[1, 2, 3], [4, 5, 6]], [[7, 8, 9]], axis=0)
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+# np.append([[我是两个[]的二维数组]],[[我是一个[]的一维数组]])
+>>> np.append([[1, 2, 3], [4, 5, 6]], [7, 8, 9], axis=0)
+Traceback (most recent call last):
+...
+ValueError: arrays must have same number of dimensions
+File:      ~/anaconda3/lib/python3.7/site-packages/numpy/lib/function_base.py
+Type:      function
+```
+
+
+
+```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 # 1. numpy.append 函数在数组的末尾添加值。 追加操作会分配整个数组，并把原来的数组复制到新数组中。 此外，输入数组的维度必须匹配否则将生成ValueError。
 '''
 参数说明：
@@ -2569,8 +3365,119 @@ print (np.append(a, [[5,5,5],[7,8,9]],axis = 1))
 [[1 2 3 5 5 5]
  [4 5 6 7 8 9]]
  '''
+
+```
+```python
+help(np.insert)
+Signature: np.insert(arr, obj, values, axis=None)
+Docstring:
+Insert values along the given axis before the given indices.
+
+Parameters
+----------
+arr : array_like
+    Input array.
+obj : int, slice or sequence of ints
+    Object that defines the index or indices before which `values` is
+    inserted.
+
+    .. versionadded:: 1.8.0
+
+    Support for multiple insertions when `obj` is a single scalar or a
+    sequence with one element (similar to calling insert multiple
+    times).
+values : array_like
+    Values to insert into `arr`. If the type of `values` is different
+    from that of `arr`, `values` is converted to the type of `arr`.
+    `values` should be shaped so that ``arr[...,obj,...] = values``
+    is legal.
+axis : int, optional
+    Axis along which to insert `values`.  If `axis` is None then `arr`
+    is flattened first.
+
+Returns
+-------
+out : ndarray
+    A copy of `arr` with `values` inserted.  Note that `insert`
+    does not occur in-place: a new array is returned. If
+    `axis` is None, `out` is a flattened array.
+
+See Also
+--------
+append : Append elements at the end of an array.
+concatenate : Join a sequence of arrays along an existing axis.
+delete : Delete elements from an array.
+
+Notes
+-----
+Note that for higher dimensional inserts `obj=0` behaves very different
+from `obj=[0]` just like `arr[:,0,:] = values` is different from
+`arr[:,[0],:] = values`.
+
+Examples
+--------
+>>> a = np.array([[1, 1], [2, 2], [3, 3]])
+>>> a
+array([[1, 1],
+       [2, 2],
+       [3, 3]])
+>>> np.insert(a, 1, 5)
+array([1, 5, 1, 2, 2, 3, 3])
+'''
+np.insert(arr[[]],obj,value,axis)
+obj = int-->value=int
+obj=[int]-->value=[[]]与arr维度的数组
+'''
+>>> np.insert(a, 1, 5, axis=1)
+array([[1, 5, 1],
+       [2, 5, 2],
+       [3, 5, 3]])
+
+Difference between sequence and scalars:
+
+>>> np.insert(a, [1], [[1],[2],[3]], axis=1)
+array([[1, 1, 1],
+       [2, 2, 2],
+       [3, 3, 3]])
+>>> np.array_equal(np.insert(a, 1, [1, 2, 3], axis=1),
+...                np.insert(a, [1], [[1],[2],[3]], axis=1))
+True
+
+>>> b = a.flatten()
+>>> b
+array([1, 1, 2, 2, 3, 3])
+# 在[2,2]索引的位置插入[5,6]
+>>> np.insert(b, [2, 2], [5, 6])
+array([1, 1, 5, 6, 2, 2, 3, 3])
+# 索引[2,4]的位置分别插入5,6
+>>> np.insert(b, slice(2, 4), [5, 6])
+array([1, 1, 5, 2, 6, 2, 3, 3])
+
+# 在数组b中[2,2]索引的位置插入[7.13,Fals],后插入的元素数据类型默认转换为数组b的数据类型
+>>> np.insert(b, [2, 2], [7.13, False]) # type casting
+array([1, 1, 7, 0, 2, 2, 3, 3])
+
+>>> x = np.arange(8).reshape(2, 4)
+# axis=1,数组x的第一列和第三列插入999
+'''
+axis=1 方向 ↓
+第一个时刻的 索引→  1 和 3的位置分别插入999 和 999
+第二个时刻的 索引→  1 和 3的位置分别插入999 和 999
+第三个时刻的 索引→  1 和 3的位置分别插入999 和 999
+'''
+>>> idx = (1, 3)
+>>> np.insert(x, idx, 999, axis=1)
+array([[  0, 999,   1,   2, 999,   3],
+       [  4, 999,   5,   6, 999,   7]])
+File:      ~/anaconda3/lib/python3.7/site-packages/numpy/lib/function_base.py
+Type:      function
+```
+
+
+
+```python
 # 2. numpy.insert 函数在给定索引之前，沿给定轴在输入数组中插入值。
-# 如果值的类型转换为要插入，则它与输入数组不同。 插入没有原地的，函数会返回一个新数组。 此外，如果未提供轴，则输入数组会被展开。
+# 如果未提供轴，则输入数组会被展开。
 a = np.array([[1,2],[3,4],[5,6]])
 print ('第一个数组：')
 print (a)
@@ -2588,6 +3495,15 @@ print (np.insert(a,3,[11,12]))
 print ('\n')
 print ('传递了 Axis 参数。 会广播值数组来配输入数组。')
 print ('沿轴 0 广播：')
+'''
+ 指定0轴方向,0轴上的每一个位置均为1轴的平行轴线,沿着1轴方向运动加和
+ 0轴方向---->------>-------->
+ 			时刻1  时刻2 ... 时刻n
+ 			1轴a   1轴b ...  1轴n
+scratch编程 			
+	基准(方向)
+		节点(运动)
+'''
 print (np.insert(a,1,[11],axis = 0))
 '''
 [[ 1  2]
@@ -2603,7 +3519,25 @@ print (np.insert(a,1,11,axis = 1))
  [ 3 11  4]
  [ 5 11  6]]
  '''
+print (np.insert(a,[1],[11,12],axis = 0))
+'''
+[[ 1  1]
+ [11 12]
+ [ 2  2]
+ [ 3  3]]
+'''
+print (np.insert(a,[1],[[11],[12]],axis = 0))
+'''
+[[ 1  1]
+ [11 11]
+ [12 12]
+ [ 2  2]
+ [ 3  3]]
+'''
 ```
+
+
+
 ### 数组中的删除
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
@@ -2632,16 +3566,136 @@ print (np.delete(a,5))
 print ('\n')
 print ('删除每一行中的第二列：')
 print (np.delete(a,1,axis = 1))
+
 '''
-[[ 0  2  3]
- [ 4  6  7]
- [ 8 10 11]]
+axis=1时的执行路径
+↓一个方向
+→多个时刻
+
+[[ 0  2  3] 第一个时刻→012
+ [ 4  6  7]第二个时刻→012
+ [ 8 10 11]]第三个时刻→012
  '''
 print ('\n')
 
 
 ```
 ### 数组去重
+
+```python
+Signature: np.unique(ar, return_index=False, return_inverse=False, return_counts=False, axis=None)
+Docstring:
+Find the unique elements of an array.
+
+Returns the sorted unique elements of an array. There are three optional
+outputs in addition to the unique elements:
+
+* the indices of the input array that give the unique values
+* the indices of the unique array that reconstruct the input array
+* the number of times each unique value comes up in the input array
+
+Parameters
+----------
+ar : array_like
+    Input array. Unless `axis` is specified, this will be flattened if it
+    is not already 1-D.
+return_index : bool, optional
+    If True, also return the indices of `ar` (along the specified axis,
+    if provided, or in the flattened array) that result in the unique array.
+return_inverse : bool, optional
+    If True, also return the indices of the unique array (for the specified
+    axis, if provided) that can be used to reconstruct `ar`.
+return_counts : bool, optional
+    If True, also return the number of times each unique item appears
+    in `ar`.
+
+    .. versionadded:: 1.9.0
+
+axis : int or None, optional
+    The axis to operate on. If None, `ar` will be flattened. If an integer,
+    the subarrays indexed by the given axis will be flattened and treated
+    as the elements of a 1-D array with the dimension of the given axis,
+    see the notes for more details.  Object arrays or structured arrays
+    that contain objects are not supported if the `axis` kwarg is used. The
+    default is None.
+
+    .. versionadded:: 1.13.0
+
+Returns
+-------
+unique : ndarray
+    The sorted unique values.
+unique_indices : ndarray, optional
+    The indices of the first occurrences of the unique values in the
+    original array. Only provided if `return_index` is True.
+unique_inverse : ndarray, optional
+    The indices to reconstruct the original array from the
+    unique array. Only provided if `return_inverse` is True.
+unique_counts : ndarray, optional
+    The number of times each of the unique values comes up in the
+    original array. Only provided if `return_counts` is True.
+
+    .. versionadded:: 1.9.0
+
+See Also
+--------
+numpy.lib.arraysetops : Module with a number of other functions for
+                        performing set operations on arrays.
+
+Notes
+-----
+When an axis is specified the subarrays indexed by the axis are sorted.
+This is done by making the specified axis the first dimension of the array
+and then flattening the subarrays in C order. The flattened subarrays are
+then viewed as a structured type with each element given a label, with the
+effect that we end up with a 1-D array of structured types that can be
+treated in the same way as any other 1-D array. The result is that the
+flattened subarrays are sorted in lexicographic order starting with the
+first element.
+
+Examples
+--------
+>>> np.unique([1, 1, 2, 2, 3, 3])
+array([1, 2, 3])
+>>> a = np.array([[1, 1], [2, 3]])
+>>> np.unique(a)
+array([1, 2, 3])
+
+Return the unique rows of a 2D array
+
+>>> a = np.array([[1, 0, 0], [1, 0, 0], [2, 3, 4]])
+>>> np.unique(a, axis=0)
+array([[1, 0, 0], [2, 3, 4]])
+
+Return the indices of the original array that give the unique values:
+
+>>> a = np.array(['a', 'b', 'b', 'c', 'a'])
+>>> u, indices = np.unique(a, return_index=True)
+>>> u
+array(['a', 'b', 'c'],
+       dtype='|S1')
+>>> indices
+array([0, 1, 3])
+>>> a[indices]
+array(['a', 'b', 'c'],
+       dtype='|S1')
+
+Reconstruct the input array from the unique values:
+
+>>> a = np.array([1, 2, 6, 4, 2, 3, 2])
+>>> u, indices = np.unique(a, return_inverse=True)
+>>> u
+array([1, 2, 3, 4, 6])
+>>> indices
+array([0, 1, 4, 3, 1, 2, 1])
+>>> u[indices]
+array([1, 2, 6, 4, 2, 3, 2])
+File:      ~/anaconda3/lib/python3.7/site-packages/numpy/lib/arraysetops.py
+Type:      function
+```
+
+
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # numpy.unique 函数用于去除数组中的重复元素。
@@ -2703,16 +3757,23 @@ import numpy as np
 score = np.array([[80,88],[82,81],[75,81]])
 # 1. 获取所有数据最大值
 result = np.max(score)
+print(result)-->88
 # 2. 获取某一个轴上的数据最大值
 result = np.max(score,axis=0)
+print(result)-->[82 88]
 # 3. 获取最小值
 result = np.min(score)
+print(result)-->75
 # 4. 获取某一个轴上的数据最小值
 result = np.min(score,axis=0)
+print(result)-->[75 81]
 # 5. 数据的比较
 result = np.maximum([-2, -1, 0, 1, 2], 0) # 第一个参数中的每一个数与第二个参数比较返回大的
+print(result)-->[0 0 0 1 2]
 result = np.minimum([-2, -1, 0, 1, 2], 0) # 第一个参数中的每一个数与第二个参数比较返回小的
+print(result)-->[0 0 0 1 2]
 result = np.maximum([-2, -1, 0, 1, 2], [1,2,3,4,5]) # 接受的两个参数，也可以大小一致;第二个参数只是一个单独的值时，其实是用到了维度的广播机制；
+print(result)-->[0 0 0 1 2]
 # 6. 求平均值
 result = np.mean(score) # 获取所有数据的平均值
 result = np.mean(score,axis=0) # 获取某一行或者某一列的平均值
@@ -2726,50 +3787,77 @@ print(arr.cumsum(0))
 '''
 print(arr.cumsum(1))
 '''
+↓→
 [1, 2, 3]------> |1 |2+1 |3+2+1 |
 [4, 5, 6]------> |4 |4+5 |4+5+6 |
 '''
+arr = np.array([[1,2,3], [4,5,6],[7,8,9]])
+print(arr)
+'''
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+'''
+print(arr.cumsum(0))
+'''
+→↓
+[[ 1  2  3]
+ [ 5  7  9]
+ [12 15 18]]
+'''
 # 8. argmin求最小值索引
+score = np.array([[80,88],[82,81],[75,81]])
 result = np.argmin(score,axis=0)
 print(result)
+'''
+[2 1]
+'''
 # 9. 求每一列的标准差
 # 标准差是一组数据平均值分散程度的一种度量。一个较大的标准差，代表大部分数值和其平均值之间差异较大；
 # 一个较小的标准差，代表这些数据较接近平均值反应出数据的波动稳定情况，越大表示波动越大，越不稳定。
 result = np.std(score,axis=0)
 print(result)
+'''
+[2.94392029 3.29983165]
+'''
 # 10. 极值
 # np.ptp(t,axis=None)就是最大值和最小值的差
 # 拓展：方差var, 协方差cov, 计算平均值 average, 计算中位数 median
-
-
 ```
-### 通用函数：
-| 函数                                                                       | 功能                                        |
-| :------------------------------------------------------------------------- | :------------------------------------------ |
-| numpy.sqrt(array)                                                          | 平方根函数                                  |
-| numpy.sign(array)                                                          | 计算各元素正负号                            |
-| numpy.isnan(array                                                          | 计算各元素是否为NaN                         |
-| numpy.isinf(array)                                                         | 计算各元素是否为NaN                         |
-| numpy.cos/cosh/sin/sinh/tan/tanh(array)                                    | 三角函数                                    |
-| numpy.modf(array)                                                          | 将array中值得整数和小数分离，作两个数组返回 |
-| numpy.ceil(array)                                                          | 向上取整,也就是取比这个数大的整数           |
-| numpy.floor(array)                                                         | 向下取整,也就是取比这个数小的整数           |
-| numpy.rint(array)                                                          | 四舍五入                                    |
-| numpy.trunc(array)                                                         | 向0取整                                     |
-| numpy.cos(array)                                                           | 正弦值                                      |
-| numpy.sin(array)                                                           | 余弦值                                      |
-| numpy.tan(array)                                                           | 正切值                                      |
-| numpy.add(array1,array2)                                                   | 元素级加法                                  |
-| numpy.subtract(array1,array2)                                              | 元素级减法                                  |
-| numpy.multiply(array1,array2)                                              | 元素级乘法                                  |
-| numpy.divide(array1,array2)                                                | 元素级除法 array1./array2                   |
-| numpy.power(array1,array2)                                                 | 元素级指数 array1.^array2                   |
-| numpy.maximum/minimum(array1,aray2)                                        | 元素级最大值                                |
-| numpy.fmax/fmin(array1,array2)                                             | 元素级最大值，忽略NaN                       |
-| numpy.mod(array1,array2)                                                   | 元素级求模                                  |
-| numpy.copysign(array1,array2)                                              | 将第二个数组中值得符号复制给第一个数组中值  |
-| numpy.greater/greater_equal/less/less_equal/equal/not_equal(array1,array2) | 元素级比较运算，产生布尔数组                |
-| numpy.logical_end/logical_or/logic_xor(array1,array2)                      | 元素级的真值逻辑运算                        |
+### 数组的聚合
+
+![数组的聚合](数组的聚合.png '数组的聚合')
+
+### 通用函数
+
+
+
+| 函数                                                         | 功能                                                         |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| numpy.sqrt(array)                                            | 平方根函数<br>arr = [9,0.81]<br>np.sqrt(arr)<br>>>>array([3. , 0.9]) |
+| numpy.sign(array)                                            | 计算各元素正负号<br>arr = [-9,0.81]<br>np.sign(arr)<br>>>>array([-1.,  1.]) |
+| numpy.isnan(array)                                           | 计算各元素是否为NaN                                          |
+| numpy.isinf(array)                                           | 计算各元素是否为np.inf<br>arr = [np.inf,0.9]<br>np.isinf(arr)<br>>>>array([ True, False]) |
+| numpy.cos/cosh/sin/sinh/tan/tanh(array)                      | 三角函数                                                     |
+| numpy.modf(array)                                            | 将array中值得整数和小数分离，作两个数组返回                  |
+| numpy.ceil(array)                                            | 向上取整,也就是取比这个数大的整数                            |
+| numpy.floor(array)                                           | 向下取整,也就是取比这个数小的整数                            |
+| numpy.rint(array)                                            | 四舍五入<br>np.rint(arr)<br>>>>array([1., 1.])               |
+| numpy.trunc(array)                                           | 向0取整<br>np.trunc(arr)<br>>>>array([1., 0.])               |
+| numpy.cos(array)                                             | 正弦值                                                       |
+| numpy.sin(array)                                             | 余弦值                                                       |
+| numpy.tan(array)                                             | 正切值                                                       |
+| numpy.add(array1,array2)                                     | 元素级加法                                                   |
+| numpy.subtract(array1,array2)                                | 元素级减法                                                   |
+| numpy.multiply(array1,array2)                                | 元素级乘法                                                   |
+| numpy.divide(array1,array2)                                  | 元素级除法 array1./array2                                    |
+| numpy.power(array1,array2)                                   | 元素级指数 array1.^array2<br>arr1 = [1,2,3]<br/>arr2 = [2,2,2]<br>>>>array([1, 4, 9]) |
+| numpy.maximum/minimum(array1,aray2)                          | 元素级最大值                                                 |
+| numpy.fmax/fmin(array1,array2)                               | 元素级最大值，忽略NaN                                        |
+| numpy.mod(array1,array2)                                     | 元素级求模                                                   |
+| numpy.copysign(array1,array2)                                | 将第二个数组中值得符号复制给第一个数组中值                   |
+| numpy.greater/greater_equal/less/less_equal/equal/not_equal(array1,array2) | 元素级比较运算，产生布尔数组                                 |
+| numpy.logical_end/logical_or/logic_xor(array1,array2)        | 元素级的真值逻辑运算                                         |
 
 ## 数组的拼接
 
@@ -2781,15 +3869,39 @@ b = np.array([[5,6],[7,8]])
 # 要求a,b两个数组的维度相同
 print ('沿轴 0 连接两个数组：')
 print (np.concatenate((a,b),axis= 0))
+'''
+[[1 2]
+ [3 4]
+ [5 6]
+ [7 8]]
+'''
 print ('\n')
 print ('沿轴 1 连接两个数组：')
 print (np.concatenate((a,b),axis = 1))
+'''
+[[1 2 5 6]
+ [3 4 7 8]]
+'''
 # 2. 根据轴进行堆叠
 print ('沿轴 0 连接两个数组：')
 print (np.stack((a,b),axis= 0))
+'''
+[[[1 2]
+  [3 4]]
+
+ [[5 6]
+  [7 8]]]
+'''
 print ('\n')
 print ('沿轴 1 连接两个数组：')
 print (np.stack((a,b),axis = 1))
+'''
+[[[1 2]
+  [5 6]]
+
+ [[3 4]
+  [7 8]]]
+'''
 # 3. 矩阵垂直拼接
 v1 = [[0,1,2,3,4,5],
 [6,7,8,9,10,11]]
@@ -2797,6 +3909,12 @@ v2 = [[12,13,14,15,16,17],
 [18,19,20,21,22,23]]
 result = np.vstack((v1,v2))
 print(result)
+'''
+[[ 0  1  2  3  4  5]
+ [ 6  7  8  9 10 11]
+ [12 13 14 15 16 17]
+ [18 19 20 21 22 23]]
+'''
 # 4. 矩阵水平拼接
 v1 = [[0,1,2,3,4,5],
 [6,7,8,9,10,11]]
@@ -2804,9 +3922,83 @@ v2 = [[12,13,14,15,16,17],
 [18,19,20,21,22,23]]
 result = np.hstack((v1,v2))
 print(result)
-
+'''
+[[ 0  1  2  3  4  5 12 13 14 15 16 17]
+ [ 6  7  8  9 10 11 18 19 20 21 22 23]]
+'''
 ```
 ## 数组的分割
+
+```python
+Signature: np.split(ary, indices_or_sections, axis=0)
+Docstring:
+Split an array into multiple sub-arrays.
+
+Parameters
+----------
+ary : ndarray
+    Array to be divided into sub-arrays.
+indices_or_sections : int or 1-D array
+    If `indices_or_sections` is an integer, N, the array will be divided
+    into N equal arrays along `axis`.  If such a split is not possible,
+    an error is raised.
+
+    If `indices_or_sections` is a 1-D array of sorted integers, the entries
+    indicate where along `axis` the array is split.  For example,
+    ``[2, 3]`` would, for ``axis=0``, result in
+
+      - ary[:2]
+      - ary[2:3]
+      - ary[3:]
+
+    If an index exceeds the dimension of the array along `axis`,
+    an empty sub-array is returned correspondingly.
+axis : int, optional
+    The axis along which to split, default is 0.
+
+Returns
+-------
+sub-arrays : list of ndarrays
+    A list of sub-arrays.
+
+Raises
+------
+ValueError
+    If `indices_or_sections` is given as an integer, but
+    a split does not result in equal division.
+
+See Also
+--------
+array_split : Split an array into multiple sub-arrays of equal or
+              near-equal size.  Does not raise an exception if
+              an equal division cannot be made.
+hsplit : Split array into multiple sub-arrays horizontally (column-wise).
+vsplit : Split array into multiple sub-arrays vertically (row wise).
+dsplit : Split array into multiple sub-arrays along the 3rd axis (depth).
+concatenate : Join a sequence of arrays along an existing axis.
+stack : Join a sequence of arrays along a new axis.
+hstack : Stack arrays in sequence horizontally (column wise).
+vstack : Stack arrays in sequence vertically (row wise).
+dstack : Stack arrays in sequence depth wise (along third dimension).
+
+Examples
+--------
+>>> x = np.arange(9.0)
+>>> np.split(x, 3)
+[array([ 0.,  1.,  2.]), array([ 3.,  4.,  5.]), array([ 6.,  7.,  8.])]
+
+>>> x = np.arange(8.0)
+>>> np.split(x, [3, 5, 6, 10])
+[array([ 0.,  1.,  2.]),
+ array([ 3.,  4.]),
+ array([ 5.]),
+ array([ 6.,  7.]),
+ array([], dtype=float64)]
+File:      ~/anaconda3/lib/python3.7/site-packages/numpy/lib/shape_base.py
+Type:      function
+```
+
+
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -2814,29 +4006,79 @@ print(result)
 '''
 参数说明：
 ary：被分割的数组
-indices_or_sections：果是一个整数，就用该数平均切分，如果是一个数组，为沿轴切分的位置（左开右
+indices_or_sections：如果是一个整数，就用该数平均切分，如果是一个数组，为沿轴切分的位置（左开右
 闭）
 axis：沿着哪个维度进行切向，默认为0，横向切分。为1时，纵向切分
 '''
-# arr = np.arange(9).reshape(3,3)
-# print ('将数组分为三个大小相等的子数组：')
-# b = np.split(arr,3)
-# print (b)
+arr = np.arange(9).reshape(3,3)
+print(arr)
+'''
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+'''
+print ('将数组分为三个大小相等的子数组：')
+b = np.split(arr,3)
+print (b)
+
+c = np.split(arr,[1])
+print (c)
+'''
+[array([[0, 1, 2]]), array([[3, 4, 5],[6, 7, 8]])]
+'''
+
+'''
+[array([[0, 1, 2]]), array([[3, 4, 5]]), array([[6, 7, 8]])]
+'''
 # 2.numpy.hsplit 函数用于水平分割数组，通过指定要返回的相同形状的数组数量来拆分原数组。
 # floor() 返回数字的下舍整数。
 harr = np.floor(10 * np.random.random((2, 6)))
-# print ('原array：')
-# print(harr)
-# print ('拆分后：')
-# print(np.hsplit(harr, 3))
+print ('原array：')
+print(harr)
+'''
+[[8. 8. 5. 3. 0. 3.]
+ [5. 6. 8. 8. 2. 2.]]
+'''
+print ('拆分后：')
+print(np.hsplit(harr, 3))
+'''
+[array([[8., 8.],
+       [5., 6.]]), 
+  array([[5., 3.],
+       [8., 8.]]), 
+  array([[0., 3.],
+       [2., 2.]])]
+'''
+np.split(harr,3,axis=1)
+'''
+[array([[8., 8.],
+        [5., 6.]]), 
+ array([[5., 3.],
+        [8., 8.]]), 
+ array([[0., 3.],
+        [2., 2.]])]
+
+'''
 # 3.numpy.vsplit 沿着垂直轴分割
 a = np.arange(16).reshape(4,4)
-# print ('第一个数组：')
-# print (a)
-# print ('\n')
-# print ('竖直分割：')
-# b = np.vsplit(a,2)
-# print (b)
+print ('第一个数组：')
+print (a)
+'''
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]
+ [12 13 14 15]]
+'''
+print ('\n')
+print ('竖直分割：')
+b = np.vsplit(a,2)
+print (b)
+'''
+[array([[0, 1, 2, 3],
+       [4, 5, 6, 7]]), 
+array([[ 8,  9, 10, 11],
+       [12, 13, 14, 15]])]
+'''
 
 ```
 
@@ -2848,37 +4090,59 @@ a = np.arange(16).reshape(4,4)
 # 创建一个nan和inf
 a = np.nan
 b = np.inf
-print(a,type(a))
-print(b,type(b))
+print(a,type(a))-->nan <class 'float'>
+print(b,type(b))-->inf <class 'float'>
 # --判断数组中为nan的个数(注意：float类型的数据才能赋值nan)
 t = np.arange(24,dtype=float).reshape(4,6)
+t
+'''
+array([[ 0.,  1.,  2.,  3.,  4.,  5.],
+       [ 6.,  7.,  8.,  9., 10., 11.],
+       [12., 13., 14., 15., 16., 17.],
+       [18., 19., 20., 21., 22., 23.]])
+'''
 # 可以使用np.count_nonzero() 来判断非零的个数
-print(np.count_nonzero(t))
+print(np.count_nonzero(t)) -->23
 # 将三行四列的数改成nan
 t[3,4] = np.nan
-# 并且 np.nan != np.nan 结果 是TRUE
-# 所以我们可以使用这两个结合使用判断nan的个数
+# 并且 np.nan != np.nan 结果 是TRUE,每一个Nan都不相等
+np.nan != np.nan -->True
+
+# 所以我们可以使用这两个结合使用判断nan的个数,count_nonzero返回的个数就是nan的个数
 print(np.count_nonzero(t != t))
 # 注意： nan和任何数计算都为nan
 print(np.sum(t,axis=0))
+>>>[36. 40. 44. 48. nan 56.]
 # 将nan替换为0
 t[np.isnan(t)] = 0
 print(t)
+'''
+[[ 0.  1.  2.  3.  4.  5.]
+ [ 6.  7.  8.  9. 10. 11.]
+ [12. 13. 14. 15. 16. 17.]
+ [18. 19. 20. 21.  0. 23.]]
+'''
 #----------练习： 处理数组中nan
 t = np.arange(24).reshape(4,6).astype('float')
 # 将数组中的一部分替换nan
 t[1,3:] = np.nan
 print(t)
+'''
+[[ 0.  1.  2.  3.  4.  5.]
+ [ 6.  7.  8. nan nan nan]
+ [12. 13. 14. 15. 16. 17.]
+ [18. 19. 20. 21. 22. 23.]]
+'''
 # 遍历每一列，然后判断每一列是否有nan
 
 for i in range(t.shape[1]):
     #获取当前列数据
     temp_col = t[:,i]
     # 判断当前列的数据中是否含有nan
-    nan_num = np.count_nonzero(temp_col != temp_col)
+    nan_num = np.count_nonzero(temp_col != temp_col)  # 不等与本身的元素即为Nan
     if nan_num != 0: # 条件成立说明含有nan
         # 将这一列不为nan的数据拿出来
-        temp_col_not_nan = temp_col[temp_col==temp_col]
+        temp_col_not_nan = temp_col[temp_col==temp_col] # 等于自身的元素即非Nan
         # 将nan替换成这一列的平均值
         temp_col[np.isnan(temp_col)] = np.mean(temp_col_not_nan)
 print(t)
@@ -2892,9 +4156,20 @@ print(t)
 a = np.arange(12).reshape(3,4)
 print ('原数组：')
 print (a )
+'''
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+'''
 print ('\n')
 print ('对换数组：')
 print (np.transpose(a))
+'''
+[[ 0  4  8]
+ [ 1  5  9]
+ [ 2  6 10]
+ [ 3  7 11]]
+'''
 # 与transpose一致
 a = np.arange(12).reshape(3,4)
 print ('原数组：')
@@ -2902,18 +4177,37 @@ print (a)
 print ('\n')
 print ('转置数组：')
 print (a.T)
+'''
+[[ 0  4  8]
+ [ 1  5  9]
+ [ 2  6 10]
+ [ 3  7 11]]
+'''
 # 函数用于交换数组的两个轴
 t1 = np.arange(24).reshape(4,6)
 re = t1.swapaxes(1,0)
 print ('原数组：')
 print (t1)
+'''
+array([[ 0,  1,  2,  3,  4,  5],
+       [ 6,  7,  8,  9, 10, 11],
+       [12, 13, 14, 15, 16, 17],
+       [18, 19, 20, 21, 22, 23]])
+'''
 print ('\n')
 print ('调用 swapaxes 函数后的数组：')
 print (re)
-
+'''
+[[ 0  6 12 18]
+ [ 1  7 13 19]
+ [ 2  8 14 20]
+ [ 3  9 15 21]
+ [ 4 10 16 22]
+ [ 5 11 17 23]]
+'''
 ```
 
-
+![数组的转置transpose](数组的转置transpose.png  '数组的转置transpose')
 
 # pandas
 
@@ -2922,12 +4216,19 @@ print (re)
 [(Back to 面向对象编程)](#⾯向对象编程)
 
 - Pandas 是基于NumPy 的⼀种⼯具，该⼯具是为了解决数据分析任务⽽创建的。Pandas 纳⼊了大量库和⼀些标准的数据模型，提供了⾼效地操作大型数据集所需的⼯具。pandas提供了大量能使我们快速便捷地处理数据的函数和⽅法。
+
 - Pandas基于两种数据类型：series与dataframe。
+
+    > 文中大部分图片出自 A Gentle Visual Intro to Data Analysis in Python Using Pandas
+    >
+    > 通过 pandas 的 readxxx () 方法可以从对应的数据文件中读取数据，如从 csv 文件中读取数据，使用 readcsv ()，从 Excel 文件中读取数据，使用 read_excel ()，需注意，Pandas 读取 Excel 前需要安装 xlrd 与 xlwt。
 ## Series对象
 Series
 : 是Pandas中最基本的对象，Series类似⼀种⼀维数组。事实上，Series 基本上就是基于 NumPy的数组对象来的。和 NumPy 的数组不同，Series 能为数据⾃定义标签，也就是索引（index），然后通过索引来访问数组中的数据。
 
 Dataframe是一个二维的表结构。Pandas的dataframe可以存储许多种不同的数据类型，并且每⼀个坐标轴都有⾃己的标签。你可以把它想象成⼀个series的字典项。
+
+![DataFrame&Series](DataFrame&Series.png 'DataFrame&Series')
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8' } ##hide  代码隐藏  output='markdown'
 # 创建Series对象并省略索引
@@ -2990,7 +4291,7 @@ c 3
 d 4
 dtype: int64
 '''
-# Series对象同时⽀支持位置和标签两种⽅式获取数据
+# Series对象同时⽀持位置和标签两种⽅式获取数据
 print('索引下标',sel['c'])
 '索引下标 3'
 print('位置下标',sel[2])
@@ -3010,17 +4311,17 @@ b 2
 d 4
 dtype: int64
 '''
-# 可以使⽤切⽚片或取数据
-print('位置切⽚片',sel[1:3])# 左包含右不包含
+# 可以使⽤切⽚或取数据
+print('位置切⽚',sel[1:3])# 左包含右不包含
 '''
-位置切⽚片
+位置切⽚
 b 2
 c 3
 dtype: int64
 '''
-print('索引切⽚片',sel['b':'d'])# 左右都包含
+print('索引切⽚',sel['b':'d'])# 左右都包含
 '''
-索引切⽚片
+索引切⽚
 b 2
 c 3
 d 4
@@ -3110,7 +4411,7 @@ London 1.0
 lagos 24.0
 dtype: float64
 '''
-# 同样也⽀支持numpy的数组运算
+# 同样也⽀持numpy的数组运算
 sel = Series(data = [1,6,3,5], index = list('abcd'))
 print(sel[sel>3]) # 布尔数组过滤
 '''
@@ -3214,7 +4515,70 @@ dict = df.to_dict()
 }
 '''
 ```
+### 读取数据
+
+通过 pandas 的 readxxx () 方法可以从对应的数据文件中读取数据，如从 csv 文件中读取数据，使用 readcsv ()，从 Excel 文件中读取数据，使用 read_excel ()，需注意，Pandas 读取 Excel 前需要安装 xlrd 与 xlwt。
+
+以读入 csv 文件为例:
+
+```python
+import pandas as pd
+df = pd.read_csv('**.csv')
+#pandas 的 read_xxx () 方法会将数据文件中的数据读取进内存并转为 DataFrame
+```
+
+![read_csv](read_csv.png 'read_csv')
+
+### 选择数据
+
+![df](df.png 'df')
+
+
+
+#### 列名取数据
+
+![列名取数据](列名取数据.png '列名取数据')
+
+#### 切片取多行数据
+
+![切片取多行数据](切片取多行数据.png '切片取多行数据')
+
+####  loc 方法同时使用行号与列标签选择 DataFrame 中的任意数据片段
+
+
+
+![loc 方法同时使用行号与列标签](loc 方法同时使用行号与列标签.png 'loc 方法同时使用行号与列标签')
+
+### 过滤数据
+
+Pandas 的 Series 与 DataFrame 都可以通过简单的比较运算过滤数据
+
+![比较字符串过滤](比较字符串过滤.png '比较字符串过滤')
+
+![判断值的大小过滤](判断值的大小过滤.png '判断值的大小过滤')
+
+### 处理缺失数据
+
+![pd处理缺失数据](pd处理缺失数据.png 'pd处理缺失数据')
+
+### 分组数据
+
+Pandas 提供 groupby () 方法方便我们对数据进行分组处理，groupby () 方法要对数据进行分组需要传入的列名，然后以该列数据为基准进行分组。
+
+这就带了一个问题，基准列被分组其实就是对该列中的数据去重，留下不重复的数据作为不同的类别，但这就让行数变少了，那如何处理多出的数据呢？
+
+正是因为这样的原因，直接调用 groupby () 方法并不能直接获取分组结果，还需要定义如何处理多出数据的逻辑，如采用 sum () 方法，会将基准列中相同元素对应行的其他列数据进行累加
+
+![分组数据](分组数据.png '分组数据')
+
+### 创建新列
+
+创建新的列对 Pandas 而言是非常简单的，直接为新列名赋值就好了。
+
+![创建新列](创建新列.png '创建新列')
+
 ### DataFrame对象常⽤属性
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
 # dataframe常用属性
@@ -3441,7 +4805,7 @@ print(df)
 
 ```
 
-### dataframex修改index、columns
+### dataframe修改index、columns
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 df1 = pd.DataFrame(np.arange(9).reshape(3, 3), index = ['bj', 'sh', 'gz'],columns=['a', 'b', 'c'])
