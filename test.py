@@ -5,3 +5,9 @@ import numpy as np
 import pandas as pd
 import io
 import sys
+#%%
+print()
+help(print)
+
+
+#%%

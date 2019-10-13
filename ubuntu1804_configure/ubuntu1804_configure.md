@@ -398,12 +398,28 @@ stars:、language:、forks:，其实就是设置项目收藏、开发语言派�
 [vscode使用setting-sync插件同步设置 - 掘金](https://juejin.im/post/5cd933e5e51d456e39631997)
 [超实用VS Code插件推荐——不定期更新！ - 蚂蚁的博客 - CSDN博客](https://blog.csdn.net/qq_41139830/article/details/85221330)
 
-1. vscode插件中心安装 setting-sync
-2. Gists
+#### vscode插件中心安装 setting-sync
+#### Gists
+    > github.com/settings/Developer settings/Generate new token
+        - 填写Note what is this token for？
+        - Select scopes---勾选 gist
+        - Generate token
+            一定要复制生成的token  保存好 下一次进入这个网页就看不到token 了
+            一定要复制生成的token  保存好
+            一定要复制生成的token  保存好
+    > github.com/Your Gists
+    > 右上角加号（+），新建gists
+![GenerateGist](GenerateGist1.png "GenerateGist")
+![(GistId](GistId.png "GistId")
 
-Unknown
-:   Gist token:cba55c5d8997f14818ec364290744982f20f0dbe
-    Gist Id   : 7179df3930f79e890eab79f20d38c91d
+#### 重置所有sync settings配置
+- Ctrl + Shift + P 开启命令面板，找到同步命令，选择 Reset Extension Settings 重置所有配置
+- 在通过 Alt + Shift + U 重新填写 token 进行同步
+- sync settings 界面点击：login with github
+
+windows10-20191013:
+Gist token:d4dd325d5d30726d9eb4f0a16a7d3011726c6861
+Gist Id   : 839a1a78984d838fa1d81bfa193ca6ae
 
 ubuntu18_vscode_20190930
 :   Gist token: a46643712552e6b247745d5a5d9894c5d4ffaae5
