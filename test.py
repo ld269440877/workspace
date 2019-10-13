@@ -11,3 +11,11 @@ help(print)
 
 
 #%%
+a=10
+b=20
+c=30
+gb={'a':6,'b':8}
+lc={'b':100,'c':10}
+print(eval('a+b+c',gb,lc))
+
+#%%

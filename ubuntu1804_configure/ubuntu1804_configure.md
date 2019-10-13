@@ -393,10 +393,13 @@ stars:、language:、forks:，其实就是设置项目收藏、开发语言派�
 
 [超实用VS Code插件推荐——不定期更新！ - 蚂蚁的博客 - CSDN博客](https://blog.csdn.net/qq_41139830/article/details/85221330)
 
+> 在VScode 从EXTENSIONS:MARKETPLACE上查看插件使用方法
+
 ### setting-sync
 
 [vscode使用setting-sync插件同步设置 - 掘金](https://juejin.im/post/5cd933e5e51d456e39631997)
 [超实用VS Code插件推荐——不定期更新！ - 蚂蚁的博客 - CSDN博客](https://blog.csdn.net/qq_41139830/article/details/85221330)
+[Visual Studio Code（VS code）你们都在用吗？或许你们需要看一下这篇博文 - Dawnzhang - 博客园](https://www.cnblogs.com/clwydjgs/p/10078065.html)
 
 #### vscode插件中心安装 setting-sync
 #### Gists
@@ -449,8 +452,9 @@ ubuntu18_vscode_20190930
 
 - [x] code spell checker
 - [x] guides 高亮缩进基准线 参考线，可自定义
-- [ ] - [ ] Indent-Rainbow :A simple extension to make indentation more readable
+- [ ] Indent-Rainbow :A simple extension to make indentation more readable
 - [x] [CodeLf](https://unbug.github.io/codelf/#%E4%BB%A3%E7%A0%81)是一个用来给变量命名的网站，你只要输入你想起的中文名，它就会给你提供很多建议的命名
+- [ ] Syntax Highlighter for VSCode
 - [x] Trailing Spaces :press F1 and select/type "Trailing Spaces: Delete"
 - [ ] Turbo Console Log快捷添加 console.log，一键 注释 / 启用 / 删除 所有 console.log
 
@@ -472,20 +476,58 @@ alt + shift + d 删除所有 console.log
 
 ## 代码片段
 
+[VS Code跟我一起在Visual Studio Code 添加自定义snippet（代码段），附详细配置 - 前端 - 掘金](https://juejin.im/entry/5aebc727f265da0b9526f54e)
+
 - snippets ：搭建可以自己安装各种代码片段
-
+![UserSnippets](UserSnippets.png "UserSnippets")
+![NewGlobalSnippets](NewGlobalSnippets.png "NewGlobalSnippets")
+// TODO todo something 
 ## 功能扩展
-
+- [x] Todo Tree :Show TODO, FIXME, etc. comment tags in a tree view
+// TODO todo something 
 - [x] Bracket Pair Colorizer ：让代码的各种括号呈现不同的颜色
 - [x] Code Runner ：可以在编辑器里直接运行代码，查看结果
 - [x] Color Picker ：可以直接在编辑器里打开色板，选择各种模式的颜色
+- [x]  Guides：An extension for more guide lines
 - [x] better comments
 - [x] bookmarks 添加行书签
 - [ ] Document This ：可以给函数、类等自动的加上详细的注释
 - [ ] Regex Previewer 实时预览正则表达式的效果
+- [x] RegExp Preview and Editor ：正则可视化解析匹配过程
+- [x] any-rule :快速查看且引用常用的正则,很实用,F1->输入关键字字母
+## Git 
 - [ ] Git History ：方便的查看git版本管理的详细信息
 - [ ] GitLens 详细的 Git 提交日志。Git 重度使用者必备，尤其是多人协作时：哪一行代码，何时、何人提交都有记录
 - [ ] Live Server ：可以一键在本地启动服务器
+
+## Mysql
+[使用 Visual Studio Code 链接 MySql 数据库并进行查询 - 台部落](https://www.twblogs.net/a/5b8cdc332b71771883364ab4/zh-cn)
+- [x] MySQL
+- [x] MySQL Syntax
+`mysql -uroot -p123456`
+>host: localhost
+port: 3306
+username: root
+password: 123456
+
+> vscode connect MySQL 8.0 - Client does not support authentication protocol requested by server; consider upgrading MySQL client
+- Full Steps For MySQL 8
+- Connect to MySQL
+```mysql { class="line-numbers"}
+$ mysql -u root -p
+
+<!-- Enter password: (enter your root password)
+Reset your password
+(Replace your_new_password with the password you want to use) -->
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_new_password';
+mysql> FLUSH PRIVILEGES;
+mysql> quit
+```
+
+
+
+
 
 # java installion & configure
 
