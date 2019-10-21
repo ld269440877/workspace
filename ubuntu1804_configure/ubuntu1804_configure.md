@@ -345,6 +345,9 @@ git remote add origin git@github.com:ld269440877/vscode.git
 git push -u origin master
 
 ```
+## Git使用
+[Git使用教程笔记 | Michael翔](https://michael728.github.io/2018/11/24/git-advance/)
+
 
 ## GitHub使用
 
@@ -431,6 +434,7 @@ ubuntu18_vscode_20190930
 4. 再次按 Alt + Shift + U 完成配置上传，使用组合键 Alt + Shift + D 即可下载配置
 5. 如若出现 token 配置无问题却出现报错无法上传配置时，可按 Ctrl + Shift + P 开启命令面板，找到同步命令，选择 Reset Extension Settings 重置所有配置，在通过 Alt + Shift + U 重新填写 token 进行同步
 
+
 #### 外观
 
 - [x] Darula Theme 主题
@@ -499,6 +503,8 @@ alt + shift + d 删除所有 console.log
 - [ ] Git History ：方便的查看git版本管理的详细信息
 - [ ] GitLens 详细的 Git 提交日志。Git 重度使用者必备，尤其是多人协作时：哪一行代码，何时、何人提交都有记录
 - [ ] Live Server ：可以一键在本地启动服务器
+
+
 
 ## Mysql
 [使用 Visual Studio Code 链接 MySql 数据库并进行查询 - 台部落](https://www.twblogs.net/a/5b8cdc332b71771883364ab4/zh-cn)
@@ -591,6 +597,12 @@ echo $JAVA_HOME
     4. 导出图片
     Ctrl + Shift + P要打开命令面板，
     输入: plantuml: export current diagram
+
+## PyCharm
+
+[JetBrains PyCharm/IDEA 使用技巧总结 | Michael翔](https://michael728.github.io/2019/05/11/tools-dev-pycharm-idea/)
+
+
 
 # Ubuntu Software
 

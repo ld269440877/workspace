@@ -2131,6 +2131,8 @@ plt.show()
 
 ###  拓展⼀（⼀图多个坐标系⼦图）
 
+[labels title用法 子图的pyplot轴标签 - Code Examples](https://code-examples.net/zh-CN/q/6a3f5b)
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 # add_subplot⽅法----给figure新增⼦图
@@ -2152,7 +2154,7 @@ ax3.plot(x, np.log(x))
 plt.show()
 
 ```
-<img src="⼀图多个坐标系⼦图.png" alt="⼀图多个坐标系⼦图" title =  “⼀图多个坐标系⼦图" style="zoom:67%;" />
+![⼀图多个坐标系⼦图](⼀图多个坐标系⼦图.png "⼀图多个坐标系⼦图")
 
 ### 拓展⼀（图中图）
 
@@ -2952,7 +2954,7 @@ print(t1*t2)
 ![相同形状的矩阵进行运算](相同形状的矩阵进行运算.png '相同形状的矩阵进行运算')
 
 1. 行数或者列数相同的一维数组和多维数组可以进行计算：
-  a. 行形状相同（会与每一行数组的对应位相操作)
+    a. 行形状相同（会与每一行数组的对应位相操作)
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
 t1 = np.arange(24).reshape((4,6))
