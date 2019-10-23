@@ -1063,6 +1063,24 @@ CHARSET=utf8 #编码格式
 | 定义  | 唯一标识一条记录，不能有重复的，不允许为空 | 表的外键是另一个表的主键，外键可以有重复的，可以是空值 |
 | 作用  | 用来保证数据完整性                         | 用来和其他表建立联系用的                               |
 | 个数  | 主键只能有一个                             | 一个表可以有多个外键                                   |
+### 索引类型及实例
+```mysql { class= ' line-numbers'}
+CREATE TABLE `test` (
+    `a` int(10) NOT NULL AUTO_INCREMENT,
+    `b` int(10) NOT NULL,
+    `c` int(10) NOT NULL,
+    `d` varchar(32) NOT NULL,
+    `e` varchar(64) NOT NULL,
+-- 指定`a`是主键索引（唯一且不为空）
+    PRIMARY KEY (`a`),
+-- 指定`inx_bc`为普通索引，因为索引了两列（`b`和`c`），所以`inx_bc`是组合索引
+    KEY `idx_bc` (`b`,`c`),
+-- 指定`idx_e`是唯一索引
+    UNIQUE KEY `idx_e` (`e`)
+) ENGINE=InnoDB AUTO_INCREMENT=20000001 DEFAULT CHARSET=utf8
+```
+![索引类型及实例下](索引类型及实例下.png '索引类型及实例下')
+
 ## 插入数据(insert into)
 ```mysql { class= ' line-numbers'}
 <!-- 插入一行： 全列插入-->
@@ -1212,6 +1230,78 @@ DROP 列名
 3、union和union all有什么区别？
 4、对表的一些操作命令：创建、更新、插入、删除
 5、join的类型有哪些？join的语法结构持
+
+# MySQL优化项目课件 python操作MySQL
+
+## 不同职位对MySQL的技术要求
+
+
+## Python操作MySQL
+
+### 常用模块
+
+
+
+### 基本操作
+
+
+
+### ORM
+
+
+
+
+
+### 练习
+
+
+
+
+
+
+## 索引
+
+### 索引类型
+
+### InnoDB 及MyISAM索引结构
+
+
+
+### 事务
+
+
+
+## 实战案例
+
+
+### 设计一个应用商店的数据库
+
+
+### SQL优化
+
+#### 一般的优化原则
+
+
+#### 索引的优化
+
+
+
+####  explain的使用
+
+
+
+
+## 参考资料及推荐阅读
+
+
+## 课后练习
+
+
+
+
+
+
+
 
 
 # 刷题
