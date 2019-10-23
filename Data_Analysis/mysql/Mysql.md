@@ -12,6 +12,8 @@
 
 ![数据分析知识参考体系](数据分析知识参考体系.png '数据分析知识参考体系')
 
+# MySQL思维导图
+
 ![MySQL思维导图](MySQL思维导图.png)
 
 # 软件安装
@@ -1213,3 +1215,476 @@ DROP 列名
 
 
 # 刷题
+
+## LeetCode
+
+[175. 组合两个表 - 力扣（LeetCode）](https://leetcode-cn.com/problems/combine-two-tables/)
+
+> 表1: Person
++-------------+---------+
+| 列名         | 类型     |
++-------------+---------+
+| PersonId    | int     |
+| FirstName   | varchar |
+| LastName    | varchar |
++-------------+---------+
+PersonId 是上表主键
+表2: Address
++-------------+---------+
+| 列名         | 类型    |
++-------------+---------+
+| AddressId   | int     |
+| PersonId    | int     |
+| City        | varchar |
+| State       | varchar |
++-------------+---------+
+AddressId 是上表主键
+编写一个 SQL 查询，满足条件：无论 person 是否有地址信息，都需要基于上述两表提供 person 的以下信息：
+FirstName, LastName, City, State
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/combine-two-tables
+考点解析：
+join两张表：
+person表中有FirstName和 LastName；Address表中有City和State；
+两张表的共同字段（关联字段）：PersonId
+```mysql { class= ' line-numbers'}
+select a.FirstName,a.LastName,b.City,b.State
+from person a
+left join address b
+on a.PersonId = b.PersonId
+```
+
+## w3school
+
+[w3school SQL 测验](https://www.w3school.com.cn/quiz/quiz.asp?quiz=sql)
+
+## 面试题
+
+### 面试题1
+第一题
+- 新建一个order_new表，包含三个字段：
+    - order_id（订单编号）
+    - spend（每一个订单的实付金额）
+    - discount_flag（当订单的折扣金额大于0时为1，折扣金额等于0时为0）
+考点
+```mysql { class= ' line-numbers'}
+创建新表：
+创建计算字段：加减乘除
+SQL基础语句：select * from 表 where 条件 group by ....having......order by ....
+limit...
+CASE WHEN用法：CASE WHEN THEN ELSE END
+
+
+CREATE TABLE order_new
+SELECT order_id, original_value - discount AS spend,
+CASE WHEN discount >0 THEN 1
+WHEN discount =0 THEN 0
+ELSE '其他'
+END AS 'discount_flag'
+FROM order_2017
+```
+第二题
+找到2017年11月11日当天订单实付金额最大的订单编号
+考点
+```mysql { class= ' line-numbers'}
+创建计算字段：加减乘除
+where 条件
+函数：MAX最大值
+
+
+SELECT order_id, max(original_value - discount)
+FROM order_2017
+WHERE date IN ('2017/11/11')
+```
+第三题
+计算每个月每个顾客等级平均每单购买商品的数量
+月份 顾客等级 订单ID 商品数量items
+考点
+```mysql { class= ' line-numbers'}
+join两张表：
+创建中间表：
+创建计算字段：加减乘除
+时间函数：DATE_FORMAT(date,format)
+
+
+SELECT t1.new_month,t1.cust_level,sum(t1.items)/count(t1.order_id) AS avg_items
+FROM
+(
+SELECT DATE_FORMAT(a.date,'%Y/%m') AS new_month,b.cust_level,a.order_id,a.items
+FROM order_2017 a
+LEFT JOIN cust_info b ON a.cust_id = b.cust_id
+)t1
+GROUP BY t1.new_month,t1.cust_level
+```
+
+### 面试真题2
+示例表
+创建表
+```mysql { class= ' line-numbers'}
+
+#创建一个空表product
+CREATE TABLE product
+(
+`product`varchar(30) NOT NULL DEFAULT '' '产品',
+`category` varchar(30) NOT NULL DEFAULT '' COMMENT '种类',
+`color` varchar(30) NOT NULL DEFAULT '' COMMENT '颜色',
+`weight` float(10,2) DEFAULT '0.00' COMMENT '重量',
+`price` int(20) NOT NULL DEFAULT '0' COMMENT '价格',
+PRIMARY KEY (`product`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='产品表'
+;
+#在表product插入值
+INSERT INTO product
+(product,category,color,weight,price)
+VALUES
+('productA','categoryA','yellow','5.6','100'),
+('productB','categoryB','red','3.7','200'),
+('productC','categoryC','blue','10.3','300'),
+('productD','categoryD','black','7.8','400')
+;
+#创建一个空表 order_2018
+CREATE TABLE order_2018
+(
+`orderid`varchar(20) NOT NULL DEFAULT '' '订单编号',
+`name` varchar(20) NOT NULL DEFAULT '' COMMENT '顾客ID',
+`orderdate` date DEFAULT NULL COMMENT '交易日期',
+`store` varchar(20) NOT NULL DEFAULT '' COMMENT '店铺',
+`product`varchar(30) NOT NULL DEFAULT '' '产品',
+`quantity` int(11) NOT NULL DEFAULT '0' COMMENT '商品数量',
+`amount` int(20) NOT NULL DEFAULT '0' COMMENT '价格'
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='2018年订单表'
+;
+#在表order_2018插入值
+INSERT INTO order_2018
+(`orderid`,`name`,`orderdate`,`store`,`product`,`quantity`,`amount`)
+VALUES
+('1','customerA','2018-01-01','storeA','productA','1','100'),
+('1','customerA','2018-01-01','storeA','productB','1','200'),
+('1','customerA','2018-01-01','storeA','productC','1','300'),
+('2','customerB','2018-01-12','storeB','productB','1','200'),
+('2','customerB','2018-01-12','storeB','productD','1','400'),
+('3','customerC','2018-01-12','storeC','productB','1','200'),
+('3','customerC','2018-01-12','storeC','productC','1','300'),
+('3','customerC','2018-01-12','storeC','productD','1','400'),
+('4','customerA','2018-01-01','storeD','productD','2','800'),
+('5','customerB','2018-01-23','storeB','productA','1','100')
+;
+#创建一个空表 store
+CREATE TABLE store
+(
+`store` varchar(20) NOT NULL DEFAULT '' COMMENT '店铺',
+`city`varchar(20) NOT NULL DEFAULT '' '城市'
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='店铺表'
+;
+#在表store插入值
+INSERT INTO store
+(`store`,`city`)
+VALUES
+('storeA','cityA'),
+('storeB','cityA'),
+('storeC','cityB'),
+('storeD','cityC'),
+('storeE','cityD'),
+('storeF','cityB')
+;
+```
+2.1第一题
+请查找符合以下要求的产品，并按照产品价格降序排列：
+category为categoryA且颜色为yellow，或者weight大于5
+考点解析：
+```mysql { class= ' line-numbers'}
+select语句
+where条件
+and和OR的用法、先后顺序
+降序:order by .... desc
+
+select product
+from product
+where (category IN ('categoryA') and color IN ('yellow')) or weight >5
+order by price desc
+```
+2.2第二题
+请计算每一位客人的总购买金额（amount），总购买订单数，总购买产品件数（quantity），同一个
+客人同一天的订单算作一单，并筛选出总购买金额大于等于800的客人，按金额降序排列。
+考点解析：
+```mysql { class= ' line-numbers'}
+SQL函数：sum、count(distinct)
+查询结果过滤：having
+降序:order by .... desc
+
+
+select order_2018.`name`,sum(amount) AS '总购买金额',count(distinct
+order_2018.`name`,orderdate) AS '总购买订单数',sum(quantity) AS '总购买产品件数'
+from order_2018
+GROUP BY order_2018.`name`
+HAVING sum(amount)>800
+ORDER BY sum(amount) DESC
+```
+2.3第三题
+请给出每个城市（city）的总店铺数，总购买人数和总购买金额（amount），包含无购买记录的城市
+考点解析：
+```mysql { class= ' line-numbers'}
+join两张表：谁是主表
+SQL函数：sum、count(distinct)
+
+
+SELECT t1.city,count(DISTINCT t1.store),count( DISTINCT t1.`name`),sum(amount)
+FROM
+(SELECT a.store,a.city,b.`name`,b.amount
+FROM store a LEFT JOIN order_2018 b on a.store=b.store)t1
+GROUP BY t1.city
+```
+2.4第四题
+请查找购买过categoryA产品的客人，并计算每一位客人的平均订单金额（amount），一个订单编号
+（orderid）算作一单
+考点解析：
+```mysql { class= ' line-numbers'}
+先查找购买过categoryA产品的客人；
+再计算每一位客人的平均订单金额
+子查询：in
+SQL函数与计算字段：sum()/count(distinct )
+
+
+
+SELECT order_2018 .`name`,sum(amount)/count(DISTINCT orderid) AS '平均订单'
+FROM order_2018
+WHERE order_2018.`name` IN
+(SELECT a.`name` FROM order_2018 a LEFT JOIN product b ON
+a.product=b.product WHERE b.category IN ('categoryA'))
+GROUP BY order_2018 .`name`
+```
+2.5第五题
+5.请查找每个城市（city）购买金额排名第二的客人，列出其购买城市，姓名和购买金额
+考点解析：
+```mysql { class= ' line-numbers'}
+分组top值问题：
+分组排序函数：ROW_NUMBER() OVER(PARTITION BY .... ORDER BY ...... DESC)
+嵌套查询：
+两表join：
+
+
+SELECT t1.city,t1.`name`,t1.amount_all
+FROM
+(SELECT a.city,b.`name`,sum(b.amount) AS 'amount_all',ROW_NUMBER()
+OVER(PARTITION BY a.city ORDER BY sum(b.amount) DESC) AS 'rank'
+FROM store a LEFT JOIN order_2018 b on a.store=b.store
+GROUP BY a.city,b.`name`)t1
+WHERE t1.rank =2
+```
+### 面试真题3
+3.1第一题
+查询2017年上半年（1-6月），上海地区销售额排名前10的商品ID，需要的字段：商品ID
+```mysql { class= ' line-numbers'}
+SELECT a.pid,sum(a.saleamount)
+FROM tbl_order a LEFT JOIN tbl_user b ON a.userid=b.userid
+WHERE a.order_date BETWEEN "2017/1/1" AND "2017/6/30" AND b.procince LIKE "%上
+海%"
+GROUP BY a.pid
+order by sum(a.saleamount) desc
+LIMIT 10
+```
+3.2第二题
+查询2017年7月的所有订单中，有且仅有轮胎和保养两个品类的订单数
+```mysql { class= ' line-numbers'}
+SELECT count(t2.orderid)
+FROM
+(SELECT t1.orderid,sum(t1.flag)
+FROM
+(SELECT orderid,
+CASE WHEN category IN ('轮胎') OR category IN ('保养') THEN 1 ELSE 0 END AS
+'flag'
+FROM tbl_order
+WHERE order_date BETWEEN "2017/7/1" AND "2017/7/31")t1
+HAVING sum(t1.flag) = 2)t2
+```
+
+### 面试题拓展资料
+
+- SQL数据库面试题以及答案（50例题）：https://blog.csdn.net/hundan_520520/article/details/54881208
+- 常见的SQL面试题经典50题：https://zhuanlan.zhihu.com/p/38354000
+- SQL面试题练习：https://zhuanlan.zhihu.com/p/37815261
+- 2020学霸批拼多多数据分析笔试总结：https://zhuanlan.zhihu.com/p/75704180
+- leetcode我们必知必会的SQL面试题：https://juejin.im/post/5c3820436fb9a049f15469d5
+- 10道mysql查询语句面试题：https://www.yanxurui.cc/posts/mysql/2016-11-10-10-sql-interview-questions/
+- 数据分析面试必备——SQL你准备好了吗？：https://zhuanlan.zhihu.com/p/61805956
+- 数据分析之SQL面试题：https://www.jianshu.com/p/77597eadd3cc
+SQL面经汇总：https://www.nowcoder.com/discuss/95812
+
+# 串讲MySQL
+
+## 复习MySQL
+
+### SQL知识回顾xmind
+
+[(Back to MySQL思维导图)](#MySQL思维导图)
+
+### SQL书写顺序
+
+SQL完整的数据格式, 不要被吓到, 其实很简单
+```mysql { class= ' line-numbers'}
+语法结构：
+SELECT select_expr [,select_expr,...] [
+FROM tb_name
+[WHERE 条件判断]
+[GROUP BY {col_name|postion} [ASC|DESC], ...]
+[HAVING WHERE 条件判断]
+[ORDER BY {col_name|expr|postion} [ASC|DESC], ...
+[LIMIT {[offset,]rowcount|row_count OFFSET offset}] ]
+
+
+可以归纳为：
+select distinct *
+from 表名
+where ....
+group by ... having ...
+order by ...
+limit start,count
+```
+
+### SQL执行顺序
+
+```mysql { class= ' line-numbers'}
+from 表名
+where ....
+group by ...
+having ...
+select distinct *
+order by ...
+limit start,count
+实际使用中，只是语句中某些部分的组合，而不是全部
+```
+
+## 分组排序函数（Row_number）问题
+
+### 分组排序函数（Row_number）
+
+```mysql { class= ' line-numbers'}
+语法结构：
+
+用法1：无分组排序
+Row_number() OVER(ORDER BY 字段 DESC)
+例如：Row_number() OVER(ORDER BY 学生成绩 DESC)
+表示不分班级，所有学生的成绩从高到低排序
+
+
+用法2：分组排序
+ROW_NUMBER() OVER(PARTITION BY 字段1 ORDER BY 字段2 DESC)
+表示根据字段1分组，在分组内部根据字段2排序，这个函数计算的值就表示每组内部排序后的顺序编号
+例如：ROW_NUMBER() OVER(PARTITION BY 班级 ORDER BY 学生成绩 DESC)
+表示根据“班级”分组，在每个“班级”内部根据“学生成绩”排序，这个函数计算的值就表示每组内部排序后的顺序编号
+解释：
+ROW_NUMBER( ) 起到了编号的功能
+partition by 将相同数据进行分区
+order by 使得数据按一定顺序排序
+```
+练习1：计算销售人员的销售额,结果按从高到低排序，查询结果中要包含销售的排名
+```mysql { class= ' line-numbers'}
+参考答案MySQL8.0 ：
+select sales_name,sum(sales),Row_number() OVER(ORDER BY sum(sales) DESC) as
+'rank'
+from spm_order
+group by sales_name
+
+
+参考答案MySQL5.7 ：
+SET @rank= 0;
+select A.* , @rank:=@rank + 1 AS rank_no from (
+select sales_name,sum(sales)
+from spm_order
+group by sales_name
+order by sum(sales) DESC) A
+```
+![SQL分组排序函数80-57版本问题](SQL分组排序函数80-57版本问题.png 'SQL分组排序函数80-57版本问题')
+
+练习2：计算销售人员在不同城市的销售额；
+要求：结果根据销售人员在不同城市的销售额进行分组排序（降序），并且查询结果要包含分组排名
+```mysql { class= ' line-numbers'}
+参考答案MySQL8.0 ：
+select sales_name,city,sum(sales),ROW_NUMBER() OVER(PARTITION BY sales_name
+ORDER BY sum(sales) DESC) as 'rank'
+from spm_order
+group by sales_name,city
+
+
+参考答案MySQL5.7 ：
+SELECT
+@r:= case when @type=a.sales_name then @r+1 else 1 end as rowNum,
+@type:=a.sales_name as type,
+a.*
+from
+(select sales_name,city,sum(sales)
+from spm_order
+group by sales_name,city
+ORDER BY sales_name , sum(sales) desc)a,(select @r:=0, @type:='' ) b;
+```
+![SQL分组排序函数80-57版本问题练习2](SQL分组排序函数80-57版本问题练习2.png 'SQL分组排序函数80-57版本问题练习2')
+
+## 面试真题
+3.1第一题
+查询2017年上半年（1-6月），上海地区销售额排名前10的商品ID，需要的字段：商品ID
+```mysql { class= ' line-numbers'}
+SELECT tbl_order.pid,sum(tbl_order.salesamout)
+FROM tbl_order LEFT JOIN tbl_user ON tbl_order.userid=tbl_user.userid
+WHERE tbl_order.orderdate BETWEEN "2017/1/1" AND "2017/6/30" AND
+tbl_user.province LIKE "%上海%"
+GROUP BY tbl_order.pid
+order by sum(tbl_order.salesamout) desc
+LIMIT 10
+```
+3.2第二题
+查询2017年7月的所有订单中，有且仅有轮胎和保养两个品类的订单数
+```mysql { class= ' line-numbers'}
+SELECT count(t2.orderid)
+FROM
+(SELECT t1.orderid,sum(t1.flag)
+FROM
+(SELECT orderid,
+CASE WHEN category IN ('轮胎') OR category IN ('保养') THEN 1 ELSE 1000000 END
+AS 'flag'
+FROM tbl_order
+WHERE orderdate BETWEEN "2017/1/1" AND "2017/7/31")t1
+GROUP BY orderid
+HAVING sum(t1.flag) = 2)t2
+```
+## 京东小案例
+-  创建数据库,导入数据表
+    创建数据库为jingdong, 导入goods数据表
+- SQL语句强化
+    - 查询类型cate_name为 '超极本' 的商品名称、价格
+` select name,price from goods where cate_name = '超级本'; `
+    - 显示商品的种类
+`select cate_name from goods group by cate_name;`
+    - 求所有电脑产品的平均价格,并且保留两位小数
+`select round(avg(price),2) as avg_price from goods;`
+    - 显示每种商品的平均价格
+`select cate_name,avg(price) from goods group by cate_name`
+    - 查询每种类型的商品中 最贵、最便宜、平均价、数量
+```mysql
+select cate_name,max(price),min(price),avg(price),count(*) from goods
+group
+```
+    - 查询所有价格􀀀于平均价格的商品，并且按价格降序排序
+```mysql { class= ' line-numbers'}
+select id,name,price from goods
+where price > (select round(avg(price),2) as avg_price from goods)
+order by price desc;
+```
+    - 查询每种类型中最贵的电脑信息
+```mysql { class= ' line-numbers'}
+select * from goods
+inner join
+(
+select
+cate_name,
+max(price) as max_price,
+min(price) as min_price,
+avg(price) as avg_price,
+count(*) from goods group by cate_name
+) as goods_new_info on goods.cate_name=goods_new_info.cate_name and
+goods.price=goods_new_info.max
+```
+## 总结
+1. MySQL语句, 多总结, 多查询
+2. 多总结解题思路
+
