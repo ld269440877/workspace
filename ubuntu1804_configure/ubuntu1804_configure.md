@@ -434,6 +434,10 @@ ubuntu18_vscode_20190930
 4. 再次按 Alt + Shift + U 完成配置上传，使用组合键 Alt + Shift + D 即可下载配置
 5. 如若出现 token 配置无问题却出现报错无法上传配置时，可按 Ctrl + Shift + P 开启命令面板，找到同步命令，选择 Reset Extension Settings 重置所有配置，在通过 Alt + Shift + U 重新填写 token 进行同步
 
+//TODO 的方法 1
+
+#TODO 的方法 2
+- [ ] TODO 的方法 3 待做事项
 
 #### 外观
 
@@ -485,10 +489,9 @@ alt + shift + d 删除所有 console.log
 - snippets ：搭建可以自己安装各种代码片段
 ![UserSnippets](UserSnippets.png "UserSnippets")
 ![NewGlobalSnippets](NewGlobalSnippets.png "NewGlobalSnippets")
-// TODO todo something 
+
 ## 功能扩展
 - [x] Todo Tree :Show TODO, FIXME, etc. comment tags in a tree view
-// TODO todo something 
 - [x] Bracket Pair Colorizer ：让代码的各种括号呈现不同的颜色
 - [x] Code Runner ：可以在编辑器里直接运行代码，查看结果
 - [x] Color Picker ：可以直接在编辑器里打开色板，选择各种模式的颜色

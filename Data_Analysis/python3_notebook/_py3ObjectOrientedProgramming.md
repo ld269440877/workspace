@@ -129,7 +129,7 @@ print(hero) # 打印对象，则默认打印对象在内存的地址，结果等
 >>> <__main__.Hero object at 0x7f1dcc4f4c10>
 
 ```
-## 对象的创建流程(理解就行)
+## 对象的创建流程
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -1086,7 +1086,7 @@ __all__ = ["g_num", "show"]
 去指定导⼊的模块
 from first_package import *
 ```
-### \_\_init\_\_ ⽂件写法
+### `__init__` ⽂件写法
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -1124,10 +1124,6 @@ from . import second
 | sys.stdin<br/>sys.stdout<br/>sys.stderr | stdin，stdout，以及stderr变量包含与标准I/O流对应的流对象。<br>如果需要更好地控制输出，而print不能满足要求，它们就是你所需要的。  你也可以替换它们，重定向输出和输入到其它设备(device)，或者以非标准的方式处理它们。<br>sys.stdout.write('please:')  #标准输出,写入字符串输出到屏幕>>>please:<br>val = sys.stdin.readline()[:-1]  #标准输入 |
 | sys.modules                             | 是一个全局字典，该字典是python启动后就加载在内存中。<br>每当程序员导入新的模块，sys.modules将自动记录该模块。当第二次再导入该模块时，python会直接到字典中查找，从而加快程序运行的速度。它拥有字典所拥有的一切方法。 |
 |                                         |                                                              |
-
-
-
-
 
 ## os库
 
@@ -2129,7 +2125,7 @@ plt.show()
 
 <img src="图例设置中文.png" alt="图例设置中文" title="图例设置中文" style="zoom:67%;" />
 
-###  拓展⼀（⼀图多个坐标系⼦图）
+###  ⼀图多个坐标系⼦图
 
 [labels title用法 子图的pyplot轴标签 - Code Examples](https://code-examples.net/zh-CN/q/6a3f5b)
 
@@ -2156,7 +2152,7 @@ plt.show()
 ```
 ![⼀图多个坐标系⼦图](⼀图多个坐标系⼦图.png "⼀图多个坐标系⼦图")
 
-### 拓展⼀（图中图）
+### 图中图
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 from matplotlib import pyplot as plt
@@ -2180,7 +2176,7 @@ plt.show()
 
 <img src="图中图.png" alt="图中图" title="图中图" style="zoom:67%;" />
 
-###  拓展⼆（设置坐标轴范围）
+### 设置坐标轴范围
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 import matplotlib.pyplot as plt
@@ -2201,7 +2197,7 @@ plt.show()
 
 <img src="设置坐标轴范围.png" alt="设置坐标轴范围" title="设置坐标轴范围"  />
 
-###  拓展三（改变坐标轴的默认显示⽅式）
+###  改变坐标轴的默认显示⽅式
 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers'  continue='utf-8' output='markdown'} ##hide  代码隐藏
 
@@ -2799,7 +2795,7 @@ print(six)
 '''
 [1 3 5 2 4 6]
 '''
-# 拓展：数组的形状
+# 数组的形状
 t = np.arange(24)
 print(t)
 print(t.shape)
@@ -2880,7 +2876,7 @@ print(f.dtype)
 # 调整数据类型
 f1 = f.astype(np.int64)
 print(f1.dtype)
-# 拓展随机生成小数
+# 随机生成小数
 # 使用python语法，保留两位
 print(round(random.random(),2))-->0.53   # round圆整 向0截断
 arr = np.array([random.random() for i in range(10)])
@@ -3238,7 +3234,7 @@ t[(t<2)|(t>6)]=0 # 或
 t[~(t>6)]=0 # 非
 
 print(t)
-# 拓展
+
 # 三目运算（ np.where(condition, x, y)满足条件(condition)，输出x，不满足输出y。)）
 score = np.array([[80,88],[82,81],[75,81]])
 score
@@ -3824,7 +3820,7 @@ print(result)
 '''
 # 10. 极值
 # np.ptp(t,axis=None)就是最大值和最小值的差
-# 拓展：方差var, 协方差cov, 计算平均值 average, 计算中位数 median
+# 方差var, 协方差cov, 计算平均值 average, 计算中位数 median
 ```
 ### 数组的聚合
 
@@ -5351,6 +5347,7 @@ dtype: bool
 '''
 ```
 ### 数据合并
+//TODO数据合并还不太理解 要看视频和赵网页上的案例解析
 #### join
 Join columns with other DataFrame either on index or on a key
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
@@ -5508,7 +5505,7 @@ pd.merge(df1,df2,on=['职称','名字'])
 3	D	男	教授	汇编
 '''
 ```
-### concat 拓展
+### concat 
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
 # 轴向连接-Concat
@@ -5635,7 +5632,7 @@ e	NaN	NaN	9.0	6.0
 '''
 
 ```
-### 多层索引(拓拓展)
+### 多层索引
 #### 创建多层索引
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
@@ -6181,10 +6178,11 @@ dict_mapping = {
 'Data2':'sum'
 }
 df1.groupby('key1').agg(dict_mapping)
+
 ```
-#### 拓展apply()函数
+#### apply()函数
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
-# 拓拓展apply函数
+
 # apply函数是pandas里面所有函数中自由度最高的函数
 df1=pd.DataFrame({'sex':list('FFMFMMF'),'smoker':list('YNYYNYY'),'age':
 [21,30,17,37,40,18,26],'weight':[120,100,132,140,94,89,123]})
@@ -6352,9 +6350,9 @@ plt.show()
 ```
 
 # python案例
-
+//TODOpython案例还没看视频
 ## 2018年北京积分落户数据分析
-
+[北京落户](bj_luohu.csv '北京落户')
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
 import numpy as np
@@ -6409,6 +6407,8 @@ plt.show()
       - 技术能力要求
 
 ## 阿里巴巴股票行情数据分析
+
+[阿里巴巴股票行情数据](BABA_stock.csv '阿里巴巴股票行情数据')
 
 ### 2-1 简单分析
 
@@ -6593,6 +6593,10 @@ if (len(no_index_buy_info) > len(no_index_sale_info)):
 
 ## google play store的app数据分析
 
+[google play store的app数据](googleplaystore.csv 'google play store的app数据')
+
+
+
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 import numpy as np
 import pandas as pd
@@ -6707,6 +6711,8 @@ df.corr()
 
 ## 电商交易数据分析
 
+[电商交易数据](order_info_2016.csv '电商交易数据')
+[device_type](device_type.txt 'device_type')
 ```python {cmd = true matplotlib=true code_block=true class= ' line-numbers' continue='utf-8'  } ##hide  代码隐藏 output='markdown'
 
 # 加载数据分析需要使用的库

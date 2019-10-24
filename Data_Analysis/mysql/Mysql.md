@@ -438,6 +438,10 @@ delete from students where id =5 ;
 > 可以使用as为列或表指定别名
 
 # SQL查询语言-基础
+[spm_order](spm_order.xlsx)
+[spm_product](spm_product.xlsx)
+[spm_area](spm_area.xlsx)
+
 [(Back to 软件安装)](#软件安装)
 ## SQL 简介
 ![SQL语言框架](SQL语言框架.png 'SQL语言框架')
@@ -867,7 +871,7 @@ SELECT 列名
 FROM 表1  JOIN 表2  ON 表1.列名=表2.列名
 ```
 ![SQL-表联结Joins](SQL-表联结Joins.png 'SQL-表联结Joins')
-#TODO
+#TODO SQL-表联结Join还没看视频  要找网页上的案例解析
 - join练习
 练习：将订单表、地区表、产品类别表联结成一张表
 ```mysql { class= ' line-numbers'}
@@ -1232,71 +1236,694 @@ DROP 列名
 5、join的类型有哪些？join的语法结构持
 
 # MySQL优化项目课件 python操作MySQL
-
+//TODO python操作MySQL  查找网页上的案例解析 掘进或Segmentfault思否
 ## 不同职位对MySQL的技术要求
 
+- 数据分析
+    - 偏重于查询
+    - 复杂查询的写法
+
+- 程序员
+    - 表的设计
+    - 增删改查
+    - 注重SQL性能
+
+- ＤＢＡ
+    - ＭｙＳＱＬ服务器配置
+    - ＳＱＬ＼服务性能＼稳定性
+    - 数据一致性
 
 ## Python操作MySQL
 
+- Python DB-API
 ### 常用模块
 
-
+- MySQLdb
+    - 也就是MySQL-python
+    - 底层C实现
+- mysql-connector
+    - MySQL官方提供
+- pymysql
+    - Python实现
+    - Python Version 3+
 
 ### 基本操作
 
-
+```python
+# 连接数据库
+import pymysql
+db = pymysql.connect(host='127.0.0.1', port=3306)
+# 获取游标
+cs = db.cursor()
+# 选择数据库
+db.select_db('test')
+# 执行SQL
+sql = 'show databases'
+result = cs.execute(sql)
+dbs = cs.fetchall()
+# 关闭数据库连接
+db.close()
+```
 
 ### ORM
 
-
-
-
+- ORM：object relational mapping，对象映射关系
+- 使用对象模型而不是sql来操作数据库
+- sqlalchemy
 
 ### 练习
 
-
-
-
-
+- 将抓取的数据导入到mysql中
+- 编写一个DB类，封装好常用的MySQL操作
 
 ## 索引
 
+- 对标中一列或多列的值进行排序
+- 定义一种存储结构
+- 快速检索到数据
+- 村塾引擎级实现
+
 ### 索引类型
 
+- 普通索引：MSQL中基本索引类型，没有什么限制，允许在定义索引的列中插入重复值和空值，纯粹为了查询数据快一点
+- 唯一索引：索引列中的值必须唯一，但是允许为空值
+- 主键索引：是一种特殊的唯一索引，不允许有空值
+- 组合索引：在表中的多个字段组合上创建的索引，只有在查询条件中使用了这些字段的左边字段时，索引才会被使用，使用组合索引时遵循遵循最左前缀集合
+- 全文索引：通过大文本中的某个关键字，就能找到该字段所属的记录行
+- 空间索引：空间索引是对空间数据的类型的字段建立的索引。
+    - MySQL中的空间数据类型：
+        - GEOMETRY
+        - POINT
+        - LINESTRING
+        - POLYGON
+相関概念：
+    - 非聚簇索引：索引树的叶子节点存储数据的位置信息
+    - 聚簇索引：数据存储在索引树的叶子节点
+    - 覆盖索引：索引包含了（或覆盖了）查询语句中的字段与条件的数据
+注意事项：
+    - 执行查询时，MySQL只能使用一个索引
+    - 提高了查询速度，降低了更新速度
+    - 不要使用like“%aaa%”操作
+    - 越小的数据类型通常更好
+    - 简单的数据类型更好
+    -尽量避免NULL
+    - 最左前缀：组合索引中的左边列
 ### InnoDB 及MyISAM索引结构
 
+- MyISAM引擎：使用b+tree作为索引，叶子节点data存放的是吉利地址。MyISAM中柱索引与辅索引形式是一样，主索引要求key不能重复，附注索引key可以重复
+- InnoDB引擎：与MyISAM索引和数据分开存放不同的是，InnoDB引擎数据文件本身就是一个索引，InnoDB引擎数据是按b+tree结构组织存放的，叶子节点包含全部的数据信息，InnoDB引擎辅助索引叶子节点存放的是主键，所以，InnoDB的普通索引，实际上会扫描两遍：
+    - 第一遍，有普通索引找到PK；
+    - 第二遍，有PK找到行记录‘
+
+![InnoDB%20及MyISAM索引结构](SQLInnoDB%20及MyISAM索引结构.png 'InnoDB%20及MyISAM索引结构')
+
+```mysql { class= ' line-numbers'}
+mysql> select * from tb;
++----+-----+-------+
+| id | age | name |
++----+-----+-------+
+| 15 | 34 | Bob |
+| 18 | 77 | Alice |
+| 20 | 5 | Jim |
+| 30 | 91 | Eric |
+| 49 | 22 | Tom |
+| 50 | 89 | Rose |
++----+-----+-------+
+
+# idx_name
+
+CREATE TABLE `tb` (
+`id` int(10) NOT NULL auto_increment,
+`age` int(10) NOT NULL,
+`name` varchar(32) NOT NULL,
+PRIMARY KEY (`id`),
+KEY `idx_name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+ ![InnoDB及MyISAM索引结构-主键primarykey-idx_name](SQLInnoDB及MyISAM索引结构-主键primarykey.png 'InnoDB及MyISAM索引结构-主键primarykey-idx_name')
+![InnoDB及MyISAM索引结构-辅键secondarykey-idx_name](SQLInnoDB及MyISAM索引结构-辅键secondarykey.png 'InnoDB及MyISAM索引结构-辅键secondarykey-idx_name')
+
+
+```mysql { class= ' line-numbers'}
+
+# idx_age
+
+CREATE TABLE `tb` (
+`id` int(10) NOT NULL auto_increment,
+`age` int(10) NOT NULL,
+`name` varchar(32) NOT NULL,
+PRIMARY KEY (`id`),
+KEY `idx_age` (`age`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+```
+![InnoDB及MyISAM索引结构-主键primarykey-idx_age](SQLInnoDB及MyISAM索引结构-主键primarykey-idx_age.png 'InnoDB及MyISAM索引结构-主键primarykey-idx_age')
+![InnoDB及MyISAM索引结构-辅键secondarykey-idx_age](SQLInnoDB及MyISAM索引结构-辅键secondarykey-idx_age.png 'InnoDB及MyISAM索引结构-辅键secondarykey-idx_age')
 
 
 ### 事务
 
-
+- 原子性 atomicity
+- 一致性 consistency
+- 隔离性 isolation
+- 持久性 durability
 
 ## 实战案例
 
-
 ### 设计一个应用商店的数据库
-
-
+- APP信息表
+- APP扩展信息表
+- APP分类表
+- APP分类关系表
+- APP评论表
+- 用户安装信息表
+- APP评分
 ### SQL优化
 
 #### 一般的优化原则
 
+一般来说，查询性能低，原因是访问了太多的数据
+- 是否请求了不需要的数据
+- 不需要的列不提取，不需要的行不取
+- 对索引查找使用where子句消除不匹配的行
+- 使用覆盖索引（Extra列是Using Index）避免访问的行
+- 从表中检索出数据，过滤掉不匹配的行（Extra列是Using Where）
+- 更改架构，例如使用汇总表，将分析的结果进行汇总
+- 将一个复杂的查询分解成多个简单的查询
+- 批量处理法
+    - 对于需要处理大量数据的语句，批量进行处理
 
 #### 索引的优化
 
+- 使用自增ID做主键primary key，业务逐渐做unique key
+- 一般来说，status，type这类枚举值很少的字段，不适合单独作为索引字段
+-索引并不是越多越好，无用、冗余的索引要删除
+- 不要使用%XXX%这种模糊匹配，会导致全表扫描/索引全扫描
+
+# MySQL 性能优化神器 Explain 使用分析
+[MySQL 性能优化神器 Explain 使用分析 -  SegmentFault 思否](https://segmentfault.com/a/1190000008131735)
+[MySQL优化学习笔记之explain - 掘金](https://juejin.im/post/5bd11e0651882529306e0546)
+
+## 简介
+MySQL 提供了一个 EXPLAIN 命令, 它可以对 SELECT 语句进行分析, 并输出 SELECT 执行的详细信息, 以供开发人员针对性优化.
+EXPLAIN 命令用法十分简单, 在 SELECT 语句前加上 Explain 就可以了, 例如:
+`EXPLAIN SELECT * from user_info WHERE  id < 300;`
+## 准备
+为了接下来方便演示 EXPLAIN 的使用, 首先我们需要建立user_info和order_info两个测试用的表, 并添加相应的数据:
+```mysql { class= ' line-numbers'}
+
+<!-- user_info -->
 
 
-####  explain的使用
+CREATE TABLE `user_info` (
+  `id`   BIGINT(20)  NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50) NOT NULL DEFAULT '',
+  `age`  INT(11)              DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `name_index` (`name`)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8
+
+# 先创建表user_info 然后在表user_info 中插入数据
+
+INSERT INTO user_info (name, age) VALUES ('xys', 20);
+INSERT INTO user_info (name, age) VALUES ('a', 21);
+INSERT INTO user_info (name, age) VALUES ('b', 23);
+INSERT INTO user_info (name, age) VALUES ('c', 50);
+INSERT INTO user_info (name, age) VALUES ('d', 15);
+INSERT INTO user_info (name, age) VALUES ('e', 20);
+INSERT INTO user_info (name, age) VALUES ('f', 21);
+INSERT INTO user_info (name, age) VALUES ('g', 23);
+INSERT INTO user_info (name, age) VALUES ('h', 50);
+INSERT INTO user_info (name, age) VALUES ('i', 15);
+
+<!-- order_info -->
 
 
+CREATE TABLE `order_info` (
+  `id`           BIGINT(20)  NOT NULL AUTO_INCREMENT,
+  `user_id`      BIGINT(20)           DEFAULT NULL,
+  `product_name` VARCHAR(50) NOT NULL DEFAULT '',
+  `productor`    VARCHAR(30)          DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_product_detail_index` (`user_id`, `product_name`, `productor`)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8
 
+# 先创建表order_info  然后在表order_info  中插入数据
+
+INSERT INTO order_info (user_id, product_name, productor) VALUES (1, 'p1', 'WHH');
+INSERT INTO order_info (user_id, product_name, productor) VALUES (1, 'p2', 'WL');
+INSERT INTO order_info (user_id, product_name, productor) VALUES (1, 'p1', 'DX');
+INSERT INTO order_info (user_id, product_name, productor) VALUES (2, 'p1', 'WHH');
+INSERT INTO order_info (user_id, product_name, productor) VALUES (2, 'p5', 'WL');
+INSERT INTO order_info (user_id, product_name, productor) VALUES (3, 'p3', 'MA');
+INSERT INTO order_info (user_id, product_name, productor) VALUES (4, 'p1', 'WHH');
+INSERT INTO order_info (user_id, product_name, productor) VALUES (6, 'p1', 'WHH');
+INSERT INTO order_info (user_id, product_name, productor) VALUES (9, 'p8', 'TE');
+
+```
+## Explain的作用:
+
+- 表的读取顺序
+- 数据读取操作的操作类型
+- 哪些索引可以使用
+- 哪些索引被实际使用
+- 表之间的引用
+- 每张表有多少行被优化器查询
+
+## EXPLAIN 输出格式
+
+EXPLAIN 命令的输出内容大致如下:
+```mysql { class= ' line-numbers'}
+ explain select * from user_info where id = 2
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: user_info
+   partitions: NULL
+         type: const
+possible_keys: PRIMARY
+          key: PRIMARY
+      key_len: 8
+          ref: const
+         rows: 1
+     filtered: 100.00
+        Extra: NULL
+1 row in set, 1 warning (0.00 sec)
+```
+
+> 各列的含义如下:
+>- id: SELECT 查询的标识符. 每个 SELECT 都会自动分配一个唯一的标识符.
+>- select_type: SELECT 查询的类型.
+>- table: 查询的是哪个表
+>- partitions: 匹配的分区
+>- type: join 类型
+>- possible_keys: 此次查询中可能选用的索引
+>- key: 此次查询中确切使用到的索引.
+>- ref: 哪个字段或常数与 key 一起被使用
+>- rows: 显示此查询一共扫描了多少行. 这个是一个估计值.
+>- filtered: 表示此查询条件所过滤的数据的百分比
+>- extra: 额外的信息
+
+## 查询结果返回字段分析：
+
+### id
+
+select查询的序列号，包含一组数字，表示查询中执行select子句或操作表的顺序。id如果相同，可以认为是一个分组，从上往下顺序执行。id不同，id值越大，优先级越高，越先执行。
+### select_type字段
+- select_type 表示查询的类型，主要用于区别普通查询、联合查询、子查询等的复杂查询, 它的常用取值有:
+
+|  id   |    select_type     | remark                                                                                        |
+| :---: | :----------------: | :-------------------------------------------------------------------------------------------- |
+|   1   |       SIMPLE       | 简单的select查询，查询中不包含子查询或UNION                                                   |
+|   2   |      PRIMARY       | 查询中如果包含任何复杂的子部分，最外层查询则标记为PRIMARY                                     |
+|   3   |       UNION        | 表示此查询是 UNION 的第二或随后的查询                                                         |
+|   4   |  DEPENDENT UNION   | UNION 中的第二个或后面的查询语句, 取决于外面的查询                                            |
+|   5   |      DERIVED       | 在FROM列表中包含的子查询被标记为DERIVED(衍生),MySQL会递归执行这些子查询，把结果放在临时表里。 |
+|   6   |    UNION RESULT    | UNION 的结果                                                                                  |
+|   7   |      SUBQUERY      | 在SELECT或WHERE列表中包含了子查询，子查询中的第一个 SELECT                                    |
+|   8   | DEPENDENT SUBQUERY | 子查询中的第一个 SELECT, 取决于外面的查询. 即子查询依赖于外层查询的结果.                      |
+
+最常见的查询类别应该是 SIMPLE 了, 比如当我们的查询没有子查询, 也没有 UNION 查询时, 那么通常就是 SIMPLE 类型, 例如:
+```mysql { class= ' line-numbers'}
+mysql> explain select * from user_info where id = 2
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: user_info
+   partitions: NULL
+         type: const
+possible_keys: PRIMARY
+          key: PRIMARY
+      key_len: 8
+          ref: const
+         rows: 1
+     filtered: 100.00
+        Extra: NULL
+1 row in set, 1 warning (0.00 sec)
+```
+如果我们使用了 UNION 查询, 那么 EXPLAIN 输出 的结果类似如下:
+```mysql { class= ' line-numbers'}
+mysql> EXPLAIN (SELECT * FROM user_info  WHERE id IN (1, 2, 3))
+    -> UNION
+    -> (SELECT * FROM user_info WHERE id IN (3, 4, 5));
++----+--------------+------------+------------+-------+---------------+---------+---------+------+------+----------+-----------------+
+| id | select_type  | table      | partitions | type  | possible_keys | key     | key_len | ref  | rows | filtered | Extra           |
++----+--------------+------------+------------+-------+---------------+---------+---------+------+------+----------+-----------------+
+|  1 | PRIMARY      | user_info  | NULL       | range | PRIMARY       | PRIMARY | 8       | NULL |    3 |   100.00 | Using where     |
+|  2 | UNION        | user_info  | NULL       | range | PRIMARY       | PRIMARY | 8       | NULL |    3 |   100.00 | Using where     |
+| NULL | UNION RESULT | <union1,2> | NULL       | ALL   | NULL          | NULL    | NULL    | NULL | NULL |     NULL | Using temporary |
++----+--------------+------------+------------+-------+---------------+---------+---------+------+------+----------+-----------------+
+3 rows in set, 1 warning (0.00 sec)
+```
+### table字段
+table: 显示这一行数据是关于哪张表的。
+表示查询涉及的表或衍生表
+
+### type字段
+type 字段比较重要,  显示访问类型,它提供了判断查询是否高效的重要依据依据. 通过 ==type 字段==, 我们判断此次查询是 ==全表扫描== 还是 ==索引扫描== 等.
+type 常用类型
+type 常用的取值有:
+
+id|type|remark
+|:-:|:-:|:-|
+1|system|表只有一行记录(等于系统表),这是const类型的特列，平时不会出现，这个也可以忽略不计
+2|const|表示通过索引一次就找到了,const用于比较primary key或者unique索引。因为只匹配一行数据，所以很快。如将主键置于where列表中，MySQL就能将该查询转换为一个常量
+3|eq_ref|唯一性索引扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键或唯一索引扫描
+4|ref|非唯一性索引扫描，返回匹配某个单独值的所有行。本质上也是一宗索引访问，它返回所有匹配某个单独值的行，然而它可能会找到多个符合条件的行，所以他应该属于查找和扫描的混合体
+5|range|只检索给定范围的行，使用一个索引来选择行。key列显示使用了哪个索引。一般就是在where语句中出现了between、<、>、in等的查询。这种范围扫描索引比权标扫描要好，因为它只需要开始于索引的某一点，而结束于另一点，不用扫描全部索引。
+6|index|Full Index Scan, index与ALL区别为index类型只遍历索引数。这通常比ALL快，因为索引文件通常比数据文件小。(虽然all和index都是读全表，但index是从索引中读取，而all是从硬盘中读取)
+7|all|Full Table Scan，将遍历全表以找到匹配的行
+
+> 显示查询使用了何种类型,从最好到最差依次是： system>const>eq_ref>ref>range>index>ALL
+一般来说，得保证查询至少达到range级别，最好能达到ref。
+
+- system: 表中只有一条数据. 这个类型是特殊的 const 类型.
+- const: 针对主键或唯一索引的等值查询扫描, 最多只返回一行数据. const 查询速度非常快, 因为它仅仅读取一次即可.
+
+例如下面的这个查询, 它使用了主键索引, 因此 type 就是 const 类型的.
+```mysql { class= ' line-numbers'}
+mysql> explain select * from user_info where id = 2
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: user_info
+   partitions: NULL
+         type: const
+possible_keys: PRIMARY
+          key: PRIMARY
+      key_len: 8
+          ref: const
+         rows: 1
+     filtered: 100.00
+        Extra: NULL
+1 row in set, 1 warning (0.00 sec)
+
+```
+- eq_ref: 此类型通常出现在多表的 join 查询, 表示对于前表的每一个结果, 都只能匹配到后表的一行结果. 并且查询的比较操作通常是 =, 查询效率较高. 例如:
+
+```mysql { class= ' line-numbers'}
+mysql> EXPLAIN SELECT * FROM user_info, order_info WHERE user_info.id = order_info.user_id\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: order_info
+   partitions: NULL
+         type: index
+possible_keys: user_product_detail_index
+          key: user_product_detail_index
+      key_len: 314
+          ref: NULL
+         rows: 9
+     filtered: 100.00
+        Extra: Using where; Using index
+*************************** 2. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: user_info
+   partitions: NULL
+         type: eq_ref
+possible_keys: PRIMARY
+          key: PRIMARY
+      key_len: 8
+          ref: test.order_info.user_id
+         rows: 1
+     filtered: 100.00
+        Extra: NULL
+2 rows in set, 1 warning (0.00 sec)
+```
+- ref: 此类型通常出现在多表的 join 查询, 针对于非唯一或非主键索引, 或者是使用了 最左前缀 规则索引的查询.
+例如下面这个例子中, 就使用到了 ref 类型的查询:
+```mysql { class= ' line-numbers'}
+mysql> EXPLAIN SELECT * FROM user_info, order_info WHERE user_info.id = order_info.user_id AND order_info.user_id = 5\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: user_info
+   partitions: NULL
+         type: const
+possible_keys: PRIMARY
+          key: PRIMARY
+      key_len: 8
+          ref: const
+         rows: 1
+     filtered: 100.00
+        Extra: NULL
+*************************** 2. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: order_info
+   partitions: NULL
+         type: ref
+possible_keys: user_product_detail_index
+          key: user_product_detail_index
+      key_len: 9
+          ref: const
+         rows: 1
+     filtered: 100.00
+        Extra: Using index
+2 rows in set, 1 warning (0.01 sec)
+```
+- range: 表示使用索引范围查询, 通过索引字段范围获取表中部分数据记录. 这个类型通常出现在 =, <>, >, >=, <, <=, IS NULL, <=>, BETWEEN, IN() 操作中.
+当 type 是 range 时, 那么 EXPLAIN 输出的 ref 字段为 NULL, 并且 key_len 字段是此次查询中使用到的索引的最长的那个.
+
+例如下面的例子就是一个范围查询:
+```mysql { class= ' line-numbers'}
+mysql> EXPLAIN SELECT *
+    ->         FROM user_info
+    ->         WHERE id BETWEEN 2 AND 8 \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: user_info
+   partitions: NULL
+         type: range
+possible_keys: PRIMARY
+          key: PRIMARY
+      key_len: 8
+          ref: NULL
+         rows: 7
+     filtered: 100.00
+        Extra: Using where
+1 row in set, 1 warning (0.00 sec)
+
+```
+- index: 表示全索引扫描(full index scan), 和 ALL 类型类似, 只不过 ALL 类型是全表扫描, 而 index 类型则仅仅扫描所有的索引, 而不扫描数据.
+index 类型通常出现在: 所要查询的数据直接在索引树中就可以获取到, 而不需要扫描数据. 当是这种情况时, Extra 字段 会显示 Using index.
+
+例如:
+```mysql { class= ' line-numbers'}
+mysql> EXPLAIN SELECT name FROM  user_info \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: user_info
+   partitions: NULL
+         type: index
+possible_keys: NULL
+          key: name_index
+      key_len: 152
+          ref: NULL
+         rows: 10
+     filtered: 100.00
+        Extra: Using index
+1 row in set, 1 warning (0.00 sec)
+```
+上面的例子中, 我们查询的 name 字段恰好是一个索引, 因此我们直接从索引中获取数据就可以满足查询的需求了, 而不需要查询表中的数据. 因此这样的情况下, type 的值是 index, 并且 Extra 的值是 Using index.
+
+- ALL: 表示全表扫描, 这个类型的查询是性能最差的查询之一. 通常来说, 我们的查询不应该出现 ALL 类型的查询, 因为这样的查询在数据量大的情况下, 对数据库的性能是巨大的灾难. 如一个查询是 ALL 类型查询, 那么一般来说可以对相应的字段添加索引来避免.
+下面是一个全表扫描的例子, 可以看到, 在全表扫描时, possible_keys 和 key 字段都是 NULL, 表示没有使用到索引, 并且 rows 十分巨大, 因此整个查询效率是十分低下的.
+```mysql { class= ' line-numbers'}
+mysql> EXPLAIN SELECT age FROM  user_info WHERE age = 20 
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: user_info
+   partitions: NULL
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 10
+     filtered: 10.00
+        Extra: Using where
+1 row in set, 1 warning (0.00 sec)
+```
+#### type 类型的性能比较
+
+通常来说, 不同的 type 类型的性能关系如下:
+`ALL < index < range ~ index_merge < ref < eq_ref < const < system`
+`ALL` 类型因为是全表扫描, 因此在相同的查询条件下, 它是速度最慢的.
+而 `index` 类型的查询虽然不是全表扫描, 但是它扫描了所有的索引, 因此比 ALL 类型的稍快.
+后面的几种类型都是利用了索引来查询数据, 因此可以过滤部分或大部分数据, 因此查询效率就比较高了.
+
+### possible_keys
+
+`possible_keys` 表示 MySQL 在查询时, 能够使用到的索引. 注意, 即使有些索引在 `possible_keys` 中出现, 但是并不表示此索引会真正地被 MySQL 使用到. MySQL 在查询时具体使用了哪些索引, 由 `key` 字段决定.
+
+### key
+
+key字段是 MySQL 在当前查询时所真正使用到的索引.如果为NULL，则没有使用索引。查询中若使用了覆盖索引，则该索引仅出现在key列表中。
+
+### key_len
+
+表示索引中使用的字节数，可通过该列计算查询中使用的索引长度。评估组合索引是否完全被使用, 或只有最左部分字段被使用到。在不损失精确性的情况下，长度越短越好。key_len显示的值为索引字段的最大可能长度，并非实际使用长度，即key_len是根据表定义计算而得，不是通过表内检索出的。
+
+key_len 的计算规则如下:
+- 字符串
+    - char(n): n 字节长度
+    - varchar(n): 如果是 utf8 编码, 则是 3 n + 2字节; 如果是 utf8mb4 编码, 则是 4 n + 2 字节.
+
+- 数值类型:
+    - TINYINT: 1字节
+    - SMALLINT: 2字节
+    - MEDIUMINT: 3字节
+    - INT: 4字节
+    - BIGINT: 8字节
+
+- 时间类型
+    - DATE: 3字节
+    - TIMESTAMP: 4字节
+    - DATETIME: 8字节
+
+- 字段属性: NULL 属性 占用一个字节. 如果一个字段是 NOT NULL 的, 则没有此属性.
+我们来举两个简单的栗子
+```mysql { class= ' line-numbers'}
+mysql> EXPLAIN SELECT * FROM order_info WHERE user_id < 3 AND product_name = 'p1' AND productor = 'WHH' \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: order_info
+   partitions: NULL
+         type: range
+possible_keys: user_product_detail_index
+          key: user_product_detail_index
+      key_len: 9
+          ref: NULL
+         rows: 5
+     filtered: 11.11
+        Extra: Using where; Using index
+1 row in set, 1 warning (0.00 sec)
+
+```
+上面的例子是从表 order_info 中查询指定的内容, 而我们从此表的建表语句中可以知道, 表 order_info 有一个联合索引:
+```mysql { class= ' line-numbers'}
+KEY `user_product_detail_index` (`user_id`, `product_name`, `productor`)
+```
+不过此查询语句 `WHERE user_id < 3 AND product_name = 'p1' AND productor = 'WHH'` 中, 因为先进行 user_id 的范围查询, 而根据 `最左前缀`匹配 原则, 当遇到范围查询时, 就停止索引的匹配, 因此实际上我们使用到的索引的字段只有 `user_id`, 因此在 `EXPLAIN` 中, 显示的 key_len 为 9. 因为 user_id 字段是 BIGINT, 占用 8 字节, 而 NULL 属性占用一个字节, 因此总共是 9 个字节. 若我们将user_id 字段改为 `BIGINT(20) NOT NULL DEFAULT '0'`, 则 key_length 应该是8.
+
+上面因为 `最左前缀`匹配 原则, 我们的查询仅仅使用到了联合索引的 `user_id` 字段, 因此效率不算高.
+
+接下来我们来看一下下一个例子:
+```mysql { class= ' line-numbers'}
+mysql> EXPLAIN SELECT * FROM order_info WHERE user_id = 1 AND product_name = 'p1' \G;
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: order_info
+   partitions: NULL
+         type: ref
+possible_keys: user_product_detail_index
+          key: user_product_detail_index
+      key_len: 161
+          ref: const,const
+         rows: 2
+     filtered: 100.00
+        Extra: Using index
+1 row in set, 1 warning (0.00 sec)
+```
+这次的查询中, 我们没有使用到范围查询, key_len 的值为 161. 为什么呢? 因为我们的查询条件 `WHERE user_id = 1 AND product_name = 'p1'` 中, 仅仅使用到了联合索引中的前两个字段, 因此 `keyLen(user_id) + keyLen(product_name) = 9 + 50 * 3 + 2 = 161`
+
+### ref
+
+显示索引的哪一列被使用了，如果可能的话，是一个常数。哪些列表或常量被用于查找索引列上的值。
+### rows
+
+rows 也是一个重要的字段. MySQL 查询优化器根据统计信息及索引选用情况, 估算 SQL 要查找到结果记录集需要扫描读取的数据行数.
+这个值非常直观显示 SQL 的效率好坏, 原则上 rows 越少越好.
+
+### Extra
+EXplain 包含不适合再其他列中显示但十分重要的额外信息会在 Extra 字段显示, 常见的有以下几种内容:
+
+
+id|type|remark
+|:-:|:-:|:-|
+1|Using filesort|说明MySQL会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。MySQL中无法利用索引完成的排序操作称为“文件排序”
+2|Using Temporary|使用了临时表保存中间结果，MySQL在对查询结果排序时使用临时表。常见于排序 order by 和分组查询 group by
+3|USING index|表示相应的select操作中使用了覆盖索引(Covering Index),避免访问了表的数据行，效率不错。如果同时出现using where，表明索引被用用来执行索引键值的查找；如果没有同时出现using where，表明索引用来读取数据而非执行查找动作。
+4|Using where|表使用了where过滤
+5|using join buffer|使用了连接缓存
+6|impossible were|where子句的值总是false，不能用来获取任何元祖
+7|select tables optimized away|在没有GROUPBY子句的情况下，基于索引优化MIN/MAX操作或者对于MyISAM存储引擎优化COUNT(*)操作，不必等到执行阶段再进行计算，查询执行计划生成的阶段完成优化。
+8|distinct|优化distinct操作，在找到第一匹配的元祖后即停止找同样值的动作
+
+
+- Using filesort
+当 Extra 中有 Using filesort 时, 表示 MySQL 需额外的排序操作, 不能通过索引顺序达到排序效果. 一般有 Using filesort, 都建议优化去掉, 因为这样的查询 CPU 资源消耗大.
+
+例如下面的例子:
+```mysql { class= ' line-numbers'}
+mysql> EXPLAIN SELECT * FROM order_info ORDER BY product_name \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: order_info
+   partitions: NULL
+         type: index
+possible_keys: NULL
+          key: user_product_detail_index
+      key_len: 253
+          ref: NULL
+         rows: 9
+     filtered: 100.00
+        Extra: Using index; Using filesort
+1 row in set, 1 warning (0.00 sec)
+
+```
+我们的索引是
+```mysql
+KEY `user_product_detail_index` (`user_id`, `product_name`, `productor`)
+```
+但是上面的查询中根据 `product_name` 来排序, 因此不能使用索引进行优化, 进而会产生 `Using filesort`.
+如果我们将排序依据改为 `ORDER BY user_id, product_name`, 那么就不会出现 `Using filesort` 了. 例如:
+```mysql { class= ' line-numbers'}
+mysql> EXPLAIN SELECT * FROM order_info ORDER BY user_id, product_name \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: order_info
+   partitions: NULL
+         type: index
+possible_keys: NULL
+          key: user_product_detail_index
+      key_len: 253
+          ref: NULL
+         rows: 9
+     filtered: 100.00
+        Extra: Using index
+1 row in set, 1 warning (0.00 sec)
+```
+
+- Using index
+"覆盖索引扫描", 表示查询在索引树中就可查找所需数据, 不用扫描表数据文件, 往往说明性能不错
+- Using temporary
+查询有使用临时表, 一般出现于排序, 分组和多表 join 的情况, 查询效率不高, 建议优化.
 
 ## 参考资料及推荐阅读
 
+- [MySQL官网手册](https://dev.mysql.com/doc/refman/5.6/en/)
+-《高性能MySQL》
+- 《高可用MySQL》
+- 《深入理解MySQL核心技术》
+- MySQL的源码
 
 ## 课后练习
 
-
+设计一个直播系统（例如斗鱼直播）的数据库
 
 
 
@@ -1602,8 +2229,13 @@ HAVING sum(t1.flag) = 2)t2
 SQL面经汇总：https://www.nowcoder.com/discuss/95812
 
 # 串讲MySQL
+//TODO 串讲MySQL
+[tbl_user](tbl_user.xlsx)
+[tbl_order](tbl_order.xlsx)
 
 ## 复习MySQL
+
+[MySQL思维导图](MySQL思维导图.xmind)
 
 ### SQL知识回顾xmind
 

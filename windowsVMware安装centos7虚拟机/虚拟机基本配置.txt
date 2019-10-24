@@ -1,0 +1,25 @@
+首先，切换到root用户
+su - root
+
+1.关闭防火墙和禁止防火墙自启动
+systemctl stop firewalld.service
+systemctl disable firewalld.service
+
+2.配置时间自动同步：crontab -e
+*/5 * * * * /usr/sbin/ntpdate ntp1.aliyun.com
+
+3.修改/etc/hosts文件：vim /etc/hosts
+192.168.5.100 node100
+192.168.5.101 node101
+192.168.5.102 node102
+
+4.在/opt下创建module目录，并修改它的所有者和所属组为hadoop
+cd /opt
+mkdir module
+chgrp hadoop module
+chown hadoop module
+
+5.配置ip地址：vim /etc/sysconfig/network-scripts/ifcfg-ens33
+第四行的BOOTPROTO="dhcp"修改为BOOTPROTO="static"
+
+6.重启网卡:systemctl restart network
