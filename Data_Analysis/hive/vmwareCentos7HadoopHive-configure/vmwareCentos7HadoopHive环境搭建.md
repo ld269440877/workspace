@@ -45,7 +45,9 @@
 ![windows下控制面板-网络和internet-网络连接](windows下控制面板-网络和internet-网络连接.png 'windows下控制面板-网络和internet-网络连接')
 
 ![vmwareNetworkAdapterVMnet8.](windows下vmwareNetworkAdapterVMnet8.png 'vmwareNetworkAdapterVMnet8.')
-
+#### win10 网卡设置
+192.168.5.1是虚拟机在本地电脑上的ip地址
+192.168.5.0 与255.255.255.0做与运算，结果是 1-255的网段（192.168.5.1-192.168.5.255）
 ![VMnet8-Internet协议版本4TCPIPv4属性](windows下vmwareNetworkAdapterVMnet8-Internet协议版本4TCPIPv4属性.png 'VMnet8-Internet协议版本4TCPIPv4属性')
 
 ### 配置vmware网络
@@ -161,6 +163,8 @@ From 192.168.5.100 icmp_seq=12 Destination Host Unreachable 没安装100和102�
         - useradd 用户名
         - passwd 用户名
                 输入密码，任意相同的密码输入两次即可
+- root下关机
+`poweroff`
 ![ifconfig查看ip地址](centos-ifconfig查看ip地址.png 'ifconfig查看ip地址')
 
 # hadoop-hive环境
@@ -409,6 +413,7 @@ welcome to beijing
 2. wordcount测试
 
 ```bash
+hadoop命令
 hadoop fs -mkdir /test   #在hadoop上创建文件夹 在192.168.5.100:50070网页-Utillities-Browse the file system下看到创建的test文件夹
 hadoop fs -put ./word.txt /test # word.txt文件推送到hadoop上的test文件夹下，同样可以在hadoop网页服务器上查看
 
@@ -426,6 +431,7 @@ hadoop fs -cat /output/part-r-00000 # 查看执行结果，计算文件中的单
 hive --version
 
 # 在hdfs上创建hive数据存放目录
+hadoop命令
 hadoop fs -mkdir /tmp
 hadoop fs -mkdir -p /user/hive/warehouse # 递归创建目录
 hadoop fs -chmod g+w /tmp  # 赋予权限
@@ -438,6 +444,7 @@ bin/schematool -dbType derby -initSchema
 # 初始化成功后就会在hive的安装目录下生成derby.log日志文件和metastore_db元数据库
 ls #查看
 # 注意：在安全模式下，离开hadoop安全模式，没有进入安全模式不用执行下面的命令离开安全模式
+hadoop命令
 hadoop dfsadmin -safemode leave
 
 # hive只能在hive bin目录下启动
@@ -487,13 +494,16 @@ Hadoop由三个模块组成：分布式存储HDFS、分布式计算MapReduce、�
 在主节点上：start-all.sh/stop-all.sh
 
 ### 查看HDFS上的⽂件和⽬录
+hadoop命令
 hadoop fs -ls -R /
 ### 在HDFS上创建⽂件夹
+hadoop命令
 hadoop fs -mkdir -p /test/kkb
 hadoop fs -mkdir /tmp  # 创建目录
 hadoop fs -mkdir -p /user/hive/warehouse # 递归创建目录
 
 ### 上传⽂件
+hadoop命令
 hadoop fs -put source(本地⽂件路径) dest(HDFS路径)
 hadoop fs -put ./word.txt /test # word.txt文件推送到hadoop上的test文件夹下，同样可以在hadoop网页服务器上查看
 
