@@ -4827,7 +4827,7 @@ beijing 0 1 2
 shanghai 3 4 5
 guangzhou 6 7 8
 '''
-# 自自定义map函数(x是原有的行列值)
+# 自定义map函数(x是原有的行列值)
 def test_map(x):
     return x+'_ABC'
 # inplace:布尔值,默认为False。指定是否返回新的DataFrame。如果为True,则在原df上修改,返回值为None。
@@ -4842,7 +4842,7 @@ bj_ABC      0      1      2
 sh_ABC      3      4      5
 gz_ABC      6      7      8
 '''
-# 同时,rename 还可以传入入字典,为某个 index 单独修改名称
+# 同时,rename 还可以传入字典,为某个 index 单独修改名称
 df3 = df1.rename(index={'bj':'beijing'}, columns = {'a':'aa'})
 # print(df3)
 '''
@@ -4851,7 +4851,7 @@ beijing   0  1  2
 sh        3  4  5
 gz        6  7  8
 '''
-# 列转化为索引
+# 列转化为行索引
 df1=pd.DataFrame({'X':range(5),'Y':range(5),'S':list("abcde"),'Z':[1,1,2,2,2]})
 # print(df1)
 '''
@@ -4862,7 +4862,7 @@ df1=pd.DataFrame({'X':range(5),'Y':range(5),'S':list("abcde"),'Z':[1,1,2,2,2]})
 3  3  3  d  2
 4  4  4  e  2
 '''
-# 指定一列为列索列引 (drop=False 指定同时保留作为索引的列)
+# 指定一列为列索行引 (drop=False 指定同时保留作为索引的列)
 result = df1.set_index('S',drop=False)
 result.index.name=None
 # print(result)
@@ -4924,8 +4924,8 @@ print(df1)
 '''
 # 在具体某个位置插入一列可以用insert的方法
 # 语法格式:列表.insert(index, obj)
-# index --->对象 obj 需要插入入的索引位置。
-# obj ---> 要插入入列表中的对象(列名)
+# index --->对象 obj 需要插入的索引位置。
+# obj ---> 要插入列表中的对象(列名)
 col_name=df1.columns.tolist()
 # 将数据框的列名全部提取出来存放在列表里
 col_name.insert(2,'city')
@@ -5158,7 +5158,7 @@ df1=pd.DataFrame([[1,2,3],[NaN,NaN,2],[NaN,NaN,NaN],[8,8,NaN]])
 1  NaN  NaN  2.0
 3  8.0  8.0  NaN
 '''
-# 传入入axis=1滤除列:
+# 传入axis=1滤除列:
 # print(df1.dropna(axis=1,how="all"))
 '''
      0    1    2
@@ -6162,7 +6162,7 @@ print(df1.groupby('key1').sum())
 # print(df1.groupby('key1').agg('sum'))
 # 可以同时做多个聚合运算
 # print(df1.groupby('key1').agg(['sum','mean','std']))
-# 可自自定义函数,传入agg方法中 grouped.agg(func)
+# 可自定义函数,传入agg方法中 grouped.agg(func)
 def peak_range(df):
 """
 返回数值范围

@@ -464,7 +464,13 @@ hive> quit;
 
 ## Hadoop概述
 ### Hadoop⽣态圈
-- hive可以使用mapreduce、spark的作为计算引擎
+- 从下图Ambari可以看到，hive把数据存储在hadoop的HDFS（分布式块存储）上
+- hadoop的组件包括
+  - MapReduce（data processing)<font color='red'>分布式计算</font>
+  - YARN (cluster resource management) <font color='red'>资源调度</font>
+  - HDFS (redundant,reliable storage) <font color='red'>存储</font>
+- hadoop的作用：存储和计算
+- hive可以使用mapreduce、Tez、spark的作为计算引擎
 ![Ambari](Hadoop-Ambari.png 'Ambari')
 
 ### Hadoop的组成
