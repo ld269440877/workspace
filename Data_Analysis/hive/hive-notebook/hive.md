@@ -1980,6 +1980,388 @@ WHERE c.level=1;
 作业3：退款时间间隔最⻓的⽤户(使⽤user_refund)
 
 
+# HiveSQL常⽤技巧
+第四节
+
+## 去重技巧——⽤group by来替换distinct
+
+- 取出user_trade表中全部⽀付⽤户
+
+| user_trade列名 | 举例                                              |
+| -------------- | ------------------------------------------------- |
+| user_name      | Amy, Dennis                                       |
+| piece          | 购买数量                                          |
+| price          | 价格                                              |
+| pay_amount     | ⽀付⾦额                                            |
+| goods_category | food, clothes, book, computer, electronics, shoes |
+| pay_time       | 1323308943，时间戳                                |
+| dt partition   | ，‘yyyy-mm-dd’                                    |
+
+```mysql { class= ' line-numbers'}
+--我们来测试⼀下，这两种写法的执⾏时⻓--
+--取出user_trade表中全部⽀付⽤户--
+##原有写法
+SELECT distinct user_name 
+FROM user_trade
+WHERE dt>'0';
 
 
+##优化写法
+SELECT user_name FROM user_trade WHERE dt>'0'
+GROUP BY user_name;
+```
+![groupby代替distinct-执行时长](优化-groupby代替distinct-执行时长.png "groupby代替distinct-执行时长")
+
+```mysql { class= ' line-numbers'}
+--之前案例优化--
+--在2019年购买后⼜退款的⽤户--
+SELECT a.user_name
+FROM
+      (SELECT distinct user_name 
+      FROM user_trade
+      WHERE year(dt)=2019)a 
+    JOIN
+      (SELECT distinct user_name
+      FROM user_refund
+      WHERE year(dt)=2019)b on a.user_name=b.user_name;
+
+
+##优化写法：
+SELECT a.user_name
+FROM
+      (SELECT user_name
+      FROM user_trade
+      WHERE year(dt)=2019
+      GROUP BY user_name)a
+    JOIN
+      (SELECT user_name
+      FROM user_refund
+      WHERE year(dt)=2019
+      GROUP BY user_name)b on a.user_name=b.user_name;
+```
+<font color="red">注意：使⽤场景仅限去重，不可以应⽤在去重计算count(distinct **)</font>
+拓展：在极⼤的数据量(且很多重复值)时，可以先group by去重，再count()计数，效率⾼于直接count(distinct **)
+
+## 聚合技巧——利⽤窗⼝函数grouping sets、cube、rollup
+
+### grouping sets
+
+- 如果我们想知道⽤户的性别分布、城市分布、等级分布，你会怎么写？
+
+| user_info 列名  | 举例                                                                                                            |
+| --------------- | --------------------------------------------------------------------------------------------------------------- |
+| user_id         | 10001,10002                                                                                                     |
+| user_name       | Amy, Dennis                                                                                                     |
+| sex             | [male, female]                                                                                                  |
+| age             | [13,70]                                                                                                         |
+| city            | beijing, shanghai                                                                                               |
+| firstactivetime | 2019-04-19 15:40:00                                                                                             |
+| level           | [1,10]                                                                                                          |
+| extra1          | string类型：{"systemtype":"ios","education":"master","marriage_status":"1","phonebrand":"iphone X"}             |
+| extra2          | map<string,string>类型：{"systemtype":"ios","education":"master","marriage_status":"1","phonebrand":"iphone X"} |
+
+```mysql { class= ' line-numbers'}
+--通常写法：--缺点：要分别写三次SQL，需要执⾏三次，重复⼯作，且费时。
+--性别分布--
+SELECT sex, 
+       count(distinct user_id) FROM user_info
+GROUP BY sex;
+
+--城市分布--
+SELECT city, 
+       count(distinct user_id) FROM user_info
+GROUP BY city;
+
+--等级分布--
+SELECT level, 
+       count(distinct user_id) FROM user_info
+GROUP BY level;
+
+```
+- GROUPING SETS()：在group by查询中，根据不同的维度组合进⾏聚合，等价
+于将不同维度的group by结果集进⾏union all。聚合规则在括号中进⾏指定。
+```mysql { class= ' line-numbers'}
+--优化--注意：聚合结果均在同⼀列，分类字段⽤不同列来进⾏区分
+
+--性别、城市、等级⽤户分布--
+SELECT sex,
+       city,
+       level, 
+       count(distinct user_id) FROM user_info
+GROUP BY sex,city,level
+GROUPING SETS (sex,city,level);
+```
+![聚合性别城市等级用户分布](优化-聚合性别城市等级用户分布.png "聚合性别城市等级用户分布")
+
+```mysql { class= ' line-numbers'}
+
+如果我们想知道⽤户的性别分布以及每个性别的城市分布，你会怎么写？
+--性别分布--
+SELECT sex, 
+       count(distinct user_id) FROM user_info
+GROUP BY sex;
+
+--每个性别的城市分布--
+SELECT sex,
+       city, 
+       count(distinct user_id) FROM user_info
+GROUP BY sex,
+         city;
+```
+```mysql { class= ' line-numbers'}
+--优化--
+--性别、性别&城市的⽤户分布--
+SELECT sex,
+       city, 
+       count(distinct user_id) FROM user_info
+GROUP BY sex,city
+GROUPING SETS (sex,(sex,city));
+注意：第⼆列为NULL的，即是性别的⽤户分布，其余有城市的均为每个性别的城市分布
+```
+![groupingSets](优化-groupingSets性别的城市分布.png "groupingSets") 
+
+### cube：根据group by 维度的所有组合进⾏聚合
+
+```mysql { class= ' line-numbers'}
+--性别、城市、等级的各种组合的⽤户分布--
+SELECT sex,
+       city,
+       level,
+       count(distinct user_id)
+FROM user_info
+GROUP BY sex,city,level
+GROUPING SETS (sex,city,level,(sex,city),(sex,level),(city,level), (sex,city,level));
+
+
+##优化写法 
+--性别、城市、等级的各种组合的⽤户分布--
+SELECT sex,
+       city,
+       level, 
+       count(distinct user_id) FROM user_info
+GROUP BY sex,city,level
+with cube;
+
+注意：跑完数据后，整理很关键！！
+```
+
+### rollup：以最左侧的维度为主，进⾏层级聚合，是cube的⼦集
+```mysql{ class= ' line-numbers'}
+如果我想同时计算出，每个⽉的⽀付⾦额，以及每年的总⽀付⾦额，该怎么办？
+--每⽉的⽀付⾦额和每年的⽀付⾦额汇总--
+SELECT a.dt,
+       sum(a.year_amount), 
+       sum(a.month_amount)
+FROM
+      (SELECT substr(dt,1,4) as dt, 
+             sum(pay_amount) year_amount,
+             0 as month_amount
+      FROM user_trade
+      WHERE dt>'0'
+      GROUP BY  substr(dt,1,4)
+      UNION ALL
+      SELECT substr(dt,1,7) as dt,
+             0 as year_amount, 
+             sum(pay_amount) as month_amount 
+      FROM user_trade
+      WHERE dt>'0'
+      GROUP BY  substr(dt,1,7)
+      )a
+GROUP BY a.dt;
+```
+![cube](优化-cube每月每年支付.png "cube")
+
+```mysql{ class= ' line-numbers'}
+##优化写法
+SELECT year(dt) as year, 
+       month(dt) as month, 
+       sum(pay_amount)
+FROM user_trade
+WHERE dt>'0'
+GROUP BY year(dt), 
+         month(dt)
+with rollup;
+```
+![rollup](优化-cube的优化写法rollup每月每年支付.png "rollup")
+![rollup-excel](优化-cube的优化写法rollup每月每年支付-excel.png "rollup-excel")
+
+## 换个思路解题
+
+条条⼤路通罗⻢，写SQL亦是如此，能达到同样效果的SQL有很多种，要学会思路转换，灵活应⽤。
+之前做过的案例：
+```mysql{class="line-numbers}
+--在2017年和2018年都购买的⽤户--
+SELECT a.user_name
+FROM
+      (SELECT distinct user_name
+      FROM user_trade
+      WHERE year(dt)=2017)a
+    JOIN
+      (SELECT distinct user_name
+      FROM user_trade
+      WHERE year(dt)=2018)b on a.user_name=b.user_name;
+```
+有没有别的写法？
+```mysal{class="line-numbers"}
+SELECT a.user_name
+FROM
+    (SELECT user_name,
+            count(distinct year(dt)) as year_num 
+    FROM user_trade
+    WHERE year(dt) in (2017,2018)
+    GROUP BY user_name)a
+WHERE a.year_num=2
+
+
+SELECT user_name,
+       count(distinct year(dt)) as year_num
+FROM user_trade
+WHERE year(dt) in (2017,2018)
+GROUP BY user_name having count(distinct year(dt))=2
+```
+## union all时可以开启并发执⾏
+
+<font color="red">参数设置：set hive.exec.parallel=true</font>
+可以并⾏的任务较多时，开启并发执⾏，可以提⾼执⾏效率。
+```mysql{class="line-numbers"}
+--每个⽤户的⽀付和退款⾦额汇总--
+SELECT a.user_name,
+       sum(a.pay_amount), 
+       sum(a.refund_amount)
+FROM
+    (
+      SELECT user_name, 
+             sum(pay_amount) as pay_amount,
+             0 as refund_amount
+      FROM user_trade
+      WHERE dt>'0'
+      GROUP BY user_name
+    UNION ALL
+      SELECT user_name,
+             0 as pay_amount, 
+             sum(refund_amount) as refund_amount 
+      FROM user_refund
+      WHERE dt>'0'
+      GROUP BY user_name
+    )a
+GROUP BY a.user_name;
+```
+![unionAll并发](优化-unionAll并发时间对比.png "unionAll并发")
+
+## 利⽤lateral view进⾏⾏转列
+  
+| user_goods_category 列名 | 举例                              |
+| ------------------------ | --------------------------------- |
+| user_name                | ⽤户名                             |
+| category_detail          | ⽤户购买过的品类列表，⽤逗号进⾏分割 |
+
+![user_goods_category](优化user_goods_category列表.png "user_goods_category")
+
+```mysql { class= ' line-numbers'}
+--每个品类的购买⽤户数--
+SELECT b.category,
+       count(distinct a.user_name)
+FROM user_goods_category a
+lateral view explode(split(category_detail,',')) b as category GROUP BY b.category;
+
+
+split()：字符串分割函数
+explode：⾏转列函数
+拓展：
+列转⾏函数：concat_ws(',',collect_set(column))
+```
+![lateralView-explode-split](优化lateralView-explode-split.png "lateralView-explode-split")
+
+## 表连接优化
+
+- ⼩表在前，⼤表在后
+Hive假定查询中最后的⼀个表是⼤表，它会将其它表缓存起来，然后扫描最后那个表。
+- 使⽤相同的连接键
+当对3个或者更多个表进⾏join连接时，如果每个on⼦句都使⽤相同的连接键的话，那么只会产⽣⼀个MapReduce job。
+- 尽早的过滤数据
+减少每个阶段的数据量，对于分区表要加分区，同时只选择需要使⽤到的字段。
+- 逻辑过于复杂时，引⼊中间表
+
+## 如何解决数据倾斜
+
+- 数据倾斜的表现：
+任务进度⻓时间维持在99%（或100%），查看任务监控⻚⾯，发现只有少量（1个或⼏个）reduce⼦任务未完成。因为其处理的数据量和其他reduce差异过⼤。
+- 数据倾斜的原因与解决办法：
+	- 空值产⽣的数据倾斜
+	解决：如果两个表连接时，使⽤的连接条件有很多空值，建议在连接条件中增加过滤
+	例如：on a.user_id=b.user_id and a.user_id is not null
+	- ⼤⼩表连接(其中⼀张表很⼤，另⼀张表⾮常⼩)
+	解决：将⼩表放到内存⾥，在map端做Join
+```mysql { class= ' line-numbers'}
+SELECT /*+mapjoin(a)*/, 
+       b.*
+FROM a join b on a.**=b.**
+```
+
+  - 两个表连接条件的字段数据类型不⼀致
+	解决：将连接条件的字段数据类型转换成⼀致的
+	例如：on a.user_id=cast(b.user_id as string)
+
+## 如何计算按⽉累计去重
+
+⼤家都知道⽤sum() over()来计算按⼀定周期进⾏累计求和，但如何计算按⽉累计去重呢？
+```mysql { class= ' line-numbers'}
+--2017、2018年按⽉累计去重的购买⽤户数--
+SELECT b.year,
+       b.month,
+       sum(b.user_num) over(partition by b.year order by b.month) FROM
+      (SELECT a.year,
+             a.month,
+             count(distinct a.user_name) user_num
+      FROM
+          (SELECT year(dt) as year,
+                 user_name,
+                 min(month(dt)) as month
+          FROM user_trade
+          WHERE year(dt) in (2017,2018)
+          GROUP BY year(dt),
+                   user_name)a
+      GROUP BY a.year,
+               a.month)b
+ORDER BY b.year,
+         b.month
+limit 24;
+```
+![sumOver](优化sumOver按月累计去重.png "sumOver")
+有没有其他的写法？
+
+```mysql { class= ' line-numbers'}
+--2017、2018年按⽉累计去重的购买⽤户数--
+set hive.mapred.mode=nonstrict;
+SELECT b.month,
+       count(distinct a.user_name)
+FROM
+        (SELECT substr(dt,1,7) as month, 
+               user_name
+        FROM user_trade
+        WHERE year(dt) in (2017,2018)
+        GROUP BY substr(dt,1,7), 
+                 user_name)a
+      CROSS JOIN
+        (SELECT month
+        FROM dim_month)b
+      WHERE b.month>=a.month
+            and substr(a.month,1,4)=substr(b.month,1,4) GROUP BY b.month;
+```
+![subStr](优化subStr按月累计去重.png "subStr")
+
+# 总结
+
+1. 巧⽤group by
+2. 利⽤窗⼝函数提升聚合计算效率
+3. 必要时开启并发执⾏
+4. ⾏转列、列转⾏
+5. ⼩技巧提升表连接效率
+6. 多思路解题
+
+# 作业
+
+作业1：每个性别、不同性别和⼿机品牌的退款⾦额分布(使⽤user_refund和user_info)
+作业2：把每个⽤户购买的品类变成⼀⾏，品类间⽤逗号分隔(使⽤user_trade)
+作业3：2017、2018年按⽉累计去重的退款⽤户数(使⽤user_refund)
 

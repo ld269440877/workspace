@@ -52,8 +52,8 @@ basedata_Customersinfo = pd.read_excel('basedata.xlsx',sheet_name='客户信息�
 basedata_Customersinfo.rename(columns={'-':'客户代码'},inplace=True) 
 # ,'城市':'起运城市','省份':'起运省份'
 
-basedata_Customersinfo_col_list = ['客户代码','详细地址','城市','省份','电话1','手机预报','电话2','电话-2011','联系人']
-# ,'起运城市','起运省份'
+basedata_Customersinfo_col_list = ['客户代码','详细地址','城市','省份','电话1','电话2','电话-2011','联系人']
+# ,'起运城市','起运省份','手机预报'
 
 basedata_Customersinfo.客户代码=basedata_Customersinfo.客户代码.astype(str)
 
@@ -62,9 +62,10 @@ basedata_Customersinfo['联系人电话'] = list(map(lambda x,y,z:str(x)+str(y)+
                                            basedata_Customersinfo['电话2'],\
                                            basedata_Customersinfo['电话-2011'] ))
 
-basedata_Customersinfo['联系人手机'] = basedata_Customersinfo['手机预报']
-
-basedata_Customersinfo_col_list = ['客户代码','详细地址','城市','省份','联系人','联系人电话','联系人手机']
+# basedata_Customersinfo['联系人手机'] = basedata_Customersinfo['手机预报']
+# basedata_Customersinfo有手机预报和basedata_CLC有联系人手机，所以这里取得是basedata_CLC有联系人手机
+#,'联系人手机'
+basedata_Customersinfo_col_list = ['客户代码','详细地址','城市','省份','联系人','联系人电话']
 
 # basedata_Customersinfo.loc[:2,basedata_Customersinfo_col_list]
 
@@ -242,7 +243,8 @@ merged_allinfo[merged_allinfo['客户名称'] =='个人客户']['ST NAME']
 # 联系人手机（为公司：配置表的预留手机，为个人用户时：ST NAME或SHIP_TO_PHONE_NBR)
 merged_allinfo.loc[merged_allinfo[merged_allinfo['客户名称'] =='个人客户'].index.tolist(),['联系人手机']]=\
 merged_allinfo[merged_allinfo['客户名称'] =='个人客户']['ST NAME']
-
+# 左对齐
+merged_allinfo['联系人手机']=list(map(lambda x:'{:<}'.format(x),merged_allinfo['联系人手机']))
 # merged_allinfo.columns
 
 # 卸货地点：公司客户取客户信息表的详细地址，个人客户或为空运时：Address2+Address3+Address1
