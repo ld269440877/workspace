@@ -1,28 +1,5 @@
 
-```plantuml
-@startmindmap
 
-caption UML
-title Unified Modeling Language
-* UML
-
-**_ 结构型的图(Structure Diagram)
-*** 类图(Class Diagram)
-*** 对象图(Object Diagram)
-*** 构件图(Component Diagram)
-*** 部署图(Deployment Diagram)
-*** 包图(Package Diagram)
-
-**_ 行为型的图(Behavior Diagram)
-*** 活动图(Activity Diagram)
-*** 状态机图(State Machine Diagram)
-*** 顺序图(Sequence Diagram)
-*** 通信图(Communication Diagram)
-*** 用例图(Use Case Diagram)
-*** 时序图(Timing Diagram)
-
-@endmindmap
-```
 
 
 
@@ -137,7 +114,28 @@ class Student{
 }
 
 @startuml
-listopeniconic 
+listopeniconic
 @enduml
 
+```
+
+```plantuml
+@startuml
+!include <aws/common>
+!include <aws/Storage/AmazonS3/AmazonS3>
+!include <aws/Storage/AmazonS3/bucket/bucket>
+AMAZONS3(s3_internal)
+AMAZONS3(s3_partner,"Vendor's S3")
+s3_internal <- s3_partner
+@enduml
+```
+
+```dot
+digraph 游戏 {
+    魔兽争霸3 -> XHero;
+    魔兽争霸3 -> 超级战舰;
+    XHero -> Footman;
+    #Footman -> 刀塔;
+
+}
 ```
