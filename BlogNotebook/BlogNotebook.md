@@ -10,7 +10,8 @@
 > 2. [win10+hexo+github搭建个人博客](http://www.suoniao.com/article/13253)
 > 3. [Win10 搭建Hexo博客完全教程 - erchowyo的专栏](https://blog.csdn.net/erchowyo/article/details/54407601)
 > 4. [windows环境下使用hexo搭建blog平台 | 叶落阁](https://yelog.org/2017/03/17/windows-hexo/)
-> 5. [Themes | Hexo](https://hexo.io/themes/#clean)
+> 5. [3-hexo使用说明 | 叶落阁](https://yelog.org/2017/03/23/3-hexo-instruction/)
+> 6. [Themes | Hexo](https://hexo.io/themes/#clean)
 ## Hexo简介
 Hexo的作者是[tommy351](https://github.com/hexojs/hexo)，Hexo是一个简单、快速、强大的博客发布工具，支持Markdown格式。hexo的主题列表 Hexo Themes。
 
@@ -251,6 +252,10 @@ $ hexo g
 $ hexo s
 ```
 ## 发布到Githup
+```bash
+hexo clean && hexo g && hexo s  #启动本地服务
+hexo clean && hexo g && hexo d  #部署博客
+```
 (1) 复制SSH类型地址。
 登录Github打开自己的项目 username.github.io、打开之后，点击SSH，选择SSH类型地址，并复制地址：git@github.com:ld269440877/ld269440877.github.io.git
 (2) 找到并打开站点配置文件文件。
@@ -301,8 +306,6 @@ hexo clean && hexo g && hexo s
 # 浏览器中查看网页博客
 http://localhost:4000
 ```
-
-
 
 
 
