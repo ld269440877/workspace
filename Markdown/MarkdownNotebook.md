@@ -1068,6 +1068,16 @@ Code Spell Checker插件能够帮助我们检查常见的拼写错误，也是�
 
 由于Git相关的知识点较多，且比较专业，如果想深入了解，还是建议读者系统学习一下，了解Git相关的知识以后，关于这几个插件的使用也就不成问题了。
 
+# Vscode常见问题解答
+
+1. Vs Code Source Ctrol Pane is Blank
+After some trial and error I found this setting was the culprit: "scm.alwaysShowProviders": true
+When I remove that setting, or set it to false, my Source Control pane works correctly.
+> 问题解决：设置"scm.alwaysShowProviders": true，重启VS Code然后"scm.alwaysShowProviders": false
+
+
+
+
 #  轻快、省力地写幻灯片——reveal.js
 
 本书在多处都介绍了把Markdown格式的文件导出为幻灯片的工具，例如，在第4章讲到的MPE插件，将在第6章讲的Jupyter Notebook和R Markdown。
