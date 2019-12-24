@@ -4,5 +4,8 @@
     "python.linting.mypyEnabled": false,
     "python.linting.pycodestyleEnabled": false,
     "python.linting.enabled": true,
-    "python.pythonPath": "C:\\ProgramData\\Anaconda3\\python.exe"
+    "python.pythonPath": "C:\\ProgramData\\Anaconda3\\python.exe",
+    "git.allowForcePush": true,
+    "git.path": "C:\\Program Files\\Git\\bin\\git.exe",
+
 }
