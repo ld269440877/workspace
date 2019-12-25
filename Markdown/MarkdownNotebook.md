@@ -870,6 +870,13 @@ STEP 3,在列出的已安装语言列表中进行切换，重启后生效。
 2）在输入时筛选：在大纲视图中直接输入内容时对大纲进行筛选，如果不勾选就只有查找功能（高亮显示查找结果，不会进行筛选）。
 ![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/设置大纲列表.png)
 
+### 搭建及使用PicGo-Github图床
+
+1. 搭建及使用PicGo-Github图床
+2. vscode批量修改Markdown中图片引用方式
+[workspace/AliyunNotebook.md at master · ld269440877/workspace](https://github.com/ld269440877/workspace/blob/master/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/AliyunNotebook.md)
+
+
 ### 预览
 
 若要预览Markdown文件，在资源管理器中的文件名上单击鼠标右键→选择【打开预览】→即可显示Markdown文件的预览界面，其快捷键如下。

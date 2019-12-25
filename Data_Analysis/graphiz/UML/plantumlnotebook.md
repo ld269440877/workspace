@@ -526,7 +526,7 @@ customer -- (checkout)
 
 ## 类之间的关系
 类之间的关系通过下面的符号定义:
-![类之间的关系符号定义](类之间的关系符号定义.png "类之间的关系符号定义")
+![类之间的关系符号定义](https://raw.githubusercontent.com/ld269440877/images/master/PlantumlNotebook/类之间的关系符号定义.png "类之间的关系符号定义")
 ```plantuml
 @startuml
 Class01 <|- Class02
@@ -612,7 +612,7 @@ class Dummy {
 ```
 ## 定义可访问性
 - 一旦你定义了域或者方法，你可以定义相应条目的可访问性质。
-![域或者方法的可访问性质](域或者方法的可访问性质.png "域或者方法的可访问性质")
+![域或者方法的可访问性质](https://raw.githubusercontent.com/ld269440877/images/master/PlantumlNotebook/域或者方法的可访问性质.png "域或者方法的可访问性质")
 ```plantuml
 @startuml
 scale 5
@@ -1231,7 +1231,7 @@ is <b>very</b> <color:red>long2</color>
 and defined on several lines
 that contains many <i>text</i>" as A1
 -up-> "Another activity\n on several lines"
-A1 --> "Short activity <img: sourceforge.jpg>"
+A1 --> "Short activity <img: https://raw.githubusercontent.com/ld269440877/images/master/PlantumlNotebook/sourceforge.jpg>"
 @enduml
 ```
 ## 注释
@@ -2070,7 +2070,7 @@ object "My Second Object" as o2
 ```
 ## 对象之间的关系
 对象之间的关系用如下符号定义：
-![关系符号](对象之间的关系符号.png "关系符号")
+![关系符号](https://raw.githubusercontent.com/ld269440877/images/master/PlantumlNotebook/对象之间的关系符号.png "关系符号")
 
 也可以用.. 来代替-- 以使用点线。
 知道了这些规则，就可以画下面的图：
@@ -2467,13 +2467,18 @@ A --> User: Done
 deactivate A
 @enduml
 ```
+
 ## 颜色(Colors)
+
 - 你可以使用标准颜色名称或者RGB 码
 `<blockquote>` You can use either standard color name or RGB code. `</blockquote>`
 - transparent 只能用于图片背景
 `<blockquote>` transparent can only be used for background of the image. `</blockquote>`
-![标准颜色名称](标准颜色名称.png "标准颜色名称")
+
+![标准颜色名称](https://raw.githubusercontent.com/ld269440877/images/master/PlantumlNotebook/标准颜色名称.png "标准颜色名称")
+
 ## 字体颜色、名称、大小(Font color, name and size)
+
 - 可以通过使用xxxFontColor, xxxFontSize , xxxFontName 三个参数，来修改绘图中的字体(颜色、大小、名称）。
 `<blockquote>` You can change the font for the drawing using xxxFontColor, xxxFontSize and xxxFontName
 parameters. `</blockquote>`
@@ -2492,7 +2497,9 @@ Helvetica and Courier should be available on all system. `</blockquote>`
 java -jar plantuml.jar -language
 `<blockquote>` A lot of parameters are available. You can list them using the following command: java -jar plantuml.
 jar -language `</blockquote>`
+
 ## 文本对齐(Text Alignment)
+
 通过left, right or center, 可以设置文本对齐.
 也可以sequenceMessageAlign 指令赋值为direction 或reverseDirection 以便让文本对齐与箭头方
 向一致。
@@ -2501,6 +2508,7 @@ values for sequenceMessageAlign which align text depending on arrow direction. `
 Param name Default value Comment
 - sequenceMessageAlign left 用于时序图中的消息(message)
 - sequenceReferenceAlign center 在时序图中用于ref over
+
 ```plantuml
 @startuml
 skinparam sequenceMessageAlign center
@@ -2508,7 +2516,9 @@ Alice -> Bob : Hi
 Alice -> Bob : This is very long
 @enduml
 ```
+
 ## Examples
+
 ```plantuml
 @startuml
 skinparam backgroundColor #EEEBDC
@@ -2546,7 +2556,9 @@ A --> User: Done
 deactivate A
 @enduml
 ```
+
 ---
+
 ```plantuml
 @startuml
 skinparam handwritten true
@@ -2571,7 +2583,9 @@ User --> (Use)
 MySql --> (Use)
 @enduml
 ```
+
 ---
+
 ```plantuml
 @startuml
 skinparam roundcorner 20
@@ -2585,7 +2599,9 @@ Class01 "1" *-- "many" Class02 : contains
 Class03 o-- Class04 : aggregation
 @enduml
 ```
+
 ---
+
 ```plantuml
 @startuml
 skinparam interface {
@@ -2609,7 +2625,9 @@ DA - [First Component]
 HTTP - [Web Server] << Apache >>
 @enduml
 ```
+
 ---
+
 ```plantuml
 @startuml
 [AA] <<static lib>>
@@ -2630,24 +2648,32 @@ backgroundColor<<shared node>> Magenta
 skinparam databaseBackgroundColor Aqua
 @enduml
 ```
+
 ## 所有skinparam 的参数列表(List of all skinparam parameters)
+
 `<blockquote>` 本文档并不总能保持最新，你可以使用下面命令查看完成的参数列表`</blockquote>`
 `<blockquote>` Since the documentation is not always up to date, you can have the complete list of parameters using
 this command: `</blockquote>`
 java -jar plantuml.jar -language
 或者可以使用命令，产生一幅有所有skinparam 参数的图: `<blockquote>` Or you can generate a "diagram"
 with a list of all the skinparam parameters using: `</blockquote>`
+
 ```plantuml
 @startuml
 help skinparams
 @enduml
 ```
+
 结果如下: `<blockquote>` That will give you the following result: `</blockquote>`
+
 # Preprocessing
+
 Some minor preprocessing capabilities are included in PlantUML, and available for all diagrams.
 Those functionalities are very similar to the C language preprocessor, except that the special character # has been
 changed to the exclamation mark !.
+
 ## Migration notes
+
 The actual preprocessor is an update from some legacy preprocessor.
 Even if some legacy features are still supported with the actual preprocessor, you should not use them any more
 (they might be removed in some long term future).
@@ -2658,12 +2684,15 @@ Even if some legacy features are still supported with the actual preprocessor, y
 • Some features (like %date%) have been replaced by builtin functions (for example %date())
 • When calling a legacy !definelong macro with no arguments, you do have to use parenthesis. You have to use my_own_definelong() because my_own_definelong without parenthesis is not recognized by the new preprocessor.
 Please contact us if you have any issues.
+
 ## Variable definition
+
 Although this is not mandatory, we highly suggest that variable names start with a $. There are two types of data:
 • Integer number
 • String - these must be surrounded by single quote or double quote.
 Variables created outside function are global, that is you can access them from everywhere (including from functions).
 You can emphasize this by using the optional global keyword when defining a variable.
+
 ```plantuml
 @startuml
 !$ab = "foo1"
@@ -2677,9 +2706,12 @@ Alice -> Bob : $cd
 Alice -> Bob : $ef $xy
 @enduml
 ```
+
 ## Conditions
+
 - You can use expression in condition.
 - else is also implemented
+
 ```plantuml
 @startuml
 !$a = 10
@@ -2693,11 +2725,14 @@ Alice -> Bob : This should not appear
 Alice -> Bob : B
 @enduml
 ```
+
 ## Void function
+
 - Function names must start with a $
 - Argument names must start with a $
 - Void functions can call other void functions
 Example:
+
 ```plantuml
 @startuml
 !function msg($source, $destination)
@@ -2717,14 +2752,18 @@ init_class("foo2")
 msg("foo1", "foo2")
 @enduml
 ```
+
 Variables defined in functions are local. It means that the variable is destroyed when the function ends.
+
 ## Return function
+
 A return function does not output any text. It just define a function that you can call:
 - directly in variable definition or in diagram text
 - from other return function
 - from other void function
 - Function name should start by a $
 - Argument names should start by a $
+
 ```plantuml
 @startuml
 !function $double($a)
@@ -2733,7 +2772,9 @@ A return function does not output any text. It just define a function that you c
 Alice -> Bob : The double of 3 is $double(3)
 @enduml
 ```
-## It is possible to shorten simple function definition in one line:
+
+## It is possible to shorten simple function definition in one line
+
 ```plantuml
 @startuml
 !function $double($a) return $a + $a
@@ -2741,9 +2782,11 @@ Alice -> Bob : The double of 3 is $double(3)
 Alice -> Bob : $double("This work also for strings.")
 @enduml
 ```
+
 As in void function, variable are local by default (they are destroyed when the function is exited). However, you
 can access to global variables from function. However, you can use the local keyword to create a local variable
 if ever a global variable exists with the same name.
+
 ```plantuml
 @startuml
 !function $dummy()
@@ -2756,8 +2799,11 @@ $dummy()
 Alice -> Bob : $ijk
 @enduml
 ```
+
 ## Default argument value
+
 In both return and void functions, you can define default values for arguments.
+
 ```plantuml
 @startuml
 !function $inc($value, $step=1)
@@ -2767,7 +2813,9 @@ Alice -> Bob : Just one more $inc(3)
 Alice -> Bob : Add two to three : $inc(3, 2)
 @enduml
 ```
+
 Only arguments at the end of the parameter list can have default values.
+
 ```plantuml
 @startuml
 !function defaulttest($x, $y="DefaultY", $z="DefaultZ")
@@ -2782,9 +2830,12 @@ defaulttest(1, 2)
 defaulttest(1)
 @enduml
 ```
+
 ## Unquoted function
+
 By default, you have to put quotes when you call a function. It is possible to use the unquoted keyword to indicate
 that a function does not require quotes for its arguments.
+
 ```plantuml
 @startuml
 !unquoted function id($text1, $text2="FOO") return $text1 + $text2
@@ -2792,15 +2843,19 @@ alice -> bob : id(aa)
 alice -> bob : id(ab,cd)
 @enduml
 ```
+
 ## Including files or URL
+
 Use the !include directive to include file in your diagram. Using URL, you can also include file from Internet/Intranet.
 Imagine you have the very same class that appears in many diagrams. Instead of duplicating the description of this class, you can define a file that contains the description.
+
 ```plantuml
 @startuml
 !include List.iuml
 List <|.. ArrayList
 @enduml
 ```
+
 File List.iuml
 interface List
 List : int size()
@@ -2817,10 +2872,13 @@ foo.txt!MY_OWN_ID.
 By default, a file can only be included once. You can use !include_many instead of !include if you want to
 include some file several times. Note that there is also a !include_once directive that raises an error if a file is
 included several times.
+
 ## Including Subpart
+
 You can also use !startsub NAME and !endsub to indicate sections of text to include from other files using !includesub.
 For example:
 file1.puml:
+
 ```plantuml
 @startuml
 A -> A : stuff1
@@ -2833,6 +2891,7 @@ D -> D : stuff4
 !endsub
 @enduml
 ```
+
 file1.puml would be rendered exactly as if it were:
 ```plantuml
 @startuml
@@ -2845,6 +2904,7 @@ D -> D : stuff4
 
 However, this would also allow you to have another file2.puml like this:
 file2.puml
+
 ```plantuml
 @startuml
 title this contains only B and D
@@ -2853,6 +2913,7 @@ title this contains only B and D
 ```
 
 This file would be rendered exactly as if:
+
 ```plantuml
 @startuml
 title this contains only B and D
@@ -2860,7 +2921,9 @@ B -> B : stuff2
 D -> D : stuff4
 @enduml
 ```
+
 ## Builtin functions
+
 Some functions are defined by default. Their name starts by %
 
 Name| Description| Example |Return|
@@ -2881,8 +2944,11 @@ Name| Description| Example |Return|
 %true| Return always true |%true() |true
 %false| Return always false |%false() |false
 %not| Return the logical negation of an expression |%not(2+2==4) |false in that example
+
 ## Memory dump
+
 You can use !memory_dump to dump the full content of the memory when generating the diagram. An optional string can be put after !memory_dump. This has no impact at all on the diagram itself. This could be useful for debug purpose.
+
 ```plantuml
 @startuml
 !function $inc($string)
@@ -2896,7 +2962,9 @@ Alice -> Bob : 4 $inc("3")
 !dump_memory EOF
 @enduml
 ```
+
 ## Argument concatenation
+
 It is possible to append text to a macro argument using the ## syntax.
 ```plantuml
 @startuml
@@ -2908,7 +2976,9 @@ name##Ifc - [name]
 COMP_TEXTGENCOMP(dummy)
 @enduml
 ```
+
 ## Dynamic function invocation
+
 You can dynamically invoke a void function using the special %invoke_void_func() void function. This function takes as first argument the name of the actual void function to be called. The following argument are copied to the called function.
 For example, you can have:
 ```plantuml
@@ -2920,6 +2990,7 @@ Bob -> Alice : hello
 %invoke_void_func($wrapper)
 @enduml
 ```
+
 For return functions, you can use the corresponding special function %call_user_func() :
 ```plantuml
 @startuml

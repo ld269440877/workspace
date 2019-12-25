@@ -13,7 +13,7 @@ Modified: Wed Sep 18 2019 18:55:31 GMT+0800 (中国标准时间)
 * @description: [new_global_snippets.code-snippets---VS Code 配置与插件推荐 2019 年版 - 掘金](https://juejin.im/post/5c73dcd05188256fd62d4d27)
 
 [Code Chunk](https://www.bookstack.cn/read/mpe/zh-cn-code-chunk.md)
-[code-snippets](File-Preferences-User Snippets-markdown_global_snappets.code-snippets)
+[code-snippets](https://raw.githubusercontent.com/ld269440877/images/master/Py3Notebook/File-Preferences-User Snippets-markdown_global_snappets.code-snippets)
 
 * @since: 2019-09-18 10:57:05
 
@@ -52,11 +52,11 @@ Modified: Wed Sep 18 2019 18:55:31 GMT+0800 (中国标准时间)
 
 面向过程编程OPP：Procedure Oriented Programming，是一种以事物为中心的编程思想。主要关注“怎么做”，即完成任务的具体细节。用函数把这些步骤实现，在一步一步的具体步骤中再按顺序调用函数。
 
-![面向过程](面向过程.jpg '面向过程')
+![面向过程](https://raw.githubusercontent.com/ld269440877/images/master/Py3Notebook/面向过程.jpg '面向过程')
 
 面向对象编程OOP：Object Oriented Programming，是一种以对象为基础的编程思想。主要关注“谁来做”，即完成任务的对象。把要解决的问题分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个对象在整个解决问题的步骤中的属性和行为。
 
-![面向对象](面向对象.jpg '面向对象')
+![面向对象](https://raw.githubusercontent.com/ld269440877/images/master/Py3Notebook/面向对象.jpg '面向对象')
 
 面向切面编程AOP：Aspect Oriented Programming，基于OOP延伸出来的编程思想。主要实现的目的是针对业务处理过程中的切面进行提取，它所面对的是处理过程中的某个步骤或阶段，以获得逻辑过程中各部分之间低耦合性的隔离效果。
 
@@ -1631,7 +1631,7 @@ import sys
 sys.getdefaultencoding() # 'utf-8'
 ```
 
-![Python内置函数](./python内置函数.png "Python内置函数")
+![Python内置函数](https://raw.githubusercontent.com/ld269440877/images/master/Py3Notebook/python内置函数.png "Python内置函数")
 
 ## abs
 
@@ -2445,7 +2445,7 @@ keep_kernel : bool
 
 在编程语言中，高阶函数指的是接受函数作为输入或输出的函数。
 
-![filter函数](filter函数.png 'filter函数')
+![filter函数](https://raw.githubusercontent.com/ld269440877/images/master/Py3Notebook/filter函数.png 'filter函数')
 
 ```python
 Init signature: filter(self, /, *args, **kwargs)
@@ -2600,9 +2600,9 @@ frozenset({1, 2, 3})
 
 ## globals
 
-![globals函数](globals函数.png 'globals函数')
+![globals函数](https://raw.githubusercontent.com/ld269440877/images/master/Py3Notebook/globals函数.png 'globals函数')
 
-![globals函数-执行run后](globals函数-执行run后.png 'globals函数-执行run后')
+![globals函数-执行run后](https://raw.githubusercontent.com/ld269440877/images/master/Py3Notebook/globals函数-执行run后.png 'globals函数-执行run后')
 
 ```python
 Signature: globals()
@@ -2697,7 +2697,7 @@ hash(str(lst)),hash(str(tpl)),hash(str(dct))
 
 调用内建的帮助系统，如果不包含参数，交互式帮助系统将在控制台启动。如果参数为字串，则可以是模块，类，方法等名称，并且帮助页面将会在控制台打印。help的参数也可以为任意对象
 
-![help](help.png 'help')
+![help](https://raw.githubusercontent.com/ld269440877/images/master/Py3Notebook/help.png 'help')
 
 ## id
 
@@ -2969,7 +2969,7 @@ while True: #只满足重复，因而不是迭代
 
 ## **iterable & iterator**
 
-![迭代器分为3部分:可迭代对象-迭代器-迭代](迭代器分为3部分:可迭代对象-迭代器-迭代.png '迭代器分为3部分:可迭代对象-迭代器-迭代')
+![迭代器分为3部分:可迭代对象-迭代器-迭代](https://raw.githubusercontent.com/ld269440877/images/master/Py3Notebook/迭代器分为3部分:可迭代对象-迭代器-迭代.png '迭代器分为3部分:可迭代对象-迭代器-迭代')
 
 ```python
 help(Iterable)	
@@ -3127,7 +3127,7 @@ yield作为一个暂停恢复的点,代码从yield处恢复,又在下一个yield
 '''
 ```
 
-![生成器-迭代器](生成器-迭代器.png '生成器-迭代器')
+![生成器-迭代器](https://raw.githubusercontent.com/ld269440877/images/master/Py3Notebook/生成器-迭代器.png '生成器-迭代器')
 
 ```python
 注意事项:
@@ -3838,7 +3838,7 @@ super(A, self).__init__()
     super(cls, inst) 獲得的是 cls 在 inst 的 MRO 列表中的下一個類。
 ```
 
-![img](/home/leung/workspace/Data_Analysis/python3_notebook/super.png)
+![img](https://raw.githubusercontent.com/ld269440877/images/master/Py3Notebook/super.png)
 
 **super 和父類沒有實質性的關聯**，現在讓我們搞清 `super` 是怎麼運作的。
 
@@ -4189,7 +4189,7 @@ The source may be a string representing a Python expression or a code object as 
 The globals must be a dictionary and locals can be any mapping, defaulting to the current globals and locals.
 If only globals is given, locals defaults to it.
 Type:      builtin_function_or_method
-    
+
 '''
 Complete &boolean eval
 全部布尔型求值(&B)
@@ -4201,7 +4201,7 @@ for i,e in enumerate(dir(__builtins__),1):
         print()
 ```
 
-![builtin_function_or_method](builtin_function_or_method.png 'builtin_function_or_method')
+![builtin_function_or_method](https://raw.githubusercontent.com/ld269440877/images/master/Py3Notebook/builtin_function_or_method.png 'builtin_function_or_method')
 
 ## exec
 

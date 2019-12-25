@@ -10,22 +10,22 @@
 [(Forward to SQL查询语言-基础)](#SQL查询语言-基础)
 [(Forward to SQL基础查询语言-高阶)](#SQL查询语言-高阶)
 
-![数据分析知识参考体系](数据分析知识参考体系.png '数据分析知识参考体系')
+![数据分析知识参考体系](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/数据分析知识参考体系.png '数据分析知识参考体系')
 
 # MySQL思维导图
 
-![MySQL思维导图](MySQL思维导图.png)
+![MySQL思维导图](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/MySQL思维导图.png)
 
 # 软件安装
 
 ## MySQL 8.0
 
-- [安装MySQL预安装](MySQL预安装说明-必读.txt)
+- [安装MySQL预安装](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/MySQL预安装说明-必读.txt)
 
 [数据库的官网](http://www.mysql.com)下载MySQL
-- [Windows安装mysql.pdf](Windows安装mysql.pdf)
-- [mysql添加环境变量windows.pdf](mysql添加环境变量windows.pdf)
-- [Windows10系统下，彻底删除卸载MySQL.pdf](Windows10系统下，彻底删除卸载MySQL.pdf)
+- [Windows安装mysql.pdf](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Windows安装mysql.pdf)
+- [mysql添加环境变量windows.pdf](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/mysql添加环境变量windows.pdf)
+- [Windows10系统下，彻底删除卸载MySQL.pdf](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Windows10系统下，彻底删除卸载MySQL.pdf)
 
 
 [MySQL数据库安装与配置详解 - daixinet.com - 博客园](https://www.cnblogs.com/sshoub/p/4321640.html)
@@ -33,7 +33,7 @@
 ## Navicat 安装
 
 [Navicat | 产品](https://www.navicat.com.cn/products)
-- [Navicat安装.pdf](Navicat安装.pdf)
+- [Navicat安装.pdf](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat安装.pdf)
 
 # MySQL 基础
 
@@ -46,7 +46,7 @@
 **标准数据查询语言SQL**就是一种基于关系数据库的语言，这种语言执行对关系数据库中数据的检索和操作。
 > SQL是结构化查询语言，是一种用来操作RDBMS的数据库语言，当前关系型数据库都支持使用SQL语言进行操作，也就是说可以通过SQL操作oracle、sql server、mysql、sqlite等等所有的关系型的数据库
 **关系模型**由关系数据结构、==关系操作集合==、关系完整性约束三部分组成。
-![模板Database](模板Database.png "模板Database")
+![模板Database](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/模板Database.png "模板Database")
 [模板:Database - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/Template:Database)
 
 ## ==关系操作==
@@ -69,11 +69,13 @@
 表：表是结构化的信息；行和列组成表；
 
 例如，可能有一个有关作者信息的名为authors的表（关系Relation）。每行（属性Attribute）都包含特定类型的信息，如作者的姓氏。每列（值组Tuple）都包含有关特定作者的所有信息：姓、名、住址等等。在关系型数据库当中一个表（关系Relation）就是一个关系，一个关系数据库可以包含多个表（关系Relation）
-![表Relation](表Relation.png '表Relation')
+
+![表Relation](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/表Relation.png '表Relation')
+
 > 通过客户端RDBMS-client给数据库的服务器RDBMS-server发送SQL 指令，完成数据库、数据表和数据的基本操作
 数据库（就是文件）是数据表的集合，数据表是数据的集合，数据包含很多列
 ==RDBMS==：Relational Database Management System
-![(客户端通过SQL语言服务器](客户端通过SQL语言服务器.png '客户端通过SQL语言服务器')
+![(客户端通过SQL语言服务器](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/客户端通过SQL语言服务器.png '客户端通过SQL语言服务器')
 - SQL语句主要分为：
     - DQL：数据查询语言，用于对数据进行查询，如select
     - DML：数据操作语言，对数据进行增加、修改、删除，如insert、update、delete
@@ -142,60 +144,60 @@ SQL语言执行顺序跟书写顺序不一致
 - Navicat连接
 - 新建的连接名是数据分析
     - Navicat 充当MySQL客户端的角色，localhost=127.0.01
-![启动Navicat连接MySQL](启动Navicat连接MySQL.png '启动Navicat连接MySQL')
-![Navicat-MySQL](Navicat-MySQL.png 'Navicat-MySQL')
+![启动Navicat连接MySQL](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/启动Navicat连接MySQL.png '启动Navicat连接MySQL')
+![Navicat-MySQL](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat-MySQL.png 'Navicat-MySQL')
 - 上一步设置的双击连接名 绿色为当前连接的数据库，灰色为未连接
     - 不要删除系统级别的数据库，否则只能重新安装数据库
 
 ## 数据导入
 
-![Navicat数据导入导出](Navicat数据导入导出.png 'Navicat数据导入导出')
+![Navicat数据导入导出](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导入导出.png 'Navicat数据导入导出')
 - 根据“导入向导”和“导出向导”来导入/导出数据
 -选择导入格式—选择文件—附加选项—选择目标表(或将原表重命名）—表结构—导入模式—开始导入—导入成功
     - 选择导入格式
-![Navicat数据导入选择导入格式](Navicat数据导入选择导入格式.png 'Navicat数据导入选择导入格式')
+![Navicat数据导入选择导入格式](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导入选择导入格式.png 'Navicat数据导入选择导入格式')
     - 选择文件
-    ![Navicat数据导入选择文件](Navicat数据导入选择文件.png 'Navicat数据导入选择文件')
+    ![Navicat数据导入选择文件](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导入选择文件.png 'Navicat数据导入选择文件')
 - 附加选项
-    ![Navicat数据导入附加选项](Navicat数据导入附加选项.png 'Navicat数据导入附加选项')
+    ![Navicat数据导入附加选项](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导入附加选项.png 'Navicat数据导入附加选项')
     - 选择目标表
-    ![Navicat数据导入选择目标表](Navicat数据导入选择目标表.png 'Navicat数据导入选择目标表')
+    ![Navicat数据导入选择目标表](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导入选择目标表.png 'Navicat数据导入选择目标表')
     - 表结构
-    ![Navicat数据导入表结构.](Navicat数据导入表结构.png 'Navicat数据导入表结构.')
+    ![Navicat数据导入表结构.](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导入表结构.png 'Navicat数据导入表结构.')
     - 导入模式
-    ![Navicat数据导入导入模式](Navicat数据导入导入模式.png 'Navicat数据导入导入模式')
+    ![Navicat数据导入导入模式](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导入导入模式.png 'Navicat数据导入导入模式')
     - 开始导入
     - 导入成功==Finished successfully==
 
 ## 数据导出
 - 选择导出格式——选择导出的文件——选择导出字段——附加选项——开始导出——导出成功
     - 选择导出格式
-    ![Navicat数据导出选择导出格式](Navicat数据导出选择导出格式.png 'Navicat数据导出选择导出格式')
+    ![Navicat数据导出选择导出格式](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导出选择导出格式.png 'Navicat数据导出选择导出格式')
     - 选择导出的文件
-    ![Navicat数据导出选择导出的文件](Navicat数据导出选择导出的文件.png 'Navicat数据导出选择导出的文件')
+    ![Navicat数据导出选择导出的文件](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导出选择导出的文件.png 'Navicat数据导出选择导出的文件')
     - 选择导出字段
-    ![Navicat数据导出选择导出字段](Navicat数据导出选择导出字段.png 'Navicat数据导出选择导出字段')
+    ![Navicat数据导出选择导出字段](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导出选择导出字段.png 'Navicat数据导出选择导出字段')
     - 附加选项
-    ![Navicat数据导出附加选项](Navicat数据导出附加选项.png 'Navicat数据导出附加选项')
+    ![Navicat数据导出附加选项](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导出附加选项.png 'Navicat数据导出附加选项')
     - 开始导出
     - 导出成功==Finished successfully==
 
 ## 新建数据库  
 
-![数据库-表](数据库-表.png '数据库-表')
-![数据库-表-查询](数据库-表-查询.png '数据库-表-查询' )
+![数据库-表](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/数据库-表.png '数据库-表')
+![数据库-表-查询](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/数据库-表-查询.png '数据库-表-查询' )
 
 - 新建的数据库是demo
-![新建数据库](新建数据库.png '新建数据库')
+![新建数据库](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/新建数据库.png '新建数据库')
 utf8通用字符集，utf8mb4是utf8的扩展支持emoji，用于社交产品
-![设置MySQL数据库编码规则](设置MySQL数据库编码规则.png '设置MySQL数据库编码规则')
+![设置MySQL数据库编码规则](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/设置MySQL数据库编码规则.png '设置MySQL数据库编码规则')
 
 ## 新建数据表
 
 [数据库三范式 - - SegmentFault 思否](https://segmentfault.com/a/1190000020754804)
 
 ### 新建字段
-![识别号id主键](识别号id主键.png '识别号id主键')
+![识别号id主键](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/识别号id主键.png '识别号id主键')
 
 |  名   |          类型           |           长度           |          小数点           |           不是null           |            虚拟            |                              键                               |       注释       |
 | :---: | :---------------------: | :----------------------: | :-----------------------: | :--------------------------: | :------------------------: | :-----------------------------------------------------------: | :--------------: |
@@ -204,16 +206,16 @@ utf8通用字符集，utf8mb4是utf8的扩展支持emoji，用于社交产品
 |       |                         |                          |                           |                              |                            |                                                               |                  |
 
 ### 保存表
-![新建id字段为唯一标识](新建id字段为唯一标识.png '新建id字段为唯一标识')
-![新建name字段](新建name字段.png '新建name字段')
-![新建表classes保存](新建表classes保存.png '新建表classes保存')
-![修改classes表字段名属性](修改classes表字段名属性.png '修改classes表字段名属性')
+![新建id字段为唯一标识](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/新建id字段为唯一标识.png '新建id字段为唯一标识')
+![新建name字段](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/新建name字段.png '新建name字段')
+![新建表classes保存](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/新建表classes保存.png '新建表classes保存')
+![修改classes表字段名属性](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/修改classes表字段名属性.png '修改classes表字段名属性')
 ### 添加数据
 
-![classes表添加数据](classes表添加数据.png 'classes表添加数据')
+![classes表添加数据](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/classes表添加数据.png 'classes表添加数据')
 
 ### 新建-保存查询
-![新建保存查询](新建保存查询.png '新建保存查询')
+![新建保存查询](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/新建保存查询.png '新建保存查询')
 
 # 常用数据类型
 
@@ -238,9 +240,9 @@ utf8通用字符集，utf8mb4是utf8的扩展支持emoji，用于社交产品
     - 字符串text标识存储大文本，当字符大于4000时推荐使用
     - 对于图片、音频、视频等文件，不存储在数据库中，而是上传到某个服务器上，人后在表中存储这个文件的保存路径
 - 更全的数据类型可以参考[MySQL 中的数据类型介绍 - anxpp的博客 - CSDN博客](https://blog.csdn.net/anxpp/article/details/51284106)
-![(数值类型常用](数值类型常用.png '(数值类型常用')
-![字符串](字符串.png '字符串')
-![日期时间类型](日期时间类型.png '日期时间类型')
+![(数值类型常用](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/数值类型常用.png '(数值类型常用')
+![字符串](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/字符串.png '字符串')
+![日期时间类型](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/日期时间类型.png '日期时间类型')
 
 ### 约束
 
@@ -438,13 +440,13 @@ delete from students where id =5 ;
 > 可以使用as为列或表指定别名
 
 # SQL查询语言-基础
-[spm_order](spm_order.xlsx)
-[spm_product](spm_product.xlsx)
-[spm_area](spm_area.xlsx)
+[spm_order](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/spm_order.xlsx)
+[spm_product](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/spm_product.xlsx)
+[spm_area](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/spm_area.xlsx)
 
 [(Back to 软件安装)](#软件安装)
 ## SQL 简介
-![SQL语言框架](SQL语言框架.png 'SQL语言框架')
+![SQL语言框架](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL语言框架.png 'SQL语言框架')
 
 ## SQL常用命令及顺序
 
@@ -559,10 +561,10 @@ select concat(city,"-",sales_name) AS "城市-姓名"
 from spm_order;
 ```
 
-![SQLconcat字段1字段2](SQLconcat字段1字段2.png 'SQLconcat字段1字段2')
+![SQLconcat字段1字段2](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQLconcat字段1字段2.png 'SQLconcat字段1字段2')
 
 
-![SQLconcat字段1字段2AS字段1-字段2](SQLconcat字段1字段2AS字段1-字段2.png 'SQLconcat字段1字段2AS字段1-字段2')
+![SQLconcat字段1字段2AS字段1-字段2](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQLconcat字段1字段2AS字段1-字段2.png 'SQLconcat字段1字段2AS字段1-字段2')
 
 ### 数据分组、过滤与排序
 - 数据分组（group by）
@@ -580,7 +582,7 @@ from spm_order
 where order_date between "2018-01-01" and "2018-12-31" 
 group by sales_name;
 ```
-![SQL数据分组groupby](SQL数据分组groupby.png 'SQL数据分组groupby')
+![SQL数据分组groupby](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL数据分组groupby.png 'SQL数据分组groupby')
 
 - 数据过滤（having）
 ```mysql { class= ' line-numbers'}
@@ -597,9 +599,9 @@ where order_date between "2018-01-01" and "2018-12-31"
 group by sales_name
 having sum(profit) >100000
 ```
-![SQL数据过滤having](SQL数据过滤having.png 'SQL数据过滤having')
+![SQL数据过滤having](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL数据过滤having.png 'SQL数据过滤having')
 
-[正确理解MySQL中的where和having的区别 -SegmentFault 思否](https://segmentfault.com/a/1190000008284099)
+[正确理解MySQL中的where和having的区别 -SegmentFault 思否](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/https://segmentfault.com/a/1190000008284099)
 > where和having都可以使用的场景
 >- select goods_price,goods_name from sw_goods where goods_price > 100
 >- select goods_price,goods_name from sw_goods having goods_price > 100
@@ -639,7 +641,7 @@ group by sales_name
 having 利润 >100000
 order by sum(sales) desc;
 ```
-![SQL结果排序orderByDesc](SQL结果排序orderByDesc.png 'SQL结果排序orderByDesc')
+![SQL结果排序orderByDesc](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL结果排序orderByDesc.png 'SQL结果排序orderByDesc')
 
 # 数据类型与SQL函数
 
@@ -739,14 +741,14 @@ count(distinct city)
 select sum(sales),sum(profit),avg(quantity),min(profit),max(profit)
 from spm_order
 ```
-![SQL总和sum平均avg最小min最大max](SQL总和sum平均avg最小min最大max.png 'SQL总和sum平均avg最小min最大max')
+![SQL总和sum平均avg最小min最大max](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL总和sum平均avg最小min最大max.png 'SQL总和sum平均avg最小min最大max')
 练习3：
 查看订单表中的利润和利润的绝对值
 ```mysql { class= ' line-numbers'}
 select sales,abs(profit)
 from spm_order
 ```
-![SQL绝对值abs](SQL绝对值abs.png 'SQL绝对值abs')
+![SQL绝对值abs](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL绝对值abs.png 'SQL绝对值abs')
 
 ### 时间日期型函数
 
@@ -786,7 +788,7 @@ DATEDIFF('2019-08-31','2019-01-01')
                                                         242
 '''
 ```
-![SQL常见时间命令](SQL常见时间命令.png 'SQL常见时间命令')
+![SQL常见时间命令](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL常见时间命令.png 'SQL常见时间命令')
 
 练习1：
 查看现在的日期和时间？
@@ -807,7 +809,7 @@ from spm_order
 select order_date,DATE_FORMAT(order_date,'%Y-%m') as '订单月份'
 from spm_order
 ```
-![SQL订单月份DATE_FORMAT](SQL订单月份DATE_FORMAT.png 'SQL订单月份DATE_FORMAT')
+![SQL订单月份DATE_FORMAT](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL订单月份DATE_FORMAT.png 'SQL订单月份DATE_FORMAT')
 练习4：
 在订单表中筛选出订单日期在2018年的所有订单
 ```mysql { class= ' line-numbers'}
@@ -815,8 +817,8 @@ select *
 from spm_order
 where order_date between "2018-01-01" and "2018-12-31"
 ```
-![SQL_SELECT星号](SQL_SELECT星号.png 'SQL_SELECT星号')
-![SQL_SELECT字段](SQL_SELECT字段.png 'SQL_SELECT字段')
+![SQL_SELECT星号](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL_SELECT星号.png 'SQL_SELECT星号')
+![SQL_SELECT字段](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL_SELECT字段.png 'SQL_SELECT字段')
 
 - 文本型函数
 
@@ -854,10 +856,10 @@ having 条件
 order by 字段
 limit...
 ```
-![SQL作业1](SQL作业1.png 'SQL作业1')
+![SQL作业1](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL作业1.png 'SQL作业1')
 
 # SQL查询语言-高阶
-![SQL查询语言-高阶](SQL查询语言-高阶.png 'SQL查询语言-高阶')
+![SQL查询语言-高阶](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL查询语言-高阶.png 'SQL查询语言-高阶')
 
 ## SQL多表联结查询
 
@@ -870,7 +872,7 @@ limit...
 SELECT 列名
 FROM 表1  JOIN 表2  ON 表1.列名=表2.列名
 ```
-![SQL-表联结Joins](SQL-表联结Joins.png 'SQL-表联结Joins')
+![SQL-表联结Joins](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL-表联结Joins.png 'SQL-表联结Joins')
 #TODO SQL-表联结Join还没看视频  要找网页上的案例解析
 - join练习
 练习：将订单表、地区表、产品类别表联结成一张表
@@ -913,7 +915,7 @@ case when profit>0 then '盈利'
         else '亏损'
 end
 ```
-![SQL条件函数case-when](SQL条件函数case-when.png 'SQL条件函数case-when')
+![SQL条件函数case-when](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL条件函数case-when.png 'SQL条件函数case-when')
 
 ### 分组排序函数（Row_number）
 
@@ -935,7 +937,7 @@ select sales_name,sum(sales),Row_number() OVER(ORDER BY sum(sales) DESC) as 'ran
 from spm_order
 group by sales_name
 ```
-![SQL分组排序函数Row_number练习1](SQL分组排序函数Row_number练习1.png 'SQL分组排序函数Row_number练习1')
+![SQL分组排序函数Row_number练习1](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL分组排序函数Row_number练习1.png 'SQL分组排序函数Row_number练习1')
 练习2：计算销售人员在不同城市的销售额；
 要求：结果根据销售人员在不同城市的销售额进行分组排序（降序），并且查询结果要包含分组排名
 ```mysql { class= ' line-numbers'}
@@ -944,7 +946,7 @@ ORDER BY sum(sales) DESC) as 'rank'
 from spm_order
 group by sales_name,city
 ```
-![SQL分组排序函数Row_number练习2](SQL分组排序函数Row_number练习2.png 'SQL分组排序函数Row_number练习2')
+![SQL分组排序函数Row_number练习2](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL分组排序函数Row_number练习2.png 'SQL分组排序函数Row_number练习2')
 
 ### 嵌套查询（t1/t2）
 ```mysql { class= ' line-numbers'}
@@ -968,7 +970,7 @@ from spm_order
 group by sales_name,city)t1
 where t1.rank<=5
 ```
-![SQL嵌套查询t1](SQL嵌套查询t1.png 'SQL嵌套查询t1')
+![SQL嵌套查询t1](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL嵌套查询t1.png 'SQL嵌套查询t1')
 
 ### 子查询（IN）
 ```mysql { class= ' line-numbers'}
@@ -1009,7 +1011,7 @@ select *
 from spm_order
 where city in ('北京','上海','广州','深圳','杭州');
 ```
-![SQL组合查询unionAll](SQL组合查询unionAll.png 'SQL组合查询unionAll')
+![SQL组合查询unionAll](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL组合查询unionAll.png 'SQL组合查询unionAll')
 
 # SQL定义和操作语言
 
@@ -1058,7 +1060,7 @@ CHARSET=utf8 #编码格式
     - 外键用于与另一张表的关联；
     - 是能确定另一张表记录的字段，用于保持数据的一致性；
 例子：A表中的一个字段，是B表的主键，那他就可以是A表的外键
-![SQL主键与外键](SQL主键与外键.png 'SQL主键与外键')
+![SQL主键与外键](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL主键与外键.png 'SQL主键与外键')
 
 - 主键和外键的区别
 
@@ -1083,7 +1085,7 @@ CREATE TABLE `test` (
     UNIQUE KEY `idx_e` (`e`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20000001 DEFAULT CHARSET=utf8
 ```
-![索引类型及实例下](索引类型及实例下.png '索引类型及实例下')
+![索引类型及实例下](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/索引类型及实例下.png '索引类型及实例下')
 
 ## 插入数据(insert into)
 ```mysql { class= ' line-numbers'}
@@ -1109,7 +1111,7 @@ VALUES
 <!-- 插入多行： 全列插入-->
 ```
 练习：创建如下表格“order_2017”
-![SQL插入数据insertInto练习](SQL插入数据insertInto练习.png 'SQL插入数据insertInto练习')
+![SQL插入数据insertInto练习](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL插入数据insertInto练习.png 'SQL插入数据insertInto练习')
 ```mysql { class= ' line-numbers'}
 #创建一个空表
 CREATE TABLE order_2017
@@ -1135,7 +1137,7 @@ VALUES
 ('0006','C4','2017/11/11','273.5','23.5','11')
 ;
 ```
-![SQL插入数据insertInto练习结果](SQL插入数据insertInto练习结果.png 'SQL插入数据insertInto练习结果')
+![SQL插入数据insertInto练习结果](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL插入数据insertInto练习结果.png 'SQL插入数据insertInto练习结果')
 
 ## 更新表内数据(update)
 ```mysql { class= ' line-numbers'}
@@ -1335,7 +1337,7 @@ db.close()
     - 第一遍，有普通索引找到PK；
     - 第二遍，有PK找到行记录‘
 
-![InnoDB%20及MyISAM索引结构](SQLInnoDB%20及MyISAM索引结构.png 'InnoDB%20及MyISAM索引结构')
+![InnoDB%20及MyISAM索引结构](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQLInnoDB%20及MyISAM索引结构.png 'InnoDB%20及MyISAM索引结构')
 
 ```mysql { class= ' line-numbers'}
 mysql> select * from tb;
@@ -1360,8 +1362,8 @@ PRIMARY KEY (`id`),
 KEY `idx_name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
- ![InnoDB及MyISAM索引结构-主键primarykey-idx_name](SQLInnoDB及MyISAM索引结构-主键primarykey.png 'InnoDB及MyISAM索引结构-主键primarykey-idx_name')
-![InnoDB及MyISAM索引结构-辅键secondarykey-idx_name](SQLInnoDB及MyISAM索引结构-辅键secondarykey.png 'InnoDB及MyISAM索引结构-辅键secondarykey-idx_name')
+ ![InnoDB及MyISAM索引结构-主键primarykey-idx_name](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQLInnoDB及MyISAM索引结构-主键primarykey.png 'InnoDB及MyISAM索引结构-主键primarykey-idx_name')
+![InnoDB及MyISAM索引结构-辅键secondarykey-idx_name](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQLInnoDB及MyISAM索引结构-辅键secondarykey.png 'InnoDB及MyISAM索引结构-辅键secondarykey-idx_name')
 
 
 ```mysql { class= ' line-numbers'}
@@ -1377,8 +1379,8 @@ KEY `idx_age` (`age`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 ```
-![InnoDB及MyISAM索引结构-主键primarykey-idx_age](SQLInnoDB及MyISAM索引结构-主键primarykey-idx_age.png 'InnoDB及MyISAM索引结构-主键primarykey-idx_age')
-![InnoDB及MyISAM索引结构-辅键secondarykey-idx_age](SQLInnoDB及MyISAM索引结构-辅键secondarykey-idx_age.png 'InnoDB及MyISAM索引结构-辅键secondarykey-idx_age')
+![InnoDB及MyISAM索引结构-主键primarykey-idx_age](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQLInnoDB及MyISAM索引结构-主键primarykey-idx_age.png 'InnoDB及MyISAM索引结构-主键primarykey-idx_age')
+![InnoDB及MyISAM索引结构-辅键secondarykey-idx_age](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQLInnoDB及MyISAM索引结构-辅键secondarykey-idx_age.png 'InnoDB及MyISAM索引结构-辅键secondarykey-idx_age')
 
 
 ### 事务
@@ -2230,12 +2232,12 @@ SQL面经汇总：https://www.nowcoder.com/discuss/95812
 
 # 串讲MySQL
 //TODO 串讲MySQL
-[tbl_user](tbl_user.xlsx)
-[tbl_order](tbl_order.xlsx)
+[tbl_user](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/tbl_user.xlsx)
+[tbl_order](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/tbl_order.xlsx)
 
 ## 复习MySQL
 
-[MySQL思维导图](MySQL思维导图.xmind)
+[MySQL思维导图](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/MySQL思维导图.xmind)
 
 ### SQL知识回顾xmind
 
@@ -2317,7 +2319,8 @@ from spm_order
 group by sales_name
 order by sum(sales) DESC) A
 ```
-![SQL分组排序函数80-57版本问题](SQL分组排序函数80-57版本问题.png 'SQL分组排序函数80-57版本问题')
+
+![SQL分组排序函数80-57版本问题](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL分组排序函数80-57版本问题.png 'SQL分组排序函数80-57版本问题')
 
 练习2：计算销售人员在不同城市的销售额；
 要求：结果根据销售人员在不同城市的销售额进行分组排序（降序），并且查询结果要包含分组排名
@@ -2340,7 +2343,7 @@ from spm_order
 group by sales_name,city
 ORDER BY sales_name , sum(sales) desc)a,(select @r:=0, @type:='' ) b;
 ```
-![SQL分组排序函数80-57版本问题练习2](SQL分组排序函数80-57版本问题练习2.png 'SQL分组排序函数80-57版本问题练习2')
+![SQL分组排序函数80-57版本问题练习2](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/SQL分组排序函数80-57版本问题练习2.png 'SQL分组排序函数80-57版本问题练习2')
 
 ## 面试真题
 3.1第一题

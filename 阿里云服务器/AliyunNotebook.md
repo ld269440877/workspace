@@ -77,10 +77,14 @@ PicGoGithubToken：`c7c00444f6e2b14688072da91eb6d1249703e17b`
 使用VSCode进行查找、替换时，经常需要用到正则表达式，一段时间不用就忘了，每次要用的时候都要耽误很多时间去查找，所以整理了一份很全的放在这里。这个其实是.NET使用的正则表达式，VSCode也是一样的，微软系的产品（比如Visual Studio等）应该都是使用这个标准的。
 
 VS Code替换快捷键`Ctrl+H`
-查找：`![](`
+- 查找无图片描述 ![]：`![](`
 替换：`![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/`
 
-![vscode正则替换使用样式](https://raw.githubusercontent.com/ld269440877/images/master/Markdown/vscode正则替换使用样式.png "vscode正则替换使用样式")
+- 查找 ![有图片描述]：`](`   要主要网站与图片引用方式的相似性，区别只在于有无`!`
+替换：`![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/`
+
+![vscode正则替换使用样式](https://raw.githubusercontent.com/ld269440877/images/master/阿里云服务器/vscode正则替换使用样式.png "vscode正则替换使用样式")
+
 > 参考链接
 [VSCode查找和替换正则表达式转义字符整理 | 胡刘郏的技术博客](https://www.huliujia.com/blog/a2c7dc8ec28aa650df1ff43c580785decdeba8bc/)
 [完整内容请参照微软官方文档Regular Expression Language - Quick Reference | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)
