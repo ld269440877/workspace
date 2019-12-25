@@ -8,7 +8,7 @@
 - 制作启动盘
 
 <rufus-3.1.exe>
-![rufus-31](https://raw.githubusercontent.com/ld269440877/images/master/ubuntu1804_configure/rufus-31.png "rufus-31")
+![rufus-31](https://raw.githubusercontent.com/ld269440877/images/master/Ubuntu1804Configure/rufus-31.png "rufus-31")
 
 ## grub rescue模式下修复分区缺失问题
 
@@ -197,9 +197,9 @@ sudo dpkg -i sogoupinyin*.deb       #重新安装搜狗拼音
 
 1. 找到Fcitx Configure，点击进入
 
-![FictxConfigure](https://raw.githubusercontent.com/ld269440877/images/master/ubuntu1804_configure/https://raw.githubusercontent.com/ld269440877/images/master/ubuntu1804_configure/FictxConfigure.png)
-![FictxConfigure1](https://raw.githubusercontent.com/ld269440877/images/master/ubuntu1804_configure/FictxConfigure1.png)
-![FictxConfigure2](https://raw.githubusercontent.com/ld269440877/images/master/ubuntu1804_configure/FictxConfigure2.png)
+![FictxConfigure](https://raw.githubusercontent.com/ld269440877/images/master/Ubuntu1804Configure/FictxConfigure.png)
+![FictxConfigure1](https://raw.githubusercontent.com/ld269440877/images/master/Ubuntu1804Configure/FictxConfigure1.png)
+![FictxConfigure2](https://raw.githubusercontent.com/ld269440877/images/master/Ubuntu1804Configure/FictxConfigure2.png)
 
 # electron-ssr
 
@@ -230,7 +230,7 @@ sudo apt-get install libsodium-dev
 ## 系统设置
 
 系统设置-网络设置-网络代理设置
-![alt 系统网络代理设置](https://raw.githubusercontent.com/ld269440877/images/master/ubuntu1804_configure/系统网络代理设置.png)
+![alt 系统网络代理设置](https://raw.githubusercontent.com/ld269440877/images/master/Ubuntu1804Configure/系统网络代理设置.png)
 
 ```bash
 "自动"
@@ -415,8 +415,8 @@ stars:、language:、forks:，其实就是设置项目收藏、开发语言派�
             一定要复制生成的token  保存好
     > github.com/Your Gists
     > 右上角加号（+），新建gists
-![GenerateGist](https://raw.githubusercontent.com/ld269440877/images/master/ubuntu1804_configure/GenerateGist1.png "GenerateGist")
-![(GistId](https://raw.githubusercontent.com/ld269440877/images/master/ubuntu1804_configure/GistId.png "GistId")
+![GenerateGist](https://raw.githubusercontent.com/ld269440877/images/master/Ubuntu1804Configure/GenerateGist1.png "GenerateGist")
+![(GistId](https://raw.githubusercontent.com/ld269440877/images/master/Ubuntu1804Configure/GistId.png "GistId")
 
 #### 重置所有sync settings配置
 - Ctrl + Shift + P 开启命令面板，找到同步命令，选择 Reset Extension Settings 重置所有配置
@@ -487,8 +487,8 @@ alt + shift + d 删除所有 console.log
 [VS Code跟我一起在Visual Studio Code 添加自定义snippet（代码段），附详细配置 - 前端 - 掘金](https://juejin.im/entry/5aebc727f265da0b9526f54e)
 
 - snippets ：搭建可以自己安装各种代码片段
-![UserSnippets](https://raw.githubusercontent.com/ld269440877/images/master/ubuntu1804_configure/UserSnippets.png "UserSnippets")
-![NewGlobalSnippets](https://raw.githubusercontent.com/ld269440877/images/master/ubuntu1804_configure/NewGlobalSnippets.png "NewGlobalSnippets")
+![UserSnippets](https://raw.githubusercontent.com/ld269440877/images/master/Ubuntu1804Configure/UserSnippets.png "UserSnippets")
+![NewGlobalSnippets](https://raw.githubusercontent.com/ld269440877/images/master/Ubuntu1804Configure/NewGlobalSnippets.png "NewGlobalSnippets")
 
 ## 功能扩展
 - [x] Todo Tree :Show TODO, FIXME, etc. comment tags in a tree view
@@ -676,7 +676,7 @@ tree
 1. 终端输入： `gnome-session-properties`
 
 2. 弹出窗口为“ 启动应用程序首选项”
-![alt "设置开机启动项" ](https://raw.githubusercontent.com/ld269440877/images/master/ubuntu1804_configure/设置开机启动项.png "设置开机启动项" )
+![alt "设置开机启动项" ](https://raw.githubusercontent.com/ld269440877/images/master/Ubuntu1804Configure/设置开机启动项.png "设置开机启动项" )
 
 3. 点击右侧添加
 

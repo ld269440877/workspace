@@ -18,19 +18,19 @@
 点击 git 主页右上角的 + 创建 New repository；
 填写仓库信息，例如我就创建了一个images 的仓库
 仓库设置为 Public 通过客户端外部访问
-![](https://raw.githubusercontent.com/ld269440877/images/master/阿里云服务器/新建images公开仓库.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/AliyunNotebook/新建images公开仓库.png)
 
 1.2 创建 token 并复制保存
 此时images仓库已经建立，点击右上角头像，然后进入设置；
-![](https://raw.githubusercontent.com/ld269440877/images/master/阿里云服务器/github-setting.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/AliyunNotebook/github-setting.png)
 在页面最下找到 Developer settings，点击进入；
-![](https://raw.githubusercontent.com/ld269440877/images/master/阿里云服务器/github-setting-DeveloperSettings.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/AliyunNotebook/github-setting-DeveloperSettings.png)
 创建 token；
-![](https://raw.githubusercontent.com/ld269440877/images/master/阿里云服务器/创建token.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/AliyunNotebook/创建token.png)
 填 description（也是随心填），勾选复选框 repo ，接着到页面底部 Generate token 就完成了；
-![](https://raw.githubusercontent.com/ld269440877/images/master/阿里云服务器/填写描述勾选repo.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/AliyunNotebook/填写描述勾选repo.png)
 然后复制生成一串字符 token，这个 token 只出现一次，所以要保存一下（我一般记在微信收藏）
-![](https://raw.githubusercontent.com/ld269440877/images/master/阿里云服务器/PicGoGithubToken.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/AliyunNotebook/PicGoGithubToken.png)
 PicGoGithubToken：`c7c00444f6e2b14688072da91eb6d1249703e17b`
 
 2. PicGo 客户端配置
@@ -39,7 +39,7 @@ PicGoGithubToken：`c7c00444f6e2b14688072da91eb6d1249703e17b`
 [PicGo](https://github.com/Molunerfinn/PicGo/releases/tag/v2.1.2)
 
 2.2 配置
-![](https://raw.githubusercontent.com/ld269440877/images/master/阿里云服务器/PicGo客户端配置.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/AliyunNotebook/PicGo客户端配置.png)
 - 仓库名 即你的仓库名
 - 分支名 默认 master
 - Token 就是刚刚复制的那一串字符
@@ -70,20 +70,27 @@ PicGoGithubToken：`c7c00444f6e2b14688072da91eb6d1249703e17b`
 [致小白:从0开始搭建自己的阿里云OSS图床 - 掘金](https://juejin.im/post/5d9c4c1bf265da5b5d2047a2#heading-0)
 
 使用阿里云管理控制台来完成OSS基本操作的流程如下：
-![](https://raw.githubusercontent.com/ld269440877/images/master/阿里云服务器/OSS基本操作的流程.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/AliyunNotebook/OSS基本操作的流程.png)
 
 # VS Code 批量修改Markdown图片引用格式
 
 使用VSCode进行查找、替换时，经常需要用到正则表达式，一段时间不用就忘了，每次要用的时候都要耽误很多时间去查找，所以整理了一份很全的放在这里。这个其实是.NET使用的正则表达式，VSCode也是一样的，微软系的产品（比如Visual Studio等）应该都是使用这个标准的。
 
+> VS Code 批量修改Markdown图片引用方式
+1. 本地git仓库images下新建存储图片的文件夹然后将Markdown中引用的本地图片剪切到新建的文件夹中
+2. 在images文件夹下执行git命令，将新文件推送到自己的github` git add . ; git commit -m "Modified file names that store pictures in images"; git push`
+3. Markdown中的图片引用方式替换为github连接（基于PicGO+Github图床的设置）
 VS Code替换快捷键`Ctrl+H`
 - 查找无图片描述 ![]：`![](`
 替换：`![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/`
-
 - 查找 ![有图片描述]：`](`   要主要网站与图片引用方式的相似性，区别只在于有无`!`
 替换：`![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/`
+- 查找`img`：<img src="`
+替换：`<img src="https://raw.githubusercontent.com/ld269440877/images/master/BlogNotebook/`
 
-![vscode正则替换使用样式](https://raw.githubusercontent.com/ld269440877/images/master/阿里云服务器/vscode正则替换使用样式.png "vscode正则替换使用样式")
+> 注：MarkdownNotebook和BlogNotebook均为images文件夹下存储图片的文件夹
+
+![vscode正则替换使用样式](https://raw.githubusercontent.com/ld269440877/images/master/AliyunNotebook/vscode正则替换使用样式.png "vscode正则替换使用样式")
 
 > 参考链接
 [VSCode查找和替换正则表达式转义字符整理 | 胡刘郏的技术博客](https://www.huliujia.com/blog/a2c7dc8ec28aa650df1ff43c580785decdeba8bc/)

@@ -1,10 +1,7 @@
-统计建模与R软件-带完整书签.pdf
 # 数据分析方法论
 第十二章
 [Markdown 数学公式语法 - 简书](https://www.jianshu.com/p/4460692eece4)
 [Latex各种命令、符号、公式、数学符号、排版等 ](https://blog.csdn.net/qfire/article/details/81382048)
-
-
 [常用数学符号的 LaTeX 表示方法](https://www.mohu.org/info/symbols/symbols.htm)
 
 ## 概率论基础

@@ -41,11 +41,11 @@ https://github.com/ld269440877/workspace/blob/master/ubuntu1804_configure/ubuntu
 1. 注册github账号并创建一个以 <font color=red>github昵称</font>.github.io 命名的仓库
 ld269440877/ld269440877.github.io
 https://github.com/ld269440877/<font color=red>ld269440877</font>.github.io
-![](创建一个以github昵称.github.io命名的仓库.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/BlogNotebook/创建一个以github昵称.github.io命名的仓库.png)
 > 根据图中，注册一个github账号，昵称自定义，然后创建一个新项目，名字为：github昵称.github.io
 参考教程的github昵称是shaonbean，我的github昵称是ld269440877  
 2. 项目创建完成之后，本地生成ssh 私钥和公钥，用于连接github认证，使用上面下载的git，打开git bash
-![](gitbash本地生成ssh私钥和公钥.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/BlogNotebook/gitbash本地生成ssh私钥和公钥.png)
 
 ```bash
 ssh-keygen -t rsa -C "github注册邮箱（自定义）" -f .ssh/shaonbean
@@ -53,7 +53,7 @@ ssh-keygen -t rsa -C "github注册邮箱（自定义）" -f .ssh/shaonbean
 ```
 3. 公钥生成之后加到github上，方便后面的使用，用户本地和github进行ssh通信
 公钥在.ssh文件夹下的id_rsa.pub文件中
-![](github-本地公钥生成之后加到github上.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/BlogNotebook/github-本地公钥生成之后加到github上.png)
 
 4. git bash将本地文件与github远程仓库建立关联
 ```bash
@@ -146,7 +146,7 @@ INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.
 在浏览器输入 <127.0.0.1:4000> 或者 <http://localhost:4000/>就可以访问到刚刚创建好的blog了。
 
 - 初始化博客以后，能看到下图：
-![](初始化博客以后能看到下图.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/BlogNotebook/初始化博客以后能看到下图.png)
 
 ### 配置git 管理/ld269440877.github.io仓库下的HexoBlog (master)
 ```bash
@@ -192,7 +192,7 @@ Administrator@DESKTOP-BQFQLO2 MINGW64 /c/Users/ld269440877.github.io/HexoBlog (m
 $ pwd
 /c/Users/ld269440877.github.io/HexoBlog
 ```
-![本地文件与github远程仓库建立关联后github仓库](gitbash将本地文件与github远程仓库建立关联后github仓库如图所示.png "本地文件与github远程仓库建立关联后github仓库")
+![本地文件与github远程仓库建立关联后github仓库](https://raw.githubusercontent.com/ld269440877/images/master/BlogNotebook/gitbash将本地文件与github远程仓库建立关联后github仓库如图所示.png "本地文件与github远程仓库建立关联后github仓库")
 ### 换皮肤
 在[官网](https://hexo.io/themes/) 可以查看各种各样的皮肤，挑选自己喜欢的皮肤
 这里以 3-hexo 这款皮肤为例（这款皮肤是笔者写的，效果可查看 <yelog.org>）
@@ -262,7 +262,7 @@ hexo clean && hexo g && hexo d  #部署博客
 打开你一开始创建的Hexo文件夹（如C:\Users\ld269440877.github.io\HexoBlog），用编辑器打开刚文件夹下的_config.yml文件
 (3) 修改配置文件。
 在配置文件里作如下修改，保存。
-![](发布到github修改HexoBlog下的_config.yml文件.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/BlogNotebook/发布到github修改HexoBlog下的_config.yml文件.png)
 (4) 执行发布相关的命令。
 依次执行如下命令：
 ```bash
@@ -294,9 +294,10 @@ $ hexo deploy($ hexo d部署)
 打开网址https://username.githup.io/进行验证是否成功，我的是https://ld269440877.github.io/
 
 (6）修改博客头像和微信支付宝付款二维码图片
-<img src="hexoblog头像.png" width = "100" height = "100" div align=center />
-<img src="支付宝付款二维码.png" width="100" height="100" div align=center>
-<img src="微信付款二维码.png" width="100" height="100" div align=center>
+<img src="https://raw.githubusercontent.com/ld269440877/images/master/BlogNotebook/hexoblog头像.png" width = "100" height = "100" div align=center />
+<img src="https://raw.githubusercontent.com/ld269440877/images/master/BlogNotebook/支付宝付款二维码.png" width="100" height="100" div align=center>
+<img src="https://raw.githubusercontent.com/ld269440877/images/master/BlogNotebook/微信付款二维码.png" width="100" height="100" div align=center>
+
 - HexoBlog的img路径：
     - C:\Users\ld269440877.github.io\img  #hexo 根目录
     - C:\Users\ld269440877.github.io\HexoBlog\public\img
