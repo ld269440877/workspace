@@ -10,6 +10,9 @@
 ## PicGo + GitHub 搭建个人图床工具
 
 [PicGo + GitHub 搭建个人图床工具_魔法学徒-CSDN博客](https://blog.csdn.net/yefcion/article/details/88412025)
+[Github+jsDelivr+PicGo 打造稳定快速、高效免费图床](https://www.itrhx.com/2019/08/01/A27-image-hosting/)
+[配置手册 | PicGo](https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E9%A2%84%E8%A7%88)
+
 
 1. GitHub 仓库设置
 > 流程：新建 public 仓库 -> 创建 token -> 复制 token 备用
@@ -39,6 +42,7 @@ PicGoGithubToken：`c7c00444f6e2b14688072da91eb6d1249703e17b`
 [PicGo](https://github.com/Molunerfinn/PicGo/releases/tag/v2.1.2)
 
 2.2 配置
+
 ![](https://raw.githubusercontent.com/ld269440877/images/master/AliyunNotebook/PicGo客户端配置.png)
 - 仓库名 即你的仓库名
 - 分支名 默认 master
@@ -59,7 +63,7 @@ PicGoGithubToken：`c7c00444f6e2b14688072da91eb6d1249703e17b`
 - 复制图片到剪切板
 - `Contral+Shift+P`
 - 剪切板中的图片上传前重命名
-- `Ctrl+C`粘贴Markdown格式的图片github链接
+- `Ctrl+V`粘贴Markdown格式的图片github链接
 
 ## PicGo + 阿里云 OSS 搭建图床
 
