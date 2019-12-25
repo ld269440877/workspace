@@ -31,20 +31,26 @@ Markdown是一种轻量级标记语言，它允许人们使用易读、易写的
 其设计灵感主要来源于纯文本电子邮件的格式，<font color=red  size=6>目标</font>是让人们能够使用易读、易写的纯文本格式编写文档，而且这些文档可以转换为HTML（Hyper Text Markup Language，超文本标记语言）文档。
 简单点说，Markdown就是由一些简单的符号（如*/-> [] （）#）组成的用于排版的标记语言，其最重要的<font color=red  size=6>特点</font>就是可读性强。
 Markdown的基本语法，如下图所示。
-![](Markdown的基本语法.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Markdown的基本语法.png)
 可以说，Markdown相当于简化了的HTML，它只提供用户最常用的语法格式，更易读和易写，用户可以不必关心复杂的HTML标签，只专注于写作就行了。
 使用Markdown和HTML实现相同效果的文档时，源码对比如下图所示。
-![](Markdown和HTML实现相同效果的文档时.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Markdown和HTML实现相同效果的文档时.png)
 当一些特殊需求（如设置图片的大小）无法通过现有的Markdown标记实现时，，也可以使用HTML来实现。
 由于Markdown本身功能有限，一些特定的需求和场景无法被满足，因此产生了许多扩展语法，这些语法在基础语法之上新增了如表格、任务列表、围栏代码块等功能。
 GitHub Flavored Markdown（GFM）遵循的CommonMark（http://commonmark.org/）,它为Markdown提出了一个标准的、明确的语法规范，以及一套全面的测试。
+
 ## 为什么要使用Markdown
+
 > 为什么要使用Markdown呢?
 因为它简单，可以在短时间内学会；它可以使用很多编辑器快速打开，兼容性好，可以做到一处编写，随处使用；它可以应用于几乎任何写作场景；它是专注写作的最佳方案。
+
 ### 什么时候可以使用Markdown
+
 当你对文章的排版没什么特殊需求，且不想花太多时间在排版上时，就可以使用Markdown。因为编辑器或平台会通过Markdown标记对文章进行渲染，最终的排版效果会非常简洁、漂亮。
 下面是一些针对“特殊”写作场景提供Markdown支持的工具和平台。
-![](写作场景提供Markdown支持的工具和平台.png)
+
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/写作场景提供Markdown支持的工具和平台.png)
+
 ###  什么时候不建议使用Markdown
 Markdown并不是万能的，它只适用于对排版要求不高的场景，如果你对字号、段落、图片、表格等方面的排版要求较高，还是需要使用Word这类专业的编辑软件的。
 小提示：Markdown文件可以很方便地转换为Word文件，如果有一些需要特殊处理的格式，可以两者结合使用。
@@ -52,11 +58,15 @@ Markdown并不是万能的，它只适用于对排版要求不高的场景，如
 Markdown就是写作文档的最佳方案，如果对排版没什么特殊要求，那就交给Markdown处理吧，你专注写作内容就行了。
 
 ## 如何学习使用Markdown
+
 ### Markdown的工作流程
+
 Markdown的工作流程很简单，首先要挑一款好用的编辑器进行写作，内容使用Markdown进行标记，然后通过编辑器的功能将文章进行渲染、发布或导出。
 所以如果想让Markdown发挥最大的作用，语法和编辑器都是要好好学习的。
 Markdown工作流程如下图所示。
-![](Markdown工作流程.png)
+
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Markdown工作流程.png)
+
 ### 如何学习Markdown语法
 1. 学习基础语法
 Markdown的基础语法是指John Gruber最初发布的Markdown版本，大多数扩展语法都是基于此版本开发的，因此基础语法是需要学会的。
@@ -66,7 +76,9 @@ Markdown的基础语法是指John Gruber最初发布的Markdown版本，大多�
 人们在使用Markdown的过程中逐渐总结出了一些最佳实践方案，并且制定了写作规范，学习这些规范可以让我们养成良好的写作习惯，避免重复“踩坑”。
 <font color=red  size=6>遵循这些规范也可以让源码（没有渲染过的文本）有更强的可读性、可移植性（一处编写，随处使用）和可维护性（有统一的认知）。</font>
 正所谓“好马配好鞍”，好的编辑工具可以让写作事半功倍。
-![](比较流行的Markdown编辑器.png)
+
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/比较流行的Markdown编辑器.png)
+
 # Markdown 语法
 <font color=red size=6>其实Markdown最难的地方并不是语法，而是开始使用。就像跑步最难的并不是跑步本身，而是跨出家门的那一刻。只要勇敢地跨出第一步，并且坚持下去，一切都会变得简单，水到渠成。</font>
 ##  基础语法
@@ -83,7 +95,7 @@ Markdown的基础语法是指John Gruber最初发布的Markdown版本，大多�
 ===
 二级标题
 ---
-![](标题底线语法.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/标题底线语法.png)
 - 使用＃的语法如下
 > 语法说明如下
 1）在行首插入#可标记出标题。
@@ -91,7 +103,7 @@ Markdown的基础语法是指John Gruber最初发布的Markdown版本，大多�
 3）建议在#后加一个空格。
 4）Markdown中最多只支持前六级标题。
 
-![](标题井号语法.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/标题井号语法.png)
 > 使用规范。
 建议使用#标记标题，而不是`===`或`---`，因为后者会难以阅读和维护。
 建议标题的前后都要空1行（除非标题在文档开头）；**#与标题文本之间也要有1个空格**，否则会导致阅读困难。
@@ -125,7 +137,7 @@ Markdown中的段落由一行或多行文本组成，不同的段落之间使用
 3）空行是指行内什么都没有，或者只有空格和制表符。
 4）如果想在段内换行，则需要在上一行的结尾插入两个以上的空格然后按回车键。
 
-![](段落与换行.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/段落与换行.png)
 > 使用规范
 为了便于阅读，应该限制每行字符的数量，通常每行不超过80个字符，可以在编辑器中进行设置。
 关于换行，建议如下。
@@ -147,9 +159,9 @@ Markdown中的段落由一行或多行文本组成，不同的段落之间使用
 - 嵌套列表
     1）列表中可以嵌套列表。
     2）有序列表和无序列表也可以互相嵌套。
-![](有序列表.png)
-![](无序列表.png)
-![](嵌套列表.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/有序列表.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/无序列表.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/嵌套列表.png)
 > 使用规范。
 建议使用-来标记无序列表，因为*容易跟粗体和斜体混淆，而+不流行
 如果一个列表中所有的列表项都没有换行，建议使用1个空格
@@ -173,7 +185,7 @@ Markdown中的段落由一行或多行文本组成，不同的段落之间使用
 1）分隔线须使用至少3个以上的*/-/_来标记。
 2）行内不能有其他的字符。
 3）可以在标记符中间加上空格。
-![](分割线.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/分割线.png)
 
 ### 图片
 
@@ -183,7 +195,7 @@ Markdown中的段落由一行或多行文本组成，不同的段落之间使用
 2）图片地址可以是本地图片的路径也可以是网络图片的地址。
 3）本地图片支持相对路径和绝对路径两种方式。
 
-![](插入图片.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/插入图片.png)
 
 ### 链接
 
@@ -191,11 +203,11 @@ Markdown中的段落由一行或多行文本组成，不同的段落之间使用
 文字链接就是把链接地址直接写在文本中。语法是用方括号包裹链接文字，后面紧跟着括号包裹的链接地址`[链接文字](链接地址)`
 这样的写法是没有任何问题的，但由于链接跟文字都写在了一起，如果链接过多会导致可读性差一些。
 如上所示，把链接地址在某个地方统一定义好，然后在正文中通过“变量”来引用，可读性一下子就变强了，这种方法叫作<font color=red size=6>引用链接</font>。
-![](链接过多使用引用链接.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/链接过多使用引用链接.png)
 
     2. 引用链接
 引用链接是把链接地址作为“变量”先在Markdown文件的页尾定义好，然后在正文中进行引用
-![](引用链接语法.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/引用链接语法.png)
 > 语法说明如下
 1）链接标记可以有字母、数字、空格和标点符号。
 2）链接标记不区分大小写。
@@ -219,19 +231,19 @@ Markdown中的段落由一行或多行文本组成，不同的段落之间使用
 
     1. 行内代码
 在Markdown中，行内代码引用使用`包裹
-![](行内代码引用.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/行内代码引用.png)
     2. 代码块
 在Markdown中，代码块以Tab键或4个空格开头
-![](代码块.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/代码块.png)
 小提示：因为代码块使用Tab键或4个空格开头的效果不够直观，很多扩展语法（如GFM）提供了围栏代码块```，并且支持语法高亮。
     3. 使用规范
 - 除行内代码可以使用`包裹以外，如果我们想转义或强调某些字符，也可以使用`包裹。
-![](行内代码转义或强调某些字符.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/行内代码转义或强调某些字符.png)
 - 很多Shell命令都要粘贴到终端中去执行，因此最好避免在Shell命令中使用任何换行操作；可以在行尾使用一个\，这样既能避免命令换行，又能提高源码的可读性。
-![](可以在行尾使用一个斜杠.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/可以在行尾使用一个斜杠.png)
 - 建议不要在没有输出内容的Shell命令前加$。在命令没有输出内容的情况下，$是没有必要的，因为内容全是命令，我们不会把命令和输出的内容混淆。
 - 建议在有输出内容的Shell命令前加上$，这样会比较容易区分命令和输出的内容。
-![](有输出内容的Shell命令前加上美元符.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/有输出内容的Shell命令前加上美元符.png)
 
 ### 引用
     1. 语法
@@ -242,19 +254,19 @@ Markdown中的段落由一行或多行文本组成，不同的段落之间使用
 3）在引用中可以使用其他的Markdown语法。
 4）段落与换行的格式在引用中也是适用的。
 
-![](引用.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/引用.png)
 
     2. 使用规范
 建议在引用的标记符号＞之后添加一个空格
 建议每一行引用都使用符号＞
 不要在引用中添加空行
-![](不要在引用中添加空行.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/不要在引用中添加空行.png)
 
 ### 转义
 
 当我们想在Markdown文件中插入一些标记符号，但又不想让这些符号被渲染时，可以使用\进行转义`\特殊符号`
 可被转义的特殊符号
-![](可被转义的特殊符号.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/可被转义的特殊符号.png)
 
 ##  扩展语法GFM
 
@@ -263,18 +275,18 @@ Markdown中的段落由一行或多行文本组成，不同的段落之间使用
 ### 删除线
 
 删除线语法`~~删除线~~`
-![](删除线.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/删除线.png)
 
 ### 表情符号
 
 使用：包裹表情代码`：表情代码：`
 更多的表情符号请参考<http://www.webpagefx.com/tools/emoji-cheat-sheet/>。
-![](表情符号.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/表情符号.png)
 
 ### 自动链接(GFM扩展语法)
 
 在标准语法中，由<>包裹的URL地址被自动识别并解析为超链接，使用GFM扩展语法则可以不使用<>包裹。
-![](自动链接GFM扩展语法.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/自动链接GFM扩展语法.png)
 注意：
 自动链接只识别以www或http://开头的URL地址。
 如果不想使用自动链接，也可以使用\`包裹URL地址`www.baidu.com`
@@ -282,7 +294,7 @@ Markdown中的段落由一行或多行文本组成，不同的段落之间使用
 ### 表格
 
 表格的语法
-![](表格的语法.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/表格的语法.png)
 > 语法说明
 1）单元格使用|来分隔，为了阅读更清晰，建议最前和最后都使用|。
 2）单元格和|之间的空格会被移除。
@@ -293,7 +305,7 @@ Markdown中的段落由一行或多行文本组成，不同的段落之间使用
     ○ 居中对齐：:-:
 5）块级元素（代码区块、引用区块）不能插入表格中。
 
-![](表格格式.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/表格格式.png)
 > 创建表格的建议
 1）在表格的前、后各空1行。
 2）在每一行最前和最后都使用|，每一行中的|要尽量都对齐。
@@ -302,24 +314,24 @@ Markdown中的段落由一行或多行文本组成，不同的段落之间使用
 ### 任务列表
 
 - 任务列表的语法
-![](任务列表的语法.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/任务列表的语法.png)
 > 语法说明
 1）任务列表以`-+空格开头，由 [+空格/x+] `组成。
 2）x可以小写，也可以大写，有些编辑器可能不支持大写，所以为避免解析错误，推荐使用小写的x。
 3）当方括号中的字符为空格时，复选框是未选中状态，为x时是选中状态。
-![](任务列表实例演示.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/任务列表实例演示.png)
 
 ### 围栏代码块
 
 在基础语法中，代码块使用Tab键或4个空格开头；在扩展语法中，围栏代码块使用连续3个`或3个~包裹，还支持语法高亮，可读性和可维护性更强一些。
 - 围栏代码块语法
-![](围栏代码块语法.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/围栏代码块语法.png)
 > 语法说明
 围栏代码块使用连续3个`或3个~包裹，支持语法高亮并可以加上编程语言的名字。
 建议围栏代码块被空行包裹，推荐：
 
 围栏代码块实例演示
-![](围栏代码块实例演示.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/围栏代码块实例演示.png)
 
 ###  锚点
 
@@ -334,7 +346,7 @@ Markdown会被渲染成HTML页面，在HTML页面中可以通过锚点实现跳�
 2）锚点名是区分英文大小写的。
 3）在锚点名中不能含有空格，也不能含有特殊字符。
 
-![](锚点实例演示.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/锚点实例演示.png)
 
 ## 排版技巧
 
@@ -345,12 +357,12 @@ Markdown会被渲染成HTML页面，在HTML页面中可以通过锚点实现跳�
 
 下面有两个比较好的排版示例，注意观察它们是如何使用段落、数字、英文和标点符号的。
 如下图所示，左图是受关注比较多的技术公众号“谷歌开发者”的版面，右图是付费学习平台“得到”的版面。
-![](排版示例.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/排版示例.png)
 
 ### 排版样式对比
 
 没有比较可能感受不是很明显，那我们就来比较一下“没有套路”和“有套路”的排版。
-![](排版对比左没有套路和右有套路.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/排版对比左没有套路和右有套路.png)
 
 ### 关于空格
 
@@ -441,11 +453,11 @@ Typora是一款功能全面、简洁高效，而且又非常优雅的Markdown编
 
     3.界面概览
 先来认识一下Typora编辑器的界面，如下图所示。
-![](浮面板，这个面板可以被固定在侧边栏。编辑器界面概览.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/浮面板，这个面板可以被固定在侧边栏。编辑器界面概览.png)
 
     4.大纲面板
 把鼠标放到状态栏上，在右上角会显示【大纲】图标，单击该图标会显示大纲悬浮面板，这个面板可以被固定在侧边栏。
-![](Typora大纲面板.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Typora大纲面板.png)
 
     5.字数统计
 把鼠标放到状态栏上，在右下角会显示文件的字数，单击字数会显示较详细的字数信息。如果你选择了一段文本，则会在信息面板中显示被选中的文字信息。
@@ -453,7 +465,7 @@ Typora是一款功能全面、简洁高效，而且又非常优雅的Markdown编
 
     6.主题
 Typora提供了6款漂亮的主题供大家选择，每一个都很漂亮。可通过菜单栏上的【主题】进行切换，主题效果示例如下。
-![](Typora6款主题.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Typora6款主题.png)
 
     7.实时预览
 Typora编辑器最具特色的功能是实时预览，当输入Markdown标记后，按回车键或把光标定位到别的段落就能够看到预览效果。
@@ -482,9 +494,9 @@ Typora支持GFM，还扩展了很多其他的功能（如支持数学公式、�
     1.编辑样式
 在Typora中通过执行：菜单栏→【格式】→【加粗/斜体/代码（行内代码）/图像/超链接】可以添加或移除关于文字样式的标记符号。如果没有选中文字，则只会添加标记符号；如果选中了文字，则会为选中的文字添加或移除标记符号。
 相关样式的快捷键如下。
-![](Typora样式的快捷键.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Typora样式的快捷键.png)
 小提示：在输入Emoji标记语法时，Typora会自动给出补全信息，如下图所示。
-![](Emoji标记语法自动补全提示.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Emoji标记语法自动补全提示.png)
 
     2.编辑段落
 在Typora中通过执行：菜单栏→【段落】→【段落/引用/表格/代码块/分隔线/有序列表/无序列表/任务列表】，可以添加或移除关于段落的标记符号。
@@ -507,49 +519,49 @@ a）段落与换行
 
 b）标题
 对标题进行设置的快捷键如下。
-![](设置标题的快捷键.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/设置标题的快捷键.png)
 小提示：当标题的级别过多时，除了查看源码，肉眼很难区分它们，有没有什么办法可以更好地区分标题的级别呢?有，把光标放在标题行的任意位置，在标题行的左上角会显示标题的级别（h3/h4/h5），一级和二级标题不显示。
 
 c）列表
 Typora支持有序列表、无序列表和任务列表，它们之间可以通过快捷键实现快速切换，还可以使用列表缩进功能快速调整缩进，使用起来非常方便。与列表操作相关的快捷键如下表所示。
-![](列表操作相关的快捷键.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/列表操作相关的快捷键.png)
 
 > 小提示
 1）当光标放在任务列表上时，任务状态被激活，这时才可以“切换任务状态”。
 2）列表和代码块都可以使用“增加缩进”和“减少缩进”。
 
-![](增加减少缩进效果.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/增加减少缩进效果.png)
 
 d）引用和水平分隔线
 与引用和水平分割线相关的快捷键如下。
-![](引用和水平分割线相关的快捷键.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/引用和水平分割线相关的快捷键.png)
 
 e）表格
 - 创建表格。
     - 如果想创建一个表格，可以执行：菜单栏→【段落】→【表格】→输入列数和行数→单击【确定】按钮。创建表格的快捷键如下。
-![](创建表格的快捷键.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/创建表格的快捷键.png)
     - 还有一种可以快速创建表格的比较酷的方式：输入表头的标记语法，在最后一个|之后按回车键，如下图所示。
-![](快速创建表格的比较酷的方式.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/快速创建表格的比较酷的方式.png)
 - 增加行/删除行、复制表格、格式化表格。
 对于表格的增加、删除、复制和格式化操作，可以在表格中单击鼠标右键，选择【表格】，通过其列出的操作选项对表格进行操作，如下图所示。
-![](操作选项对表格进行操作.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/操作选项对表格进行操作.png)
 - 快速调整表格。
 如果想快速调整表格的行数、列数、对齐方式，可以将光标放在表格中，表格左上方和右上方都会显示操作菜单，直接进行操作即可，如下所示。
-![](快速调整表格.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/快速调整表格.png)
 如果想调整表格中行或列的顺序，可将光标放在行的最左边或列的最上边，待光光标变成双向箭头后拖动即可调整顺序，如下图所示。
-![](调整表格中行或列的顺序.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/调整表格中行或列的顺序.png)
 
 f）代码
 - 插入围栏代码块。
 如果想添加或删除围栏代码块的标记，可以执行：菜单栏→【段落】→【代码块】。如果想把某段内容使用围栏代码块包裹，需要先选中该内容，然后执行上述操作。
 如果想声明语言，将光标放在代码块中，在代码块右下角的【选择语言】中输入编程语言就可以了。
-![](插入围栏代码块.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/插入围栏代码块.png)
 - 显示代码行数。
 代码块默认是不显示代码行数的，如果想显示，则需要执行：文件→【偏好设置】→【代码块】→勾选【显示行号】。
 · 自动换行。
 在代码块中，如果代码过长，默认是会自动换行的，如果我们不希望代码自动换行，可以执行：文件→【偏好设置】→【代码块】→不勾选【代码块自动换行】。
 自动换行与不自动换行的效果对比如下图所示。
-![](代码自动换行与不自动换行的效果对比.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/代码自动换行与不自动换行的效果对比.png)
 
 ### Typora扩展语法
 
@@ -562,7 +574,7 @@ a）下画线
 
 b）内联数学公式
 如果想使用内联数学公式，需要先激活：【偏好设置】→【Markdown扩展语法】→勾选【内联公式】→重启Typora，内联数学公式的语法是使用`$`把数学公式包裹起来 `$行内数学公式$`
-![](内联数学公式实例演示.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/内联数学公式实例演示.png)
 
 c）下标和上标
 - 如果想使用上标和下标，需要先激活：【偏好设置】→【Markdown扩展语法】→勾选【下标】、【上标】→重启Typora，其语法如下。`~下标内容~``^上标内容^`
@@ -571,7 +583,7 @@ c）下标和上标
 1）使用~把下标内容包裹起来。
 2）使用^把上标内容包裹起来。
 
-![](下标和上标.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/下标和上标.png)
 
 d）高亮
 - 如果想使用高亮功能，需要先激活：【偏好设置】→【Markdown扩展语法】→勾选【高亮】→重启Typora，其语法如下。
@@ -607,8 +619,8 @@ b）目录
 
 c）脚注
 添加脚注的语法如下。
-![](添加脚注的语法.png)
-![](添加注脚全过程.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/添加脚注的语法.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/添加注脚全过程.png)
 当鼠标放在引用的脚注之上时，会显示脚注的描述信息；若脚注没有定义，则会提示我们定义脚注的语法。
 可以执行：菜单栏→【段落】→【脚注】来快速插入标记。
 
@@ -622,21 +634,21 @@ d）图表（序列图、流程图和Mermaid）
 - 序列图
 序列图（Sequence Diagram）也被称为循序图，是一种UML（Unified Modeling Language，统一建模语言）行为图，它通过描述对象之间发送消息的时间顺序显示多个对象之间的动态协作。
 Typora提供的序列图语法标记功能是基于开源项目（js-sequence-diagrams）开发的，其语法如下。
-![](序列图语法标记.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/序列图语法标记.png)
 > 语法说明如下。
 1）使用3个`+sequence包裹js-sequence-diagrams语法。
 2）js-sequence-diagrams语法参考<https://bramp.github.io/js-sequence-diagrams/>。
 
-![](序列图实例演示.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/序列图实例演示.png)
 
 - 流程图
 流程图是以图像的方式表示过程、算法和流程的，Typora提供的流程图语法标记是基于开源项目（flowchart.js）开发的，其语法如下。
-![](流程图语法标记.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/流程图语法标记.png)
 > 语法说明如下。
 1）使用3个`+flow包裹flowchart.js语法。
 2）flowchart.js语法参考<http://flowchart.js.org/>。
 
-![](流程图实例演示.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/流程图实例演示.png)
 
 - Mermaid
 Typora集成了Mermaid，Mermaid支持使用文本的方式生成图表，包括序列图、流程图和甘特图。
@@ -645,11 +657,11 @@ Typora集成了Mermaid，Mermaid支持使用文本的方式生成图表，包括
 3）Mermaid甘特图。
 甘特图（Gantt chart）是将活动与时间联系起来的一种图表形式，能够显示每个活动的历时长短。甘特图很清晰地标识出每一项任务的起始与结束时间，通常在项目管理中使用，方便人们从时间上整体把握项目进度。
 Mermaid甘特图的语法如下（可参考http://knsv.github.io/mermaid/index.html#mermaid-cli）。
-![](Mermaid语法标记.png)
-![](Mermaid序列图示例.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Mermaid语法标记.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Mermaid序列图示例.png)
 
-![](Mermaid流程图示例.png)
-![](Mermaid甘特图示例.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Mermaid流程图示例.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Mermaid甘特图示例.png)
 
     3.使用HTML标签
 Typora还支持很多常用的HTML标签，使用这些标签可以让样式更加丰富，但这也导致纯粹的写作变得更加复杂，提高了用户使用的门槛，因此我们在此只列举几个简单的例子作为参考。
@@ -674,12 +686,12 @@ c）插入视频
     1.快速打开文件
 如果想快速打开最近打开过的文件，可以执行：菜单栏→【文件】→【快速打开】，此时会打开一个弹窗，弹窗会列出最近打开过的文件列表，并且可以通过文件名进行查找，这样就能不离开窗口而快速打开文件了。
 不过最快的操作方式还是使用快捷键，打开文件的快捷键如下所示。
-![](打开文件的快捷键.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/打开文件的快捷键.png)
 
     2.复原历史版本
 在macOS系统下，Typora提供了文件复原功能，相当于对文件进行了版本管理，此功能可以把文件复原到某个指定的时间点。其操作步骤如下。
 菜单栏→【文件】→【回退到】→【上次存储的版本/上次打开的版本/浏览所有版本...】→单击【浏览所有版本...】，在这个界面选择想复原到哪个时间点的版本，如下图所示。
-![](macOS系统下Typora文件复原功能.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/macOS系统下Typora文件复原功能.png)
 虽然Windows下的Typora不支持版本控制功能，但是可以恢复自动保存到草稿中的内容。恢复的步骤：【文件】→【偏好设置】→【保存&恢复】→单击【恢复未保存的草稿】→找到以日期和文件名（或文件的第一个标题/句子）命名的草稿进行恢
 
     3.自动保存
@@ -705,12 +717,12 @@ c）插入视频
 - 如果想直接复制HTML源码，
     - 可以执行：菜单栏→【编辑】→【复制为HTML代码】；如果想在粘贴时去掉所有格式，可以执行：菜单栏→【编辑】→【粘贴为纯文本】。
     - 执行粘贴操作的快捷键Ctrl+Shift+V
-![](上述几种复制粘贴的效果.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/上述几种复制粘贴的效果.png)
 
     2.选择
 【编辑】菜单中的选择功能有选中当前词、选中当前行/句、选中当前格式文本和全选。
 “选中当前词”也可以通过双击鼠标来执行，三击鼠标可以“选中当前行/句”。
-![](文本选择快捷键.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/文本选择快捷键.png)
 
     3.删除
 由于选择操作（选中当前词、选中当前行/句、选中当前格式文本和全选）都有快捷键，因此在Typora中，删除内容最便捷的方法就是先选择再删除，仅需两步。
@@ -718,23 +730,23 @@ c）插入视频
 
     4.查找和替换
 通过快捷键Command+F（Windows：Ctrl+F）调出查找面板，在查找面板上可以设置是否“区分大小写”和是否“查找整个单词”，默认都是否，如下图所示。
-![](查找和替换面板.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/查找和替换面板.png)
 可以在查找面板上切换上一个和下一个查找结果，也可以按回车键切换下一个，或者通过快捷键切换，其快捷键如下。
-![](切换上一个和下一个查找结果.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/切换上一个和下一个查找结果.png)
 单击查找面板上【查找】右边的向下三角，或者通过快捷键Option+Command+F（Windows：Ctrl+H）可以显示查找和替换面板，如下图所示。
-![](显示替换面板.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/显示替换面板.png)
 如果把光标放在替换内容输入框中，按回车键会替换下一个，也可以通过快捷键（macOS系统:Command+Option+E）来替换下一个。
 
     5.跳转
 在Typora中，除通过侧边栏的大纲列表进行跳转外，还可以通过快捷键快速跳转到页首、页尾和选中的文本区域，相关快捷键如下。
-![](快捷键快速跳转.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/快捷键快速跳转.png)
 
     6.图片操作
 在Typora中，可以快速插入本地图片、复制插入的图片到指定文件夹、上传图片到图床（仅支持macOS系统）、图片居中、调整图片大小等功能。关于图片居中：当一个段落中只包含一张图片时，图片会居中对齐，否则会左对齐。
 
 a）插入本地图片
 方法1：如下图所示，在插入图片标记后，单击右边的文件夹图标，可以快速插入本地图片。插入图片标记的效果如下图所示。
-![](插入图片标记.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/插入图片标记.png)
 方法2：菜单栏→【编辑】→【图片工具】→【插入本地图片】。
 方法3：直接拖动本地图片到编辑器中。
 方法4：直接从剪切板中复制并粘贴到编辑器。
@@ -777,14 +789,14 @@ Typora支持3种视图模式：大纲视图、文件树视图和文档列表视�
 1）大纲视图：方便查看全文的结构。
 2）文件树视图：方便切换当前目录及子目录中的文档。
 3）文档列表视图：方便切换当前目录中的文档。
-![](3种视图可以通过侧边栏的图标来相互切换如下图所示.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/3种视图可以通过侧边栏的图标来相互切换如下图所示.png)
 
     2.沉浸式写作体验
 如果想拥有沉浸式写作体验，可以执行：菜单栏→【视图】，并依次勾选下面的选项。
 1）打字机模式：光标始终位于屏幕的中间。
 2）专注模式：只高亮显示光标所在行，其余内容全部变灰。
 3）全屏：最大化文件窗口，排除其他软件的干扰。
-![](沉浸式写作体验相关快捷键.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/沉浸式写作体验相关快捷键.png)
 Typora基本上能够满足我们的日常写作需求，但它无法在手机端使用，也不支持云同步。如果你觉得这些非常重要，可以使用Bear。Bear支持在Mac、iPhone和iPad上使用Markdown，也支持多端同步。
 开源软件MarkText有着跟Typora类似的用户体验，但功能相对简单一些
 # VS Code
@@ -795,7 +807,7 @@ Typora基本上能够满足我们的日常写作需求，但它无法在手机�
 
 VS Code的下载地址是https://code.visualstudio.com/，按照提示进行安装即可。
 打开VS Code，其操作界面如下图所示。
-![](VScode操作界面.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/VScode操作界面.png)
 
 ## 基础配置
 
@@ -851,17 +863,17 @@ STEP 3,在列出的已安装语言列表中进行切换，重启后生效。
 1）新建一个空文件夹“vscode-md”，用VS Code打开，此时资源管理器中会显示：打开的编辑器、VSCODE-MD 和大纲。现在它们都是空的。
 2）单击 VSCODE-MD 右边的新建文件图标，新建一个“README.md”文件，由于我们之前安装了图标主题插件，在该文件之前会显示一个文件图标。
 3）在README.md中输入一些内容来查看整个界面的显示情况。
-![](Markdown文档整个界面显示情况.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Markdown文档整个界面显示情况.png)
 在【大纲】视图中可以很方便地对Markdown文件大纲进行查看、筛选、查找和切换。
 然后，设置大纲列表，勾选以下选项。
 1）跟随光标：在编辑Markdown文件时，大纲列表会跟随光标所在位置进行切换。
 2）在输入时筛选：在大纲视图中直接输入内容时对大纲进行筛选，如果不勾选就只有查找功能（高亮显示查找结果，不会进行筛选）。
-![](设置大纲列表.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/设置大纲列表.png)
 
 ### 预览
 
 若要预览Markdown文件，在资源管理器中的文件名上单击鼠标右键→选择【打开预览】→即可显示Markdown文件的预览界面，其快捷键如下。
-![](预览Markdown文件快捷键.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/预览Markdown文件快捷键.png)
 也可以在源码编辑界面单击右上角的【打开侧边预览】图标进入经典的Markdown编辑模式。小提示：两边的滚动是同步的，双击预览界面可切换到源码界面。
 
 ###  超级Markdown插件MPE （导出文件prince）
@@ -870,7 +882,7 @@ Markdown Preview Enhanced（以下简称MPE）是一款超级强大的Markdown�
 Typora支持的所有Markdown语法，包括GFM、数学公式、图表、目录等，MPE基本都支持。如果你已经很熟悉Typora的使用，那么使用MPE也会很轻松。
 MPE还支持引用文件和制作幻灯片，这两个功能绝对会让你眼前一亮。
 小提示：如果想显示文件的目录，可以在预览界面按Esc键。
-![](MPE预览界面按ESC键显示隐藏文件目录.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/MPE预览界面按ESC键显示隐藏文件目录.png)
 
     1.插入目录
 - 插入目录有两种方法。
@@ -883,7 +895,7 @@ MPE可以非常方便地引用外部文件，它支持引用.md、.csv、.jpg、
 
 a）引用Markdown文件
 例如，引用一个本地的Markdown文件。`@import "README.md"`
-![](引用一个本地的Markdown文件.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/引用一个本地的Markdown文件.png)
 从上图中可以看出，README.md 文件的内容被直接引用了，这对我们拼接组合不同 Markdown文件中的内容会非常有用。
 也可以引用一个在线文件，示例如下。
  `@import "https://github.com/kennethreitz/responder/blob/master/README.md"`
@@ -895,22 +907,22 @@ MPE可引用的图片格式包括：.jpg、.gif、.png、.apng、.svg、.bmp。
 `@import "文件名.jpg"{width=“200px“ height="150" title="文件名" alt="这是我的文件"}`
 
 c）引用csv文件
-![](被引用的csv文件会被直接解析成表格.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/被引用的csv文件会被直接解析成表格.png)
 
     3.幻灯片
 MPE使用reveal.js来渲染幻灯片，这比直接使用reveal.js来创建幻灯片更加简单便捷。
 
 a）创建幻灯片
 幻灯片通过 `<!-- slide -->` 来分页。例如，创建两页幻灯片。
-![](幻灯片分页.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/幻灯片分页.png)
 幻灯片会随着光标进行切换，如果你感觉在编辑器中查看不方便，也可以通过浏浏览器查看。具体方法是在预览界面单击鼠标右键，选择【Open in Browser】，就可以了。
 小提示：不管是在编辑器中，还是在浏览器中，如果想要切换到幻灯片的预览界面，直接按Esc键就可以了。
 
 b）切换幻灯片主题
 幻灯片默认使用白色主题，如果想切换主题可以这样设置。
-![](幻灯片切换主题.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/幻灯片切换主题.png)
 把上面的代码放到Markdown文件的头部，效果会如下图所示。
-![](幻灯片切换主题代码放到Markdown文件的头部.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/幻灯片切换主题代码放到Markdown文件的头部.png)
 更多可选的主题如下。
 · beige.css
 · black.css
@@ -932,7 +944,7 @@ b）切换幻灯片主题
 a）导出HTML文件
 在MPE中，把Markdown格式的文件导出为HTML文件非常简单，只需在预览界面上，单击鼠标右键，选择【HTML】→【HTML(offline)】即可，HTML文件会被导出到与当前Markdown文件同级的目录中。
 可是在默认情况下，当Markdown文件有改动时，HTML文件并不会同步更新，如果想做到这一点，需要在Markdown文件头部加上如下代码。
-![](Markdown文件有改动时被导出的HTML文件设置同步更新.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Markdown文件有改动时被导出的HTML文件设置同步更新.png)
 此后，如果这个Markdown文件有改动，只要进行保存，就会自动导出最新的HTML文件。
 
 b）导出PDF文件——（Puppeteer）
@@ -950,7 +962,7 @@ c）导出PDF文件——（Prince）
 
 安装完成后，只需在预览界面上，单击鼠标右键，选择【PDF(prince)】即可，PDF文件会被导出到当前目录中，而且会被自动打开。
 如果我们想在修改Markdown文件之后，自动导出最新的PDF文件，只需在Markdown文件头部加上如下代码。
-![](自动导出最新的PDF文件在Markdown文件头部加上如下代码.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/自动导出最新的PDF文件在Markdown文件头部加上如下代码.png)
 此后，在每次修改完Markdown文件之后，只要进行保存，就会自动导出最新的PDF文件。
 
 ## 高效编辑
@@ -972,7 +984,7 @@ VS Code有一个命令面板，提供了几乎所有功能的快速访问路径�
 
 ### 折叠内容
 通常，编辑器都有一个非常好用的功能，那就是可以折叠内容结构，这使内容结构更清晰，也更容易阅读。令人惊喜的是，VS Code竟然支持Markdown源码的折叠，当遇到代码块、嵌套列表（有序列表/无序列表/任务列表）时，在编辑器中就会显示折叠图标，单击该图标即可把内容折叠。最棒的是VS Code还支持标题的折叠。具体如下图所示。
-![](Markdown源码的折叠.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Markdown源码的折叠.png)
 
 ###  自动保存
 
@@ -986,48 +998,48 @@ VS Code默认使用的是第1种策略，执行：菜单栏→【文件】→【
 
 ### 智能感知
 我们在前面提到过VS Code的智能感知功能，这绝对又是一个神技。通过智能感知可以进行自动补全，可以快速插入Markdown语法和自定义的代码片段。触发智能感知的快捷键Ctrl+空格键
-![](智能感知进行自动补全.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/智能感知进行自动补全.png)
 注意：在Windows系统下快捷键“Ctrl+空格键”可能会跟输入法的快捷键相冲突，可通过修改快捷键解决。
 操作步骤：【管理】→【键盘快捷方式】→在搜索框输入[Trigger Suggest]（触发建议）→修改快捷键。
 
 ### Markdown All in One
 
 Markdown All in One（以下简称MAO）提供了常用的Markdown快捷键和自动补全功能。
-![](MarkdownAllinOne快捷键.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/MarkdownAllinOne快捷键.png)
 
     1.格式化表格
 表格的标记语法是有规范要求的，手动调整可能有点麻烦，而使用MAO则可以一键格式化表格
 注意：快捷键可能会因你绑定的键盘而有所不同，默认是Alt+Shift+F（Windows系统），我使用的是IntelliJ IDEA的快捷键Option+Command+L（macOS系统）。
 
     2.图片路径自动联想
-当输入图片的 Markdown标记时，MAO会自动联想指定路径（默认是文件所在的路径）下的图片，而且在联想出来的图片列表中可以直接预览图片`![]()`
-![](MAO会自动联想指定路径.png)
+当输入图片的 Markdown标记时，MAO会自动联想指定路径（默认是文件所在的路径）下的图片，而且在联想出来的图片列表中可以直接预览图片`![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/)`
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/MAO会自动联想指定路径.png)
 
 ### 自定义代码片段
 
 在VS Code中，可以自定义常用的代码片段，通过触发智能感知，实现一键插入。方法是打开自定义Markdown代码片段的文件，执行：【管理】→【用户代码片段】→在弹出的面板中选择【markdown.json】，如下图所示。
-![](打开自定义Markdown代码片段的文件.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/打开自定义Markdown代码片段的文件.png)
 然后，就可以在markdown.json中定义自己的代码片段了，示例如下。
-![](markdownjson中定义代码片段示例.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/markdownjson中定义代码片段示例.png)
 相关格式说明如下图所示。
-![](定义代码片段相关格式说明.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/定义代码片段相关格式说明.png)
 保存后，在Markdown编辑界面通过使用Trigger Suggest默认“Ctrl+空格键”组合键调出智能提示，我定义的是“Ctrl+Alt+T”，效果如下图所示。
-![](组合键调出代码片段智能提示.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/组合键调出代码片段智能提示.png)
 
 工作计划模板，定义成代码片段后，每次使用都可以一键插入，非常高效。
-![](工作计划模板代码片段.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/工作计划模板代码片段.png)
 > 工作计划模板代码片段格式说明如下
 1）前缀支持中文，本例的前缀是“工作计划”。
 2）每一行内容都使用逗号分隔。
 3）这里用到了占位符，代码片段插入编辑器后，可通过Tab键在不同的占位符之间快速切换，以实现内容的替换。
 
 在编辑器中插入上述代码片段，效果如下图所示。
-![](插入工作计划模板代码片段.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/插入工作计划模板代码片段.png)
 
 ### 语法检查
 
 安装markdownlint以后，它会自动对Markdown文件进行检查，并在VS Code底部面板中列出检查出来的问题。问题标签上会显示检查出来的问题数量，列表中的问题会根据编辑器中已打开的文件名进行分类，单击具体问题会跳转到编辑器中对应的位置，在位置的上面会显示一个小灯泡图标，单击小灯泡会显示解决问题的提示，如下图所示。
-![](markdownlint语法检查.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/markdownlint语法检查.png)
 
 ### 从剪切板直接粘贴图片
 
@@ -1057,7 +1069,7 @@ Code Spell Checker插件能够帮助我们检查常见的拼写错误，也是�
 切换模式：
 打开VS Code→【菜单栏】→【查看】→【外观】→【切换禅模式】。
 或者通过命令面板切换，如下图所示。
-![](写作进入禅模式.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/写作进入禅模式.png)
 
 ### 版本管理
 
@@ -1112,9 +1124,9 @@ STEP 3，查看示例。
 双击index.html在浏览器中打开幻灯片的效果如下图所示。
 STEP 4，创建我们的第一个幻灯片。
 复制index.html并重命名为first.html，使用VS Code打开，修改核心代码，具体如下。
-![](第一个幻灯片first-html代码.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/第一个幻灯片first-html代码.png)
 保存后双击first.html在浏览器中打开幻灯片，效果如下图所示。
-![](第一个幻灯片first-html效果.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/第一个幻灯片first-html效果.png)
 至此，第一个简单的幻灯片就创建好了。
 当然，这个幻灯片是比较简单的，因为我们还没有学习在reveal.js中创建幻灯片的语法和规则，待熟悉reveal.js的语法规则后，就可以随心所欲地创作幻灯片了。
 
@@ -1131,7 +1143,7 @@ STEP 2，安装reveal.js项目中依赖的模块，在终端处运行如下命�
 如果安装模块失败，请使用cnpm install来安装。
 STEP 3，运行如下命令，启动Web服务。`npm start`
 如果启动正常，则终端处会输出如下内容。
-![](reveal-js启动正常.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/reveal-js启动正常.png)
 然后浏览器会自动打开http://localhost:8000，默认打开的是index.html页面。如果想打开first.html，则需要手动输入http://localhost:8000/first.html。注意：如果启动Web服务时报错，请确认是否已成功安装了项目所依赖的模块。如果端口被占用，可以在运行时指定端口，命令如下。`npm start -- --port=8001`
 Web服务启动成功之后又运行了一个watch任务，这个watch任务会监控项目中的文件；
 如果有文件被修改，在保存之后服务会自动重启，页面也会自动刷新，这样我们就能看到页面最新修改后的效果了。
@@ -1141,7 +1153,7 @@ Web服务启动成功之后又运行了一个watch任务，这个watch任务会�
 
     1.创建并编写幻灯片
 在reveal.js项目中创建HTML文件，然后在HTML文件中编写幻灯片。HTML文件的基本结构如下所示。
-![](HTML文件的基本结构.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/HTML文件的基本结构.png)
 > 如上述代码中的注释所描述的那样，各部分的用途如下。
 1）在<head>中设置幻灯片的主题。
 2）在<section>中编写幻灯片的内容。
@@ -1155,7 +1167,7 @@ Web服务启动成功之后又运行了一个watch任务，这个watch任务会�
     3.幻灯片的类型
 reveal.js中的幻灯片分为两种类型：水平幻灯片和垂直幻灯片。
 顾名思义，水平幻灯片是左右翻页的幻灯片，垂直幻灯片则是上下翻页的幻灯片；垂直幻灯片通常嵌套在水平幻灯片中使用。
-![](幻灯片类型示例代码.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/幻灯片类型示例代码.png)
 
     4.使用Markdown编写幻灯片
 > reveal.js使用Markdown编写幻灯片有两种方式。
@@ -1163,13 +1175,13 @@ reveal.js中的幻灯片分为两种类型：水平幻灯片和垂直幻灯片�
 2）在HTML文件中引用外部的Markdown文件。
 
 如果在HTML文件中直接使用Markdown编写，则需要给<section>标签添加data-markdown属性，并且内容要使用<textareadata-template>包裹，示例代码如下。
-![](HTML文件中直接使用Markdown编写幻灯片.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/HTML文件中直接使用Markdown编写幻灯片.png)
 如果在HTML文件中引用外部的Markdown文件，则需要指定分页的匹配规则，示例代码如下。
-![](在HTML文件中引用外部的Markdown文件编写幻灯片.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/在HTML文件中引用外部的Markdown文件编写幻灯片.png)
 
     5.添加reveal.js的依赖和配置
 在Reveal.initialize({});中进行对reveal.js的配置，如开启历史记录、显示页面、设置全局转场效果等，示例代码如下。
-![](添加reveal-js的配置.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/添加reveal-js的配置.png)
 reveal.js不依赖任何第三方脚本，但有一些可选的库供用户自由选择，这些库按依赖顺序进行加载，如上述代码所示。
 关于配置依赖的库的语法解读如下。
 1）src：指定要加载的脚本的路径。
@@ -1181,19 +1193,19 @@ reveal.js不依赖任何第三方脚本，但有一些可选的库供用户自�
 - 为幻灯片写封面（HTML版）。
 1）复制index.html，并重命名为revealjs.html，用VS Code打开。
 2）先不管代码的其他部分（后面都会讲到），先找到＜div class=＂slides＂＞，在＜section＞＜/section＞中添加幻灯片的内容，具体如下。
-![](reveal-js幻灯片的编写.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/reveal-js幻灯片的编写.png)
 注意代码的层级结构，使用<section>标签包裹的是一张幻灯片的内容。保存后，在浏览器中渲染的效果如下图所示。
-![](reveal-js幻灯片的编写渲染效果.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/reveal-js幻灯片的编写渲染效果.png)
 小提示：为了让大家更容易理解后面的内容，在这里先明确几个HTML中的概念。
 1）元素：元素指的是从开始标签到结束标签中间的所有代码。
 2）标签：标签是由<>包裹的关键词，通常是成对出现的，如<section>和</section>。
 3）属性：标签中的属性提供了HTML元素的更多信息，通常在元素的开始标签中以键/值对的形式出现，如＜section data-state=＂customevent＂＞，通过图片来看会更清晰。
-![](HTML中的概念.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/HTML中的概念.png)
 
 - 为幻灯片写个封面（Markdown版）
-![](Markdown幻灯片的编写.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Markdown幻灯片的编写.png)
 注意：使用Markdown时需要在`<section>`标签中添加data-markdown属性，Markdown的内容要包裹在`<textarea data-template>`之中。小提示：reveal.js通过marked.js解析Markdown，在使用Markdown之前请确保添加了下面的依赖。
-![](Markdown编写幻灯片之前请确保添加了下面的依赖.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/Markdown编写幻灯片之前请确保添加了下面的依赖.png)
 上面分别使用HTML和Markdown编写了效果相同的幻灯片，能够明显感受到Markdown更为简洁。需要注意的是，在使用Markdown时，要给`<section>`标签添加data-markdown属性，并且Markdown内容要使用`<textarea data-template>`进行包裹。另外，我们还了解了HTML中元素、标签和属性的概念，这对后面的学习会有很大帮助。
 
 ### 常用格式
@@ -1202,7 +1214,7 @@ reveal.js使用marked.js来解析Markdown，并支持CommonMark和GitHub Flavore
 
     1.标题
 标题、普通文本和更小的文本的示例代码如下。
-![](reveal-js解析Markdown标题.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/reveal-js解析Markdown标题.png)
 > 小提示
 1）本示例只演示了一到四级标题，因为四、五、六级标题区别不大，这里就不演示五、六级标题了。
 2）由于Markdown不支持小号字体的标记，因此小号字体（更小的文本）使用<small>标签来实现。
@@ -1211,13 +1223,13 @@ reveal.js使用marked.js来解析Markdown，并支持CommonMark和GitHub Flavore
     2.引用
 行内引用和区块引用的示例代码如下。
 由于Markdown不支持行内引用标记，因此行内引用使用<q>标签实现。
-![](reveal-js解析Markdown引用.png)
-![](reveal-js解析Markdown引用效果.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/reveal-js解析Markdown引用.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/reveal-js解析Markdown引用效果.png)
 
     3.表格
 插入表格的示例代码如下。
-![](reveal-js解析Markdown表格.png)
-![](reveal-js解析Markdown表格效果.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/reveal-js解析Markdown表格.png)
+![](https://raw.githubusercontent.com/ld269440877/images/master/MarkdownNotebook/reveal-js解析Markdown表格效果.png)
 
     4.列表
 注意：由于reveal.js中的Markdown不支持任务列表，因此任务列表需要使用HTML来实现，在本例中设置了复选框的大小。
