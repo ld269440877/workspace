@@ -44,6 +44,7 @@ PicGoGithubToken：`b645e49c93247cd32a0cc5ced6f8e7560e625688`
 2.2 配置
 
 ![](https://raw.githubusercontent.com/ld269440877/images/master/AliyunNotebook/PicGo客户端配置.png)
+
 - 仓库名 即你的仓库名
 - 分支名 默认 master
 - Token 就是刚刚复制的那一串字符
@@ -58,6 +59,8 @@ PicGoGithubToken：`b645e49c93247cd32a0cc5ced6f8e7560e625688`
 | 设定Token      | b645e49c93247cd32a0cc5ced6f8e7560e625688                    |
 | 指定存储路径   | 3CRTR/                                                      |
 | 设定自定义域名 | https://raw.githubusercontent.com/ld269440877/images/master |
+
+
 
 然后点确定就可以了。
 
@@ -162,3 +165,6 @@ VS Code替换快捷键`Ctrl+H`
 | {n, m}          | 将前面的元素匹配至少n次，最多m次，如”be{1,3}” 可以且只可以匹配”be”,“bee”, “beee”                                                                                                                                                                                                                                                   |
 | `|`             | 相当于”或”,表示匹配由                                                                                                                                                                                                                                                                                                              | 分割的任意一个元素，如the(e | is | at)，可以匹配”the”, “this”, “that” |
 | $n              | n是个数字，这个是替换时使用括号（ ）将匹配的patter分割成了几个元素，然后在替换的patter里面使用，类似于变量。<br>如果查找patter是”(\w+)(\s)(\w+)“,那么$1就是(\w+),$2是(\s),$3是(\w+)，替换patter是$3$2$1,那么替换结果就是(\w+)(\s)(\w+)。<br>假设匹配到的是”one two”，那么$1,$2,$3分别为”one”, “ “, “two”，替换后的结果为”two one”. |
+
+
+
