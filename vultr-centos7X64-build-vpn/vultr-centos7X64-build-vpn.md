@@ -72,9 +72,9 @@
 
 1. 进入Vultr首页-Products-右侧加号Deploy New Server
 2. Deploy New Instance
-- Choose Server-64 bit OS - CentOS 7 x64
-- Server Location-All Location-Tokyo
-- Server Type-Application-OpenVPN
+- Choose Server-Cloud Compute
+- Server Location-All Location-Tokyo(在上海日本和迈阿密网速可以其他的有点慢)
+- Server Type-64 bit OS - CentOS 7 x64
 - Server Size-$5/month
 - Deploy Now
 - 服务器安装
@@ -82,6 +82,8 @@
 <img src="https://raw.githubusercontent.com/ld269440877/images/master/vultr-centos7X64-build-vpn/ServerType64bitOS-CentOS7x64.png" alt="ServerType64bitOS-CentOS7x64"  title="ServerType64bitOS-CentOS7x64" width="600" height="">
 
 > 注：Server安装版本CentOS 7 x64，如果是其他版本安装Docker会报错`Failed to start docker.service: Unit docker.service not found.`
+
+<img src="https://raw.githubusercontent.com/ld269440877/images/master/vultr-centos7X64-build-vpn/ServerType-64bitOS-ServerInformation.png" alt="ServerType-64bitOS-ServerInformation"  title="ServerType-64bitOS-ServerInformation" width="600" height="">
 
 ## 第二步：VPS的设置以及VPN的搭建－影梭
 
@@ -101,12 +103,37 @@
 2. 启动DOcker `[root@vultr ~]# service docker start`
 3. 开启系统服务`[root@vultr ~]# chkconfig docker on`
 4. 检查Docker 状态`[root@vultr ~]# docker version`
-5. 安装 Shadowsocks 的 VPN Docker 镜像`docker pull oddrationale/docker-shadowsocks`
-6. 运行镜像`[root@vultr ~]# docker run -d -p 2020:2020 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 2020 -k Aaqq -m aes-256-cfb`
-7. 查看docker下进程运行状态`[root@vultr ~]# docker ps -a`
+5. 安装 Shadowsocks 的 VPN Docker 镜像`[root@vultr ~]# docker pull oddrationale/docker-shadowsocks`
+6. 运行镜像`[root@vultr ~]# docker run -d -p 2020:2020 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 2020 -k Aa2020 -m aes-256-cfb`
+7. 查看容器信息`[root@vultr ~]# docker ps -a`
+8. 添加Docker服务到系统自启动`[root@vultr ~]# systemctl enable docker`
+9. 安装lrzsz使用rz、sz命令进行Windows-Linux文件互传receive - send zmodem协议`[root@vultr ~]# sudo yum -y install lrzsz`
+
+- 本安装并配置shadowsocks DockerBuildVPN shell脚
+```sh
+echo "使用rz、sz命令进行文件互传receive - send zmodem协议"
+#sudo yum -y install lrzsz
+echo "安装Docker"
+yum install docker -y
+echo "启动Docker"
+service docker start
+echo "chkconfig docker on"
+chkconfig docker on
+echo "查看Docker版本"
+docker version
+echo "安装 Shadowsocks 的 VPN Docker 镜像"
+docker pull oddrationale/docker-shadowsocks
+echo "创建VPN"
+docker run -d -p 2020:2020 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 2020 -k Aa2020 -m aes-256-cfb
+echo "查看docker下进程运行状态"
+docker ps -a
+```
+- `chmod +x DockerBuildVPN`
+- `./DockerBuildVPN`
+
 > 只需要修改端口和密码，其他默认即可。
 `-p` 端口这里要前后一致，比如2020:2020 2020
-`-k` 后面设置你的 VPN 的密码，比如：Aaqq
+`-k` 后面设置你的 VPN 的密码，比如：Aa2020
 检查运行; 到这一步基本上就完成了，接下来就开始连接了。
 
 ## 第四步：使用SHADOWSOCKS进行连接
@@ -115,7 +142,7 @@
 2. 2.打开软件，填写刚创建势力Server Information的信息
 - 服务器地址（填写Your Server IP）`167.179.92.73`
 - 端口号(填写Your Server Port)`2020`
-- 密码(填写Your Password)`Aaqq`
+- 密码(填写Your Password)`Aa2020`
 - 加密方式(填写Your Encryption Method)`aes-256-cfb`
 - 代理端口(填写Your Local Port)`1080`
 <img src="https://raw.githubusercontent.com/ld269440877/images/master/vultr-centos7X64-build-vpn/Shadowsocks配置.png" alt="Shadowsocks配置"  title="Shadowsocks配置" width="600" height="">
