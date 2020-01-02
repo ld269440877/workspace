@@ -110,6 +110,7 @@
 9. 安装lrzsz使用rz、sz命令进行Windows-Linux文件互传receive - send zmodem协议`[root@vultr ~]# sudo yum -y install lrzsz`
 
 - 本安装并配置shadowsocks DockerBuildVPN shell脚
+[DockerBuildVPN](https://raw.githubusercontent.com/ld269440877/images/master/vultr-centos7X64-build-vpn/DockerBuildVPN "DockerBuildVPN")
 ```sh
 echo "使用rz、sz命令进行文件互传receive - send zmodem协议"
 #sudo yum -y install lrzsz
@@ -130,6 +131,8 @@ docker ps -a
 ```
 - `chmod +x DockerBuildVPN`
 - `./DockerBuildVPN`
+
+> 注：可以将脚本中可变量换成shell中的变量，然后将变量最后输出到屏幕（配置shadowocks的信息，ip即服务器的IP）
 
 > 只需要修改端口和密码，其他默认即可。
 `-p` 端口这里要前后一致，比如2020:2020 2020
