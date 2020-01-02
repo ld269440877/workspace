@@ -99,13 +99,21 @@
 
 ## 第三步：开始VPN的搭建
 
+[docker常用命令大全 - Beua - 博客园](https://www.cnblogs.com/longren/p/11445730.html)
+
+- TCP BBR 是 Google 于 2016 年发布的，一种避免网络拥塞的算法。目的是要尽量跑满带宽, 并且尽可能避免排队的情况。
+    - 安装 BBR`[root@vultr ~]# wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && ./bbr.sh`
+    - 安装完成后，脚本会提示需要重启 VPS，输入 y 并回车后重启。
+    - 重新使用 SSH 登录 VPS，这时 BBR 应该**已经开启**了。你可以使用以下两行命令**验证**一下。`[root@vultr ~]# uname -r && lsmod | grep bbr`
+    - 如果输出的内核版本为 4.9 以上版本，且返回值有 tcp_bbr 模块的话，说明 bbr 已启动。
+
 1. 安装Docker `[root@vultr ~]# yum install docker -y`
 2. 启动DOcker `[root@vultr ~]# service docker start`
 3. 开启系统服务`[root@vultr ~]# chkconfig docker on`
 4. 检查Docker 状态`[root@vultr ~]# docker version`
 5. 安装 Shadowsocks 的 VPN Docker 镜像`[root@vultr ~]# docker pull oddrationale/docker-shadowsocks`
 6. 运行镜像`[root@vultr ~]# docker run -d -p 2020:2020 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 2020 -k Aa2020 -m aes-256-cfb`
-7. 查看容器信息`[root@vultr ~]# docker ps -a`
+7. 查看容器列表`[root@vultr ~]# docker ps -a`
 8. 添加Docker服务到系统自启动`[root@vultr ~]# systemctl enable docker`
 9. 安装lrzsz使用rz、sz命令进行Windows-Linux文件互传receive - send zmodem协议`[root@vultr ~]# sudo yum -y install lrzsz`
 
@@ -126,7 +134,7 @@ echo "安装 Shadowsocks 的 VPN Docker 镜像"
 docker pull oddrationale/docker-shadowsocks
 echo "创建VPN"
 docker run -d -p 2020:2020 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 2020 -k Aa2020 -m aes-256-cfb
-echo "查看docker下进程运行状态"
+echo "查看容器列表"
 docker ps -a
 ```
 - `chmod +x DockerBuildVPN`
