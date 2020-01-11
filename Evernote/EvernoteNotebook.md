@@ -5,9 +5,14 @@
 作者：李参
 书号：9787121281334
 <font color=red size=6>不是印象笔记怎么用，而是怎么用印象笔记</font>
+[印象笔记模板](https://github.com/ld269440877/images/tree/master/EvernoteNotebook/EverNoteTemplates)
+
+<img src="https://raw.githubusercontent.com/ld269440877/images/master/EvernoteNotebook/印象笔记导入enex文件模板.gif" alt="印象笔记导入enex文件模板"  title="印象笔记导入enex文件模板" width="600" height="">
 
 [印象笔记使用锦囊-使用印象笔记-印象笔记帮助中心](https://help.yinxiang.com/hc/sections/48391?utm_source=evernote_app&utm_medium=windows&utm_campaign=v6_new&layout=tightt&application=YXBJWindows)
+
 [探索印象|了解最新动态、用户故事、使用技巧、视频教程 | 印象笔记](https://www.yinxiang.com/explore/tips/?jet-smart-filters=jet-engine/default&_tax_query_category=71)
+
 [笔记方法论](https://bitan.app.yinxiang.com/official/notebook/8e2971e7-44e9-43b2-87de-e29f01cafe6a?layout=win&embed=true&utm_source=yinxiang_app&utm_medium=windows&firstLaunch=true&platformProduct=win32-yinxiang)
 
 <img src="https://raw.githubusercontent.com/ld269440877/images/master/EvernoteNotebook/印象笔记使用指南.gif" alt="印象笔记使用指南"  title="印象笔记使用指南" width="600" height="">
