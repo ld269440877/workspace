@@ -1,6 +1,21 @@
 
 # Reading Methodology
 
+ <svg width="50%" height="50%">
+    <rect width="100%" height="100%" fill="red" />
+    <circle cx="100%" cy="100%" r="150" fill="blue" stroke="black" />
+    <polygon points="120,0 240,225 0,225" fill="green"/>
+    <text x="50" y="100" font-family="Verdana" font-size="55"
+          fill="white" stroke="black" stroke-width="2">
+            Hello!
+    </text>
+  </svg>
+
+
+<h1>我的第一个标题</h1>
+<p>我的第一个段落。</p>
+
+
 > 参考
 [豆瓣读书绿树-如何阅读一本书](https://book.douban.com/annotation/18688438/)
 [华罗庚论读书](https://xueqiu.com/8102984655/80516129)
@@ -22,12 +37,12 @@
 2）系统读书法
 围绕一个感兴趣的主题，
 挑选1本~2本主读（7%或20%类），
-再挑选3~4本副读（20%或70%类）
+再挑选3~4本辅读（20%或70%类）
 然后做思维图，形成一个知识体系。
 
 3）读书4步（鸟瞰法）
 1. 读书前准备
-    1.1 明确自己阅读动机（如我为什么要读这本书，对这本书涉及的内容有我有哪些疑问，这本书占我总系统什么地位），选择合适的精力分配。
+    1.1 明确自己阅读动机（如我<font color=red size=5>为什么要读这本书，对这本书涉及的内容有我有哪些疑问，这本书占我总系统什么地位</font>），选择合适的精力分配。
 2. 通览初翻一遍书
     2.1 这本书我知道多少，不知道多少。
     2.2 每一章的重点问题和概要是什么，哪些需要重点看，哪些不需要看。我要带着什么问题去看。
@@ -37,8 +52,21 @@
     3.2 笔记B（重点和我需要的地方）
     3.3 笔记C（我的体会和分析）
 4. 归类把这本书的信息放在总的知识结构中。
+5. 知己知彼，胸有丘壑
 
-# 阅读量
+知己知彼
+    : 正确的了解自己，并能评估对方的实力。
+    元．高文秀《渑池会．第三折》：「但上阵要知己知彼，若相持千战千赢。」
+
+百战不殆
+    : 经历许多次战役，都没有遭到危险。形容<font color=red>善于</font>用兵。出自《孙子·谋攻》。
+
+胸有丘壑
+    : 本指在动笔绘画前，心中早已有了深远的意象。
+    唐厉霆《大有诗堂》：“胸中元自有丘壑，盏里何妨对圣贤。
+    后比喻思虑深远，胸怀远大。
+
+# &sect; 阅读量
 
 - 基础阅读量不达标的情况下，光有方法是没用的。
 - 技巧是弱者的无奈选择。
@@ -48,7 +76,8 @@
 检验消化的最好的方法就是“用”。
 
 只有消化后，我们才会灵活运用。只有经过独立思考和认真消化的学者，才能因时因地根据不同的问题，运用不同的方法真正解决问题
-<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/BookmarkManagementSolutionNotebook/书给你一个更好地视角-BooksGiveYouABetterPerspective.png" alt="书给你一个更好地视角-BooksGiveYouABetterPerspective"  title="书给你一个更好地视角-BooksGiveYouABetterPerspective" width="600" height=""></center>
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/ReadingMethodologyNotebook/书给你一个更好地视角-BooksGiveYouABetterPerspective.png" alt="书给你一个更好地视角-BooksGiveYouABetterPerspective"  title="书给你一个更好地视角-BooksGiveYouABetterPerspective" width="600" height=""></center>
+
 # `薄厚互返`读书法
 > 学习有一个由薄到厚，再由厚到薄的过程。
 > 1. 你<font color=red>初学</font>一本书，加上许多注解，又看了许多参考书，于是书就由薄变厚了。自己以为这就是懂了，那是自欺欺人，实际上这还不能算懂。
@@ -72,15 +101,15 @@
 > 3. <font color=orange>补充更新:</font>有时候阅读同一水平的书，如果我们以往的书弄懂了，消化了，那么在同一水平书里找找以往书上没有的东西就可以过去了。
 > 4. 找不到很快送上书架，找到一点两点就只要把这一两点弄通就得了，这样读书就快了，不是慢了
 
-<img src="https://raw.githubusercontent.com/ld269440877/images/master/BookmarkManagementSolutionNotebook/20200113164245.png" alt="20200113164245"  title="华罗庚-由薄到厚-由厚到薄" width="600" height="">
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/华罗庚薄厚互返法.png" alt="华罗庚薄厚互返法"  title="华罗庚薄厚互返法" width="600" height="" /></center>
 
 > 把书读薄，就是把脉络理顺，对整个结构有清晰的认识。
 
-<img src="https://raw.githubusercontent.com/ld269440877/images/master/BookmarkManagementSolutionNotebook/把书读薄.png" alt="把书读薄"  title="把书读薄" width="600" height="">
+<img src="https://raw.githubusercontent.com/ld269440877/images/master/ReadingMethodologyNotebook/把书读薄.png" alt="把书读薄"  title="把书读薄" width="600" height="">
 
 > 把书读厚，就是在书的基础上查证细节，在书中没展开的节点上找其他知识扩充。
 
-<img src="https://raw.githubusercontent.com/ld269440877/images/master/BookmarkManagementSolutionNotebook/把书读厚.png" alt="把书读厚"  title="把书读厚" width="600" height="">
+<img src="https://raw.githubusercontent.com/ld269440877/images/master/ReadingMethodologyNotebook/把书读厚.png" alt="把书读厚"  title="把书读厚" width="600" height="">
 
 # 读后启示
 1. 不要被细节吓坏，90%的书知道个大概就好了。剩下10%的书，80%的内容也是知道大概就好了。

@@ -23,9 +23,9 @@
 但更好的做法是，使用拓展 Pocket 来做稍后阅读的标记，除了可以避免书签的臃肿，而且它还会有时间线，管理起来也更加方便。
 > 推荐方案：Pocket（支持 Firefox / Chrome ）
 
-<img src="https://raw.githubusercontent.com/ld269440877/images/master/BookmarkManagementSolutionNotebook/20200112204103.png" alt="20200112204103"  title="稍后阅读-Pocket插件" width="600" height="">
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/稍后阅读-Pocket插件快捷方式.png" alt="稍后阅读-Pocket插件快捷方式"  title="稍后阅读-Pocket插件快捷方式" width="600" height="" /></center>
 
-3. 会话保存。
+3. 会话保存
 如果说「稍后阅读」是用于保存一个或者几个网页的话，那么「会话保存」则是针对一个项目或者某一次上网的浏览场景。
 比如我们在做一个项目，打开了一些网页，但由于上下班等原因需要暂时停止，这时我们就需要将当前打开的网页保存起来。
 
