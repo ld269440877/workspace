@@ -4,7 +4,9 @@
 > 参考
 [HTML 基础教程](https://www.w3school.com.cn/html/html_jianjie.asp)
 [HTML在线测试-W3School TIY Editor](https://www.w3school.com.cn/tiy/t.asp?f=html_headers)
+[在Markdown中嵌入youtube视频的写法](https://gist.github.com/aoxu/7783280#file-youtube-md)
 
+[![点我-我是在线图片生成器tablesgenerator](https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116225405.png)](http://www.tablesgenerator.com/html_tables)
 
 # HTML 简介
 
@@ -509,7 +511,575 @@ HTML 可定义很多供格式化输出的元素，比如粗体和斜体字。
 
 <center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200115224401.png" alt="20200115224401"  title="计算机输出标签" width="600" height="" /></center>
 
-# HTML 引用
+# HTML 引用Quotation
 
-# TODO HTML 引用
-https://www.w3school.com.cn/html/html_quotation_elements.asp
+HTML `<q>` 用于短的引用
+HTML `<q>` 元素定义短的引用。
+
+浏览器通常会为 `<q>` 元素包围引号。
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116085827.png" alt="20200116085827"  title="HTML短引用" width="600" height="" /></center>
+
+## 用于长引用的 HTML <blockquote>
+
+HTML `<blockquote>` 元素定义被引用的节。
+浏览器通常会对 `<blockquote>` 元素进行缩进处理。
+```html
+<p>以下内容引用自 WWF 的网站：</p>
+<blockquote cite="http://www.worldwildlife.org/who/index.html">
+
+五十年来，WWF 一直致力于保护自然界的未来。
+世界领先的环保组织，WWF 工作于 100 个国家，
+并得到美国一百二十万会员及全球近五百万会员的支持。
+</blockquote>
+```
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116090319.png" alt="20200116090319"  title="HTML长引用" width="600" height="" /></center>
+
+## 用于缩略词的 HTML `<abbr>`
+
+HTML `<abbr>` 元素定义缩写或首字母缩略语。
+对缩写进行标记能够为浏览器、翻译系统以及搜索引擎提供有用的信息。
+<p><abbr title="World Health Organization">WHO</abbr> 成立于 1948 年。</p>
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116090814.png" alt="20200116090814"  title="HTML缩略词abbr" width="600" height="" /></center>
+
+## 用于定义的 HTML <dfn>
+
+HTML `<dfn>` 元素定义项目或缩写的定义。
+`<dfn>` 的用法，按照 HTML5 标准中的描述，有点复杂：
+
+1. 如果设置了 `<dfn>` 元素的 title 属性，则定义项目：
+```html
+<p><dfn title="World Health Organization">WHO</dfn> 成立于 1948 年。</p>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116112516.png" alt="20200116112516"  title="HTML定义元素dfn" width="600" height="" /></center>
+
+2. 如果 <dfn> 元素包含具有标题的 <abbr> 元素，则 title 定义项目：
+```html
+<p><dfn><abbr title="World Health Organization">WHO</abbr></dfn> 成立于 1948 年。</p>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116112955.png" alt="20200116112955"  title="HTML定义dfn元素包含标题的abbr元素" width="600" height="" /></center>
+
+3. 否则，<dfn> 文本内容即是项目，并且父元素包含定义。
+```html
+<p><dfn>WHO</dfn> World Health Organization 成立于 1948 年。</p>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116113249.png" alt="20200116113249"  title="HTML定义dfn元素文本内容即项目" width="600" height="" /></center>
+
+> 注释：如果您希望简而化之，请使用第一条，或使用 <abbr> 代替。
+
+## 用于联系信息的 HTML <address>
+
+HTML `<address>` 元素定义文档或文章的联系信息（作者/拥有者）。
+此元素通常以斜体显示。大多数浏览器会在此元素前后添加折行。
+```html
+<address>
+Written by Donald Duck.<br> 
+Visit us at:<br>
+Example.com<br>
+Box 564, Disneyland<br>
+USA
+</address>
+```
+
+## 用于著作标题的 HTML `<cite>`
+
+HTML `<cite>` 元素定义著作的标题。
+浏览器通常会以斜体显示 `<cite>` 元素。
+
+<p><cite>The Scream</cite> by Edward Munch. Painted in 1893.</p>
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116113838.png" alt="20200116113838"  title="HTML著作标题引用cite" width="600" height="" /></center>
+
+## 用于双向重写的 HTML `<bdo>`
+HTML `<bdo>` 元素定义双流向覆盖（bi-directional override）。
+`<bdo>` 元素用于覆盖当前文本方向：
+```html
+<bdo dir="rtl">This text will be written from right to left</bdo>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116114242.png" alt="20200116114242"  title="HTML双向重写" width="600" height="" /></center>
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116114349.png" alt="20200116114349"  title="HTML 引文引用和定义元素" width="600" height="" /></center>
+
+# HTML 计算机代码元素
+
+```js
+var person = {
+    firstName:"Bill",
+    lastName:"Gates",
+    age:50,
+    eyeColor:"blue"
+}
+```
+
+## HTML 计算机代码格式
+
+通常，HTML 使用可变的字母尺寸，以及可变的字母间距。
+在显示计算机代码示例时，并不需要如此。
+`<kbd>`, `<samp>`, 以及 `<code>` 元素全都支持固定的字母尺寸和间距。
+
+## HTML 键盘格式
+
+HTML `<kbd>` 元素定义键盘输入：
+```html
+<p>To open a file, select:</p>
+<p><kbd>File | Open...</kbd></p>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116114959.png" alt="20200116114959"  title="HTML键盘格式元素kbd" width="600" height="" /></center>
+
+## HTML 样本格式
+
+HTML `<samp>` 元素定义计算机输出示例：
+
+```html
+<samp>
+demo.example.com login: Apr 12 09:10:17
+
+Linux 2.6.10-grsec+gg3+e+fhs6b+nfs+gr0501+++p3+c4a+gr2b-reslog-v6.189
+</samp>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116115435.png" alt="20200116115435"  title="样本格式元素samp定义计算机输出示例" width="600" height="" /></center>
+
+## HTML 代码格式
+HTML `<code>` 元素定义编程代码示例：
+```html
+<code>
+var person = { firstName:"Bill", lastName:"Gates", age:50, eyeColor:"blue" }
+</code>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116115640.png" alt="20200116115640"  title="代码格式code" width="600" height="" /></center>
+
+> `<code>` 元素不保留多余的空格和折行：
+
+```html
+<p>Coding Example:</p>
+
+<code>
+var person = {
+    firstName:"Bill",
+    lastName:"Gates",
+    age:50,
+    eyeColor:"blue"
+}
+</code>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116115846.png" alt="20200116115846"  title="代码格式code不保留多余的空格和折行" width="600" height="" /></center>
+
+> 如需保留多余的空格和折行，您必须在 <pre> 元素中包围代码：
+
+```html
+<p>Coding Example:</p>
+
+<code>
+<pre>
+var person = {
+    firstName:"Bill",
+    lastName:"Gates",
+    age:50,
+    eyeColor:"blue"
+}
+</pre>
+</code>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116120049.png" alt="20200116120049"  title="代码格式code加pre保留多余的空格和折行" width="600" height="" /></center>
+
+## HTML 变量格式化
+HTML <var> 元素定义数学变量：
+```html
+<p>Einstein wrote:</p>
+
+<p><var>E = m c<sup>2</sup></var></p>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116120321.png" alt="20200116120321"  title="HTML 计算机代码元素标签" width="600" height="" /></center>
+
+# HTML 注释
+
+注释标签 `<!-- 与 -->` 用于在 HTML 插入注释。
+> 注释：在开始标签中有一个惊叹号，但是结束标签中没有。
+浏览器不会显示注释，但是能够帮助记录您的 HTML 文档。
+您可以利用注释在 HTML 中放置通知和提醒信息：
+```html
+<!-- 这是一段注释 -->
+
+<p>这是一个段落。</p>
+
+<!-- 记得在此处添加信息 -->
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116120646.png" alt="20200116120646"  title="HTML 注释" width="600" height="" /></center>
+
+## 条件注释
+
+您也许会在 HTML 中偶尔发现条件注释：
+```html
+<!--[if IE 8]>
+    .... some HTML here ....
+<![endif]-->
+```
+> 条件注释定义只有 Internet Explorer 执行的 HTML 标签。
+
+## 软件程序标签
+
+各种 HTML 软件程序也能够生成 HTML 注释。
+例如 `<!--webbot bot-->` 标签会被包围在由 FrontPage 和 Expression Web 创建的 HTML 注释中。
+作为一项规则，这些标签的存在，有助于对创建这些标签的软件的支持。
+
+# HTML CSS
+
+通过使用 HTML4.0，所有的格式化代码均可移出 HTML 文档，然后移入一个独立的样式表。
+
+如何使用添加到 `<head>` 部分的样式信息对 HTML 进行格式化。
+```html
+<html>
+
+<head>
+<style type="text/css">
+h1 {color: red}
+p {color: blue}
+</style>
+</head>
+
+<body>
+<h1>header 1</h1>
+<p>A paragraph.</p>
+</body>
+
+</html>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116141908.png" alt="20200116141908"  title="添加到 head部分的样式信息对 HTML 进行格式化" width="600" height="" /></center>
+
+如何使用样式属性做一个没有下划线的链接。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116142706.png" alt="20200116142706"  title="使用样式style属性做一个没有下划线的链接" width="600" height="" /></center>
+
+如何 `<link>` 标签链接到一个外部样式表。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116144050.png" alt="20200116144050"  title="link标签链接到一个外部样式表" width="600" height="" /></center>
+
+## 如何使用样式
+
+当浏览器读到一个样式表，它就会按照这个样式表来对文档进行格式化。有以下三种方式来插入样式表：
+1. 外部样式表
+当样式需要被应用到很多页面的时候，外部样式表将是理想的选择。使用外部样式表，你就可以通过更改一个文件来改变整个站点的外观。
+```html
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+```
+
+2. 内部样式表
+当单个文件需要特别样式时，就可以使用内部样式表。你可以在 head 部分通过 `<style>` 标签定义内部样式表。
+```html
+<html>
+<head>
+
+<style type="text/css">
+body {background-color: red}
+p {margin-left: 200px}
+</style>
+</head>
+
+<body><p>我引用了内部样式表</p></body>
+</html>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116144908.png" alt="20200116144908"  title="在 head 部分通过style标签定义内部样式表" width="600" height="" /></center>
+
+3. 内联样式
+当特殊的样式需要应用到个别元素时，就可以使用内联样式。 使用内联样式的方法是在相关的标签中使用样式属性。样式属性可以包含任何 CSS 属性。以下实例显示出如何改变段落的颜色和左外边距。
+```html
+<p style="color: red; margin-left: 200px">
+This is a paragraph
+</p>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116145229.png" alt="20200116145229"  title="20200116145229" width="600" height="" /></center>
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116145426.png" alt="20200116145426"  title="常见样式标签" width="600" height="" /></center>
+
+# HTML 链接
+
+[什么是超文本？](https://www.w3school.com.cn/tags/tag_term_hypertext.asp)
+
+HTML 使用超级链接与网络上的另一个文档相连。
+几乎可以在所有的网页中找到链接。点击链接可以从一张页面跳转到另一张页面。
+
+如何在 HTML 文档中创建链接。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116145953.png" alt="20200116145953"  title="HTML 文档中创建链接" width="600" height="" /></center>
+
+如何使用图像作为链接。
+```html
+<html>
+
+<body>
+<p>
+您也可以使用图像来作链接：
+<a href="/example/html/lastpage.html">
+<img border="0" src="/i/eg_buttonnext.gif" />
+</a>
+</p>
+
+</body>
+</html>
+```
+<a href="https://www.w3school.com.cn/tiy/t.asp?f=html_imglink">
+<center><img border="0" src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/buttonnext.png" alt="buttonnext"  title="buttonnext图像作为链接" width="600" height="" /></center>
+</a>
+
+如何在新窗口打开一个页面，这样的话访问者就无需离开你的站点了。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116151647.png" alt="20200116151647"  title=" target 属性设置为 '_blank'该链接会在新窗口中打开" width="600" height="" /></center>
+
+如何使用链接跳转至文档的另一个部分
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116155017.png" alt="20200116155017"  title="使用链接跳转至文档的另一个部分" width="600" height="" /></center>
+
+如何跳出框架，假如你的页面被固定在框架之内。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116155450.png" alt="20200116155450"  title="跳出框架" width="600" height="" /></center>
+
+如何链接到一个邮件。（本例在安装邮件客户端程序后才能工作。）
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116194635.png" alt="20200116194635"  title="链接到一个邮件" width="600" height="" /></center>
+
+更加复杂的邮件链接
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116194820.png" alt="20200116194820"  title="更加复杂的邮件链接" width="600" height="" /></center>
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116194858.png" alt="20200116194858"  title="HTML 链接标签" width="600" height="" /></center>
+
+# HTML 图像
+
+通过使用 HTML，可以在文档中显示图像。
+如何在网页中显示图像。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116195534.png" alt="20200116195534"  title="网页中显示图像" width="600" height="" /></center>
+
+如何将其他文件夹或服务器的图片显示到网页中。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116195729.png" alt="20200116195729"  title="将其他文件夹或服务器的图片显示到网页中" width="600" height="" /></center>
+
+如何向 HTML 页面添加背景图片。
+```html
+<html>
+
+<body background="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/eg_cute.gif">
+
+<h3>图像背景</h3>
+
+<p>gif 和 jpg 文件均可用作 HTML 背景。</p>
+
+<p>如果图像小于页面，图像会进行重复。</p>
+
+</body>
+</html>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/d9492d2e-0e88-46e9-9bc4-2c273e6cab25.gif" alt="d9492d2e-0e88-46e9-9bc4-2c273e6cab25"  title="HTML 页面添加背景图片" width="600" height="" /></center>
+
+如何在文字中排列图像
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116201255.png" alt="20200116201255"  title="文字中排列图像" width="600" height="" /></center>
+
+如何使图片浮动至段落的左边或右边。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116201438.png" alt="20200116201438"  title="图片浮动至段落的左边或右边" width="600" height="" /></center>
+
+如何将图片调整到不同的尺寸。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116201618.png" alt="20200116201618"  title="图片调整到不同的尺寸" width="600" height="" /></center>
+
+如何为图片显示替换文本。在浏览器无法载入图像时，替换文本属性告诉读者们失去的信息。为页面上的图像都加上替换文本属性是个好习惯。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116201832.png" alt="20200116201832"  title="alt属性为图片显示替换文本" width="600" height="" /></center>
+
+如何将图像作为一个链接使用。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116202000.png" alt="20200116202000"  title="将图像作为一个链接使用" width="600" height="" /></center>
+
+如何创建带有可供点击区域的图像地图。其中的每个区域都是一个超级链接。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116202521.png" alt="20200116202521"  title="区域的图像地图" width="600" height="" /></center>
+
+如何把一幅普通的图像设置为图像映射。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116202846.png" alt="20200116202846"  title="普通的图像设置为图像映射" width="600" height="" /></center>
+
+## 图像标签（`<img>`）和源属性（Src）
+
+在 HTML 中，图像由 `<img>` 标签定义。
+`<img>` 是空标签，意思是说，它只包含属性，并且没有闭合标签。
+要在页面上显示图像，你需要使用源属性（src）。src 指 "source"。源属性的值是图像的 URL 地址。
+`<img src="url" />`
+
+## 替换文本属性（Alt）
+
+alt 属性用来为图像定义一串预备的可替换的文本。替换文本属性的值是用户定义的。
+`<img src="boat.gif" alt="Big Boat">`
+在浏览器无法载入图像时，替换文本属性告诉读者她们失去的信息。此时，浏览器将显示这个替代性的文本而不是图像。为页面上的图像都加上替换文本属性是个好习惯，这样有助于更好的显示信息，并且对于那些使用纯文本浏览器的人来说是非常有用的。
+
+## 基本的注意事项 - 有用的提示：
+
+假如某个 <font color=red>HTML 文件</font>包含十个图像，那么为了正确显示这个页面，需要加载 11 个文件。加载图片是需要时间的，所以我们的建议是：<font color=red>慎用图片</font>。
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116202943.png" alt="20200116202943"  title="图像标签" width="600" height="" /></center>
+
+# HTML 表格
+
+1. 表格由 `<table>` 标签来定义。
+2. 每个表格均有若干行（由 `<tr>` 标签定义），字母 tr 指表格行（table row）。
+3. 每行被分割为若干单元格（由 `<td>` 标签定义）, 字母 td 指表格数据（table data），即数据单元格的内容。
+
+数据单元格可以包含文本、图片、列表、段落、表单、水平线、表格等等。
+
+如何在 HTML 文档中创建表格
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116204333.png" alt="20200116204333"  title="创建表格" width="600" height="" /></center>
+
+各种类型的表格边框
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116204538.png" alt="20200116204538"  title="表格边框" width="600" height="" /></center>
+
+## 表格和边框属性
+
+如果不定义边框属性，表格将不显示边框。有时这很有用，但是大多数时候，我们希望显示边框。
+
+使用边框属性来显示一个带有边框的表格：
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116205207.png" alt="20200116205207"  title="边框属性border" width="600" height="" /></center>
+
+## 表格的表头
+
+表格的表头使用 `<th>` 标签进行定义。
+大多数浏览器会把表头显示为粗体居中的文本：
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116205405.png" alt="20200116205405"  title="表格的表头标签th" width="600" height="" /></center>
+
+如何水平或竖直地显示表格表头
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116210510.png" alt="20200116210510"  title="水平或竖直地显示表格表头" width="600" height="" /></center>
+
+## 表格中的空单元格
+
+在一些浏览器中，没有内容的表格单元显示得不太好。如果某个单元格是空的（没有内容），浏览器可能无法显示出这个单元格的边框。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116210133.png" alt="20200116210133"  title="表格中的空单元格" width="600" height="" /></center>
+
+正如您看到的，其中一个单元没有边框。这是因为它是空的。在该单元中插入一个空格后，仍然没有边框。
+我们的技巧是在单元中插入一个 no-breaking 空格。
+no-breaking 空格是一个字符实体。如果您不清楚什么是字符实体，请阅读关于字符实体的章节。
+no-breaking 空格由和号开始 ("&")，然后是字符"nbsp"，并以分号结尾(";")。
+
+## 带有标题的表格caption
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116210958.png" alt="20200116210958"  title="带有标题的表格" width="600" height="" /></center>
+
+## 定义跨行或跨列的表格单元格
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116211411.png" alt="20200116211411"  title="跨行或跨列的表格单元格" width="600" height="" /></center>
+
+## 在不同的元素内显示元素
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116213200.png" alt="20200116213200"  title="不同的元素内显示元素" width="600" height="" /></center>
+
+> Markdown 不支持border属性，表格异常
+
+## Cell padding 来创建单元格内容与其边框之间的空白
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116215318.png" alt="20200116215318"  title="20200116215318" width="600" height="" /></center>
+
+## Cell spacing 增加单元格之间的距离
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116215526.png" alt="20200116215526"  title="20200116215526" width="600" height="" /></center>
+
+## 向表格添加背景
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116215746.png" alt="20200116215746"  title="表格添加背景" width="600" height="" /></center>
+
+## 向一个或者更多表格单元添加背景
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116220020.png" alt="20200116220020"  title="一个或者更多表格单元添加背景" width="600" height="" /></center>
+
+## align 属性排列单元格内容
+
+排列单元格内容,以便创建一个美观的表格
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116220232.png" alt="20200116220232"  title="align 属性排列单元格内容" width="600" height="" /></center>
+
+## frame 属性来控制围绕表格的边框
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116220857.png" alt="20200116220857"  title=" frame属性来控制围绕表格的边框" width="600" height="" /></center>
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116221032.png" alt="20200116221032"  title="表格标签" width="600" height="" /></center>
+
+# HTML 列表
+
+HTML 支持有序、无序和定义列表
+
+## 无序列表
+
+无序列表是一个项目的列表，此列项目使用粗体圆点（典型的小黑圆圈）进行标记。
+
+无序列表始于 `<ul>` 标签。每个列表项始于 `<li>`。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116221452.png" alt="20200116221452"  title="无序列表" width="600" height="" /></center>
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116222129.png" alt="20200116222129"  title="不同类型的无序列表" width="600" height="" /></center>
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116222506.png" alt="20200116222506"  title="嵌套列表" width="600" height="" /></center>
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116222728.png" alt="20200116222728"  title="嵌套列表" width="600" height="" /></center>
+
+## 有序列表
+
+同样，有序列表也是一列项目，列表项目使用数字进行标记。
+
+有序列表始于 `<ol>` 标签。每个列表项始于 `<li>` 标签。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116221621.png" alt="20200116221621"  title="有序列表" width="600" height="" /></center>
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116222326.png" alt="20200116222326"  title="不同类型的有序列表" width="600" height="" /></center>
+
+## 定义列表
+
+自定义列表不仅仅是一列项目，而是项目及其注释的组合。
+
+自定义<font color=red></font>列表以 `<dl>` 标签开始</font>。每个自定义<font color=orange></font>列表项以 `<dt>` 开始</font>。每个自定义<font color=blue></font>列表项的定义以 `<dd>` 开始</font>。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116221807.png" alt="20200116221807"  title="自定义列表" width="600" height="" /></center>
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116222824.png" alt="20200116222824"  title="20200116222824" width="600" height="" /></center>
+
+# HTML 块元素
+
+可以通过 `<div>` 和 `<span>` 将 HTML 元素组合起来。
+
+## HTML 块
+
+大多数 HTML 元素被定义为块级元素或内联元素。
+
+编者注：“块级元素”译为 block level element，“内联元素”译为 inline element。
+
+块级元素在浏览器显示时，通常会以新行来开始（和结束）。
+
+例子：`<h1>, <p>, <ul>, <table>`
+
+## HTML 内联元素
+
+内联元素在显示时通常不会以新行开始。
+
+例子：`<b>, <td>, <a>, <img>`
+
+## HTML `<div>`<font color=red>块级</font>元素
+
+HTML `<div>` 元素是块级元素，它是可用于组合其他 HTML 元素的容器。
+
+`<div>` <font color=red>元素没有特定的含义</font>。除此之外，由于它属于块级元素，浏览器会在其前后显示折行。
+
+如果与 CSS 一同使用，`<div>` 元素<font color=red>可用于对大的内容块设置样式属性</font>。
+
+`<div>` 元素的另一个常见的用途是文档布局。它取代了使用表格定义布局的老式方法。使用 `<table>` 元素进行文档布局不是表格的正确用法。`<table>` 元素的作用是显示表格化的数据。
+
+## HTML `<span>` <font color=blue>内联</font>元素
+
+HTML `<span>` 元素是 <font color=blue>内联元素，可用作文本的容器</font>。
+
+`<span>` 元素<font color=blue>也没有特定的含义</font>。
+
+当与 CSS 一同使用时，`<span>` 元素可用于<font color=blue>为部分文本设置样式属性</font>。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116223723.png" alt="20200116223723"  title="HTML 分组标签" width="600" height="" /></center>
+
+# HTML 类
+
+对 HTML 进行分类（设置类），使我们能够为元素的类定义 CSS 样式。
+
+为相同的类设置相同的样式，或者为不同的类设置不同的样式。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116224248.png" alt="20200116224248"  title="元素的类定义 CSS 样式" width="600" height="" /></center>
+
+## 分类块级元素
+
+HTML `<div>` 元素是块级元素。它能够用作其他 HTML 元素的容器。
+
+设置 `<div>` 元素的类，使我们能够为相同的 `<div>` 元素设置相同的类：
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116224541.png" alt="20200116224541"  title="相同的div块级元素设置相同的类" width="600" height="" /></center>
+
+## 分类行内元素
+
+HTML `<span>` 元素是行内元素，能够用作文本的容器。
+
+设置 `<span>` 元素的类，能够为相同的 `<span>` 元素设置相同的样式。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116225044.png" alt="20200116225044"  title="相同的span行内元素设置相同的样式" width="600" height="" /></center>
+
+# HTML 布局
+
+HTML 布局
+https://www.w3school.com.cn/html/html_layout.asp
