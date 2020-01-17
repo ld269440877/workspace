@@ -3,8 +3,11 @@
 
 > 参考
 [HTML 基础教程](https://www.w3school.com.cn/html/html_jianjie.asp)
+[HTML 参考手册](https://www.w3school.com.cn/tags/html_ref_byfunc.asp)
 [HTML在线测试-W3School TIY Editor](https://www.w3school.com.cn/tiy/t.asp?f=html_headers)
 [在Markdown中嵌入youtube视频的写法](https://gist.github.com/aoxu/7783280#file-youtube-md)
+[HTML 实体字符参考手册](https://www.w3school.com.cn/tags/html_ref_entities.html)
+
 
 [![点我-我是在线图片生成器tablesgenerator](https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116225405.png)](http://www.tablesgenerator.com/html_tables)
 
@@ -398,12 +401,12 @@ style 属性的作用：
 
 **应该避免使用下面这些标签和属性 , 请使用样式代替！：**
 
-| 标签                 | 描述             |
-| -------------------- | ---------------- |
-| `<center>`             | 定义居中的内容。 |
+| 标签                     | 描述             |
+| ------------------------ | ---------------- |
+| `<center>`               | 定义居中的内容。 |
 | `<font>` 和 `<basefont>` | 定义 HTML 字体。 |
 | `<s>` 和 `<strike>`      | 定义删除线文本   |
-| `<u>`                  | 定义下划线文本   |
+| `<u>`                    | 定义下划线文本   |
 
 | 属性    | 描述               |
 | ------- | ------------------ |
@@ -1081,5 +1084,722 @@ HTML `<span>` 元素是行内元素，能够用作文本的容器。
 
 # HTML 布局
 
-HTML 布局
-https://www.w3school.com.cn/html/html_layout.asp
+网站常常以多列显示内容（就像杂志和报纸）。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117092251.png" alt="20200117092251"  title="HTML 布局" width="600" height="" /></center>
+
+## 使用 `<div>` 元素的 HTML 布局
+
+注释：`<div>` 元素常用作布局工具，因为能够轻松地通过 CSS 对其进行定位。
+
+这个例子使用了四个 `<div>` 元素来创建多列布局：
+
+### div块级元素标签
+```html
+<body>
+
+<div id="header">
+<h1>City Gallery</h1>
+</div>
+
+<div id="nav">
+London<br>
+Paris<br>
+Tokyo<br>
+</div>
+
+<div id="section">
+<h1>London</h1>
+<p>
+London is the capital city of England. It is the most populous city in the United Kingdom,
+with a metropolitan area of over 13 million inhabitants.
+</p>
+<p>
+Standing on the River Thames, London has been a major settlement for two millennia,
+its history going back to its founding by the Romans, who named it Londinium.
+</p>
+</div>
+
+<div id="footer">
+Copyright W3School.com.cn
+</div>
+
+</body>
+
+<style>
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px; 
+}
+#section {
+    width:350px;
+    float:left;
+    padding:10px; 
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}
+</style>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117093005.png" alt="20200117093005"  title="div块级元素来创建多列布局" width="600" height="" /></center>
+
+### Cascading Style Sheets - CSS-Style样式
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117093724.png" alt="20200117093724"  title="CSS-Style" width="600" height="" /></center>
+
+## 使用 HTML5 的网站布局
+
+HTML5 提供的新语义元素定义了网页的不同部分：
+
+HTML5 语义元素
+
+| header  | 定义文档或节的页眉             |
+| ------- | ------------------------------ |
+| nav     | 定义导航链接的容器             |
+| section | 定义文档中的节                 |
+| article | 定义独立的自包含文章           |
+| aside   | 定义内容之外的内容（比如侧栏） |
+| footer  | 定义文档或节的页脚             |
+| details | 定义额外的细节                 |
+| summary | 定义 details 元素的标题        |
+
+这个例子使用 `<header>, <nav>, <section>`, 以及 `<footer>` 来创建多列布局：
+
+```html
+<body>
+
+<header>
+<h1>City Gallery</h1>
+</header>
+
+<nav>
+London<br>
+Paris<br>
+Tokyo<br>
+</nav>
+
+<section>
+<h1>London</h1>
+<p>
+London is the capital city of England. It is the most populous city in the United Kingdom,
+with a metropolitan area of over 13 million inhabitants.
+</p>
+<p>
+Standing on the River Thames, London has been a major settlement for two millennia,
+its history going back to its founding by the Romans, who named it Londinium.
+</p>
+</section>
+
+<footer>
+Copyright W3School.com.cn
+</footer>
+
+</body>
+
+<style>
+header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px; 
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px; 
+}
+section {
+    width:350px;
+    float:left;
+    padding:10px; 
+}
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}
+```
+
+### HTML5-body
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117094859.png" alt="20200117094859"  title="HTML5-body" width="600" height="" /></center>
+
+### HTML5-Style
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117095215.png" alt="20200117095215"  title="HTML5-Style" width="600" height="" /></center>
+
+## 使用表格的 HTML 布局
+
+注释：`<table>` 元素不是作为布局工具而设计的。
+
+`<table>` 元素的作用是显示表格化的数据。
+
+使用 `<table>` 元素能够取得布局效果，因为能够通过 CSS 设置表格元素的样式：
+```html
+<body>
+
+<table class="lamp">
+<tr>
+  <th>
+    <img src="/images/lamp.jpg" alt="Note" style="height:32px;width:32px">
+  </th>
+  <td>
+    The table element was not designed to be a layout tool.
+  </td>
+</tr>
+<tr>
+  <th>
+    <img src="/images/lamp.jpg" alt="Note" style="height:32px;width:32px">
+  </th>
+  <td>
+    The table element was not designed to be a layout tool.
+  </td>
+</tr>
+</table>
+
+</body>
+
+<style>
+table.lamp {
+    width:100%;
+    height:50%;
+    border:5px solid orange;
+}
+table.lamp th, td {
+	border:5px solid purple;
+	background:yellow;
+    padding:10px;
+}
+table.lamp td {
+	background:blue;
+	color:red;
+    width:40px;
+}
+</style>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117101025.png" alt="20200117101025"  title="CSS 设置表格元素的样式" width="600" height="" /></center>
+
+# HTML 响应式 Web 设计
+
+什么是响应式 Web 设计？
+- RWD 指的是响应式 Web 设计（Responsive Web Design）
+- RWD 能够以可变尺寸传递网页
+- RWD 对于平板和移动设备是必需的
+
+## 创建您自己的响应式设计
+
+创建响应式设计的一个方法，是自己来创建它：
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117105527.png" alt="创建您自己的响应式设计"  title="20200117105527" width="600" height="" /></center>
+
+## 使用 Bootstrap
+
+另一个创建响应式设计的方法，是<font color=red>使用现成的 CSS 框架</font>。
+
+<font color=red>Bootstrap 是最流行的开发响应式 web 的 HTML, CSS, 和 JS 框架</font>。
+
+如需学习更多有关 Bootstrap 的知识，请阅读我们的 [Bootstrap 教程](https://www.w3schools.com/bootstrap4/)。
+Bootstrap 帮助您开发在任何尺寸都外观出众的站点：显示器、笔记本电脑、平板电脑或手机：
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" 
+  href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<div class="container">
+<div class="jumbotron">
+  <h1>W3School Demo</h1> 
+  <p>Resize this responsive page!</p> 
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+  <div class="col-md-4">
+    <h2>London</h2>
+    <p>London is the capital city of England.</p>
+    <p>It is the most populous city in the United Kingdom,
+    with a metropolitan area of over 13 million inhabitants.</p>
+  </div>
+  <div class="col-md-4">
+    <h2>Paris</h2>
+    <p>Paris is the capital and most populous city of France.</p>
+  </div>
+  <div class="col-md-4">
+    <h2>Tokyo</h2>
+    <p>Tokyo is the capital of Japan, the center of the Greater Tokyo Area,
+    and the most populous metropolitan area in the world.</p>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117110326.png" alt="使用现成的 CSS 框架Bootstrap"  title="20200117110326" width="600" height="" /></center>
+
+# HTML 框架
+
+通过使用框架，你可以在同一个浏览器窗口中显示不止一个页面。每份HTML文档称为一个框架，并且每个框架都独立于其他的框架。
+
+使用框架的坏处：
+- 开发人员必须同时跟踪更多的HTML文档
+- 很难打印整张页面
+
+## 框架结构标签（`<frameset>`）
+
+- 框架结构标签（`<frameset>`）定义如何将窗口分割为框架
+- 每个 frameset 定义了一系列行或列
+- rows/columns 的值规定了每行或每列占据屏幕的面积
+> 编者注：frameset 标签也被某些文章和书籍译为框架集。
+
+## 框架标签（Frame）
+
+Frame 标签定义了放置在每个框架中的 HTML 文档。
+
+在下面的这个例子中，我们设置了一个两列的框架集。第一列被设置为占据浏览器窗口的 25%。第二列被设置为占据浏览器窗口的 75%。HTML 文档 "frame_a.htm" 被置于第一个列中，而 HTML 文档 "frame_b.htm" 被置于第二个列中：
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117111721.png" alt="20200117111721"  title="框架标签Frame" width="600" height="" /></center>
+
+## 基本的注意事项 - 有用的提示：
+
+假如一个框架有可见边框，用户可以拖动边框来改变它的大小。为了避免这种情况发生，可以在 `<frame>` 标签中加入：`noresize="noresize"`。
+
+为不支持框架的浏览器添加 `<noframes>` 标签。
+
+重要提示：不能将 `<body></body>` 标签与 `<frameset></frameset>` 标签同时使用！不过，假如你添加包含一段文本的 `<noframes>` 标签，就必须将这段文字嵌套于 `<body></body>` 标签内。（在下面的第一个实例中，可以查看它是如何实现的。）
+
+## 使用三份不同的文档制作一个垂直框架
+
+可拖动边框调整各个框架的尺寸
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117112434.png" alt="20200117112434"  title="三份不同的文档制作一个垂直框架" width="600" height="" /></center>
+
+## 使用三份不同的文档制作一个水平框架
+
+可拖动边框调整各个框架的尺寸
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117112551.png" alt="20200117112551"  title="20200117112551" width="600" height="" /></center>
+
+## 混合框架结构
+
+可拖动边框调整各个框架的尺寸
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117113207.png" alt="20200117113207"  title="混合框架结构" width="600" height="" /></center>
+
+## 含有 noresize="noresize" 属性的框架结构
+
+ noresize 属性为"noresize"的框架是不可调整尺寸的。在框架间的边框上拖动鼠标，你会发现边框是无法移动的。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117113658.png" alt="20200117113658"  title="20200117113658" width="600" height="" /></center>
+
+## 制作导航框架
+
+导航框架包含一个将第二个框架作为目标的链接列表。名为 "contents.htm" 的文件包含三个链接
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117112900.png" alt="20200117112900"  title="20200117112900" width="600" height="" /></center>
+
+## 内联框架
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117114130.png" alt="20200117114130"  title="20200117114130" width="600" height="" /></center>
+
+## 跳转至框架内的一个指定的节
+
+两个框架。左侧的导航框架包含了一个链接列表，这些链接将第二个框架作为目标。第二个框架显示被链接的文档。导航框架其中的链接指向目标文件中指定的节。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117143904.png" alt="跳转至框架内的一个指定的节"  title="20200117143904" width="600" height="" /></center>
+
+# HTML Iframe
+
+iframe 用于在网页内显示网页。
+
+## 添加 iframe 的语法
+
+`<iframe src="URL"></iframe>`URL 指向隔离页面的位置。
+
+## Iframe - 设置高度和宽度
+
+height 和 width 属性用于规定 iframe 的高度和宽度。
+
+属性值的默认单位是像素，但也可以用百分比来设定（比如 "80%"）。
+
+`<iframe src="https://www.w3school.com.cn/html/html_iframe.asp" width=100% height=40%></iframe>`
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117150629.png" alt="20200117150629"  title="Iframe-设置高度和宽度" width="600" height="" /></center>
+
+## Iframe - 删除边框
+
+frameborder 属性规定是否显示 iframe 周围的边框。
+
+设置属性值为 "0" 就可以移除边框：
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117151023.png" alt="20200117151023"  title="Iframe-删除边框" width="600" height="" /></center>
+
+## 使用 iframe 作为链接的目标
+
+iframe 可用作链接的目标（target）。
+
+链接的 target 属性必须引用 iframe 的 name 属性：
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117151642.png" alt="20200117151642"  title="iframe作为链接的目标" width="600" height="" /></center>
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117152158.png" alt="20200117152158"  title="HTML iframe 标签" width="600" height="" /></center>
+
+# HTML 背景
+
+## 背景（Backgrounds）
+
+`<body>` 拥有两个配置背景的标签。背景可以是颜色或者图像。
+背景属性将背景设置为图像。属性值为图像的URL。如果图像尺寸小于浏览器窗口，那么图像将在整个浏览器窗口进行复制。
+```html
+<body background="clouds.gif">
+<body background="http://www.w3school.com.cn/clouds.gif">
+<!-- URL可以是相对地址，如第一行代码。也可以使绝对地址，如第二行代码。 -->
+```
+> 提示：如果你打算使用背景图片，你需要紧记一下几点：
+> - 背景图像是否增加了页面的加载时间。小贴士：图像文件不应超过 10k。
+> - 背景图像是否与页面中的其他图象搭配良好。
+> - 背景图像是否与页面中的文字颜色搭配良好。
+> - 图像在页面中平铺后，看上去还可以吗？
+> - 对文字的注意力被背景图像喧宾夺主了吗？
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117153017.png" alt="20200117153017"  title="可用性强的背景图像" width="600" height="" /></center>
+
+## 背景颜色（Bgcolor）
+
+背景颜色属性将背景设置为某种颜色。属性值可以是十六进制数、RGB 值或颜色名。
+```html
+<body bgcolor="#000000">
+<body bgcolor="rgb(0,0,0)">
+<body bgcolor="black">
+<!-- 以上的代码均将背景颜色设置为黑色。 -->
+```
+
+## 基本的注意事项 - 有用的提示：
+
+`<body>` <font color=red>标签中的背景颜色（bgcolor）、背景（background）和文本（text）属性在最新的 HTML 标准（HTML4 和 XHTML）中已被废弃</font>。W3C 在他们的推荐标准中已删除这些属性。
+
+应该使用<font color=blue>层叠样式表（CSS）来定义 HTML 元素的布局和显示属性</font>。
+
+# HTML 脚本
+
+JavaScript 使 HTML 页面具有更强的动态和交互性。。
+
+## HTML script 元素
+
+`<script>` 标签用于定义客户端脚本，比如 JavaScript。
+script 元素既可包含脚本语句，也可通过 src 属性指向外部脚本文件。
+必需的 type 属性规定脚本的 MIME 类型。
+JavaScript 最常用于图片操作、表单验证以及内容动态更新。
+
+下面的脚本会向浏览器输出“Hello World!”：
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117153425.png" alt="20200117153425"  title="脚本会向浏览器输出Hello World!" width="600" height="" /></center>
+
+> 提示：如果需要学习更多有关在 HTML 中编写脚本的知识，请访问我们的 [JavaScript 教程](https://www.w3school.com.cn/js/index.asp)。
+
+## `<noscript>` 标签
+
+`<noscript>` 标签提供无法使用脚本时的替代内容，比方在浏览器禁用脚本时，或浏览器不支持客户端脚本时。
+
+noscript 元素可包含普通 HTML 页面的 body 元素中能够找到的所有元素。
+
+只有在浏览器不支持脚本或者禁用脚本时，才会显示 noscript 元素中的内容：
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117153810.png" alt="20200117153810"  title="noscript 元素中的内容" width="600" height="" /></center>
+
+## 如何应付老式的浏览器
+
+如果浏览器压根没法识别 `<script>` 标签，那么 `<script>` 标签所包含的内容将以文本方式显示在页面上。为了避免这种情况发生，你应该将脚本隐藏在注释标签当中。那些老的浏览器（无法识别 `<script>` 标签的浏览器）将忽略这些注释，所以不会将标签的内容显示到页面上。而那些新的浏览器将读懂这些脚本并执行它们，即使代码被嵌套在注释标签内。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117154336.png" alt="20200117154336"  title="识别 script标签的浏览器将显示这些注释-无法识别 script标签的浏览器将忽略这些注释" width="600" height="" /></center>
+
+| 标签         | 描述                                     |
+| ------------ | ---------------------------------------- |
+| `<script>`   | 定义客户端脚本。                         |
+| `<noscript>` | 为不支持客户端脚本的浏览器定义替代内容。 |
+
+## HTML 文件路径
+
+文件路径描述了网站文件夹结构中某个文件的位置。
+
+文件路径会在链接外部文件时被用到：
+- 网页
+- 图像
+- 样式表
+- JavaScript
+
+| 路径                              | 描述                                         |
+| --------------------------------- | -------------------------------------------- |
+| `<img src="picture.jpg">`         | picture.jpg 位于与当前网页相同的文件夹       |
+| `<img src="images/picture.jpg">`  | picture.jpg 位于当前文件夹的 images 文件夹中 |
+| `<img src="/images/picture.jpg">` | picture.jpg 当前站点根目录的 images 文件夹中 |
+| `<img src="../picture.jpg">`      | picture.jpg 位于当前文件夹的上一级文件夹中   |
+
+## 绝对文件路径
+
+绝对文件路径是指向一个因特网文件的完整 URL：
+`<img src="https://www.w3school.com.cn/images/picture.jpg" alt="flower">`
+
+## 相对路径
+
+相对路径指向了相对于当前页面的文件。
+
+在本例中，文件路径指向了位于当前网站根目录中 images 文件夹里的一个文件：
+`<img src="/images/picture.jpg" alt="flower">`
+
+## 好习惯
+
+使用相对路径是个好习惯（如果可能）。
+
+如果使用了相对路径，那么您的网页就不会与当前的基准 URL 进行绑定。所有链接在您的电脑上 (localhost) 或未来的公共域中均可正常工作。
+
+# HTML 头部元素
+
+## HTML `<head>` 元素
+
+`<head>` 元素是所有头部元素的容器。`<head>` 内的元素可包含脚本，指示浏览器在何处可以找到样式表，提供元信息，等等。
+
+以下标签都可以添加到 head 部分：`<title>、<base>、<link>、<meta>、<script> 以及 <style>`。
+
+## HTML `<title>` 元素
+
+`<title>` 标签定义文档的标题。
+
+title 元素在所有 HTML/XHTML 文档中都是必需的。
+
+title 元素能够： 
+- 定义浏览器工具栏中的标题
+- 提供页面被添加到收藏夹时显示的标题
+- 显示在搜索引擎结果中的页面标题
+
+一个简化的 HTML 文档：
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117171735.png" alt="20200117171735"  title="head标签里的title标签定义文档的网页标题" width="600" height="" /></center>
+
+## HTML `<base>` 元素
+
+`<base>` 标签为页面上的所有链接规定默认地址或默认目标（target）：
+```html
+<head>
+<base href="http://www.w3school.com.cn/images/" />
+<base target="_blank" />
+</head>
+```
+
+## HTML `<link>` 元素
+
+`<link>` 标签定义文档与外部资源之间的关系。
+
+`<link>` 标签最常用于连接样式表：
+```html
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css" />
+</head>
+```
+
+## HTML `<style>` 元素
+
+`<style>` 标签用于为 HTML 文档定义样式信息。
+
+您可以在 style 元素内规定 HTML 元素在浏览器中呈现的样式：
+```html
+<head>
+<style type="text/css">
+body {background-color:yellow}
+p {color:blue}
+</style>
+</head>
+```
+
+## HTML `<meta>` 元素
+
+元数据（metadata）是关于数据的信息。
+
+- `<meta>` 标签提供关于 HTML 文档的元数据。元数据不会显示在页面上，但是对于机器是可读的。
+- 典型的情况是，meta 元素被用于规定页面的描述、关键词、文档的作者、最后修改时间以及其他元数据。
+- `<meta>` 标签始终位于 head 元素中。
+- 元数据可用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他 web 服务。
+
+### 针对搜索引擎的关键词
+
+一些搜索引擎会利用 meta 元素的 name 和 content 属性来索引您的页面。
+
+下面的 meta 元素定义页面的描述：
+`<meta name="description" content="Free Web tutorials on HTML, CSS, XML" />`
+
+下面的 meta 元素定义页面的关键词：
+`<meta name="keywords" content="HTML, CSS, XML" />`
+
+name 和 content 属性的作用是描述页面的内容。
+
+## HTML `<script>` 元素
+
+`<script>` 标签用于定义客户端脚本，比如 JavaScript。
+
+## HTML 头部元素
+
+| 标签       | 描述                                     |
+| ---------- | ---------------------------------------- |
+| `<head>`   | 定义关于文档的信息。                     |
+| `<title>`  | 定义文档标题。                           |
+| `<base>`   | 定义页面上所有链接的默认地址或默认目标。 |
+| `<link>`   | 定义文档与外部资源之间的关系。           |
+| `<meta>`   | 定义关于 HTML 文档的元数据。             |
+| `<script>` | 定义客户端脚本。                         |
+| `<style>`  | 定义文档的样式信息。                     |
+
+# HTML 实体
+
+HTML 中的预留字符必须被替换为字符实体。
+如需完整的实体符号参考，请访问我们的 [HTML 实体符号参考手册](https://www.w3school.com.cn/tags/html_ref_entities.html)。
+
+##  HTML 字符实体
+
+- 在 HTML 中，某些字符是预留的。
+- 在 HTML 中不能使用小于号（<）和大于号（>），这是因为浏览器会误认为它们是标签。
+- 如果希望正确地显示预留字符，我们必须在 HTML 源代码中使用字符实体（character entities）。
+
+字符实体类似这样：
+```html
+&entity_name;
+
+或者
+
+&#entity_number;
+```
+> 如需显示小于号，我们必须这样写：`&lt;` 或 `&#60;`
+提示：使用实体名而不是数字的好处是，名称易于记忆。不过坏处是，浏览器也许并不支持所有实体名称（对实体数字的支持却很好）。
+
+## 不间断空格（non-breaking space）
+
+HTML 中的常用字符实体是不间断空格(`&nbsp;`)。
+
+浏览器总是会截短 HTML 页面中的空格。如果您在文本中写 10 个空格，在显示该页面之前，浏览器会删除它们中的 9 个。如需在页面中增加空格的数量，您需要使用 `&nbsp; `字符实体。
+
+## HTML 实例示例
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117174040.png" alt="20200117174040"  title="HTML 实体" width="600" height="" /></center>
+
+## HTML 中有用的字符实体
+
+> 注释：实体名称对大小写敏感！
+
+| 显示结果 | 描述              | 实体名称             | 实体编号   |
+| -------- | ----------------- | -------------------- | ---------- |
+|          | 空格              | `&nbsp;`             | ` &#160;`  |
+| `<`      | 小于号            | `&lt; `              | `&#60`     |
+| $>$      | 大于号            | `&gt; `              | `&#62;`    |
+| &        | 和号              | `&amp;`              | `&#38;`    |
+| "        | 引号              | `&quot;`             | `&#34;`    |
+| '        | 撇号              | ` &apos;` (IE不支持) | `&#39;`    |
+| ￠        | 分（cent）        | `&cent; `            | `&#162; `  |
+| £        | 镑（pound）       | `&pound;`            | `&#163;`   |
+| ¥        | 元（yen）         | `&yen; `             | `&#165;`   |
+| €        | 欧元（euro）      | ` &euro; `           | `&#8364;`  |
+| §        | 小节              | `&sect;`             | `&#167; `  |
+| ©        | 版权（copyright） | `&copy;`             | `&#169;`   |
+| ®        | 注册商标          | `&reg; `             | ` &#174; ` |
+| ™        | 商标              | `&trade; `           | `&#8482;`  |
+| ×        | 乘号              | `&times; `           | `&#215;`   |
+| ÷        | 除号              | `&divide;`           | `&#247; `  |
+
+# HTML 统一资源定位器
+
+URL 也被称为网址。
+
+URL 可以由单词组成，比如 “w3school.com.cn”，或者是因特网协议（IP）地址：192.168.1.253。大多数人在网上冲浪时，会键入网址的域名，因为名称比数字容易记忆。
+
+## URL - Uniform Resource Locator
+
+当您点击 HTML 页面中的某个链接时，对应的 <a> 标签指向万维网上的一个地址。
+
+统一资源定位器（URL）用于定位万维网上的文档（或其他数据）。
+
+网址，比如 http://www.w3school.com.cn/html/index.asp，遵守以下的语法规则：
+`scheme://host.domain:port/path/filename`
+解释：
+- scheme - 定义因特网服务的类型。最常见的类型是 http
+- host - 定义域主机（http 的默认主机是 www）
+- domain - 定义因特网域名，比如 w3school.com.cn
+- :port - 定义主机上的端口号（http 的默认端口号是 80）
+- path - 定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）。
+- filename - 定义文档/资源的名称
+
+> 编者注：URL 的英文全称是 Uniform Resource Locator，中文也译为“统一资源定位符”。
+
+## URL Schemes
+
+以下是其中一些最流行的 scheme：
+
+| Scheme | 访问               | 用于...                             |
+| ------ | ------------------ | ----------------------------------- |
+| http   | 超文本传输协议     | 以 http:// 开头的普通网页。不加密。 |
+| https  | 安全超文本传输协议 | 安全网页。加密所有信息交换。        |
+| ftp    | 文件传输协议       | 用于将文件下载或上传至网站。        |
+| file   | -                  | 您计算机上的文件。                  |
+
+## HTML URL 字符编码
+
+URL 编码会将字符转换为可通过因特网传输的格式
+
+## URL - 统一资源定位器
+
+Web 浏览器通过 URL 从 web 服务器请求页面。
+
+URL 是网页的地址，比如 <http://www.w3school.com.cn>
+
+## URL  编码
+
+如需完整的 URL 编码参考，请访问我们的 [URL 编码参考手册](https://www.w3school.com.cn/tags/html_ref_urlencode.html)。
+URL 只能使用 ASCII 字符集来通过因特网进行发送。
+由于 URL 常常会包含 ASCII 集合之外的字符，URL 必须转换为有效的 ASCII 格式。
+URL 编码使用 "%" 其后跟随两位的十六进制数来替换非 ASCII 字符。
+URL 不能包含空格。URL 编码通常使用 + 来替换空格。
+[亲自试一试-URL  编码](https://www.w3school.com.cn/html/html_urlencode.asp)
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117185008.png" alt="20200117185008"  title="URL  编码" width="600" height="" /></center>
+
+## URL 编码示例
+
+| 字符 | URL 编码 |
+|------|----------|
+| €    | %80      |
+| £    | %A3      |
+| ©    | %A9      |
+| ®    | %AE      |
+| À    | %C0      |
+| Á    | %C1      |
+| Â    | %C2      |
+| Ã    | %C3      |
+| Ä    | %C4      |
+| Å    | %C5      |
+
+# HTML Web Server
+
+如果希望向世界发布您的网站，那么您必须把它存放在 web 服务器上。
+
+## 托管自己的网站
+
+在自己的服务器上托管网站始终是一个选项。有几点需要考虑：
+
+
+
+
+
+
+
+
+
+
+
