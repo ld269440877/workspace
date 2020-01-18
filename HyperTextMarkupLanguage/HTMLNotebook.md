@@ -1478,6 +1478,27 @@ iframe 可用作链接的目标（target）。
 
 <center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117152158.png" alt="20200117152158"  title="HTML iframe 标签" width="600" height="" /></center>
 
+## HTML iframe嵌入youtube视频
+
+[嵌入视频和播放列表 - YouTube帮助](https://support.google.com/youtube/answer/171780?hl=zh-Hans)
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200118203901.png" alt="20200118203901"  title="HTML iframe嵌入 youtube 视频方法" width="600" height="" /></center>
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200118204218.png" alt="20200118204218"  title="HTML iframe嵌入 youtube 视频方法" width="600" height="" /></center>
+
+```html
+<iframe 
+width="560" height="315" 
+src="https://www.youtube.com/embed/I31v-HQ9oGo" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen>
+</iframe>
+```
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200118203535.png" alt="20200118203535"  title="HTML iframe嵌入youtube视频" width="600" height="" /></center>
+
+
 # HTML 背景
 
 ## 背景（Backgrounds）
