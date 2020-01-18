@@ -7,6 +7,7 @@
 [HTML在线测试-W3School TIY Editor](https://www.w3school.com.cn/tiy/t.asp?f=html_headers)
 [在Markdown中嵌入youtube视频的写法](https://gist.github.com/aoxu/7783280#file-youtube-md)
 [HTML 实体字符参考手册](https://www.w3school.com.cn/tags/html_ref_entities.html)
+[W3C-World Wide Web Consortium 简介](https://www.w3school.com.cn/w3c/w3c_intro.asp)
 
 
 [![点我-我是在线图片生成器tablesgenerator](https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116225405.png)](http://www.tablesgenerator.com/html_tables)
@@ -901,6 +902,23 @@ alt 属性用来为图像定义一串预备的可替换的文本。替换文本�
 `<img src="boat.gif" alt="Big Boat">`
 在浏览器无法载入图像时，替换文本属性告诉读者她们失去的信息。此时，浏览器将显示这个替代性的文本而不是图像。为页面上的图像都加上替换文本属性是个好习惯，这样有助于更好的显示信息，并且对于那些使用纯文本浏览器的人来说是非常有用的。
 
+## HTML5 `<figure>` 和 `<figcaption>` 元素
+
+<img> 元素定义图像，<figcaption> 元素定义标题。
+
+在书籍和报纸中，与图片搭配的标题很常见。
+标题（caption）的作用是为图片添加可见的解释。
+通过 HTML5，图片和标题能够被组合在 `<figure>` 元素中：
+```html
+<figure>
+   <center>
+   <img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117171735.png" alt="20200117171735"  title="带有 HTML5 DOCTYPE 的 HTML 文档" width="600" height="" />
+   <figcaption>Fig1. - The Pulpit Pock, Norway.</figcaption>
+   </center>
+</figure>
+```
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200118144931.png" alt="20200118144931"  title="20200118144931" width="600" height="" /></center>
+
 ## 基本的注意事项 - 有用的提示：
 
 假如某个 <font color=red>HTML 文件</font>包含十个图像，那么为了正确显示这个页面，需要加载 11 个文件。加载图片是需要时间的，所以我们的建议是：<font color=red>慎用图片</font>。
@@ -1439,7 +1457,7 @@ height 和 width 属性用于规定 iframe 的高度和宽度。
 
 属性值的默认单位是像素，但也可以用百分比来设定（比如 "80%"）。
 
-`<iframe src="https://www.w3school.com.cn/html/html_iframe.asp" width=100% height=40%></iframe>`
+`[<iframe src="https://www.w3school.com.cn/html/html_iframe.asp" width=100% height=40%></iframe>](https://youtu.be/j0UMew_Priw)`
 
 <center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117150629.png" alt="20200117150629"  title="Iframe-设置高度和宽度" width="600" height="" /></center>
 
@@ -1792,14 +1810,308 @@ URL 不能包含空格。URL 编码通常使用 + 来替换空格。
 ## 托管自己的网站
 
 在自己的服务器上托管网站始终是一个选项。有几点需要考虑：
+硬- 件支出
+如果要运行“真正”的网站，您不得不购买强大的服务器硬件。不要指望低价的 PC 能够应付这些工作。您还需要稳定的（一天 24 小时）高速连接。
+- 软件支出
+请记住，服务器授权通常比客户端授权更昂贵。同时请注意，服务器授权也许有用户数量限制。
+- 人工费
+不要指望低廉的人工费用。您必须安装自己的硬件和软件。您同时要处理漏洞和病毒，以确保您的服务器时刻正常地运行于一个“任何事都可能发生”的环境中。
 
+## 使用因特网服务提供商（ISP）
 
+从 ISP 租用服务器也很常见。
 
+大多数小公司会把网站存放到由 ISP 提供的服务器上。其优势有以下几点：
+- 连接速度
+大多数 ISP 都拥有连接因特网的高速连接。
+- 强大的硬件
+ISP 的 web 服务器通常强大到能够由若干网站分享资源。您还要看一下 ISP 是否提供高效的负载平衡，以及必要的备份服务器。
+- 安全性和可靠性
+ISP 是网站托管方面的专家。他们应该提供 99% 以上的在线时间，最新的软件补丁，以及最好的病毒防护。
 
+## 选择 ISP 时的注意事项
 
+- 24 小时支持
+确保 ISP 提供 24 小时支持。不要使自己置于无法解决严重问题的尴尬境地，同时还必须等待第二个工作日。如果您不希望支付长途电话费，那么免费电话服务也是必要的。
+- 每日备份
+确保 ISP 会执行每日备份的例行工作，否则您有可能损失有价值的数据。
+- 流量
+研究一下 ISP 的流量限制。如果出现由于网站受欢迎而激增的不可预期的访问量，那么您要确保不会因此支付额外费用。
+- 带宽或内容限制
+研究一下 ISP 的带宽和内容限制。如果您计划发布图片或播出视频或音频，请确保您有此权限。
+- E-mail 功能
+请确保 ISP 支持您需要的 e-mail 功能。
+- 数据库访问
+如果您计划使用网站数据库中的数据，那么请确保您的 ISP 支持您需要的数据库访问。
 
+在您选取一家 ISP 之前，请务必阅读 W3School 的 [Web 主机教程](https://www.w3school.com.cn/hosting/index.asp)。
 
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200118111331.png" alt="20200118111331"  title="网站主机教程" width="600" height="" /></center>
 
+# HTML 颜色
 
+颜色由三元色：红色、绿色、蓝色混合而成。
 
+## 颜色值
 
+颜色由一个十六进制符号来定义，这个符号由红色、绿色和蓝色的值组成（RGB）。
+每种颜色的最小值是0（十六进制：#00）。最大值是255（十六进制：#FF）。
+这个表格给出了由三种颜色混合而成的具体效果：
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200118111756.png" alt="20200118111756"  title="颜色值" width="600" height="" /></center>
+
+## 颜色名
+
+大多数的浏览器都支持颜色名集合。
+
+提示：仅仅有 16 种颜色名被 W3C 的 HTML4.0 标准所支持。它们是：aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, yellow。
+
+如果需要使用其它的颜色，需要使用十六进制的颜色值。
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200118111923.png" alt="20200118111923"  title="除16 种颜色外的其它颜色需要使用十六进制的颜色值" width="600" height="" /></center>
+
+## Web安全色
+
+数年以前，当大多数计算机仅支持 256 种颜色的时候，一系列 216 种 Web 安全色作为 Web 标准被建议使用。其中的原因是，微软和 Mac 操作系统使用了 40 种不同的保留的固定系统颜色（双方大约各使用 20 种）。
+
+我们不确定如今这么做的意义有多大，因为越来越多的计算机有能力处理数百万种颜色，不过做选择还是你自己。
+
+## 216 跨平台色
+
+最初，216 跨平台 web 安全色被用来确保：当计算机使用 256 色调色板时，所有的计算机能够正确地显示所有的颜色。
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200118112239.png" alt="20200118112239"  title="216 跨平台色" width="600" height="" /></center>
+
+# HTML 颜色名
+
+本页提供了被大多数浏览器支持的颜色名。
+
+提示：仅有 16 种颜色名被 W3C 的 HTML 4.0 标准支持，它们是：aqua、black、blue、fuchsia、gray、green、lime、maroon、navy、olive、purple、red、silver、teal、white、yellow。
+
+如果使用其它颜色的话，就应该使用十六进制的颜色值。
+
+## 颜色名列表
+
+单击一个颜色名或者 16 进制值，就可以查看与不同文字颜色搭配的背景颜色。
+
+[颜色名列表](https://www.w3school.com.cn/html/html_colornames.asp)
+[W3School 颜色测试](https://www.w3school.com.cn/tiy/color.asp?hex=F0F8FF)
+
+# HTML文档类型
+
+## HTML `<!DOCTYPE>`
+
+`<!DOCTYPE>` 声明帮助浏览器正确地显示网页。
+
+## `<!DOCTYPE>` 声明
+
+Web 世界中存在许多不同的文档。只有了解文档的类型，浏览器才能正确地显示文档。
+
+HTML 也有多个不同的版本，只有完全明白页面中使用的确切 HTML 版本，浏览器才能完全正确地显示出 HTML 页面。这就是 <!DOCTYPE> 的用处。
+
+`<!DOCTYPE>` 不是 HTML 标签。它为浏览器提供一项信息（声明），即 HTML 是用什么版本编写的。
+
+提示：W3School 即将升级为最新的 HTML5 文档类型。
+
+带有 HTML5 DOCTYPE 的 HTML 文档：
+
+<center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200117171735.png" alt="20200117171735"  title="带有 HTML5 DOCTYPE 的 HTML 文档" width="600" height="" /></center>
+
+## HTML 版本
+
+从 Web 诞生早期至今，已经发展出多个 HTML 版本：
+
+| 版本      | 年份 |
+|-----------|------|
+| HTML      | 1991 |
+| HTML+     | 1993 |
+| HTML 2.0  | 1995 |
+| HTML 3.2  | 1997 |
+| HTML 4.01 | 1999 |
+| XHTML 1.0 | 2000 |
+| HTML5     | 2012 |
+| XHTML5    | 2013 |
+
+## 常用的声明
+
+如需完整的文档类型声明列表，请访问我们的 [DOCTYPE 参考手册](https://www.w3school.com.cn/tags/tag_doctype.asp)。
+### HTML5
+
+`<!DOCTYPE html>`
+
+### HTML 4.01
+
+```html
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+```
+
+### XHTML 1.0
+
+```html
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+```
+
+# HTML 4.01 快速参考
+
+来自 W3School 的 [HTML 快速参考](http://www.w3school.com.cn/html/html_quick.asp)。可以打印它，以备日常使用。
+
+## HTML Basic Document
+
+```html
+<html>
+<head>
+<title>Document name goes here</title>
+</head>
+<body>
+Visible text goes here
+</body>
+</html>
+```
+
+## Text Elements
+
+```html
+<p>This is a paragraph</p>
+<br> (line break)
+<hr> (horizontal rule)
+<pre>This text is preformatted</pre>
+```
+
+## Logical Styles
+
+```html
+<em>This text is emphasized</em>
+<strong>This text is strong</strong>
+<code>This is some computer code</code>
+```
+
+## Physical Styles
+
+```html
+<b>This text is bold</b>
+<i>This text is italic</i>
+```
+
+## Links, Anchors, and Image Elements
+
+```html
+<a href="http://www.example.com/">This is a Link</a>
+<a href="http://www.example.com/"><img src="URL"
+alt="Alternate Text"></a>
+<a href="mailto:webmaster@example.com">Send e-mail</a>A named anchor:
+<a name="tips">Useful Tips Section</a>
+<a href="#tips">Jump to the Useful Tips Section</a>
+```
+
+## Unordered list
+
+```html
+<ul>
+<li>First item</li>
+<li>Next item</li>
+</ul>
+```
+
+## Ordered list
+
+```html
+<ol>
+<li>First item</li>
+<li>Next item</li>
+</ol>
+```
+
+## Definition list
+
+```html
+<dl>
+<dt>First term</dt>
+<dd>Definition</dd>
+<dt>Next term</dt>
+<dd>Definition</dd>
+</dl>
+```
+
+## Tables
+
+```html
+<table border="1">
+<tr>
+  <th>someheader</th>
+  <th>someheader</th>
+</tr>
+<tr>
+  <td>sometext</td>
+  <td>sometext</td>
+</tr>
+</table>
+```
+
+## Frames
+
+```html
+<!-- 水平排列 -->
+<frameset rows="25%,*,35%">
+  <frame src="page1.htm">
+  <frame src="page2.htm">
+    <frame src="page3.htm">
+</frameset>
+
+<!-- 竖直排列 -->
+<frameset cols="25%,*,35%">
+  <frame src="page1.htm">
+  <frame src="page2.htm">
+    <frame src="page3.htm">
+</frameset>
+```
+
+## Forms
+
+```html
+<form action="http://www.example.com/test.asp" method="post/get">
+<input type="text" name="lastname"
+value="Nixon" size="30" maxlength="50">
+<input type="password">
+<input type="checkbox" checked="checked">
+<input type="radio" checked="checked">
+<input type="submit">
+<input type="reset">
+<input type="hidden">
+<select>
+<option>Apples
+<option selected>Bananas
+<option>Cherries
+</select>
+<textarea name="Comment" rows="60"
+cols="20"></textarea>
+</form>
+```
+
+## Entities
+
+```html
+&lt; is the same as <
+&gt; is the same as >
+&#169; is the same as ©
+```
+
+## Other Elements
+
+```html
+<!-- This is a comment -->
+<blockquote>
+Text quoted from some source.
+</blockquote>
+<address>
+Address 1<br>
+Address 2<br>
+City<br>
+</address>
+```
+
+- [ ] 123
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I31v-HQ9oGo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+https://youtu.be/oKj21IhW-vo
