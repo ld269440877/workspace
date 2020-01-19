@@ -2,12 +2,35 @@
 # HTMLNotebook
 
 > 参考
+[每个人都应该知道的基本Web术语](https://badhtml.com/basic-concepts/)
+[如何有效快速的学习HTML/CSS/JS](https://www.zhihu.com/question/23714828)
+[HTML Cheat Sheet 📃 - The best interactive cheat sheet](https://htmlcheatsheet.com/)
+[Online WYSIWYG HTML Editor | 𝗣𝗿𝗼𝗳𝗲𝘀𝘀𝗶𝗼𝗻𝗮𝗹 𝗧𝗼𝗼𝗹𝗸𝗶𝘁](https://htmlg.com/html-editor/)
+[在线所见即所得HTML编辑器| 𝗧𝗼𝗼𝗹𝗸𝗶𝘁](https://htmlg.com/html-editor/)
 [HTML 基础教程](https://www.w3school.com.cn/html/html_jianjie.asp)
 [HTML 参考手册](https://www.w3school.com.cn/tags/html_ref_byfunc.asp)
 [HTML在线测试-W3School TIY Editor](https://www.w3school.com.cn/tiy/t.asp?f=html_headers)
 [在Markdown中嵌入youtube视频的写法](https://gist.github.com/aoxu/7783280#file-youtube-md)
 [HTML 实体字符参考手册](https://www.w3school.com.cn/tags/html_ref_entities.html)
 [W3C-World Wide Web Consortium 简介](https://www.w3school.com.cn/w3c/w3c_intro.asp)
+[网页浏览大图片速度测试 - Website Performance and Optimization Test](https://www.webpagetest.org/)
+
+
+html css 和js关系
+1. html是一个网页的主题，是由多个元素组合成的，但是这写元素保留的是基本默认属性，
+2. css就是这个网页的样式，css定义了元素的属性，
+3. js是通过jacascript语言，实现在一个页面上展现不同的css样式。
+> 它们的关系通俗讲就是 html是一个赤裸裸的人，css是人的衣服，js作用是让人动起来。
+
+javascript是编程语言，html和css不是编程语言
+
+javascript是脚本语言，它是连接前台（html）和后台服务器的桥梁，它是操纵html的能手，本文用js代替javascript进行说明。
+
+平时听到原生js，js库，js框架，js插件等等，下面简单说明一下。
+- 原生js，是指最基础的js，没有封装过，但因为各浏览器对js的支持不同，就导致用基础的js编程需要为不同的浏览器写兼容代码。
+- Js库，js框架，是指集成一系列dom操作，API封装，界面UI封装的的库类，常见的有jQuery，extjs等等，这方面的定义比较难区分，暂不误导大家
+- Js插件，就是集成了帮助程序员轻松完成功能的程序。Js插件用得比较多，网页制作上随处可见。如图片轮换功能，导航制作，上传图片等等。
+
 
 <figure>
    <center>
@@ -852,6 +875,11 @@ HTML 使用超级链接与网络上的另一个文档相连。
 
 # HTML 图像
 
+> 参考
+[HTML Image Tag Generator - 𝗧𝗛𝗘 𝗕𝗘𝗦𝗧 𝗛𝗧𝗠𝗟 𝗖𝗢𝗗𝗘 𝗪𝗜𝗭𝗔𝗥𝗗](https://html-css-js.com/html/generator/image/)
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119211244.png" alt="20200119211244"  title="HTML Image Tag Generator" width="600" height="" /><figcaption><font color=green>HTML Image Tag Generator</font></figcaption></center></figure>
+
 通过使用 HTML，可以在文档中显示图像。
 如何在网页中显示图像。
 <center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116195534.png" alt="20200116195534"  title="网页中显示图像" width="600" height="" /></center>
@@ -935,11 +963,18 @@ alt 属性用来为图像定义一串预备的可替换的文本。替换文本�
 
 # HTML 表格
 
+> 参考
+[HTML Table Styler ▦ CSS Generator | 𝗗𝗜𝗩𝗧𝗔𝗕𝗟𝗘.𝗖𝗢𝗠](https://divtable.com/table-styler/)
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119210703.png" alt="20200119210703"  title="HTML Table Styler ▦ CSS Generator" width="600" height="" /><figcaption><font color=green>HTML Table Styler ▦ CSS Generator</font></figcaption></center></figure>
+
 1. 表格由 `<table>` 标签来定义。
 2. 每个表格均有若干行（由 `<tr>` 标签定义），字母 tr 指表格行（table row）。
 3. 每行被分割为若干单元格（由 `<td>` 标签定义）, 字母 td 指表格数据（table data），即数据单元格的内容。
 
 数据单元格可以包含文本、图片、列表、段落、表单、水平线、表格等等。
+
+
 
 如何在 HTML 文档中创建表格
 <center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116204333.png" alt="20200116204333"  title="创建表格" width="600" height="" /></center>
@@ -1014,6 +1049,14 @@ no-breaking 空格由和号开始 ("&")，然后是字符"nbsp"，并以分号�
 <center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116221032.png" alt="20200116221032"  title="表格标签" width="600" height="" /></center>
 
 # HTML 列表
+
+> 参考
+[HTML List Tag Generator - 𝗧𝗛𝗘 𝗕𝗘𝗦𝗧 𝗛𝗧𝗠𝗟 𝗖𝗢𝗗𝗘 𝗪𝗜𝗭𝗔𝗥𝗗](https://html-css-js.com/html/generator/list/)
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119213732.png" alt="20200119213732"  title="HTML List Tag Generator" width="600" height="" /><figcaption><font color=green>HTML List Tag Generator</font></figcaption></center></figure>
+
+
+
 
 HTML 支持有序、无序和定义列表
 
@@ -1453,6 +1496,11 @@ Frame 标签定义了放置在每个框架中的 HTML 文档。
 
 # HTML Iframe
 
+> 参考
+[HTML Iframe Tag Generator - 𝗧𝗛𝗘 𝗕𝗘𝗦𝗧 𝗛𝗧𝗠𝗟 𝗖𝗢𝗗𝗘 𝗪𝗜𝗭𝗔𝗥𝗗](https://html-css-js.com/html/generator/iframe/)
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119211901.png" alt="20200119211901"  title="HTML Iframe Tag Generator" width="600" height="" /><figcaption><font color=green>HTML Iframe Tag Generator</font></figcaption></center></figure>
+
 iframe 用于在网页内显示网页。
 
 ## 添加 iframe 的语法
@@ -1646,6 +1694,11 @@ title 元素能够：
 ```
 
 ## HTML `<link>` 元素
+
+> 参考
+[HTML Link Tag Generator - 𝗧𝗛𝗘 𝗕𝗘𝗦𝗧 𝗛𝗧𝗠𝗟 𝗖𝗢𝗗𝗘 𝗪𝗜𝗭𝗔𝗥𝗗](https://html-css-js.com/html/generator/link/)
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119212343.png" alt="20200119212343"  title="HTML Link Tag Generator" width="600" height="" /><figcaption><font color=green>HTML Link Tag Generator</font></figcaption></center></figure>
 
 `<link>` 标签定义文档与外部资源之间的关系。
 
@@ -2077,7 +2130,7 @@ alt="Alternate Text"></a>
 </table>
 ```
 
-## Frames
+## Frames 框架
 
 ```html
 <!-- 水平排列 -->
@@ -2095,7 +2148,12 @@ alt="Alternate Text"></a>
 </frameset>
 ```
 
-## Forms
+## Forms 表单
+
+> 参考
+[HTML Form Tag Generator - 𝗧𝗛𝗘 𝗕𝗘𝗦𝗧 𝗛𝗧𝗠𝗟 𝗖𝗢𝗗𝗘 𝗪𝗜𝗭𝗔𝗥𝗗](https://html-css-js.com/html/generator/form/)
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119213259.png" alt="20200119213259"  title="HTML Form Tag Generator" width="600" height="" /><figcaption><font color=green>HTML Form Tag Generator</font></figcaption></center></figure>
 
 ```html
 <form action="http://www.example.com/test.asp" method="post/get">
