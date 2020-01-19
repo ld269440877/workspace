@@ -9,8 +9,16 @@
 [HTML 实体字符参考手册](https://www.w3school.com.cn/tags/html_ref_entities.html)
 [W3C-World Wide Web Consortium 简介](https://www.w3school.com.cn/w3c/w3c_intro.asp)
 
+<figure>
+   <center>
+   <a href="http://www.tablesgenerator.com/html_tables">
+   <img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116225405.png" alt="20200117171735"  title="在线表格生成器图片链接" width="600" height="" />
+   <figcaption>Figure - 在线表格生成器图片链接</figcaption>
+   </a>
+   </center>
+</figure>
 
-[![点我-我是在线图片生成器tablesgenerator](https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200116225405.png)](http://www.tablesgenerator.com/html_tables)
+---
 
 # HTML 简介
 
@@ -2131,6 +2139,236 @@ City<br>
 </address>
 ```
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/I31v-HQ9oGo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+# HTML 实例
 
 <a href="https://www.w3school.com.cn/example/html_examples.asp">HTML 实例</a>
+
+## HTML 基础标签实例
+
+### 一个简单的 HTML 文件
+
+一个很简单的 HTML 文件，使用了尽可能少的 HTML 标签。它向您演示了 body 元素中的内容是如何被浏览器显示的。
+
+```html
+<html>
+
+<head>
+<title>我的第一个 HTML 页面</title>
+</head>
+
+<body>
+<p>body 元素的内容会显示在浏览器中。</p>
+<p>title 元素的内容会显示在浏览器的标题栏中。</p>
+</body>
+
+</html>
+```
+
+### 简单的段落
+
+段落元素中的文字如何被浏览器显示。
+```html
+<html>
+<body>
+
+<p>这是段落。</p>
+<p>这是段落。</p>
+<p>这是段落。</p>
+
+<p>段落元素由 p 标签定义。</p> 
+
+</body>
+</html>
+```
+
+### 更多的段落
+
+段落元素的某些缺省的行为
+```html
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<body>
+
+<p>
+这个段落
+在源代码中
+包含许多行
+但是浏览器
+忽略了它们。只保留一个空格
+</p>
+
+<p>
+这个段落
+在源代码       中
+包含   许多行
+但是      浏览器
+忽略了  它们。只保留一个空格
+</p>
+
+<p>
+段落的行数依赖于浏览器窗口的大小。如果调节浏览器窗口的大小，将改变段落中的行数。
+</p>
+
+</body>
+</html>
+```
+
+### “诗歌”问题
+
+演示 HTML 格式化的某些问题。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119114304.png" alt="20200119114304"  title="HTML 格式化的某些问题" width="600" height="" /><figcaption><font color=green>HTML 格式化的某些问题</font></figcaption></center></figure>
+
+### 折行
+
+在 HTML 文档中折行的使用
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119114754.png" alt="20200119114754"  title="在 HTML 文档中折行的使用" width="600" height="" /><figcaption><font color=green>在 HTML 文档中折行的使用</font></figcaption></center></figure>
+
+### 标题
+
+在 HTML 文档中显示标题的标签
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119114928.png" alt="20200119114928"  title="标题的标签" width="600" height="" /><figcaption><font color=green>标题的标签</font></figcaption></center></figure>
+
+### 居中排列的标题
+
+一个居中排列的标题
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119115258.png" alt="20200119115258"  title="居中排列的标题" width="600" height="" /><figcaption><font color=green>居中排列的标题</font></figcaption></center></figure>
+
+### 水平线
+
+如何插入水平线
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119115444.png" alt="20200119115444"  title="插入水平线" width="600" height="" /><figcaption><font color=green>插入水平线</font></figcaption></center></figure>
+
+### 隐藏的注释
+
+本例演示如何在 HTML 源代码中插入隐藏的注释。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119115612.png" alt="20200119115612"  title="插入隐藏的注释" width="600" height="" /><figcaption><font color=green>插入隐藏的注释</font></figcaption></center></figure>
+
+### 背景颜色
+
+本例演示如何为 HTML 页面添加背景颜色。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119115815.png" alt="20200119115815"  title="添加背景颜色" width="600" height="" /><figcaption><font color=green>添加背景颜色</font></figcaption></center></figure>
+
+## HTML 文本格式化实例
+
+### 文本格式化
+
+此例演示如何在一个 HTML 文件中对文本进行格式化
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119120047.png" alt="20200119120047"  title="文本格式化" width="600" height="" /><figcaption><font color=green>文本格式化</font></figcaption></center></figure>
+
+### 预格式文本pre
+
+此例演示如何使用 pre 标签对空行和空格进行控制。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119120230.png" alt="20200119120230"  title="预格式文本pre" width="600" height="" /><figcaption><font color=green>预格式文本pre</font></figcaption></center></figure>
+
+### “计算机输出”标签
+
+此例演示不同的“计算机输出”标签的显示效果。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119120507.png" alt="20200119120507"  title="计算机输出标签" width="600" height="" /><figcaption><font color=green>计算机输出标签</font></figcaption></center></figure>
+
+### 地址address
+
+此例演示如何在 HTML 文件中写地址。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119120714.png" alt="20200119120714"  title="地址address" width="600" height="" /><figcaption><font color=green>地址address</font></figcaption></center></figure>
+
+### 缩写和首字母缩写
+
+此例演示如何实现缩写或首字母缩写。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119153157.png" alt="20200119153157"  title="abbreviation缩写词acronym首字母缩略词" width="600" height="" /><figcaption><font color=green>abbreviation缩写词acronym首字母缩略词</font></figcaption></center></figure>
+
+### 文字方向bdo
+
+此例演示如何改变文字的方向。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119153508.png" alt="20200119153508"  title="改变文字的方向bdo" width="600" height="" /><figcaption><font color=green>改变文字的方向bdo</font></figcaption></center></figure>
+
+### 块引用blockquote or q
+
+此例演示如何实现长短不一的引用语。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119153845.png" alt="20200119153845"  title="块引用blockquote or q" width="600" height="" /><figcaption><font color=green>块引用blockquote or q</font></figcaption></center></figure>
+
+### 删除del字效果和插入ins字效果
+
+此例演示如何标记删除文本和插入文本。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119154221.png" alt="20200119154221"  title="删除del字效果和插入ins字效果" width="600" height="" /><figcaption><font color=green>删除del字效果和插入ins字效果</font></figcaption></center></figure>
+
+## HTML 链接实例
+
+### 创建超级链接a-href
+
+本例演示如何在 HTML 文档中创建链接。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119154534.png" alt="20200119154534"  title="创建超级链接a-href" width="600" height="" /><figcaption><font color=green>创建超级链接a-href</font></figcaption></center></figure>
+
+### 将图像作为链接a_href-img
+
+本例演示如何使用图像作为链接。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119154928.png" alt="20200119154928"  title="将图像作为链接a_href-img" width="600" height="" /><figcaption><font color=green>将图像作为链接a_href-img</font></figcaption></center></figure>
+
+### 在新的浏览器窗口打开链接a_href_target
+
+本例演示如何在新窗口打开一个页面，这样的话访问者就无需离开你的站点了。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119155210.png" alt="20200119155210"  title="在新的浏览器窗口打开链接a_href_target" width="600" height="" /><figcaption><font color=green>在新的浏览器窗口打开链接a_href_target</font></figcaption></center></figure>
+
+### 跳出框架a_href_target
+
+本例演示如何跳出框架，假如你的页面被固定在框架之内。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119155548.png" alt="20200119155548"  title="跳出框架a_href_target" width="600" height="" /><figcaption><font color=green>跳出框架a_href_target</font></figcaption></center></figure>
+
+### 创建电子邮件链接a_href_subject_body
+
+本例演示如何如何链接到一个邮件。（本例在安装邮件客户端程序后才能工作。）
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119160050.png" alt="20200119160050"  title="创建电子邮件链接a_href" width="600" height="" /><figcaption><font color=green>创建电子邮件链接a_href</font></figcaption></center></figure>
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119160633.png" alt="20200119160633"  title="创建电子邮件链接a_href_subject_body" width="600" height="" /><figcaption><font color=green>创建电子邮件链接a_href_subject_body</font></figcaption></center></figure>
+
+## HTML 框架实例
+
+### 垂直框架frameset_cols
+
+本例演示：如何使用三份不同的文档制作一个垂直框架。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119161101.png" alt="20200119161101"  title="垂直框架frameset_cols" width="600" height="" /><figcaption><font color=green>垂直框架frameset_cols</font></figcaption></center></figure>
+
+### 水平框架frameset_rows
+
+本例演示：如何使用三份不同的文档制作一个水平框架。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119161408.png" alt="20200119161408"  title="水平框架frameset_rows" width="600" height="" /><figcaption><font color=green>水平框架frameset_rows</font></figcaption></center></figure>
+
+### 如何使用 `<noframes>` 标签
+
+本例演示：如何使用 `<noframes>` 标签。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119161809.png" alt="20200119161809"  title="noframes标签" width="600" height="" /><figcaption><font color=green>noframes标签</font></figcaption></center></figure>
+
+### 混合框架结构frameset_rows_cols
+
+本例演示如何制作含有三份文档的框架结构，同时将他们混合置于行和列之中。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119162354.png" alt="20200119162354"  title="" width="600" height="" /><figcaption><font color=green></font></figcaption></center></figure>
+
+### 含有 noresize="noresize" 属性的框架结构
+
+本例演示 noresize 属性。在本例中，框架是不可调整尺寸的。在框架间的边框上拖动鼠标，你会发现边框是无法移动的。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119163048.png" alt="20200119163048"  title="框架结构frameset_src_noresize" width="600" height="" /><figcaption><font color=green>框架结构frameset_src_noresize</font></figcaption></center></figure>
+
+### 导航框架
+
+本例演示如何制作导航框架。导航框架包含一个将第二个框架作为目标的链接列表。名为 "contents.htm" 的文件包含三个链接。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119163703.png" alt="20200119163703"  title=" 导航框架frameset_src" width="600" height="" /><figcaption><font color=green> 导航框架frameset_src</font></figcaption></center></figure>
+
+### 内联框架iframe
+
+本例演示如何创建内联框架（HTML 页中的框架）。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119163944.png" alt="20200119163944"  title="内联框架iframe" width="600" height="" /><figcaption><font color=green>内联框架iframe</font></figcaption></center></figure>
+
+### 跳转至框架内的一个指定的节frameset_cols-frame_src
+
+本例演示两个框架。其中的一个框架设置了指向另一个文件内指定的节的链接。这个"link.htm"文件内指定的节使用 `<a name="C10">` 进行标识。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119164335.png" alt="20200119164335"  title="跳转至框架内的一个指定的节frameset_cols-frame_src" width="600" height="" /><figcaption><font color=green>跳转至框架内的一个指定的节frameset_cols-frame_src</font></figcaption></center></figure>
+
+### 使用框架导航跳转至指定的节
+
+本例演示两个框架。左侧的导航框架包含了一个链接列表，这些链接将第二个框架作为目标。第二个框架显示被链接的文档。导航框架其中的链接指向目标文件中指定的节。
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/HTMLNotebook/20200119164810.png" alt="20200119164810"  title="使用框架导航跳转至指定的节" width="600" height="" /><figcaption><font color=green>使用框架导航跳转至指定的节</font></figcaption></center></figure>
+
+## HTML 表格实例
+
+[HTML 实例](https://www.w3school.com.cn/example/html_examples.asp)

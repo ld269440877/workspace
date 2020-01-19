@@ -61,15 +61,13 @@ PicGoGithubToken：`b645e49c93247cd32a0cc5ced6f8e7560e625688`
 | 设定自定义域名 | https://raw.githubusercontent.com/ld269440877/images/master |
 
 
-
 然后点确定就可以了。
 
 - 关于上传的快捷键设置。默认的是 MacOrWindows: CommandOrContral+Shift+P, 在VS Code中不影响使用
 
-
 | PicGo          | 设置                                                                        |
 | -------------- | --------------------------------------------------------------------------- |
-| 自定义链接格式 | `<img src="$url" alt="$fileName"  title="$fileName" width="600" height="">` |
+| 自定义链接格式 | `<figure><center><img src="$url" alt="$fileName"  title="" width="600" height="" /><figcaption><font color=green></font></figcaption></center></figure>`|
 | 上传区         | 链接格式`Custom`                                                            |
 | 关闭更新助手   | 关                                                                          |
 | 开机启动       | 开                                                                          |
@@ -81,6 +79,7 @@ PicGoGithubToken：`b645e49c93247cd32a0cc5ced6f8e7560e625688`
 - `Contral+Shift+P`
 - 剪切板中的图片上传前重命名
 - `Ctrl+V`粘贴Markdown格式的图片github链接
+
 ### PicGo + GitHub常见问题及解决方案
 
 > 查看

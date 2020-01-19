@@ -875,7 +875,8 @@ STEP 3,在列出的已安装语言列表中进行切换，重启后生效。
 1. 搭建及使用PicGo-Github图床
 2. vscode批量修改Markdown中图片引用方式
 [workspace/AliyunNotebook.md at master · ld269440877/workspace](https://github.com/ld269440877/workspace/blob/master/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/AliyunNotebook.md)
-
+3. PicGo自定义链接格式
+`<figure><center><img src="$url" alt="$fileName"  title="" width="600" height="" /><figcaption><font color=green></font></figcaption></center></figure>`
 
 ### 预览
 
