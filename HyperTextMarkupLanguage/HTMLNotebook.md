@@ -2,17 +2,29 @@
 # HTMLNotebook
 
 > 参考
+
 > [每个人都应该知道的基本Web术语](https://badhtml.com/basic-concepts/)
+
 > [如何有效快速的学习HTML/CSS/JS](https://www.zhihu.com/question/23714828)
+
 > [HTML Cheat Sheet 📃 - The best interactive cheat sheet](https://htmlcheatsheet.com/)
+
 > [Online WYSIWYG HTML Editor | 𝗣𝗿𝗼𝗳𝗲𝘀𝘀𝗶𝗼𝗻𝗮𝗹 𝗧𝗼𝗼𝗹𝗸𝗶𝘁](https://htmlg.com/html-editor/)
+
 > [在线所见即所得HTML编辑器| 𝗧𝗼𝗼𝗹𝗸𝗶𝘁](https://htmlg.com/html-editor/)
+
 > [HTML 基础教程](https://www.w3school.com.cn/html/html_jianjie.asp)
+
 > [HTML 参考手册](https://www.w3school.com.cn/tags/html_ref_byfunc.asp)
+
 > [HTML在线测试-W3School TIY Editor](https://www.w3school.com.cn/tiy/t.asp?f=html_headers)
+
 > [在Markdown中嵌入youtube视频的写法](https://gist.github.com/aoxu/7783280#file-youtube-md)
+
 > [HTML 实体字符参考手册](https://www.w3school.com.cn/tags/html_ref_entities.html)
+
 > [W3C-World Wide Web Consortium 简介](https://www.w3school.com.cn/w3c/w3c_intro.asp)
+
 > [网页浏览大图片速度测试 - Website Performance and Optimization Test](https://www.webpagetest.org/)
 
 
