@@ -61,16 +61,20 @@ Tableau是一款定位于数据可视化敏捷开发和实现的商务智能展�
 2. 在条形图上增加颜色，区分凸显对比效果。
 3. 可以堆叠条形图去展示相关数据，便于更加深入分析。
 ### 常用图形
+
 ![柱状图与条形图](https://raw.githubusercontent.com/ld269440877/images/master/TableauVisualization/柱状图与条形图.png "柱状图与条形图")
-###各地区销售概览条形图绘制步骤
+
+### 各地区销售概览条形图绘制步骤
+
 ![](https://raw.githubusercontent.com/ld269440877/images/master/TableauVisualization/示例超市excel源数据.png)
+
 1. 数据源面板-数据-新建数据源-连接到文件-Microsoft excel-"示例 - 超市.xls"
-将excel超市中的sheet订单拖到右侧-连接-实时，然后才会在工作表中将Sheet订单的字段和数据自动分为维度和度量两个选项卡（如果自动化分不满足要求需要手动处理）
+将excel超市中的sheet订单拖到右侧-连接-实时，然后才会在工作表中将Sheet订单的字段和数据自动分为维度和度量两个选项卡（<font color=red>如果</font>自动化分不满足要求需要手动处理）
 ![](https://raw.githubusercontent.com/ld269440877/images/master/TableauVisualization/数据源面板.png)
-2. 在度量选项卡中创建销售利润字段，度量选项卡右击-创建-计算字段-字段名：销售利润，计算：SUM([利润])/SUM([销售额])，分别拖拽利润和销售额到sum函数中
+2. 在度量选项卡中创建销售利润字段，度量选项卡右击-创建-计算字段-字段名：销售利润，**<font color=red>计算</font>**：SUM([利润])/SUM([销售额])，分别拖拽利润和销售额到sum函数中
 3. 绘制条形图，了解产品在一个国家各地区的销售概览。
-将度量拖到行或列中Tableau默认将该度量加总求和，
-将维度字段拖到行或列中Tableau实现的是对图形按类分割的操作
+将<font color=red>**度量**</font>拖到行或列中Tableau默认将该度量<font color=red>**加总求和**</font>，
+将<font color=green>**维度**</font>字段拖到行或列中Tableau实现的是对图形<font color=green>**按类分割**</font>的操作
 4. 柱子按照销售额字段排序
 ![](https://raw.githubusercontent.com/ld269440877/images/master/TableauVisualization/字段销售额升降序排列.png)
 5. 修改每个字段的图形颜色
@@ -100,6 +104,7 @@ CTRL+行总和（利润）拖到标签-相当于复制百分比计算后的利�
 右击筛选器卡的订单日期-显示筛选器-即可在右侧看到订单日期筛选器滚动条-筛选日期范围-条形图会随着日期范围的变化而变化
 ![](https://raw.githubusercontent.com/ld269440877/images/master/TableauVisualization/各地区客户类型利润分布-条形图.png)
 ### 各地区利润分-总销售额与利润嵌套布条形图
+
 1. 导入数据-行总和（销售额）总和（利润）列（地区）
 ![](https://raw.githubusercontent.com/ld269440877/images/master/TableauVisualization/总销售额与利润嵌套分布条形图.png)
 2. 任意纵坐标轴右击-双轴（左右两纵坐标轴刻度可以不同）
@@ -172,7 +177,7 @@ CTRL+行总和（利润）拖到标签-相当于复制百分比计算后的利�
 2. 表向下100%
 ![](https://raw.githubusercontent.com/ld269440877/images/master/TableauVisualization/百分比堆积面积图-表向下100%.png)
 ### 多张工作表制作成一个仪表板
-1. 做仪表板时先做上下调整再做左右调整
+1. <font color=red>做仪表板</font>时<font color=green>先</font>做上下调整<font color=green>再</font>做左右调整
 2. 拖拽成合适的布局比例即可
 ![](https://raw.githubusercontent.com/ld269440877/images/master/TableauVisualization/折线图仪表板-设置仪表板.png)
 
