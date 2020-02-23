@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/bmap.min.js"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FAKE_AK"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=FAKE_AK"></script>
+
+</head>
+<body>
+    <div id="45003c90926b49c8b1c0cc0df947ae3b" class="chart-container" style="width:900px; height:500px;"></div>
+    <script>
+        var chart_45003c90926b49c8b1c0cc0df947ae3b = echarts.init(
+            document.getElementById('45003c90926b49c8b1c0cc0df947ae3b'), 'white', {renderer: 'canvas'});
+        var option_45003c90926b49c8b1c0cc0df947ae3b = {
+    "baseOption": {
+        "series": [
+            {
+                "type": "heatmap",
+                "name": "bmap",
+                "coordinateSystem": "bmap",
+                "data": [
+                    {
+                        "name": "\u5e7f\u4e1c",
+                        "value": [
+                            113.26653,
+                            23.132191,
+                            58
+                        ]
+                    },
+                    {
+                        "name": "\u5317\u4eac",
+                        "value": [
+                            116.407526,
+                            39.90403,
+                            143
+                        ]
+                    },
+                    {
+                        "name": "\u4e0a\u6d77",
+                        "value": [
+                            121.473701,
+                            31.230416,
+                            143
+                        ]
+                    },
+                    {
+                        "name": "\u6c5f\u897f",
+                        "value": [
+                            115.909228,
+                            28.675696,
+                            78
+                        ]
+                    },
+                    {
+                        "name": "\u6e56\u5357",
+                        "value": [
+                            112.98381,
+                            28.112444,
+                            39
+                        ]
+                    },
+                    {
+                        "name": "\u6d59\u6c5f",
+                        "value": [
+                            120.152791,
+                            30.267446,
+                            86
+                        ]
+                    },
+                    {
+                        "name": "\u6c5f\u82cf",
+                        "value": [
+                            118.763232,
+                            32.061707,
+                            140
+                        ]
+                    }
+                ],
+                "pointSize": 20,
+                "blurSize": 20
+            }
+        ],
+        "timeline": {
+            "axisType": "category",
+            "orient": "horizontal",
+            "autoPlay": false,
+            "controlPosition": "left",
+            "loop": true,
+            "rewind": false,
+            "show": true,
+            "inverse": false,
+            "left": "50%",
+            "right": "10px",
+            "bottom": "15px",
+            "data": [
+                "2015\u5e74",
+                "2016\u5e74",
+                "2017\u5e74",
+                "2018\u5e74",
+                "2019\u5e74"
+            ]
+        },
+        "visualMap": {
+            "show": true,
+            "type": "continuous",
+            "min": 0,
+            "max": 100,
+            "inRange": {
+                "color": [
+                    "#50a3ba",
+                    "#eac763",
+                    "#d94e5d"
+                ]
+            },
+            "calculable": true,
+            "inverse": false,
+            "splitNumber": 5,
+            "orient": "vertical",
+            "bottom": "center",
+            "right": "10px",
+            "showLabel": true,
+            "itemWidth": 20,
+            "itemHeight": 140,
+            "borderWidth": 0
+        }
+    },
+    "options": [
+        {
+            "legend": [
+                {
+                    "data": [
+                        "bmap"
+                    ],
+                    "selected": {
+                        "bmap": true
+                    },
+                    "show": true,
+                    "padding": 5,
+                    "itemGap": 10,
+                    "itemWidth": 25,
+                    "itemHeight": 14
+                }
+            ],
+            "series": [
+                {
+                    "type": "heatmap",
+                    "name": "bmap",
+                    "coordinateSystem": "bmap",
+                    "data": [
+                        {
+                            "name": "\u5e7f\u4e1c",
+                            "value": [
+                                113.26653,
+                                23.132191,
+                                70
+                            ]
+                        },
+                        {
+                            "name": "\u5317\u4eac",
+                            "value": [
+                                116.407526,
+                                39.90403,
+                                87
+                            ]
+                        },
+                        {
+                            "name": "\u4e0a\u6d77",
+                            "value": [
+                                121.473701,
+                                31.230416,
+                                129
+                            ]
+                        },
+                        {
+                            "name": "\u6c5f\u897f",
+                            "value": [
+                                115.909228,
+                                28.675696,
+                                22
+                            ]
+                        },
+                        {
+                            "name": "\u6e56\u5357",
+                            "value": [
+                                112.98381,
+                                28.112444,
+                                75
+                            ]
+                        },
+                        {
+                            "name": "\u6d59\u6c5f",
+                            "value": [
+                                120.152791,
+                                30.267446,
+                                95
+                            ]
+                        },
+                        {
+                            "name": "\u6c5f\u82cf",
+                            "value": [
+                                118.763232,
+                                32.061707,
+                                22
+                            ]
+                        }
+                    ],
+                    "pointSize": 20,
+                    "blurSize": 20
+                }
+            ],
+            "title": [
+                {
+                    "text": "Timeline-BMap-\u70ed\u529b\u56fe-2015\u5e74",
+                    "padding": 5,
+                    "itemGap": 10
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            },
+            "visualMap": {
+                "show": true,
+                "type": "continuous",
+                "min": 0,
+                "max": 100,
+                "inRange": {
+                    "color": [
+                        "#50a3ba",
+                        "#eac763",
+                        "#d94e5d"
+                    ]
+                },
+                "calculable": true,
+                "inverse": false,
+                "splitNumber": 5,
+                "orient": "vertical",
+                "bottom": "center",
+                "right": "10px",
+                "showLabel": true,
+                "itemWidth": 20,
+                "itemHeight": 140,
+                "borderWidth": 0
+            },
+            "color": [
+                "#c23531",
+                "#2f4554",
+                "#61a0a8",
+                "#d48265",
+                "#749f83",
+                "#ca8622",
+                "#bda29a",
+                "#6e7074",
+                "#546570",
+                "#c4ccd3",
+                "#f05b72",
+                "#ef5b9c",
+                "#f47920",
+                "#905a3d",
+                "#fab27b",
+                "#2a5caa",
+                "#444693",
+                "#726930",
+                "#b2d235",
+                "#6d8346",
+                "#ac6767",
+                "#1d953f",
+                "#6950a1",
+                "#918597"
+            ],
+            "bmap": {
+                "center": [
+                    120.13066322374,
+                    30.240018034923
+                ],
+                "roam": true
+            }
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "bmap"
+                    ],
+                    "selected": {
+                        "bmap": true
+                    },
+                    "show": true,
+                    "padding": 5,
+                    "itemGap": 10,
+                    "itemWidth": 25,
+                    "itemHeight": 14
+                }
+            ],
+            "series": [
+                {
+                    "type": "heatmap",
+                    "name": "bmap",
+                    "coordinateSystem": "bmap",
+                    "data": [
+                        {
+                            "name": "\u5e7f\u4e1c",
+                            "value": [
+                                113.26653,
+                                23.132191,
+                                108
+                            ]
+                        },
+                        {
+                            "name": "\u5317\u4eac",
+                            "value": [
+                                116.407526,
+                                39.90403,
+                                58
+                            ]
+                        },
+                        {
+                            "name": "\u4e0a\u6d77",
+                            "value": [
+                                121.473701,
+                                31.230416,
+                                148
+                            ]
+                        },
+                        {
+                            "name": "\u6c5f\u897f",
+                            "value": [
+                                115.909228,
+                                28.675696,
+                                104
+                            ]
+                        },
+                        {
+                            "name": "\u6e56\u5357",
+                            "value": [
+                                112.98381,
+                                28.112444,
+                                103
+                            ]
+                        },
+                        {
+                            "name": "\u6d59\u6c5f",
+                            "value": [
+                                120.152791,
+                                30.267446,
+                                31
+                            ]
+                        },
+                        {
+                            "name": "\u6c5f\u82cf",
+                            "value": [
+                                118.763232,
+                                32.061707,
+                                30
+                            ]
+                        }
+                    ],
+                    "pointSize": 20,
+                    "blurSize": 20
+                }
+            ],
+            "title": [
+                {
+                    "text": "Timeline-BMap-\u70ed\u529b\u56fe-2016\u5e74",
+                    "padding": 5,
+                    "itemGap": 10
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            },
+            "visualMap": {
+                "show": true,
+                "type": "continuous",
+                "min": 0,
+                "max": 100,
+                "inRange": {
+                    "color": [
+                        "#50a3ba",
+                        "#eac763",
+                        "#d94e5d"
+                    ]
+                },
+                "calculable": true,
+                "inverse": false,
+                "splitNumber": 5,
+                "orient": "vertical",
+                "bottom": "center",
+                "right": "10px",
+                "showLabel": true,
+                "itemWidth": 20,
+                "itemHeight": 140,
+                "borderWidth": 0
+            },
+            "color": [
+                "#c23531",
+                "#2f4554",
+                "#61a0a8",
+                "#d48265",
+                "#749f83",
+                "#ca8622",
+                "#bda29a",
+                "#6e7074",
+                "#546570",
+                "#c4ccd3",
+                "#f05b72",
+                "#ef5b9c",
+                "#f47920",
+                "#905a3d",
+                "#fab27b",
+                "#2a5caa",
+                "#444693",
+                "#726930",
+                "#b2d235",
+                "#6d8346",
+                "#ac6767",
+                "#1d953f",
+                "#6950a1",
+                "#918597"
+            ],
+            "bmap": {
+                "center": [
+                    120.13066322374,
+                    30.240018034923
+                ],
+                "roam": true
+            }
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "bmap"
+                    ],
+                    "selected": {
+                        "bmap": true
+                    },
+                    "show": true,
+                    "padding": 5,
+                    "itemGap": 10,
+                    "itemWidth": 25,
+                    "itemHeight": 14
+                }
+            ],
+            "series": [
+                {
+                    "type": "heatmap",
+                    "name": "bmap",
+                    "coordinateSystem": "bmap",
+                    "data": [
+                        {
+                            "name": "\u5e7f\u4e1c",
+                            "value": [
+                                113.26653,
+                                23.132191,
+                                112
+                            ]
+                        },
+                        {
+                            "name": "\u5317\u4eac",
+                            "value": [
+                                116.407526,
+                                39.90403,
+                                109
+                            ]
+                        },
+                        {
+                            "name": "\u4e0a\u6d77",
+                            "value": [
+                                121.473701,
+                                31.230416,
+                                150
+                            ]
+                        },
+                        {
+                            "name": "\u6c5f\u897f",
+                            "value": [
+                                115.909228,
+                                28.675696,
+                                74
+                            ]
+                        },
+                        {
+                            "name": "\u6e56\u5357",
+                            "value": [
+                                112.98381,
+                                28.112444,
+                                76
+                            ]
+                        },
+                        {
+                            "name": "\u6d59\u6c5f",
+                            "value": [
+                                120.152791,
+                                30.267446,
+                                80
+                            ]
+                        },
+                        {
+                            "name": "\u6c5f\u82cf",
+                            "value": [
+                                118.763232,
+                                32.061707,
+                                129
+                            ]
+                        }
+                    ],
+                    "pointSize": 20,
+                    "blurSize": 20
+                }
+            ],
+            "title": [
+                {
+                    "text": "Timeline-BMap-\u70ed\u529b\u56fe-2017\u5e74",
+                    "padding": 5,
+                    "itemGap": 10
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            },
+            "visualMap": {
+                "show": true,
+                "type": "continuous",
+                "min": 0,
+                "max": 100,
+                "inRange": {
+                    "color": [
+                        "#50a3ba",
+                        "#eac763",
+                        "#d94e5d"
+                    ]
+                },
+                "calculable": true,
+                "inverse": false,
+                "splitNumber": 5,
+                "orient": "vertical",
+                "bottom": "center",
+                "right": "10px",
+                "showLabel": true,
+                "itemWidth": 20,
+                "itemHeight": 140,
+                "borderWidth": 0
+            },
+            "color": [
+                "#c23531",
+                "#2f4554",
+                "#61a0a8",
+                "#d48265",
+                "#749f83",
+                "#ca8622",
+                "#bda29a",
+                "#6e7074",
+                "#546570",
+                "#c4ccd3",
+                "#f05b72",
+                "#ef5b9c",
+                "#f47920",
+                "#905a3d",
+                "#fab27b",
+                "#2a5caa",
+                "#444693",
+                "#726930",
+                "#b2d235",
+                "#6d8346",
+                "#ac6767",
+                "#1d953f",
+                "#6950a1",
+                "#918597"
+            ],
+            "bmap": {
+                "center": [
+                    120.13066322374,
+                    30.240018034923
+                ],
+                "roam": true
+            }
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "bmap"
+                    ],
+                    "selected": {
+                        "bmap": true
+                    },
+                    "show": true,
+                    "padding": 5,
+                    "itemGap": 10,
+                    "itemWidth": 25,
+                    "itemHeight": 14
+                }
+            ],
+            "series": [
+                {
+                    "type": "heatmap",
+                    "name": "bmap",
+                    "coordinateSystem": "bmap",
+                    "data": [
+                        {
+                            "name": "\u5e7f\u4e1c",
+                            "value": [
+                                113.26653,
+                                23.132191,
+                                115
+                            ]
+                        },
+                        {
+                            "name": "\u5317\u4eac",
+                            "value": [
+                                116.407526,
+                                39.90403,
+                                148
+                            ]
+                        },
+                        {
+                            "name": "\u4e0a\u6d77",
+                            "value": [
+                                121.473701,
+                                31.230416,
+                                99
+                            ]
+                        },
+                        {
+                            "name": "\u6c5f\u897f",
+                            "value": [
+                                115.909228,
+                                28.675696,
+                                29
+                            ]
+                        },
+                        {
+                            "name": "\u6e56\u5357",
+                            "value": [
+                                112.98381,
+                                28.112444,
+                                52
+                            ]
+                        },
+                        {
+                            "name": "\u6d59\u6c5f",
+                            "value": [
+                                120.152791,
+                                30.267446,
+                                119
+                            ]
+                        },
+                        {
+                            "name": "\u6c5f\u82cf",
+                            "value": [
+                                118.763232,
+                                32.061707,
+                                88
+                            ]
+                        }
+                    ],
+                    "pointSize": 20,
+                    "blurSize": 20
+                }
+            ],
+            "title": [
+                {
+                    "text": "Timeline-BMap-\u70ed\u529b\u56fe-2018\u5e74",
+                    "padding": 5,
+                    "itemGap": 10
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            },
+            "visualMap": {
+                "show": true,
+                "type": "continuous",
+                "min": 0,
+                "max": 100,
+                "inRange": {
+                    "color": [
+                        "#50a3ba",
+                        "#eac763",
+                        "#d94e5d"
+                    ]
+                },
+                "calculable": true,
+                "inverse": false,
+                "splitNumber": 5,
+                "orient": "vertical",
+                "bottom": "center",
+                "right": "10px",
+                "showLabel": true,
+                "itemWidth": 20,
+                "itemHeight": 140,
+                "borderWidth": 0
+            },
+            "color": [
+                "#c23531",
+                "#2f4554",
+                "#61a0a8",
+                "#d48265",
+                "#749f83",
+                "#ca8622",
+                "#bda29a",
+                "#6e7074",
+                "#546570",
+                "#c4ccd3",
+                "#f05b72",
+                "#ef5b9c",
+                "#f47920",
+                "#905a3d",
+                "#fab27b",
+                "#2a5caa",
+                "#444693",
+                "#726930",
+                "#b2d235",
+                "#6d8346",
+                "#ac6767",
+                "#1d953f",
+                "#6950a1",
+                "#918597"
+            ],
+            "bmap": {
+                "center": [
+                    120.13066322374,
+                    30.240018034923
+                ],
+                "roam": true
+            }
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "bmap"
+                    ],
+                    "selected": {
+                        "bmap": true
+                    },
+                    "show": true,
+                    "padding": 5,
+                    "itemGap": 10,
+                    "itemWidth": 25,
+                    "itemHeight": 14
+                }
+            ],
+            "series": [
+                {
+                    "type": "heatmap",
+                    "name": "bmap",
+                    "coordinateSystem": "bmap",
+                    "data": [
+                        {
+                            "name": "\u5e7f\u4e1c",
+                            "value": [
+                                113.26653,
+                                23.132191,
+                                58
+                            ]
+                        },
+                        {
+                            "name": "\u5317\u4eac",
+                            "value": [
+                                116.407526,
+                                39.90403,
+                                143
+                            ]
+                        },
+                        {
+                            "name": "\u4e0a\u6d77",
+                            "value": [
+                                121.473701,
+                                31.230416,
+                                143
+                            ]
+                        },
+                        {
+                            "name": "\u6c5f\u897f",
+                            "value": [
+                                115.909228,
+                                28.675696,
+                                78
+                            ]
+                        },
+                        {
+                            "name": "\u6e56\u5357",
+                            "value": [
+                                112.98381,
+                                28.112444,
+                                39
+                            ]
+                        },
+                        {
+                            "name": "\u6d59\u6c5f",
+                            "value": [
+                                120.152791,
+                                30.267446,
+                                86
+                            ]
+                        },
+                        {
+                            "name": "\u6c5f\u82cf",
+                            "value": [
+                                118.763232,
+                                32.061707,
+                                140
+                            ]
+                        }
+                    ],
+                    "pointSize": 20,
+                    "blurSize": 20
+                }
+            ],
+            "title": [
+                {
+                    "text": "Timeline-BMap-\u70ed\u529b\u56fe-2019\u5e74",
+                    "padding": 5,
+                    "itemGap": 10
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            },
+            "visualMap": {
+                "show": true,
+                "type": "continuous",
+                "min": 0,
+                "max": 100,
+                "inRange": {
+                    "color": [
+                        "#50a3ba",
+                        "#eac763",
+                        "#d94e5d"
+                    ]
+                },
+                "calculable": true,
+                "inverse": false,
+                "splitNumber": 5,
+                "orient": "vertical",
+                "bottom": "center",
+                "right": "10px",
+                "showLabel": true,
+                "itemWidth": 20,
+                "itemHeight": 140,
+                "borderWidth": 0
+            },
+            "color": [
+                "#c23531",
+                "#2f4554",
+                "#61a0a8",
+                "#d48265",
+                "#749f83",
+                "#ca8622",
+                "#bda29a",
+                "#6e7074",
+                "#546570",
+                "#c4ccd3",
+                "#f05b72",
+                "#ef5b9c",
+                "#f47920",
+                "#905a3d",
+                "#fab27b",
+                "#2a5caa",
+                "#444693",
+                "#726930",
+                "#b2d235",
+                "#6d8346",
+                "#ac6767",
+                "#1d953f",
+                "#6950a1",
+                "#918597"
+            ],
+            "bmap": {
+                "center": [
+                    120.13066322374,
+                    30.240018034923
+                ],
+                "roam": true
+            }
+        }
+    ]
+};
+        chart_45003c90926b49c8b1c0cc0df947ae3b.setOption(option_45003c90926b49c8b1c0cc0df947ae3b);
+    </script>
+</body>
+</html>

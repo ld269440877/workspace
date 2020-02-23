@@ -64,6 +64,7 @@ basedata_Customersinfo['联系人电话'] = list(map(lambda x,y,z:str(x)+str(y)+
 
 # basedata_Customersinfo['联系人手机'] = basedata_Customersinfo['手机预报']
 # basedata_Customersinfo有手机预报和basedata_CLC有联系人手机，所以这里取得是basedata_CLC有联系人手机
+
 #,'联系人手机'
 basedata_Customersinfo_col_list = ['客户代码','详细地址','城市','省份','联系人','联系人电话']
 
@@ -89,6 +90,7 @@ merged_packlist_CLC.客户代码=merged_packlist_CLC.客户代码.astype(str)
 basedata_Customersinfo.客户代码= basedata_Customersinfo.客户代码.astype(str)
 
 # 查看merged_packlist_CLC中的选中区域
+
 # merged_packlist_CLC.loc[:2,merged_packlist_CLC_col_list]
 
 # 根据字段'客户代码'合并表merged_packlist_CLC和表basedata_客户信息表
@@ -270,7 +272,6 @@ merged_allinfo = merged_allinfo.loc[:,['客户运单号','客户代码','客户'
                                         '预计件数', '件数', '在途3', '发货日期','预计达到日期','运输类型','起运城市','起运省份', \
                                        '起运客户代码','起运客户名称','起运地址','托运单备注','产品代码','总单号','客户开票抬头',\
                                        '项目名称','CRD要求日期','结算月份','体积(立方)']]
-
 
 # 写到Excel文件
 
