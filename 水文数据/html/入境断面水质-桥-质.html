@@ -7,16 +7,16 @@
 
 </head>
 <body>
-    <div id="802af8c9051b43a68e205542f4f308ff" class="chart-container" style="width:900px; height:500px;"></div>
+    <div id="fe5d3c3dca22443dbb5d499780cbee83" class="chart-container" style="width:1800px; height:800px;"></div>
     <script>
-        var chart_802af8c9051b43a68e205542f4f308ff = echarts.init(
-            document.getElementById('802af8c9051b43a68e205542f4f308ff'), 'white', {renderer: 'canvas'});
-        var option_802af8c9051b43a68e205542f4f308ff = {
+        var chart_fe5d3c3dca22443dbb5d499780cbee83 = echarts.init(
+            document.getElementById('fe5d3c3dca22443dbb5d499780cbee83'), 'white', {renderer: 'canvas'});
+        var option_fe5d3c3dca22443dbb5d499780cbee83 = {
     "baseOption": {
         "series": [
             {
                 "type": "bar",
-                "name": "\u603b\u6c2e(mg/L)",
+                "name": "\u603b\u6c2e",
                 "data": [
                     2.68,
                     2.64,
@@ -63,60 +63,55 @@
                     2.56,
                     2.54
                 ],
-                "barCategoryGap": "20%",
+                "barCategoryGap": "60%",
+                "barGap": "0",
                 "label": {
                     "show": true,
                     "position": "top",
                     "rotate": 0,
                     "margin": 8,
-                    "fontSize": 5
+                    "interval": 0,
+                    "fontSize": 10
                 },
                 "rippleEffect": {
                     "show": true,
                     "brushType": "stroke",
                     "scale": 2.5,
                     "period": 4
-                },
-                "textstyle_opts": {
-                    "color": "red",
-                    "fontStyle": "italic",
-                    "fontSize": 6,
-                    "backgroundColor": "yellow",
-                    "padding": [
-                        44,
-                        44,
-                        44,
-                        44
-                    ]
                 }
             }
         ],
         "timeline": {
             "axisType": "category",
-            "orient": "horizontal",
+            "orient": "vertical",
             "autoPlay": false,
             "controlPosition": "left",
             "loop": true,
             "rewind": false,
             "show": true,
             "inverse": false,
-            "left": "10%",
+            "left": "1650px",
             "bottom": "-5px",
-            "width": "80%",
+            "width": "1px",
+            "height": "800px",
             "label": {
                 "show": true,
-                "position": "bottom",
+                "position": "insideTopRight",
+                "rotate": 0,
                 "margin": 8,
-                "fontSize": 5
+                "interval": 0,
+                "fontSize": 12,
+                "align": "left"
             },
             "data": [
                 "\u6c34\u6e29",
                 "PH",
-                "\u6eb6\u89e3\u6c27\uff08mg/L\uff09",
-                "\u9ad8\u9530\u9178\u76d0\u6307\u6570\uff08mg/L\uff09",
-                "\u603b\u78f7\uff08mg/L)",
-                "\u6c28\u6c2e(mg/L)",
-                "\u603b\u6c2e(mg/L)"
+                "\u6eb6\u89e3\u6c27",
+                "\u9ad8\u9530\u9178\u76d0\u6307\u6570",
+                "\u5316\u5b66\u9700\u6c27\u91cf",
+                "\u603b\u78f7",
+                "\u6c28\u6c2e",
+                "\u603b\u6c2e"
             ]
         },
         "xAxis": [
@@ -129,10 +124,10 @@
                 "axisLabel": {
                     "show": true,
                     "position": "top",
-                    "rotate": -30,
+                    "rotate": -60,
                     "margin": 8,
                     "interval": 0,
-                    "fontSize": 5
+                    "fontSize": 12
                 },
                 "inverse": false,
                 "offset": 0,
@@ -222,7 +217,17 @@
                     }
                 }
             }
-        ]
+        ],
+        "dataZoom": {
+            "show": true,
+            "type": "slider",
+            "realtime": true,
+            "start": 0,
+            "end": 1000,
+            "orient": "horizontal",
+            "zoomLock": false,
+            "bottom": "10%"
+        }
     },
     "options": [
         {
@@ -291,31 +296,21 @@
                         20.97,
                         19.37
                     ],
-                    "barCategoryGap": "20%",
+                    "barCategoryGap": "60%",
+                    "barGap": "0",
                     "label": {
                         "show": true,
                         "position": "top",
                         "rotate": 0,
                         "margin": 8,
-                        "fontSize": 5
+                        "interval": 0,
+                        "fontSize": 10
                     },
                     "rippleEffect": {
                         "show": true,
                         "brushType": "stroke",
                         "scale": 2.5,
                         "period": 4
-                    },
-                    "textstyle_opts": {
-                        "color": "red",
-                        "fontStyle": "italic",
-                        "fontSize": 6,
-                        "backgroundColor": "yellow",
-                        "padding": [
-                            44,
-                            44,
-                            44,
-                            44
-                        ]
                     }
                 }
             ],
@@ -329,10 +324,10 @@
                     "axisLabel": {
                         "show": true,
                         "position": "top",
-                        "rotate": -30,
+                        "rotate": -60,
                         "margin": 8,
                         "interval": 0,
-                        "fontSize": 5
+                        "fontSize": 12
                     },
                     "inverse": false,
                     "offset": 0,
@@ -443,6 +438,7 @@
                 "borderWidth": 0
             },
             "color": [
+                "#1d953f",
                 "#c23531",
                 "#2f4554",
                 "#61a0a8",
@@ -535,31 +531,21 @@
                         7.65,
                         7.75
                     ],
-                    "barCategoryGap": "20%",
+                    "barCategoryGap": "60%",
+                    "barGap": "0",
                     "label": {
                         "show": true,
                         "position": "top",
                         "rotate": 0,
                         "margin": 8,
-                        "fontSize": 5
+                        "interval": 0,
+                        "fontSize": 10
                     },
                     "rippleEffect": {
                         "show": true,
                         "brushType": "stroke",
                         "scale": 2.5,
                         "period": 4
-                    },
-                    "textstyle_opts": {
-                        "color": "red",
-                        "fontStyle": "italic",
-                        "fontSize": 6,
-                        "backgroundColor": "yellow",
-                        "padding": [
-                            44,
-                            44,
-                            44,
-                            44
-                        ]
                     }
                 }
             ],
@@ -573,10 +559,10 @@
                     "axisLabel": {
                         "show": true,
                         "position": "top",
-                        "rotate": -30,
+                        "rotate": -60,
                         "margin": 8,
                         "interval": 0,
-                        "fontSize": 5
+                        "fontSize": 12
                     },
                     "inverse": false,
                     "offset": 0,
@@ -687,6 +673,7 @@
                 "borderWidth": 0
             },
             "color": [
+                "#bda29a",
                 "#c23531",
                 "#2f4554",
                 "#61a0a8",
@@ -717,10 +704,10 @@
             "legend": [
                 {
                     "data": [
-                        "\u6eb6\u89e3\u6c27\uff08mg/L\uff09"
+                        "\u6eb6\u89e3\u6c27"
                     ],
                     "selected": {
-                        "\u6eb6\u89e3\u6c27\uff08mg/L\uff09": true
+                        "\u6eb6\u89e3\u6c27": true
                     },
                     "show": true,
                     "padding": 5,
@@ -732,7 +719,7 @@
             "series": [
                 {
                     "type": "bar",
-                    "name": "\u6eb6\u89e3\u6c27\uff08mg/L\uff09",
+                    "name": "\u6eb6\u89e3\u6c27",
                     "data": [
                         5.44,
                         4.42,
@@ -779,31 +766,21 @@
                         7.69,
                         6.86
                     ],
-                    "barCategoryGap": "20%",
+                    "barCategoryGap": "60%",
+                    "barGap": "0",
                     "label": {
                         "show": true,
                         "position": "top",
                         "rotate": 0,
                         "margin": 8,
-                        "fontSize": 5
+                        "interval": 0,
+                        "fontSize": 10
                     },
                     "rippleEffect": {
                         "show": true,
                         "brushType": "stroke",
                         "scale": 2.5,
                         "period": 4
-                    },
-                    "textstyle_opts": {
-                        "color": "red",
-                        "fontStyle": "italic",
-                        "fontSize": 6,
-                        "backgroundColor": "yellow",
-                        "padding": [
-                            44,
-                            44,
-                            44,
-                            44
-                        ]
                     }
                 }
             ],
@@ -817,10 +794,10 @@
                     "axisLabel": {
                         "show": true,
                         "position": "top",
-                        "rotate": -30,
+                        "rotate": -60,
                         "margin": 8,
                         "interval": 0,
-                        "fontSize": 5
+                        "fontSize": 12
                     },
                     "inverse": false,
                     "offset": 0,
@@ -913,7 +890,7 @@
             ],
             "title": [
                 {
-                    "text": "\u5165\u5883\u65ad\u9762\u6c34\u8d28  \u6eb6\u89e3\u6c27\uff08mg/L\uff09\n \u5355\u4f4d\uff1a\uff08mg/L\uff09",
+                    "text": "\u5165\u5883\u65ad\u9762\u6c34\u8d28  \u6eb6\u89e3\u6c27\n \u5355\u4f4d\uff1a\uff08mg/L\uff09",
                     "padding": 5,
                     "itemGap": 10
                 }
@@ -931,6 +908,7 @@
                 "borderWidth": 0
             },
             "color": [
+                "#726930",
                 "#c23531",
                 "#2f4554",
                 "#61a0a8",
@@ -961,10 +939,10 @@
             "legend": [
                 {
                     "data": [
-                        "\u9ad8\u9530\u9178\u76d0\u6307\u6570\uff08mg/L\uff09"
+                        "\u9ad8\u9530\u9178\u76d0\u6307\u6570"
                     ],
                     "selected": {
-                        "\u9ad8\u9530\u9178\u76d0\u6307\u6570\uff08mg/L\uff09": true
+                        "\u9ad8\u9530\u9178\u76d0\u6307\u6570": true
                     },
                     "show": true,
                     "padding": 5,
@@ -976,7 +954,7 @@
             "series": [
                 {
                     "type": "bar",
-                    "name": "\u9ad8\u9530\u9178\u76d0\u6307\u6570\uff08mg/L\uff09",
+                    "name": "\u9ad8\u9530\u9178\u76d0\u6307\u6570",
                     "data": [
                         4.27,
                         4.3,
@@ -1023,31 +1001,21 @@
                         3.77,
                         3.78
                     ],
-                    "barCategoryGap": "20%",
+                    "barCategoryGap": "60%",
+                    "barGap": "0",
                     "label": {
                         "show": true,
                         "position": "top",
                         "rotate": 0,
                         "margin": 8,
-                        "fontSize": 5
+                        "interval": 0,
+                        "fontSize": 10
                     },
                     "rippleEffect": {
                         "show": true,
                         "brushType": "stroke",
                         "scale": 2.5,
                         "period": 4
-                    },
-                    "textstyle_opts": {
-                        "color": "red",
-                        "fontStyle": "italic",
-                        "fontSize": 6,
-                        "backgroundColor": "yellow",
-                        "padding": [
-                            44,
-                            44,
-                            44,
-                            44
-                        ]
                     }
                 }
             ],
@@ -1061,10 +1029,10 @@
                     "axisLabel": {
                         "show": true,
                         "position": "top",
-                        "rotate": -30,
+                        "rotate": -60,
                         "margin": 8,
                         "interval": 0,
-                        "fontSize": 5
+                        "fontSize": 12
                     },
                     "inverse": false,
                     "offset": 0,
@@ -1157,7 +1125,7 @@
             ],
             "title": [
                 {
-                    "text": "\u5165\u5883\u65ad\u9762\u6c34\u8d28  \u9ad8\u9530\u9178\u76d0\u6307\u6570\uff08mg/L\uff09\n \u5355\u4f4d\uff1a\uff08mg/L\uff09",
+                    "text": "\u5165\u5883\u65ad\u9762\u6c34\u8d28  \u9ad8\u9530\u9178\u76d0\u6307\u6570\n \u5355\u4f4d\uff1a\uff08mg/L\uff09",
                     "padding": 5,
                     "itemGap": 10
                 }
@@ -1175,6 +1143,7 @@
                 "borderWidth": 0
             },
             "color": [
+                "#b2d235",
                 "#c23531",
                 "#2f4554",
                 "#61a0a8",
@@ -1205,10 +1174,10 @@
             "legend": [
                 {
                     "data": [
-                        "\u603b\u78f7\uff08mg/L)"
+                        "\u5316\u5b66\u9700\u6c27\u91cf"
                     ],
                     "selected": {
-                        "\u603b\u78f7\uff08mg/L)": true
+                        "\u5316\u5b66\u9700\u6c27\u91cf": true
                     },
                     "show": true,
                     "padding": 5,
@@ -1220,7 +1189,242 @@
             "series": [
                 {
                     "type": "bar",
-                    "name": "\u603b\u78f7\uff08mg/L)",
+                    "name": "\u5316\u5b66\u9700\u6c27\u91cf",
+                    "data": [
+                        22.32,
+                        21.37,
+                        21.96,
+                        20.54,
+                        22.45,
+                        20.72,
+                        21.5,
+                        20.65,
+                        22.59,
+                        22.28,
+                        21.92,
+                        19.83,
+                        21.37,
+                        20.43,
+                        21.61,
+                        31.4,
+                        21.9,
+                        20.9,
+                        21.74,
+                        23.14,
+                        21.9,
+                        21.4,
+                        22.38,
+                        20.98,
+                        20.6,
+                        21.58,
+                        18.4,
+                        23.21,
+                        21.65,
+                        20.72,
+                        19.35,
+                        22.11,
+                        20.69,
+                        24.21,
+                        20.44,
+                        21.41,
+                        23.3,
+                        21.61,
+                        20.9,
+                        21.34,
+                        24.8,
+                        22.47,
+                        19.6,
+                        20.28
+                    ],
+                    "barCategoryGap": "60%",
+                    "barGap": "0",
+                    "label": {
+                        "show": true,
+                        "position": "top",
+                        "rotate": 0,
+                        "margin": 8,
+                        "interval": 0,
+                        "fontSize": 10
+                    },
+                    "rippleEffect": {
+                        "show": true,
+                        "brushType": "stroke",
+                        "scale": 2.5,
+                        "period": 4
+                    }
+                }
+            ],
+            "xAxis": [
+                {
+                    "show": true,
+                    "scale": false,
+                    "nameLocation": "end",
+                    "nameGap": 15,
+                    "gridIndex": 0,
+                    "axisLabel": {
+                        "show": true,
+                        "position": "top",
+                        "rotate": -60,
+                        "margin": 8,
+                        "interval": 0,
+                        "fontSize": 12
+                    },
+                    "inverse": false,
+                    "offset": 0,
+                    "splitNumber": 5,
+                    "minInterval": 0,
+                    "splitLine": {
+                        "show": false,
+                        "lineStyle": {
+                            "width": 1,
+                            "opacity": 1,
+                            "curveness": 0,
+                            "type": "solid"
+                        }
+                    },
+                    "data": [
+                        "\u4e0a\u9ec4\u6cb3\u6865",
+                        "\u4e49\u4ea9\u6865",
+                        "\u4f55\u5bb6\u6865",
+                        "\u5112\u6797\u6865",
+                        "\u5178\u5df7\u6865",
+                        "\u5206\u6c34\u5927\u6865",
+                        "\u53cc\u6865",
+                        "\u592a\u5e73\u6865",
+                        "\u5c71\u4e0b\u6cb3\u6865",
+                        "\u5c71\u524d\u6865",
+                        "\u5e84\u5bb6\u6e0e\u5927\u6865",
+                        "\u5f20\u4e94\u6e0e\u6865",
+                        "\u5f20\u5e08\u6865",
+                        "\u5f90\u820d\u4e1c\u5927\u6865",
+                        "\u65b0\u6cb3\u6865",
+                        "\u65b0\u6e0e\u6865",
+                        "\u6731\u5bb6\u6e0e\u6865",
+                        "\u674e\u65e6\u6865",
+                        "\u6768\u535c\u6d6a\u6865",
+                        "\u6768\u663e\u6865",
+                        "\u6885\u5bb6\u4e1c\u6cb3\u6865",
+                        "\u6885\u5bb6\u6e0e\u6865",
+                        "\u6beb\u6e0e\u6865",
+                        "\u6c88\u5bb6\u6865",
+                        "\u6d52\u6e0e\u6865",
+                        "\u6e0e\u65b0\u6865",
+                        "\u704c\u6e0e\u6865",
+                        "\u738b\u6bcd\u6865",
+                        "\u7816\u6865",
+                        "\u79ef\u4e30\u6865",
+                        "\u7b20\u6e0e\u6865",
+                        "\u805a\u9f99\u65b0\u6865",
+                        "\u80e1\u5bb6\u5729\u6865",
+                        "\u827a\u8776\u5927\u6865",
+                        "\u897f\u4ed3\u6865",
+                        "\u897f\u57ce\u6865",
+                        "\u8d3a\u5bb6\u6865",
+                        "\u907f\u98ce\u6e2f\u6865",
+                        "\u949f\u5bb6\u6751\u6865",
+                        "\u949f\u6eaa\u5927\u6865",
+                        "\u9547\u5357\u6865",
+                        "\u9547\u5b89\u6865",
+                        "\u96c6\u4e49\u6e0e\u6865",
+                        "\u9a6c\u5bb6\u6e0e\u6865"
+                    ]
+                }
+            ],
+            "yAxis": [
+                {
+                    "show": true,
+                    "scale": false,
+                    "nameLocation": "end",
+                    "nameGap": 15,
+                    "gridIndex": 0,
+                    "axisLabel": {
+                        "show": true,
+                        "position": "top",
+                        "margin": 8,
+                        "formatter": "{value}mg/L"
+                    },
+                    "inverse": false,
+                    "offset": 0,
+                    "splitNumber": 5,
+                    "minInterval": 0,
+                    "splitLine": {
+                        "show": false,
+                        "lineStyle": {
+                            "width": 1,
+                            "opacity": 1,
+                            "curveness": 0,
+                            "type": "solid"
+                        }
+                    }
+                }
+            ],
+            "title": [
+                {
+                    "text": "\u5165\u5883\u65ad\u9762\u6c34\u8d28  \u5316\u5b66\u9700\u6c27\u91cf\n \u5355\u4f4d\uff1a\uff08mg/L\uff09",
+                    "padding": 5,
+                    "itemGap": 10
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            },
+            "color": [
+                "#c4ccd3",
+                "#c23531",
+                "#2f4554",
+                "#61a0a8",
+                "#d48265",
+                "#749f83",
+                "#ca8622",
+                "#bda29a",
+                "#6e7074",
+                "#546570",
+                "#c4ccd3",
+                "#f05b72",
+                "#ef5b9c",
+                "#f47920",
+                "#905a3d",
+                "#fab27b",
+                "#2a5caa",
+                "#444693",
+                "#726930",
+                "#b2d235",
+                "#6d8346",
+                "#ac6767",
+                "#1d953f",
+                "#6950a1",
+                "#918597"
+            ]
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "\u603b\u78f7"
+                    ],
+                    "selected": {
+                        "\u603b\u78f7": true
+                    },
+                    "show": true,
+                    "padding": 5,
+                    "itemGap": 10,
+                    "itemWidth": 25,
+                    "itemHeight": 14
+                }
+            ],
+            "series": [
+                {
+                    "type": "bar",
+                    "name": "\u603b\u78f7",
                     "data": [
                         0.12,
                         0.16,
@@ -1267,31 +1471,21 @@
                         0.09,
                         0.12
                     ],
-                    "barCategoryGap": "20%",
+                    "barCategoryGap": "60%",
+                    "barGap": "0",
                     "label": {
                         "show": true,
                         "position": "top",
                         "rotate": 0,
                         "margin": 8,
-                        "fontSize": 5
+                        "interval": 0,
+                        "fontSize": 10
                     },
                     "rippleEffect": {
                         "show": true,
                         "brushType": "stroke",
                         "scale": 2.5,
                         "period": 4
-                    },
-                    "textstyle_opts": {
-                        "color": "red",
-                        "fontStyle": "italic",
-                        "fontSize": 6,
-                        "backgroundColor": "yellow",
-                        "padding": [
-                            44,
-                            44,
-                            44,
-                            44
-                        ]
                     }
                 }
             ],
@@ -1305,10 +1499,10 @@
                     "axisLabel": {
                         "show": true,
                         "position": "top",
-                        "rotate": -30,
+                        "rotate": -60,
                         "margin": 8,
                         "interval": 0,
-                        "fontSize": 5
+                        "fontSize": 12
                     },
                     "inverse": false,
                     "offset": 0,
@@ -1401,7 +1595,7 @@
             ],
             "title": [
                 {
-                    "text": "\u5165\u5883\u65ad\u9762\u6c34\u8d28  \u603b\u78f7\uff08mg/L)\n \u5355\u4f4d\uff1a\uff08mg/L\uff09",
+                    "text": "\u5165\u5883\u65ad\u9762\u6c34\u8d28  \u603b\u78f7\n \u5355\u4f4d\uff1a\uff08mg/L\uff09",
                     "padding": 5,
                     "itemGap": 10
                 }
@@ -1419,6 +1613,7 @@
                 "borderWidth": 0
             },
             "color": [
+                "#ca8622",
                 "#c23531",
                 "#2f4554",
                 "#61a0a8",
@@ -1449,10 +1644,10 @@
             "legend": [
                 {
                     "data": [
-                        "\u6c28\u6c2e(mg/L)"
+                        "\u6c28\u6c2e"
                     ],
                     "selected": {
-                        "\u6c28\u6c2e(mg/L)": true
+                        "\u6c28\u6c2e": true
                     },
                     "show": true,
                     "padding": 5,
@@ -1464,7 +1659,7 @@
             "series": [
                 {
                     "type": "bar",
-                    "name": "\u6c28\u6c2e(mg/L)",
+                    "name": "\u6c28\u6c2e",
                     "data": [
                         0.5,
                         0.43,
@@ -1511,31 +1706,21 @@
                         0.16,
                         0.51
                     ],
-                    "barCategoryGap": "20%",
+                    "barCategoryGap": "60%",
+                    "barGap": "0",
                     "label": {
                         "show": true,
                         "position": "top",
                         "rotate": 0,
                         "margin": 8,
-                        "fontSize": 5
+                        "interval": 0,
+                        "fontSize": 10
                     },
                     "rippleEffect": {
                         "show": true,
                         "brushType": "stroke",
                         "scale": 2.5,
                         "period": 4
-                    },
-                    "textstyle_opts": {
-                        "color": "red",
-                        "fontStyle": "italic",
-                        "fontSize": 6,
-                        "backgroundColor": "yellow",
-                        "padding": [
-                            44,
-                            44,
-                            44,
-                            44
-                        ]
                     }
                 }
             ],
@@ -1549,10 +1734,10 @@
                     "axisLabel": {
                         "show": true,
                         "position": "top",
-                        "rotate": -30,
+                        "rotate": -60,
                         "margin": 8,
                         "interval": 0,
-                        "fontSize": 5
+                        "fontSize": 12
                     },
                     "inverse": false,
                     "offset": 0,
@@ -1645,7 +1830,7 @@
             ],
             "title": [
                 {
-                    "text": "\u5165\u5883\u65ad\u9762\u6c34\u8d28  \u6c28\u6c2e(mg/L)\n \u5355\u4f4d\uff1a\uff08mg/L\uff09",
+                    "text": "\u5165\u5883\u65ad\u9762\u6c34\u8d28  \u6c28\u6c2e\n \u5355\u4f4d\uff1a\uff08mg/L\uff09",
                     "padding": 5,
                     "itemGap": 10
                 }
@@ -1663,6 +1848,7 @@
                 "borderWidth": 0
             },
             "color": [
+                "#61a0a8",
                 "#c23531",
                 "#2f4554",
                 "#61a0a8",
@@ -1693,10 +1879,10 @@
             "legend": [
                 {
                     "data": [
-                        "\u603b\u6c2e(mg/L)"
+                        "\u603b\u6c2e"
                     ],
                     "selected": {
-                        "\u603b\u6c2e(mg/L)": true
+                        "\u603b\u6c2e": true
                     },
                     "show": true,
                     "padding": 5,
@@ -1708,7 +1894,7 @@
             "series": [
                 {
                     "type": "bar",
-                    "name": "\u603b\u6c2e(mg/L)",
+                    "name": "\u603b\u6c2e",
                     "data": [
                         2.68,
                         2.64,
@@ -1755,31 +1941,21 @@
                         2.56,
                         2.54
                     ],
-                    "barCategoryGap": "20%",
+                    "barCategoryGap": "60%",
+                    "barGap": "0",
                     "label": {
                         "show": true,
                         "position": "top",
                         "rotate": 0,
                         "margin": 8,
-                        "fontSize": 5
+                        "interval": 0,
+                        "fontSize": 10
                     },
                     "rippleEffect": {
                         "show": true,
                         "brushType": "stroke",
                         "scale": 2.5,
                         "period": 4
-                    },
-                    "textstyle_opts": {
-                        "color": "red",
-                        "fontStyle": "italic",
-                        "fontSize": 6,
-                        "backgroundColor": "yellow",
-                        "padding": [
-                            44,
-                            44,
-                            44,
-                            44
-                        ]
                     }
                 }
             ],
@@ -1793,10 +1969,10 @@
                     "axisLabel": {
                         "show": true,
                         "position": "top",
-                        "rotate": -30,
+                        "rotate": -60,
                         "margin": 8,
                         "interval": 0,
-                        "fontSize": 5
+                        "fontSize": 12
                     },
                     "inverse": false,
                     "offset": 0,
@@ -1889,7 +2065,7 @@
             ],
             "title": [
                 {
-                    "text": "\u5165\u5883\u65ad\u9762\u6c34\u8d28  \u603b\u6c2e(mg/L)\n \u5355\u4f4d\uff1a\uff08mg/L\uff09",
+                    "text": "\u5165\u5883\u65ad\u9762\u6c34\u8d28  \u603b\u6c2e\n \u5355\u4f4d\uff1a\uff08mg/L\uff09",
                     "padding": 5,
                     "itemGap": 10
                 }
@@ -1907,6 +2083,7 @@
                 "borderWidth": 0
             },
             "color": [
+                "#ac6767",
                 "#c23531",
                 "#2f4554",
                 "#61a0a8",
@@ -1935,7 +2112,7 @@
         }
     ]
 };
-        chart_802af8c9051b43a68e205542f4f308ff.setOption(option_802af8c9051b43a68e205542f4f308ff);
+        chart_fe5d3c3dca22443dbb5d499780cbee83.setOption(option_fe5d3c3dca22443dbb5d499780cbee83);
     </script>
 </body>
 </html>
