@@ -7,11 +7,11 @@
 
 </head>
 <body>
-    <div id="9263bb73a4184b3690ad98942c4bf245" class="chart-container" style="width:1800px; height:800px;"></div>
+    <div id="b63bc7914fe24b1ca37324d36cbde36a" class="chart-container" style="width:1800px; height:800px;"></div>
     <script>
-        var chart_9263bb73a4184b3690ad98942c4bf245 = echarts.init(
-            document.getElementById('9263bb73a4184b3690ad98942c4bf245'), 'white', {renderer: 'canvas'});
-        var option_9263bb73a4184b3690ad98942c4bf245 = {
+        var chart_b63bc7914fe24b1ca37324d36cbde36a = echarts.init(
+            document.getElementById('b63bc7914fe24b1ca37324d36cbde36a'), 'white', {renderer: 'canvas'});
+        var option_b63bc7914fe24b1ca37324d36cbde36a = {
     "backgroundColor": "white",
     "animation": true,
     "animationThreshold": 2000,
@@ -125,6 +125,7 @@
                 "data": [
                     {
                         "name": "\u2162\u7c7b",
+                        "type": "average",
                         "yAxis": 20,
                         "symbol": "circle"
                     },
@@ -274,10 +275,16 @@
             }
         },
         {
+            "name": "\n\u2163\u7c7b:30\n\u2162\u7c7b:20",
             "show": true,
             "scale": false,
             "nameLocation": "end",
             "nameGap": 15,
+            "nameTextStyle": {
+                "color": "red",
+                "fontSize": 16,
+                "padding": 10
+            },
             "gridIndex": 0,
             "axisLine": {
                 "show": true,
@@ -299,7 +306,7 @@
             },
             "inverse": false,
             "position": "right",
-            "offset": 0,
+            "offset": 20,
             "splitNumber": 5,
             "minInterval": 0,
             "splitLine": {
@@ -331,7 +338,7 @@
         "bottom": "10%"
     }
 };
-        chart_9263bb73a4184b3690ad98942c4bf245.setOption(option_9263bb73a4184b3690ad98942c4bf245);
+        chart_b63bc7914fe24b1ca37324d36cbde36a.setOption(option_b63bc7914fe24b1ca37324d36cbde36a);
     </script>
 </body>
 </html>
