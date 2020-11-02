@@ -16,7 +16,7 @@ f_data= ['HIICrc32= A0E51F1B\n',
  '\n',
  'Setup Question\t= Fake Varstore Item\n',
  'Token\t=<01>\t// Do NOT change this line\n',
-'Offset\t=[00]\n'
+'Offset\t=[00]\n',
  'Width\t=01\n',
  'BIOS Default =[00]Disable \n',
  'Options\t=*[00]Disable\t// Move "*" to the desired Option\n',
@@ -67,8 +67,8 @@ def modify_values(kw):
                             # BIOS Default =1
                             # BIOS Default =3F
                             else:
-                                re.sub(r"(?<=\=)\w+", kw[k], line)
-                                print(re.sub(r"(?<=\=)\w+", kw[k], line))
+                                re.sub(r"(?<==)\w+", kw[k], line)
+                                print(re.sub(r"(?<==)\w+", kw[k], line))
                         ii = i
                         break
                     if line == '\n':
@@ -98,31 +98,10 @@ modify_values(Configure)
 
 
 #%%
-import re
-def demoReLookAheadBehind():
-    inputStrList = [
-        "date=20191224&name=CrifanLi&language=python",
-        "language=python&name=CrifanLi&date=20191224", # lookahead will NOT match
-        "language=python&name=CrifanLi date=20191224", # negative lookahead CAN match, the whole 'name=CrifanLi'
-        "language=go&name=CrifanLi date=20191224", # positive lookbehind CAN match
-        "language=go name=CrifanLi date=20191224", # negative lookbehind CAN match
-    ]
-    groupNormalPattern = "name=(\w+)" # 匹配任何 name=XXX 其中XXX是字母数字下划线均可
-    groupLookaheadPattern = "name=(\w+)(?=&\w+)" # 只匹配后面 是&language 的情况
-    groupNegativelookaheadPattern = "name=(\w+)(?!&)" # 只匹配后面 不是& 的情况
-    groupPositivelookbehindPattern = "(?<=go&)name=(\w+)" # 只匹配前面 是go& 的情况
-    groupNegativelookbehindPattern = "(?<!&)name=(\w+)" # 只匹配前面 不是& 的情况
-    for curIdx, eachInputStr in enumerate(inputStrList):
-        print("\n%s [%d] %s %s" % ("="*20, curIdx, eachInputStr, "="*20))
-        foundGroupNormal = re.search(groupNormalPattern, eachInputStr)
-        print("foundGroupNormal=%s" % foundGroupNormal)
-#%%
-demoReLookAheadBehind()
-#%%
 re.search(r"(?<=\<)\w+(?=\>)", 'BIOS Default =<00> ')
 
 #%%
-re.sub(r"(?<=\[)\w+(?=\])", '%02%', '[00]')
+re.sub(r"(?<==)\w+", '%02%', '=00')
 #%%
-'Offset\t=[A30]'
+'Offset\t=00'
 re.sub(r"\[\w+\]", '%02%', '[A30]')
