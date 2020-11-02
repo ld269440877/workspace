@@ -10,7 +10,7 @@ Token	=01	// Do NOT change this line
 Offset	=00
 Width	=01
 BIOS Default =[00]Disable 
-Options	=*[00]Disable	// Move "*" to the desired Option
+Options	=*[00]Ensable	// Move "*" to the desired Option
          [01]Disable
 
 Setup Question	= C002d
