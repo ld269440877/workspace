@@ -16,7 +16,7 @@ f_data= ['HIICrc32= A0E51F1B\n',
  '\n',
  'Setup Question\t= Fake Varstore Item\n',
  'Token\t=<01>\t// Do NOT change this line\n',
-'Offset\t=[00]\n',
+ 'Offset\t=[00]\n',
  'Width\t=01\n',
  'BIOS Default =[00]Disable \n',
  'Options\t=*[00]Disable\t// Move "*" to the desired Option\n',
@@ -88,20 +88,3 @@ Configure = {
         }
     }
 modify_values(Configure)
-
-
-
-
-
-
-
-
-
-#%%
-re.search(r"(?<=\<)\w+(?=\>)", 'BIOS Default =<00> ')
-
-#%%
-re.sub(r"(?<==)\w+", '%02%', '=00')
-#%%
-'Offset\t=00'
-re.sub(r"\[\w+\]", '%02%', '[A30]')
