@@ -54,6 +54,8 @@ mysql -u root -h localhost -p
 #Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql>
+退出MySQL 
+mysql>`exit` 或 `quit`
 ```
 
 
@@ -154,7 +156,7 @@ SQL语言执行顺序跟书写顺序不一致
 
 # Navicat SQL图形化界面操作
 
-## 启动/退出RDBMS服务
+## 启动/退出关系数据库管理系统(**RDBMS**)服务
 
 - 本机启动  服务（本地） 启动MySQL服务
 - 终端  连接sql服务 `mysql -u账号  -p密码`
@@ -162,7 +164,7 @@ SQL语言执行顺序跟书写顺序不一致
 - 登录成功后
 
 
-## 连接RDBMS
+## 连接关系数据库管理系统(**RDBMS**)
 
 - Navicat连接
 - 新建的连接名是数据分析
