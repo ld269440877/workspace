@@ -27,13 +27,36 @@
 - [mysql添加环境变量windows.pdf](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/mysql添加环境变量windows.pdf)
 - [Windows10系统下，彻底删除卸载MySQL.pdf](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Windows10系统下，彻底删除卸载MySQL.pdf)
 
-
 [MySQL数据库安装与配置详解 - daixinet.com - 博客园](https://www.cnblogs.com/sshoub/p/4321640.html)
 
 ## Navicat 安装
 
 [Navicat | 产品](https://www.navicat.com.cn/products)
+
 - [Navicat安装.pdf](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat安装.pdf)
+
+## sign in mysql  on windows by cmd
+
+```bash
+#C:\Users\Dillon>
+mysql -u root -h localhost -p
+# Enter password: Aaqq
+#Welcome to the MySQL monitor.  Commands end with ; or \g.
+#Your MySQL connection id is 20
+#Server version: 8.0.22 MySQL Community Server - GPL
+
+#Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+#Oracle is a registered trademark of Oracle Corporation and/or its
+#affiliates. Other names may be trademarks of their respective
+#owners.
+
+#Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+```
+
+
 
 # MySQL 基础
 
@@ -157,7 +180,7 @@ SQL语言执行顺序跟书写顺序不一致
     - 选择导入格式
 ![Navicat数据导入选择导入格式](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导入选择导入格式.png 'Navicat数据导入选择导入格式')
     - 选择文件
-    ![Navicat数据导入选择文件](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导入选择文件.png 'Navicat数据导入选择文件')
+      ![Navicat数据导入选择文件](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导入选择文件.png 'Navicat数据导入选择文件')
 - 附加选项
     ![Navicat数据导入附加选项](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Navicat数据导入附加选项.png 'Navicat数据导入附加选项')
     - 选择目标表
