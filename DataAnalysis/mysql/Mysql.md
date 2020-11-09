@@ -18,7 +18,7 @@
 
 # 软件安装
 
-## MySQL 8.0
+## Windows MySQL 8.0
 
 - [安装MySQL预安装](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/MySQL预安装说明-必读.txt)
 
@@ -28,6 +28,88 @@
 - [Windows10系统下，彻底删除卸载MySQL.pdf](https://raw.githubusercontent.com/ld269440877/images/master/MySQLNotebook/Windows10系统下，彻底删除卸载MySQL.pdf)
 
 [MySQL数据库安装与配置详解 - daixinet.com - 博客园](https://www.cnblogs.com/sshoub/p/4321640.html)
+
+##  CentOS7 安装Mysql
+
+[Failed to start mysqld.service: Unit not found - Jefsky-程序猿甜品店](https://www.jefsky.com/archives/506.html)
+
+###  安装mysql
+
+```sh
+yun install mysql
+```
+
+### 启动mysql
+
+```sh
+systemctl start mysql.service
+```
+
+###  出现以下提示
+
+```sh
+# Failed to start mysqld.service: Unit not found
+```
+
+
+
+###  解决
+
+```sh
+# 安装mariadb-server
+yum install -y mariadb-server
+
+# 启动服务
+systemctl start mariadb.service
+
+# 开机启动
+systemctl enable mariadb.service
+
+# 进行一些安全设置，以及修改数据库管理员密码
+
+# mysql安全配置及修改数据库管理员密码
+mysql_secure_installation
+
+# Thanks for using MariaDB!
+
+
+# start MariaDB
+mysql -u root -h localhost -p
+
+# Welcome to the MariaDB monitor.  Commands end with ; or \g.
+# Your MariaDB connection id is 28
+# Server version: 10.3.17-MariaDB MariaDB Server
+
+# Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+# Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+# MariaDB [(none)]> help 
+```
+
+```mysql
+# 开启远程访问权限
+MariaDB [(none)]> use mysql;
+# Database changed
+
+MariaDB [mysql]> show databases;
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+3 rows in set (0.000 sec)
+
+# 开启远程访问权限--------   报错：语法错误 
+select User,authentication_string,Host from user；
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456';
+flush privileges;
+```
+
+ 
 
 ## Navicat 安装
 

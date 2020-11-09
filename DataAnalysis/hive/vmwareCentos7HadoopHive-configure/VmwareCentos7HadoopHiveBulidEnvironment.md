@@ -16,6 +16,8 @@
 [Centos7_64bit](https://raw.githubusercontent.com/ld269440877/images/master/VmwareCentos7HadoopHiveBulidEnvironment/http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso)
 [迅雷X高级版.exe在当前目录](https://raw.githubusercontent.com/ld269440877/images/master/VmwareCentos7HadoopHiveBulidEnvironment/迅雷X高级版.exe)
 
+[Ubuntu学习——第一篇 - R_e - 博客园](https://www.cnblogs.com/resn/p/5800922.html)
+
 ## 课程引入
 
 - 回顾已经学过的技能:Excel/MySQL/Tableau/Power BI/Python
@@ -51,14 +53,140 @@
 192.168.5.0 与255.255.255.0做与运算，结果是 1-255的网段（192.168.5.1-192.168.5.255）
 ![VMnet8-Internet协议版本4TCPIPv4属性](https://raw.githubusercontent.com/ld269440877/images/master/VmwareCentos7HadoopHiveBulidEnvironment/windows下vmwareNetworkAdapterVMnet8-Internet协议版本4TCPIPv4属性.png 'VMnet8-Internet协议版本4TCPIPv4属性')
 
-### 配置vmware网络
 
-VMnet8-NAT模式
+
+
+
+### 配置vmware网络 VMnet8-NAT模式-不能多台虚拟机同时联网，只能一台虚拟机联网
+
+<font color=red>VMnet8-NAT模式</font>
+
+虚拟机的网络类型的简单理解： 
+
+　　虚拟机是在我们的操作系统里使用软件模拟出来的，相当于虚拟机是寄宿在我们的真实的物理机的操作系统里的，虚拟机和物理机之间的关系是 寄宿与被寄宿的关系， 真实的物理机被称为宿主机。
+
+　　1.  bridged（桥接模式） ：  我们的电脑在上网的时候都需要有一个网络地址（IP地址），通过这个地址可以确定我们的电脑在网络上的位置，桥接模式就是将我们虚拟机中的网卡的网络地址 放在我们真实的物理机的网卡上。 这样的话，我们的虚拟机就好像跟我们的宿主机所在的局域网中的一台机器一样。 桥接模式适合有路由器的情况，和真实的物理环境一样。
+
+2. NAT（网络地址转换模式） ： 在宿主机上制作一个虚拟网卡，通过这个网卡，给虚拟机分配IP。宿主机在这里的角色相当于局域网中的路由器。<font color=red>NAT模式适合于没有路由器的情况，虚拟机通过宿主机去上网</font>　
+
+3. Host-Only（模式）： 和NAT模式很像，唯一的区别是，没有地址转换服务，所以该模式下虚拟机只能访问到主机。无法访问外网。
+
+   <figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107131111.png" alt="20201107131111"  title="20201107131111" width="600" height="" /><figcaption><font color=green>20201107131111</font></figcaption></center></figure>
+
 ![VMnet8-NAT模式](https://raw.githubusercontent.com/ld269440877/images/master/VmwareCentos7HadoopHiveBulidEnvironment/vmware编辑-虚拟网络编辑器-选择VMnet8-NAT模式.png 'VMnet8-NAT模式')
 
 ![NAT设置](https://raw.githubusercontent.com/ld269440877/images/master/VmwareCentos7HadoopHiveBulidEnvironment/vmware-NAT设置.png 'NAT设置')
 
 ![应用-关闭](https://raw.githubusercontent.com/ld269440877/images/master/VmwareCentos7HadoopHiveBulidEnvironment/vmware-网络设置完毕-应用-关闭.png '应用-关闭')
+
+
+
+###  配置vmware网络 桥接模式 可以同时虚拟机同时联网
+
+[Ubuntu学习——第一篇 - R_e - 博客园](https://www.cnblogs.com/resn/p/5800922.html)
+
+　1.  bridged（桥接模式） ：  我们的电脑在上网的时候都需要有一个网络地址（IP地址），通过这个地址可以确定我们的电脑在网络上的位置，桥接模式就是将我们虚拟机中的网卡的网络地址 放在我们真实的物理机的网卡上。 这样的话，我们的虚拟机就好像跟我们的宿主机所在的局域网中的一台机器一样。 桥接模式适合有路由器的情况，和真实的物理环境一样。
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107130405.png" alt="20201107130405"  title="20201107130405" width="600" height="" /><figcaption><font color=green>20201107130405</font></figcaption></center></figure>
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107131621.png" alt="20201107131621"  title="20201107131621" width="600" height="" /><figcaption><font color=green>20201107131621</font></figcaption></center></figure>
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107131918.png" alt="20201107131918"  title="20201107131918" width="600" height="" /><figcaption><font color=green>20201107131918</font></figcaption></center></figure>
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107132256.png" alt="20201107132256"  title="20201107132256" width="600" height="" /><figcaption><font color=green>20201107132256</font></figcaption></center></figure>
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107132434.png" alt="20201107132434"  title="20201107132434" width="600" height="" /><figcaption><font color=green>20201107132434</font></figcaption></center></figure>
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107132755.png" alt="20201107132755"  title="20201107132755" width="600" height="" /><figcaption><font color=green>20201107132755</font></figcaption></center></figure>
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107133005.png" alt="20201107133005"  title="20201107133005" width="600" height="" /><figcaption><font color=green>20201107133005</font></figcaption></center></figure>
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107140152.png" alt="开启网络连接"  title="开启网络连接" width="600" height="" /><figcaption><font color=green>开启网络连接</font></figcaption></center></figure>
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107140605.png" alt="20201107140605"  title="20201107140605" width="600" height="" /><figcaption><font color=green>20201107140605</font></figcaption></center></figure>
+
+![image-20201107140633333](https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107140633.png)
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107141054.png" alt="20201107141054"  title="20201107141054" width="600" height="" /><figcaption><font color=green>20201107141054</font></figcaption></center></figure>
+
+
+
+![image-20201107141210275](https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107141210.png)
+
+![image-20201107141423225](https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107141423.png)
+
+![image-20201107141622374](https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107141622.png)
+
+
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107142103.png" alt="20201107142103"  title="20201107142103" width="600" height="" /><figcaption><font color=green>20201107142103</font></figcaption></center></figure>
+
+
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107141837.png" alt="20201107141837"  title="20201107141837" width="600" height="" /><figcaption><font color=green>20201107141837</font></figcaption></center></figure>
+
+![image-20201107142220829](https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107142220.png)
+
+
+
+```bash
+apt-get -h
+sudo apt-get update
+
+apt-cache search openssh-server
+sudo apt-get install -y openssh-server
+```
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107143544.png" alt="20201107143544"  title="20201107143544" width="600" height="" /><figcaption><font color=green>20201107143544</font></figcaption></center></figure>
+
+```bash
+head /etc/apt/sources.list
+```
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107143900.png" alt="20201107143900"  title="20201107143900" width="600" height="" /><figcaption><font color=green>20201107143900</font></figcaption></center></figure>
+
+![image-20201107144154260](https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107144154.png)
+
+
+
+```bash
+
+* * * * * command to be executed
+- - - - - -
+| | | | | |
+| | | | | --- 预执行的命令
+| | | | ----- 表示星期0～7（其中星期天可以用0或7表示）
+| | | ------- 表示月份1～12
+| | --------- 表示日期1～31
+| ----------- 表示小时1～23（0表示0点）
+------------- 表示分钟1～59 每分钟用*或者 */1表示
+
+
+-u user：用来设定某个用户的crontab服务；
+-e：编辑某个用户的crontab文件内容。如果不指定用户，则表示编辑当前用户的crontab文件。
+-l：显示某个用户的crontab文件内容，如果不指定用户，则表示显示当前用户的crontab文件内容。
+-r：从/var/spool/cron目录中删除某个用户的crontab文件，如果不指定用户，则默认删除当前用户的crontab文件。
+-i：在删除用户的crontab文件时给确认提示
+```
+
+
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107144631.png" alt="20201107144631"  title="20201107144631" width="600" height="" /><figcaption><font color=green>20201107144631</font></figcaption></center></figure>
+
+
+
+<figure><center><img src="https://raw.githubusercontent.com/ld269440877/images/master/3CRTR/20201107145507.png" alt="20201107145507"  title="20201107145507" width="600" height="" /><figcaption><font color=green>20201107145507</font></figcaption></center></figure>
+
+```bash
+*/1 * * * * /bin/bash /tmp/cron.sh
+# 每分钟 执行一次cron.sh
+cat cron.sh
+#!/bin/bsah
+date >> test.txt
+```
+
+
+
 
 
 ## 安装CentOS7操作系统
