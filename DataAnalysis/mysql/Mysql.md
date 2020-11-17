@@ -1,4 +1,4 @@
-* [(Forward to 总结)](#总结)
+[(Forward to 总结)](#总结)
 [(Forward to SQL查询语言-基础)](#SQL查询语言-基础)
 [(Forward to SQL基础查询语言-高阶)](#SQL查询语言-高阶)
 
@@ -195,13 +195,13 @@ log_error表示错误日志，默认为/var/log/mysql/error.log
 - 可以到[Navicat官网](https://www.navicat.com.cn/)下载
 - 将压缩文件拷贝到ubuntu虚拟机中，放到桌面上，解压
 
-```
+```bash
 tar zxvf navicat112_mysql_cs_x64.tar.gz
 ```
 
 - 进入解压的目录，运行如下命令
 
-```
+```bash
 ./start_navicat
 ```
 
